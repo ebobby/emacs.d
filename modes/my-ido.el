@@ -27,9 +27,7 @@
 (ido-mode +1)
 (ido-ubiquitous-mode +1)
 (ido-vertical-mode +1)
-
 (flx-ido-mode +1)
-(setq ido-use-faces nil)
 
 (require 'smex)
 (setq smex-save-file (expand-file-name ".smex-items" savefile-dir))
