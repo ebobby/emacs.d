@@ -19,7 +19,7 @@
      (define-key magit-mode-map (kbd "<tab>") 'magit-toggle-section)    ; was smart-tab
      (define-key magit-status-mode-map (kbd "M-K") 'magit-quit-session)
      (define-key magit-status-mode-map (kbd "W") 'magit-toggle-whitespace) ))
-
+(diminish 'magit-auto-revert-mode)
 (provide 'my-magit)
 
 ;;; my-magit.el ends here

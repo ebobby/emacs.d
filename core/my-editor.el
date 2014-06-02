@@ -159,6 +159,7 @@
 (require 'yasnippet)
 (setq yas/prompt-functions '(yas-ido-prompt))
 (yas-global-mode 1)
+(diminish 'yas-minor-mode)
 
 ;; autofill
 (setq-default fill-column 80)
