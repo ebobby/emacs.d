@@ -50,11 +50,11 @@
 ;; Modes configuration
 (require 'my-ido)
 (require 'my-magit)
-;(require 'my-nxhtml)
 (require 'my-ruby)
 (require 'my-js)
 (require 'my-lisp)
 (require 'my-text)
 (require 'my-rainbow)
+(require 'my-nxhtml)
 
 ;;; init.el ends here
