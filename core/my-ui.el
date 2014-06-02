@@ -52,7 +52,7 @@
 
 ;; Theme and fonts
 (when window-system
-  (load-theme 'zenburn t))
+  (load-theme 'monokai t))
 
 (provide 'my-ui)
 
