@@ -29,7 +29,7 @@
     (define-key map (kbd "C-c j") 'ace-jump-mode)
     (define-key map (kbd "s-y") 'browse-kill-ring)
     (define-key map (kbd "C-c p f") 'projectile-find-file)
-    (define-key map (kbd "C-m") 'discover-my-major)
+    (define-key map (kbd "C-c m") 'discover-my-major)
     map))
 
 (define-minor-mode my-key-bindings-minor-mode
