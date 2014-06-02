@@ -43,7 +43,7 @@
 (require 'my-packages)
 (require 'my-editor)
 (require 'my-ui)
-(require 'my-bindings)
+(require 'my-key-bindings)
 (when (equal system-type 'darwin)
   (require 'my-osx))
 
