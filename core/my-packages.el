@@ -25,7 +25,6 @@
                       exec-path-from-shell
                       expand-region
                       flycheck
-                      guru-mode
                       ido-ubiquitous
                       iedit
                       monokai-theme

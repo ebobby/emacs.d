@@ -221,10 +221,6 @@
 ;; keep in mind known issues with zsh - see emacs wiki
 (setq tramp-default-method "ssh")
 
-(require 'guru-mode)
-(diminish 'guru-mode)
-(guru-global-mode +1)
-
 (provide 'my-editor)
 
 ;;; my-editor.el ends here
