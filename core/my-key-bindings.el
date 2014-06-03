@@ -31,6 +31,7 @@
     (define-key map (kbd "C-c p f") 'projectile-find-file)
     (define-key map (kbd "C-c m") 'discover-my-major)
     (define-key map (kbd "C-|") 'hippie-expand)
+    (define-key map (kbd "C-;") 'iedit-mode)
     map))
 
 (define-minor-mode my-key-bindings-minor-mode
