@@ -30,7 +30,7 @@
     (define-key map (kbd "s-y") 'browse-kill-ring)
     (define-key map (kbd "C-c p f") 'projectile-find-file)
     (define-key map (kbd "C-c m") 'discover-my-major)
-    (define-key map (kbd "M-\\") 'hippie-expand)
+    (define-key map (kbd "C-|") 'hippie-expand)
     map))
 
 (define-minor-mode my-key-bindings-minor-mode
