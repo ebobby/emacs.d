@@ -14,12 +14,7 @@
 
 (push '("\\.asd$" . lisp-mode) auto-mode-alist)
 
-(setq slime-contribs '(slime-fancy
-                       slime-repl
-                       slime-editing-commands
-                       slime-references
-                       slime-autodoc
-                       slime-fancy-inspector))
+(slime-setup '(slime-fancy slime-repl slime-editing-commands slime-references slime-autodoc slime-fancy-inspector))
 
 ;; Paredit
 (require 'paredit)
