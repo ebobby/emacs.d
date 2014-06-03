@@ -15,11 +15,6 @@
 (push '("\\.rake" . ruby-mode) auto-mode-alist)
 (push '("\\.gemspec" . ruby-mode) auto-mode-alist)
 
-;; Rinari
-(require 'rinari)
-(global-rinari-mode)
-(add-to-list 'auto-mode-alist '("\\.html\\.erb\\'" . eruby-nxhtml-mumamo))
-
 ;; Ruby Version Manager
 (require 'rbenv)
 (rbenv-use-global)
