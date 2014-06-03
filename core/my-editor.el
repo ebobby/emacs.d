@@ -107,6 +107,7 @@
       sp-hybrid-kill-entire-symbol nil)
 (sp-use-paredit-bindings)
 (show-smartparens-global-mode +1)
+(smartparens-global-mode t)
 
 ;; disable annoying blink-matching-paren
 (setq blink-matching-paren nil)
