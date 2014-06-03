@@ -120,6 +120,7 @@
 
 ;; wrap lines in a tasteful way
 (global-visual-line-mode 1)
+(diminish 'visual-line-mode)
 
 ;; hi-lock
 (global-hi-lock-mode 1)
