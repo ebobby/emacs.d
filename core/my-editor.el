@@ -117,7 +117,6 @@
 (setq-default ispell-program-name "aspell"
               ispell-extra-args '("--sug-mode=ultra"))
 (add-hook 'text-mode-hook (lambda () (flyspell-mode +1)))
-(add-hook 'text-mode-hook (lambda () (whitespace-mode +1)))
 
 ;; wrap lines in a tasteful way
 (global-visual-line-mode 1)
