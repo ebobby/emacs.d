@@ -15,11 +15,11 @@
 (push "\\.DS_Store" ido-ignore-files)
 (push "\\.Trash" ido-ignore-files)
 
-(setq ido-enable-prefx nil
+(setq ido-enable-prefix nil
       ido-everywhere t
       ido-enable-flex-matching t
       ido-use-filename-at-point 'guess
-      id-create-new-buffer 'always
+      ido-create-new-buffer 'always
       ido-save-directory-list-file (expand-file-name "ido.hist" savefile-dir)
       ido-default-file-method 'selected-window
       ido-auto-merge-work-directories-length -1)
