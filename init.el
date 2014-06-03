@@ -55,6 +55,6 @@
 (require 'my-lisp)
 (require 'my-text)
 (require 'my-rainbow)
-(require 'my-nxhtml)
+(require 'my-web-mode)
 
 ;;; init.el ends here
