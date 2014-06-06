@@ -14,6 +14,7 @@
 (push '("Capfile" . ruby-mode) auto-mode-alist)
 (push '("\\.rake" . ruby-mode) auto-mode-alist)
 (push '("\\.gemspec" . ruby-mode) auto-mode-alist)
+(setq ruby-insert-encoding-magic-comment nil)
 
 ;; Ruby Version Manager
 (require 'rbenv)
