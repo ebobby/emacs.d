@@ -44,6 +44,7 @@
 (require 'my-editor)
 (require 'my-ui)
 (require 'my-key-bindings)
+(require 'my-utilities)
 (when (equal system-type 'darwin)
   (require 'my-osx))
 
