@@ -156,6 +156,7 @@
 ;; ignore magit's commit message files
 (add-to-list 'recentf-exclude "COMMIT_EDITMSG\\'")
 (add-to-list 'recentf-exclude (expand-file-name "elpa" root-dir))
+(add-to-list 'recentf-exclude (expand-file-name "ido.hist" savefile-dir))
 (recentf-mode +1)
 
 (require 'yasnippet)
