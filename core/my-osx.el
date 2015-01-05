@@ -4,7 +4,7 @@
 
 ;;; Code:
 
-(load-file "/Applications/Emacs.app/Contents/Resources/lisp/shell.el.gz")
+(load-file "/usr/local/Cellar/emacs/24.4/share/emacs/24.4/lisp/shell.elc")
 (setq explicit-shell-file-name "/usr/local/bin/bash")
 
 ;; Turn cmd key into meta
