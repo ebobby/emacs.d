@@ -32,7 +32,6 @@
                       nlinum
                       projectile
                       rainbow-delimiters
-                      smartparens
                       smex
                       volatile-highlights
                       yasnippet
