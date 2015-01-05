@@ -100,15 +100,6 @@
 (add-hook 'dired-mode-hook '(lambda () (dired-hide-details-mode -1)))
 (toggle-diredp-find-file-reuse-dir 1)
 
-;; Smart pair mode.
-(require 'smartparens-config)
-(setq sp-base-key-bindings 'paredit
-      sp-autoskip-closing-pair 'always
-      sp-hybrid-kill-entire-symbol nil)
-;(sp-use-paredit-bindings)
-(show-smartparens-global-mode +1)
-(smartparens-global-mode t)
-
 ;; disable annoying blink-matching-paren
 (setq blink-matching-paren nil)
 
