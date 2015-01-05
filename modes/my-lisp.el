@@ -9,6 +9,7 @@
 ;; Common Lisp
 (require 'slime)
 (require 'slime-autoloads)
+
 (add-hook 'slime-repl-mode-hook
           (lambda () (local-set-key (kbd "C-c C-]") 'slime-close-all-parens-in-sexp)))
 
