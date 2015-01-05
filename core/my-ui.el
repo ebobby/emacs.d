@@ -58,7 +58,7 @@
         ((eq system-type 'windows-nt)
          (set-face-attribute 'default nil :font "Consolas-11"))
         ((eq system-type 'darwin)
-         (set-face-attribute 'default nil :font "Source Code Pro ExtraLight-11:antialias=false"))))
+         (set-face-attribute 'default nil :font "Anonymous Pro Minus-13:antialias=true"))))
 
 (provide 'my-ui)
 
