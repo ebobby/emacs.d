@@ -27,7 +27,6 @@
                       flycheck
                       ido-ubiquitous
                       iedit
-                      monokai-theme
                       move-text
                       nlinum
                       projectile
@@ -35,6 +34,9 @@
                       smex
                       volatile-highlights
                       yasnippet
+                      leuven-theme
+                      monokai-theme
+                      solarized-theme
                       zenburn-theme)
   "A list of required packages to ensure they are installed at launch.")
 
