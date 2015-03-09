@@ -64,6 +64,7 @@
                                              my-packages)))
 
 (install-my-packages)
+(require 'epl)
 
 (provide 'my-packages)
 
