@@ -88,6 +88,10 @@
 ;; In place editing.
 (require 'iedit)
 
+;; Powerline
+(require 'powerline)
+(powerline-default-theme)
+
 ;; enable some really cool extensions like C-x C-j(dired-jump)
 (require 'dired-x)
 

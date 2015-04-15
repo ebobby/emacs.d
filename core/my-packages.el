@@ -29,6 +29,7 @@
                       iedit
                       move-text
                       nlinum
+                      powerline
                       projectile
                       rainbow-delimiters
                       smex
