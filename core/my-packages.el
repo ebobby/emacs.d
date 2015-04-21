@@ -27,6 +27,7 @@
                       flycheck
                       ido-ubiquitous
                       iedit
+                      moe-theme
                       move-text
                       nlinum
                       powerline

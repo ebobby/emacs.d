@@ -50,8 +50,11 @@
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
+
 ;; Theme and fonts
-(load-theme 'leuven t)
+(require 'moe-theme)
+(moe-dark)
+
 (when window-system
   (cond ((eq system-type 'gnu/linux)
          (set-default-font "-unknown-Inconsolata-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1"))
@@ -59,6 +62,11 @@
          (set-face-attribute 'default nil :font "Consolas-11"))
         ((eq system-type 'darwin)
          (set-face-attribute 'default nil :font "DejaVu Sans Mono-12:antialias=true"))))
+
+;; Powerline
+(require 'powerline)
+(powerline-moe-theme)
+(moe-theme-set-color 'red)
 
 (provide 'my-ui)
 
