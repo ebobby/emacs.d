@@ -4,11 +4,10 @@
 
 ;;; Code:
 
-(require-packages '(web-mode sass-mode rainbow-mode jsx-mode react-snippets coffee-mode))
+(require-packages '(web-mode sass-mode rainbow-mode react-snippets coffee-mode))
 
 (require 'web-mode)
 (require 'rainbow-mode)
-(require 'jsx-mode)
 (require 'coffee-mode)
 
 ;; Rainbow mode
@@ -22,8 +21,12 @@
 (setq web-mode-css-indent-offset 2)
 (setq web-mode-code-indent-offset 4)
 
-;; JSX mode
-(setq jsx-indent-level 2)
+(defadvice web-mode-highlight-part (around tweak-jsx activate)
+  "JSX."
+  (if (equal web-mode-content-type "jsx")
+      (let ((web-mode-enable-part-face nil))
+        ad-do-it)
+    ad-do-it))
 
 ;; Coffeescript
 (custom-set-variables '(coffee-tab-width 2))
@@ -37,7 +40,7 @@
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.jsx\\'" . jsx-mode))
+(add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
 
 (provide 'my-web-mode)
 
