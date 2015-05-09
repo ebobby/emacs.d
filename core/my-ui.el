@@ -52,8 +52,8 @@
 
 
 ;; Theme and fonts
-(require 'moe-theme)
-(moe-dark)
+(require 'color-theme-sanityinc-tomorrow)
+(color-theme-sanityinc-tomorrow-eighties)
 
 (when window-system
   (cond ((eq system-type 'gnu/linux)
@@ -61,12 +61,11 @@
         ((eq system-type 'windows-nt)
          (set-face-attribute 'default nil :font "Consolas-11"))
         ((eq system-type 'darwin)
-         (set-face-attribute 'default nil :font "DejaVu Sans Mono-12:antialias=true"))))
+         (set-face-attribute 'default nil :font "Source Code Pro-12:antialias=true"))))
 
 ;; Powerline
 (require 'powerline)
-(powerline-moe-theme)
-(moe-theme-set-color 'red)
+(powerline-default-theme)
 
 (provide 'my-ui)
 
