@@ -11,10 +11,12 @@
   (epl-upgrade))
 
 (defun untabify-buffer ()
+  "Remove all tabs from the buffer."
   (interactive)
   (untabify (point-min) (point-max)))
 
 (defun indent-buffer ()
+  "Indent the buffer."
   (interactive)
   (indent-region (point-min) (point-max)))
 
