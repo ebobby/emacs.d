@@ -74,5 +74,6 @@
 (require 'my-lisp)
 (require 'my-text)
 (require 'my-web-mode)
+(require 'my-modes)
 
 ;;; init.el ends here
