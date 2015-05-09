@@ -9,12 +9,16 @@
 (setq-default tab-width 2)
 (setq require-final-newline t)
 
+;;
+(setq initial-major-mode 'org-mode)
+(setq echo-keystrokes 0.1)
+
 ;; store all backup and autosave files in the tmp dir
 (setq backup-directory-alist
       `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
- (setq auto-save-list-file-prefix temporary-file-directory)
+(setq auto-save-list-file-prefix temporary-file-directory)
 
 ;; Revert buffers that change externally
 (global-auto-revert-mode t)
