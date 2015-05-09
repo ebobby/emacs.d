@@ -7,7 +7,7 @@
 (require 'package)
 
 (add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+             '("melpa" . "http://melpa.org/packages/") t)
 (package-initialize)
 
 (defvar my-packages '(ace-jump-buffer
