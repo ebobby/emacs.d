@@ -22,14 +22,13 @@
                       discover-my-major
                       epl
                       exec-path-from-shell
-                      exec-path-from-shell
                       expand-region
                       flycheck
                       ido-ubiquitous
                       iedit
-                      moe-theme
                       move-text
                       nlinum
+                      org
                       powerline
                       projectile
                       rainbow-delimiters
@@ -37,9 +36,11 @@
                       smex
                       volatile-highlights
                       yasnippet
+                      writegood-mode
 
                       color-theme-sanityinc-tomorrow
                       leuven-theme
+                      moe-theme
                       monokai-theme
                       solarized-theme
                       zenburn-theme)
