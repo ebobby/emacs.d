@@ -56,12 +56,7 @@
 (color-theme-sanityinc-tomorrow-eighties)
 
 (when window-system
-  (cond ((eq system-type 'gnu/linux)
-         (set-default-font "-unknown-Inconsolata-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1"))
-        ((eq system-type 'windows-nt)
-         (set-face-attribute 'default nil :font "Consolas-11"))
-        ((eq system-type 'darwin)
-         (set-face-attribute 'default nil :font "Source Code Pro-12:antialias=true"))))
+  (set-face-attribute 'default nil :font "Source Code Pro-12:antialias=true"))
 
 ;; Powerline
 (require 'powerline)
