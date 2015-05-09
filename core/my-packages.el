@@ -33,9 +33,12 @@
                       powerline
                       projectile
                       rainbow-delimiters
+                      rust-mode
                       smex
                       volatile-highlights
                       yasnippet
+
+                      color-theme-sanityinc-tomorrow
                       leuven-theme
                       monokai-theme
                       solarized-theme
