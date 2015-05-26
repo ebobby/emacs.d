@@ -4,7 +4,6 @@
 
 ;;; Code:
 
-(load-file "/usr/local/Cellar/emacs/24.4/share/emacs/24.4/lisp/shell.elc")
 (setq explicit-shell-file-name "/usr/local/bin/bash")
 
 ;; Turn cmd key into meta
@@ -13,7 +12,6 @@
 (require 'exec-path-from-shell)
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
-
 
 (add-hook 'inferior-js-mode-hook
           (lambda ()
