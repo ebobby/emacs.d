@@ -4,6 +4,9 @@
 
 ;;; Code:
 
+;; Truncate lines
+(setq-default truncate-lines t)
+
 ;; apply syntax highlighting to all buffers
 (global-font-lock-mode t)
 

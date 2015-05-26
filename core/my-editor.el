@@ -113,10 +113,6 @@
               ispell-extra-args '("--sug-mode=ultra"))
 (add-hook 'text-mode-hook (lambda () (flyspell-mode +1)))
 
-;; wrap lines in a tasteful way
-(global-visual-line-mode 1)
-(diminish 'visual-line-mode)
-
 ;; hi-lock
 (global-hi-lock-mode 1)
 (setq hi-lock-auto-select-face t)
