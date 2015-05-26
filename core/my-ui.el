@@ -56,7 +56,7 @@
 (color-theme-sanityinc-tomorrow-eighties)
 
 (when window-system
-  (set-face-attribute 'default nil :font "Source Code Pro-12:antialias=true"))
+  (set-face-attribute 'default nil :font "Source Code Pro-14:antialias=true"))
 
 ;; Powerline
 (require 'powerline)
