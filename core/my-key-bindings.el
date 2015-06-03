@@ -65,6 +65,8 @@
 
 (ad-activate 'load)
 
+(diminish 'my-key-bindings-minor-mode)
+
 (provide 'my-key-bindings)
 
 ;;; my-key-bindings.el ends here
