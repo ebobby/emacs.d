@@ -55,15 +55,22 @@
 
 
 ;; Theme and fonts
-(require 'color-theme-sanityinc-tomorrow)
-(color-theme-sanityinc-tomorrow-eighties)
-
-(when window-system
-  (set-face-attribute 'default nil :font "Source Code Pro-14:antialias=true"))
-
-;; Powerline
 (require 'powerline)
-(powerline-default-theme)
+(require 'moe-theme)
+
+(setq moe-theme-resize-markdown-title '(1.5 1.4 1.3 1.2 1.0 1.0))
+(setq moe-theme-resize-org-title '(1.5 1.4 1.3 1.2 1.1 1.0 1.0 1.0 1.0))
+(setq moe-theme-resize-rst-title '(1.5 1.4 1.3 1.2 1.1 1.0))
+(moe-theme-set-color 'orange)
+
+(moe-light)
+(powerline-moe-theme)
+
+(setq powerline-display-buffer-size nil)
+
+;; Font
+(when window-system
+  (set-face-attribute 'default nil :font "Ubuntu Mono-16:antialias=true"))
 
 (provide 'my-ui)
 
