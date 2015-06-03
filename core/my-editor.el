@@ -10,6 +10,7 @@
 (setq require-final-newline t)
 
 ;;
+(setq initial-scratch-message nil)
 (setq initial-major-mode 'org-mode)
 (setq echo-keystrokes 0.1)
 
@@ -154,7 +155,6 @@
 (require 'yasnippet)
 (setq yas/prompt-functions '(yas-ido-prompt))
 (yas-global-mode 1)
-
 
 ;; autofill
 (setq-default fill-column 80)
