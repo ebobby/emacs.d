@@ -112,6 +112,7 @@
 (setq-default ispell-program-name "aspell"
               ispell-extra-args '("--sug-mode=ultra"))
 (add-hook 'text-mode-hook (lambda () (flyspell-mode +1)))
+(diminish 'flyspell-mode)
 
 ;; hi-lock
 (global-hi-lock-mode 1)
@@ -201,6 +202,7 @@
 (require 'projectile)
 (setq projectile-cache-file (expand-file-name  "projectile.cache" savefile-dir))
 (setq projectile-require-project-root nil)
+(setq projectile-mode-line '(:eval (format " P[%s]" (projectile-project-name))))
 (projectile-global-mode t)
 
 (require 'uniquify)
