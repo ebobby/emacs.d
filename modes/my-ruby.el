@@ -22,6 +22,7 @@
 
 ;; Ruby tools
 (require 'ruby-tools)
+(diminish 'ruby-tools-mode)
 
 (provide 'my-ruby)
 
