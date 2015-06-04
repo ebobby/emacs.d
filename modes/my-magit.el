@@ -10,6 +10,7 @@
 (require 'magit)
 (autoload 'magit-status "magit" nil t)
 (add-hook 'magit-mode-hook (lambda () (setq-local yas-dont-activate t)))
+(setq magit-auto-revert-mode nil)
 
 (eval-after-load 'magit
   '(progn

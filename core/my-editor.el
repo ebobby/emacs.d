@@ -219,7 +219,6 @@
 (setq tramp-default-method "ssh")
 
 ;; Magit configuration
-(setq magit-auto-revert-mode nil)
 
 (provide 'my-editor)
 
