@@ -110,8 +110,7 @@
 
 ;; Use aspell instead of ispell
 (require 'flyspell)
-(setq-default ispell-program-name "aspell"
-              ispell-extra-args '("--sug-mode=ultra"))
+(setq-default ispell-program-name "aspell" ispell-extra-args '("--sug-mode=ultra"))
 (add-hook 'text-mode-hook (lambda () (flyspell-mode +1)))
 (diminish 'flyspell-mode)
 
