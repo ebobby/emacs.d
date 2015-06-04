@@ -42,7 +42,6 @@
 ;; Core configuration
 (require 'my-packages)
 (require 'my-editor)
-(require 'my-ui)
 (require 'my-key-bindings)
 (require 'my-utilities)
 (when (equal system-type 'darwin)
@@ -57,5 +56,8 @@
 (require 'my-text)
 (require 'my-web-mode)
 (require 'my-modes)
+
+;; Load UI after everything else.
+(require 'my-ui)
 
 ;;; init.el ends here
