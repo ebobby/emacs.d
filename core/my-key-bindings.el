@@ -8,7 +8,7 @@
   (let ((map (make-sparse-keymap)))
     (define-key map (kbd "C-x C-c") 'confirm-exit-emacs)
     (define-key map (kbd "<f1>") 'shell)
-    (define-key map (kbd "<f2>") 'rgrep)
+    (define-key map (kbd "<f2>") 'ag)
     (define-key map (kbd "<f7>") 'toggle-truncate-lines)
     (define-key map (kbd "<f10>") 'magit-status)
     (define-key map (kbd "<f11>") 'toggle-frame-fullscreen)

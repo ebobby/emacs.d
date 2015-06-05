@@ -13,6 +13,7 @@
 (defvar my-packages '(ace-jump-buffer
                       ace-jump-mode
                       ace-window
+                      ag
                       anzu
                       browse-kill-ring
                       dash-at-point
