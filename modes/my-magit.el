@@ -21,6 +21,9 @@
      (define-key magit-status-mode-map (kbd "M-K") 'magit-quit-session)
      (define-key magit-status-mode-map (kbd "W") 'magit-toggle-whitespace) ))
 (diminish 'magit-auto-revert-mode)
+
+(setq magit-last-seen-setup-instructions "1.4.0")
+
 (provide 'my-magit)
 
 ;;; my-magit.el ends here
