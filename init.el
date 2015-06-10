@@ -41,9 +41,9 @@
 
 ;; Core configuration
 (require 'my-packages)
+(require 'my-functions)
 (require 'my-editor)
 (require 'my-key-bindings)
-(require 'my-utilities)
 (when (equal system-type 'darwin)
   (require 'my-osx))
 

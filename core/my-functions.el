@@ -1,4 +1,4 @@
-;;; my-utilities.el --- Misc functions
+;;; my-functions.el --- Misc functions
 ;;; Commentary:
 ;; Functions
 
@@ -33,6 +33,6 @@
   (untabify-buffer)
   (delete-trailing-whitespace))
 
-(provide 'my-utilities)
+(provide 'my-functions)
 
-;;; my-utilities.el ends here
+;;; my-functions.el ends here
