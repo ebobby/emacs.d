@@ -3,6 +3,12 @@
 ;; Functions
 
 ;;; Code:
+;; ask before exiting
+(defun confirm-exit-emacs ()
+  "Ask for confirmation before exiting Emacs."
+  (interactive)
+  (if (y-or-n-p "Are you sure you want to exit? ")
+      (save-buffers-kill-emacs)))
 
 (defun my-upgrade-all ()
   "Upgrades all packages."

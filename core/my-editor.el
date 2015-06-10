@@ -65,13 +65,6 @@
 ;; Anwsering y/n is faster than yes/no.
 (fset 'yes-or-no-p 'y-or-n-p)
 
-;; ask before exiting
-(defun confirm-exit-emacs ()
-  "Ask for confirmation before exiting Emacs."
-  (interactive)
-  (if (y-or-n-p "Are you sure you want to exit? ")
-      (save-buffers-kill-emacs)))
-
 ;; Do not ask about running processes when exiting.
 (defadvice save-buffers-kill-emacs (around no-query-kill-emacs activate)
   "Prevent annoying \"Active processes exist\" query when you quit Emacs."
