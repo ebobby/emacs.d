@@ -33,12 +33,12 @@
                       powerline
                       projectile
                       rainbow-delimiters
-                      rust-mode
                       smex
                       volatile-highlights
-                      yasnippet
                       writegood-mode
+                      yasnippet
 
+                      ;;; Themes
                       color-theme-sanityinc-tomorrow
                       leuven-theme
                       moe-theme
