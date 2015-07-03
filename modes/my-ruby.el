@@ -4,7 +4,7 @@
 
 ;;; Code:
 
-(require-packages '(rinari rbenv ruby-tools))
+(require-packages '(rbenv ruby-tools projectile-rails))
 
 ;; Ruby
 (require 'ruby-mode)
@@ -23,6 +23,10 @@
 ;; Ruby tools
 (require 'ruby-tools)
 (diminish 'ruby-tools-mode)
+
+;; Ruby projects
+(add-hook 'projectile-mode-hook 'projectile-rails-on)
+
 
 (provide 'my-ruby)
 
