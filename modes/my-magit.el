@@ -12,15 +12,6 @@
 (add-hook 'magit-mode-hook (lambda () (setq-local yas-dont-activate t)))
 (setq magit-auto-revert-mode nil)
 
-(eval-after-load 'magit
-  '(progn
-     (set-face-background 'highlight nil) ;; highlight is overriding other background colors for diff chunks
-     (set-face-foreground 'highlight nil) ;; highlight is overriding other foreground colors for diff chunks
-     (set-face-underline  'highlight nil)
-     (define-key magit-mode-map (kbd "<tab>") 'magit-toggle-section)    ; was smart-tab
-     (define-key magit-status-mode-map (kbd "M-K") 'magit-quit-session)
-     (define-key magit-status-mode-map (kbd "W") 'magit-toggle-whitespace) ))
-
 (setq magit-last-seen-setup-instructions "1.4.0")
 
 (provide 'my-magit)
