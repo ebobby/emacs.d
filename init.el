@@ -15,6 +15,7 @@
 (defvar modes-dir (expand-file-name  "modes" root-dir))
 (defvar vendor-dir (expand-file-name "vendor" root-dir))
 (defvar savefile-dir (expand-file-name "savefile" root-dir))
+(defvar backup-dir (expand-file-name "backup" root-dir))
 
 ;; Copied from prelude.
 (defun add-subfolders-to-load-path (parent-dir)

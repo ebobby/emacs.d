@@ -15,10 +15,8 @@
 (setq echo-keystrokes 0.1)
 
 ;; store all backup and autosave files in the tmp dir
-(setq backup-directory-alist
-      `((".*" . ,temporary-file-directory)))
-(setq auto-save-file-name-transforms
-      `((".*" ,temporary-file-directory t)))
+(setq backup-directory-alist `(("." . ,backup-dir)))
+(setq auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
 (setq auto-save-list-file-prefix temporary-file-directory)
 
 ;; Revert buffers that change externally
