@@ -70,7 +70,8 @@
 
 ;; Font
 (when window-system
-  (set-face-attribute 'default nil :font "Ubuntu Mono-16:antialias=true"))
+  (set-face-attribute 'default nil :font "Ubuntu Mono-14:antialias=true")
+  (toggle-frame-maximized))
 
 (provide 'my-ui)
 
