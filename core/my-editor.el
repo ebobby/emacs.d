@@ -172,6 +172,9 @@
 (diminish 'anzu-mode)
 (global-anzu-mode)
 
+(set-face-attribute 'anzu-mode-line nil
+                    :foreground "white" :weight 'bold)
+
 (require 'diff-hl)
 (global-diff-hl-mode +1)
 (add-hook 'dired-mode-hook 'diff-hl-dired-mode)
