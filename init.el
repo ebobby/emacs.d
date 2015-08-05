@@ -54,6 +54,7 @@
 (require 'my-ruby)
 (require 'my-js)
 (require 'my-lisp)
+(require 'my-scheme)
 (require 'my-rust)
 (require 'my-text)
 (require 'my-web-mode)
