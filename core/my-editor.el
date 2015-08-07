@@ -153,7 +153,7 @@
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 (require 'flycheck)
-(add-hook 'after-init-hook #'global-flycheck-mode)
+(add-hook 'prog-mode-hook 'flycheck-mode)
 (diminish 'flycheck-mode)
 
 (require 'nlinum)
