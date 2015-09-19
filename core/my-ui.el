@@ -63,14 +63,14 @@
 (setq moe-theme-resize-rst-title '(1.5 1.4 1.3 1.2 1.1 1.0))
 (moe-theme-set-color 'magenta)
 
-(moe-dark)
+(moe-light)
 (powerline-moe-theme)
 
 (setq powerline-display-buffer-size nil)
 
 ;; Font
 (when window-system
-  (set-face-attribute 'default nil :font "Ubuntu Mono-14:antialias=true")
+  (set-face-attribute 'default nil :font "Hack-12")
   (toggle-frame-maximized))
 
 (provide 'my-ui)
