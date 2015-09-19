@@ -22,6 +22,9 @@
 ;; Revert buffers that change externally
 (global-auto-revert-mode t)
 
+;; Prefer vertical window splitting.
+(setq split-height-threshold 90)
+
 ;; Hippie Expand
 (setq hippie-expand-try-functions-list
       '(yas-hippie-try-expand
