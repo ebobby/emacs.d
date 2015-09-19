@@ -29,7 +29,7 @@
     ad-do-it))
 
 ;; Coffeescript
-(custom-set-variables '(coffee-tab-width 2))
+(setq-default coffee-tab-width 2)
 
 ;; What to load with what
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
