@@ -4,8 +4,5 @@ projectile-bookmarks.eld
 recentf
 image-dired/*
 tramp
-savefile/.smex-items
-savefile/savehist
-savefile/saveplace
-savefile/ido.hist
+savefile/*
 backup/*
