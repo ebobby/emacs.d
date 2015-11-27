@@ -36,6 +36,7 @@
                       smex
                       volatile-highlights
                       writegood-mode
+                      writeroom-mode
                       yasnippet
 
                       ;;; Themes
