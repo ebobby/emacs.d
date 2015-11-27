@@ -53,25 +53,18 @@
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
-
 ;; Theme and fonts
+(load-theme 'leuven t)
+
 (require 'powerline)
-(require 'moe-theme)
-
-(setq moe-theme-resize-markdown-title '(1.5 1.4 1.3 1.2 1.0 1.0))
-(setq moe-theme-resize-org-title '(1.5 1.4 1.3 1.2 1.1 1.0 1.0 1.0 1.0))
-(setq moe-theme-resize-rst-title '(1.5 1.4 1.3 1.2 1.1 1.0))
-(moe-theme-set-color 'magenta)
-
-(moe-dark)
-(powerline-moe-theme)
+(powerline-default-theme)
 
 (setq powerline-display-buffer-size nil)
 
 ;; Font
 (when window-system
   (set-face-attribute 'default nil :font "Hack-11")
-  (toggle-frame-maximized))
+  (toggle-frame-fullscreen))
 
 (provide 'my-ui)
 
