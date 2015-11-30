@@ -14,6 +14,8 @@
                             (local-set-key "\C-x\C-e" 'js-send-last-sexp)
                             (local-set-key "\C-cb" 'js-send-buffer)
                             (local-set-key "\C-c\C-b" 'js-send-buffer-and-go)))
+(setq-default js2-basic-offset 2)
+
 (require 'js-comint)
 (setq inferior-js-program-command "node --")
 
