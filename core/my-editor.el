@@ -19,28 +19,20 @@
 (setq auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
 (setq auto-save-list-file-prefix temporary-file-directory)
 
-;; Revert buffers that change externally
-(global-auto-revert-mode t)
-
 ;; Prefer vertical window splitting.
 (setq split-height-threshold 90)
 
 ;; Hippie Expand
-(setq hippie-expand-try-functions-list
-      '(yas-hippie-try-expand
-        try-expand-dabbrev
-        try-expand-dabbrev-all-buffers
-        try-expand-dabbrev-from-kill
-        try-complete-file-name-partially
-        try-complete-file-name
-        try-expand-all-abbrevs
-        try-expand-list
-        try-expand-line
-        try-complete-lisp-symbol-partially
-        try-complete-lisp-symbol))
-
-;; smart tab
-(setq tab-always-indent 'complete)
+(setq hippie-expand-try-functions-list '(try-expand-dabbrev
+                                         try-expand-dabbrev-all-buffers
+                                         try-expand-dabbrev-from-kill
+                                         try-complete-file-name-partially
+                                         try-complete-file-name
+                                         try-expand-all-abbrevs
+                                         try-expand-list
+                                         try-expand-line
+                                         try-complete-lisp-symbol-partially
+                                         try-complete-lisp-symbol))
 
 ;; encoding
 (prefer-coding-system 'utf-8)
@@ -87,17 +79,9 @@
 ;; In place editing.
 (require 'iedit)
 
-;; enable some really cool extensions like C-x C-j(dired-jump)
-(require 'dired-x)
-
-(require 'dired+)
-(setq diredp-hide-details-initially-flag nil
-      global-dired-hide-details-mode -1
-      dired-recursive-deletes 'always
-      dired-recursive-copies 'always)
-
-(add-hook 'dired-mode-hook '(lambda () (dired-hide-details-mode -1)))
-(toggle-diredp-find-file-reuse-dir 1)
+;; Revert buffers that change externally
+(global-auto-revert-mode t)
+(diminish 'auto-revert-mode)
 
 ;; disable annoying blink-matching-paren
 (setq blink-matching-paren nil)
@@ -145,29 +129,31 @@
 (add-to-list 'recentf-exclude (expand-file-name "ido.hist" savefile-dir))
 (recentf-mode +1)
 
-(require 'yasnippet)
-(setq yas/prompt-functions '(yas-ido-prompt))
-(yas-global-mode 1)
-
 ;; autofill
 (setq-default fill-column 80)
 
 (require 'rainbow-delimiters)
-(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
-
 (require 'flycheck)
-(add-hook 'prog-mode-hook 'flycheck-mode)
-(diminish 'flycheck-mode)
-
 (require 'nlinum)
-(add-hook 'prog-mode-hook 'nlinum-mode)
+(require 'smartparens-config)
 
+(setq sp-base-key-bindings 'paredit)
+(setq sp-autoskip-closing-pair 'always)
+(setq sp-hybrid-kill-entire-symbol nil)
+(sp-use-paredit-bindings)
+(show-smartparens-global-mode +1)
+
+(diminish 'flycheck-mode)
+(diminish 'smartparens-mode)
+
+(add-hook 'prog-mode-hook (lambda ()
+                            (rainbow-delimiters-mode +1)
+                            (flycheck-mode +1)
+                            (nlinum-mode +1)
+                            (smartparens-mode +1)))
 ;; Nice window navigation
 (require 'windmove)
 (windmove-default-keybindings)
-
-(require 'move-text)
-(move-text-default-bindings)
 
 (require 'expand-region)
 
@@ -175,22 +161,9 @@
 (diminish 'anzu-mode)
 (global-anzu-mode)
 
-(set-face-attribute 'anzu-mode-line nil
-                    :foreground "white" :weight 'bold)
-
 (require 'diff-hl)
 (global-diff-hl-mode +1)
 (add-hook 'dired-mode-hook 'diff-hl-dired-mode)
-
-(require 'which-func)
-(which-function-mode)
-(setq which-func-unknown "n/a")
-
-(require 're-builder)
-(setq reb-re-syntax 'string)
-
-(require 'browse-kill-ring)
-(browse-kill-ring-default-keybindings)
 
 (require 'ediff)
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
@@ -213,8 +186,6 @@
 (require 'tramp)
 ;; keep in mind known issues with zsh - see emacs wiki
 (setq tramp-default-method "ssh")
-
-;; Magit configuration
 
 (provide 'my-editor)
 

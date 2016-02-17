@@ -4,7 +4,7 @@
 
 ;;; Code:
 
-(require-packages '(rbenv ruby-tools projectile-rails))
+(require-packages '(rbenv ruby-tools projectile-rails inf-ruby yari))
 
 ;; Ruby
 (require 'ruby-mode)
@@ -15,6 +15,8 @@
 (push '("\\.rake" . ruby-mode) auto-mode-alist)
 (push '("\\.gemspec" . ruby-mode) auto-mode-alist)
 (setq ruby-insert-encoding-magic-comment nil)
+
+(define-key 'help-command (kbd "R") 'yari)
 
 ;; Ruby Version Manager
 (require 'rbenv)
@@ -27,6 +29,11 @@
 ;; Ruby projects
 (add-hook 'projectile-mode-hook 'projectile-rails-on)
 
+(add-hook 'ruby-mode-hook (lambda ()
+                            (inf-ruby-minor-mode +1)
+                            (ruby-tools-mode +1)
+                            ;; CamelCase aware editing operations
+                            (subword-mode +1)))
 
 (provide 'my-ruby)
 

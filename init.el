@@ -1,6 +1,6 @@
 ;;; init.el --- Emacs configuration
 ;;; Commentary:
-;; Load everything up.
+1;; Load everything up.
 
 ;;; Code:
 
@@ -12,7 +12,7 @@
 
 (defvar root-dir (file-name-directory load-file-name))
 (defvar core-dir (expand-file-name "core" root-dir))
-(defvar modes-dir (expand-file-name  "modes" root-dir))
+(defvar modules-dir (expand-file-name  "modules" root-dir))
 (defvar vendor-dir (expand-file-name "vendor" root-dir))
 (defvar savefile-dir (expand-file-name "savefile" root-dir))
 (defvar backup-dir (expand-file-name "backup" root-dir))
@@ -28,7 +28,7 @@
         (add-subfolders-to-load-path name)))))
 
 (add-to-list 'load-path core-dir)
-(add-to-list 'load-path modes-dir)
+(add-to-list 'load-path modules-dir)
 (add-to-list 'load-path vendor-dir)
 (add-to-list 'load-path core-dir)
 (add-subfolders-to-load-path vendor-dir)
@@ -42,23 +42,25 @@
 
 ;; Core configuration
 (require 'my-packages)
-(require 'my-functions)
-(require 'my-editor)
-(require 'my-key-bindings)
+
+;; OS specific configuration
 (when (equal system-type 'darwin)
   (require 'my-osx))
 
+(require 'my-functions)
+(require 'my-editor)
+(require 'my-key-bindings)
+
+;; My-mode goes last
+(require 'my-mode)
+
 ;; Modes configuration
-(require 'my-ido)
+(require 'my-elisp)
 (require 'my-magit)
+(require 'my-helm)
 (require 'my-ruby)
 (require 'my-js)
-(require 'my-lisp)
-(require 'my-scheme)
-(require 'my-rust)
-(require 'my-text)
-(require 'my-web-mode)
-(require 'my-modes)
+(require 'my-web)
 
 ;; Load UI after everything else.
 (require 'my-ui)
