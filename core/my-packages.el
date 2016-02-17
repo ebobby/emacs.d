@@ -57,6 +57,62 @@
 (install-my-packages)
 (require 'epl)
 
+;;; Blatantly ripped from prelude emacs
+(defmacro auto-install (extension package mode)
+  "When file with EXTENSION is opened triggers auto-install of PACKAGE.
+PACKAGE is installed only if not already present.  The file is opened in MODE."
+  `(add-to-list 'auto-mode-alist
+                `(,extension . (lambda ()
+                                 (unless (package-installed-p ',package)
+                                   (package-install ',package))
+                                 (,mode)))))
+
+(defvar auto-install-alist
+  '(("\\.clj\\'" clojure-mode clojure-mode)
+    ("\\.coffee\\'" coffee-mode coffee-mode)
+    ("\\.css\\'" css-mode css-mode)
+    ("\\.csv\\'" csv-mode csv-mode)
+    ("\\.elm\\'" elm-mode elm-mode)
+    ("\\.ex\\'" elixir-mode elixir-mode)
+    ("\\.exs\\'" elixir-mode elixir-mode)
+    ("\\.elixir\\'" elixir-mode elixir-mode)
+    ("\\.erl\\'" erlang erlang-mode)
+    ("\\.go\\'" go-mode go-mode)
+    ("\\.haml\\'" haml-mode haml-mode)
+    ("\\.hs\\'" haskell-mode haskell-mode)
+    ("\\.json\\'" json-mode json-mode)
+    ("\\.latex\\'" auctex LaTeX-mode)
+    ("\\.less\\'" less-css-mode less-css-mode)
+    ("\\.lua\\'" lua-mode lua-mode)
+    ("\\.markdown\\'" markdown-mode markdown-mode)
+    ("\\.md\\'" markdown-mode markdown-mode)
+    ("\\.php\\'" php-mode php-mode)
+    ("\\.rs\\'" rust-mode rust-mode)
+    ("\\.sass\\'" sass-mode sass-mode)
+    ("\\.scala\\'" scala-mode2 scala-mode)
+    ("\\.scss\\'" scss-mode scss-mode)
+    ("\\.slim\\'" slim-mode slim-mode)
+    ("\\.swift\\'" swift-mode swift-mode)
+    ("\\.textile\\'" textile-mode textile-mode)
+    ("\\.yml\\'" yaml-mode yaml-mode)
+    ("\\.yaml\\'" yaml-mode yaml-mode)))
+
+;; markdown-mode doesn't have autoloads for the auto-mode-alist
+;; so we add them manually if it's already installed
+(when (package-installed-p 'markdown-mode)
+  (add-to-list 'auto-mode-alist '("\\.markdown\\'" . 'markdown-mode))
+  (add-to-list 'auto-mode-alist '("\\.md\\'" . 'markdown-mode)))
+
+;; build auto-install mappings
+(mapc
+ (lambda (entry)
+   (let ((extension (car entry))
+         (package (cadr entry))
+         (mode (cadr (cdr entry))))
+     (unless (package-installed-p package)
+       (auto-install extension package mode))))
+ auto-install-alist)
+
 (provide 'my-packages)
 
 ;;; my-packages.el ends here

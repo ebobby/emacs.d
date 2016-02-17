@@ -61,13 +61,13 @@
 
 (require 'powerline)
 (powerline-moe-theme)
-(moe-theme-set-color 'purple)
+(moe-theme-random-color)
 
 (setq powerline-display-buffer-size nil)
 
 ;; Font
 (when window-system
-  (set-face-attribute 'default nil :font "Hack-11")
+  (set-face-attribute 'default nil :font "Source Code Pro-11")
   (toggle-frame-fullscreen))
 
 (provide 'my-ui)
