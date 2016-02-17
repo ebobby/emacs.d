@@ -54,6 +54,9 @@
 ;; Modes configuration
 ;;(require 'some-mode)
 
+;; My-mode goes last
+(require 'my-mode)
+
 ;; Load UI after everything else.
 (require 'my-ui)
 
