@@ -53,6 +53,7 @@
 
 ;; Modes configuration
 (require 'my-elisp)
+(require 'my-magit)
 
 ;; My-mode goes last
 (require 'my-mode)
