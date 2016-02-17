@@ -20,13 +20,11 @@
                       flycheck
                       iedit
                       smartparens
-                      nlinum
                       org
                       powerline
                       projectile
                       rainbow-delimiters
                       volatile-highlights
-                      yasnippet
                       spaceline
                       grandshell-theme
                       ample-theme
