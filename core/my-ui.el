@@ -54,10 +54,14 @@
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
 ;; Theme and fonts
-(load-theme 'leuven t)
+(require 'moe-theme)
+(setq moe-theme-resize-org-title '(2.2 1.8 1.6 1.4 1.2 1.0 1.0 1.0 1.0))
+(setq moe-theme-resize-rst-title '(2.0 1.7 1.5 1.3 1.1 1.0))
+(moe-dark)
 
 (require 'powerline)
-(powerline-default-theme)
+(powerline-moe-theme)
+(moe-theme-set-color 'purple)
 
 (setq powerline-display-buffer-size nil)
 

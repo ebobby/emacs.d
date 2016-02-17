@@ -10,42 +10,25 @@
              '("melpa" . "http://melpa.org/packages/") t)
 (package-initialize)
 
-(defvar my-packages '(ace-jump-buffer
-                      ace-jump-mode
-                      ace-window
-                      ag
+(defvar my-packages '(ace-window
                       anzu
-                      browse-kill-ring
-                      dash-at-point
                       diff-hl
                       diminish
-                      dired+
                       discover-my-major
                       epl
-                      exec-path-from-shell
                       expand-region
                       flycheck
-                      ido-ubiquitous
                       iedit
-                      move-text
+                      smartparens
                       nlinum
                       org
                       powerline
                       projectile
                       rainbow-delimiters
-                      smex
                       volatile-highlights
-                      writegood-mode
-                      writeroom-mode
                       yasnippet
+                      moe-theme)
 
-                      ;;; Themes
-                      color-theme-sanityinc-tomorrow
-                      leuven-theme
-                      moe-theme
-                      monokai-theme
-                      solarized-theme
-                      zenburn-theme)
   "A list of required packages to ensure they are installed at launch.")
 
 (defun require-package (package)

@@ -1,6 +1,6 @@
 ;;; init.el --- Emacs configuration
 ;;; Commentary:
-;; Load everything up.
+1;; Load everything up.
 
 ;;; Code:
 
@@ -42,23 +42,17 @@
 
 ;; Core configuration
 (require 'my-packages)
-(require 'my-functions)
-(require 'my-editor)
-(require 'my-key-bindings)
+
+;; OS specific configuration
 (when (equal system-type 'darwin)
   (require 'my-osx))
 
+(require 'my-functions)
+(require 'my-editor)
+(require 'my-key-bindings)
+
 ;; Modes configuration
-(require 'my-ido)
-(require 'my-magit)
-(require 'my-ruby)
-(require 'my-js)
-(require 'my-lisp)
-(require 'my-scheme)
-(require 'my-rust)
-(require 'my-text)
-(require 'my-web-mode)
-(require 'my-modes)
+;;(require 'some-mode)
 
 ;; Load UI after everything else.
 (require 'my-ui)
