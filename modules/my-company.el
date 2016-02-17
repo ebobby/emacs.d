@@ -6,7 +6,7 @@
 
 (require-packages '(company))
 
-(setq company-idle-delay .3)
+(setq company-idle-delay .25)
 (setq company-tooltip-limit 20)
 
 (add-hook 'after-init-hook 'global-company-mode)
