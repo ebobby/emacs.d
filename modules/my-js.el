@@ -18,6 +18,8 @@
                             (setq mode-name "JS2")
                             (js2-imenu-extras-mode +1)))
 
+(setq-default js2-basic-offset 2)
+
 (provide 'my-js)
 
 ;;; my-js.el ends here
