@@ -58,6 +58,7 @@
 (require 'my-elisp)
 (require 'my-magit)
 (require 'my-helm)
+(require 'my-ruby)
 
 ;; Load UI after everything else.
 (require 'my-ui)
