@@ -171,7 +171,7 @@
 (require 'projectile)
 (setq projectile-cache-file (expand-file-name  "projectile.cache" savefile-dir))
 (setq projectile-require-project-root nil)
-(setq projectile-mode-line '(:eval (format " P[%s]" (projectile-project-name))))
+(setq projectile-mode-line '(:eval (format " Project[%s]" (projectile-project-name))))
 (projectile-global-mode t)
 
 (require 'uniquify)
