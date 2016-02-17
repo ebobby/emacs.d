@@ -21,7 +21,6 @@
 (global-set-key (kbd "M-0") 'delete-window)
 (global-set-key (kbd "M-o") 'ace-window)
 (global-set-key (kbd "M-k") 'kill-this-buffer)
-(global-set-key (kbd "C-x C-r") 'recentf-open-files)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "C-=") 'er/expand-region)
 (global-set-key (kbd "C-c m") 'discover-my-major)

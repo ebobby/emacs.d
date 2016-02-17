@@ -46,6 +46,8 @@
 (global-set-key (kbd "C-h f") 'helm-apropos)
 (global-set-key (kbd "C-h r") 'helm-info-emacs)
 (global-set-key (kbd "C-h C-l") 'helm-locate-library)
+(global-set-key (kbd "C-x C-r") 'helm-recentf)
+
 (define-key my-mode-map (kbd "C-c f") 'helm-recentf)
 (define-key my-mode-map (kbd "<f2>") 'helm-do-ag)
 (define-key my-mode-map (kbd "<f3>") 'helm-occur)
