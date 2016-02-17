@@ -51,12 +51,12 @@
 (require 'my-editor)
 (require 'my-key-bindings)
 
+;; My-mode goes last
+(require 'my-mode)
+
 ;; Modes configuration
 (require 'my-elisp)
 (require 'my-magit)
-
-;; My-mode goes last
-(require 'my-mode)
 
 ;; Load UI after everything else.
 (require 'my-ui)
