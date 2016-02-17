@@ -57,6 +57,7 @@
 ;; Modes configuration
 (require 'my-elisp)
 (require 'my-magit)
+(require 'my-helm)
 
 ;; Load UI after everything else.
 (require 'my-ui)
