@@ -6,6 +6,7 @@
 ;; Turn cmd key into meta
 (setq mac-command-modifier 'meta)
 (setq ns-function-modifier 'hyper)
+(setq mac-option-modifier 'super)
 
 (require-packages '(exec-path-from-shell))
 

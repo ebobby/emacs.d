@@ -15,7 +15,6 @@
 (global-unset-key (kbd "C-x k"))
 
 (global-set-key (kbd "C-x C-c") 'confirm-exit-emacs)
-(global-set-key (kbd "<f10>") 'magit-status)
 (global-set-key (kbd "M-1") 'delete-other-windows)
 (global-set-key (kbd "M-2") 'split-window-vertically)
 (global-set-key (kbd "M-3") 'split-window-horizontally)
@@ -25,8 +24,6 @@
 (global-set-key (kbd "C-x C-r") 'recentf-open-files)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "C-=") 'er/expand-region)
-(global-set-key (kbd "s-y") 'browse-kill-ring)
-(global-set-key (kbd "C-c p f") 'projectile-find-file)
 (global-set-key (kbd "C-c m") 'discover-my-major)
 (global-set-key (kbd "C-|") 'hippie-expand)
 (global-set-key (kbd "C-;") 'iedit-mode)
