@@ -65,6 +65,8 @@
 ;; enable Helm version of Projectile with replacment commands
 (helm-projectile-on)
 
+(diminish 'helm-mode)
+
 (provide 'my-helm)
 
 ;;; my-helm.el ends here

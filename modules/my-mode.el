@@ -25,6 +25,7 @@
 
 (my-global-mode +1)
 
+(diminish 'my-mode)
 
 (provide 'my-mode)
 

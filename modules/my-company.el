@@ -11,6 +11,8 @@
 
 (add-hook 'after-init-hook 'global-company-mode)
 
+(add-hook 'company-mode-hook  (lambda () (diminish 'company-mode)))
+
 (provide 'my-company)
 
 ;;; my-company.el ends here
