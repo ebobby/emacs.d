@@ -134,7 +134,6 @@
 
 (require 'rainbow-delimiters)
 (require 'flycheck)
-(require 'nlinum)
 (require 'smartparens-config)
 
 (setq sp-base-key-bindings 'paredit)
@@ -149,7 +148,8 @@
 (add-hook 'prog-mode-hook (lambda ()
                             (rainbow-delimiters-mode +1)
                             (flycheck-mode +1)
-                            (nlinum-mode +1)
+                            (linum-mode +1)
+                            (toggle-truncate-lines +1)
                             (smartparens-mode +1)))
 ;; Nice window navigation
 (require 'windmove)
