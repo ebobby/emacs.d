@@ -62,6 +62,7 @@
 (require 'my-ruby)
 (require 'my-js)
 (require 'my-web)
+(require 'my-rainbow)
 
 ;; Load UI after everything else.
 (require 'my-ui)
