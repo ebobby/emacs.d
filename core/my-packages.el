@@ -27,6 +27,7 @@
                       rainbow-delimiters
                       volatile-highlights
                       yasnippet
+                      spaceline
                       grandshell-theme
                       ample-theme
                       monokai-theme
