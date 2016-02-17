@@ -52,7 +52,7 @@
 (require 'my-key-bindings)
 
 ;; Modes configuration
-;;(require 'some-mode)
+(require 'my-elisp)
 
 ;; My-mode goes last
 (require 'my-mode)
