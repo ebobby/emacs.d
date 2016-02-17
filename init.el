@@ -54,10 +54,11 @@
 ;; My-mode goes last
 (require 'my-mode)
 
-;; Modes configuration
-(require 'my-elisp)
-(require 'my-magit)
+;; Modules configuration
+(require 'my-company)
 (require 'my-helm)
+(require 'my-magit)
+(require 'my-elisp)
 (require 'my-ruby)
 (require 'my-js)
 (require 'my-web)
