@@ -60,6 +60,7 @@
 (require 'my-helm)
 (require 'my-ruby)
 (require 'my-js)
+(require 'my-web)
 
 ;; Load UI after everything else.
 (require 'my-ui)
