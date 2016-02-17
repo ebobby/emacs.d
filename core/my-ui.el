@@ -54,16 +54,11 @@
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
 ;; Theme and fonts
-(require 'moe-theme)
-(setq moe-theme-resize-org-title '(2.2 1.8 1.6 1.4 1.2 1.0 1.0 1.0 1.0))
-(setq moe-theme-resize-rst-title '(2.0 1.7 1.5 1.3 1.1 1.0))
-(moe-dark)
+(load-theme 'grandshell t)
 
-(require 'powerline)
-(powerline-moe-theme)
-(moe-theme-random-color)
-
-(setq powerline-display-buffer-size nil)
+(require 'spaceline-config)
+(spaceline-emacs-theme)
+(setq spaceline-minor-modes-separator " / ")
 
 ;; Font
 (when window-system

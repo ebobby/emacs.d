@@ -27,6 +27,9 @@
                       rainbow-delimiters
                       volatile-highlights
                       yasnippet
+                      grandshell-theme
+                      ample-theme
+                      monokai-theme
                       moe-theme)
 
   "A list of required packages to ensure they are installed at launch.")
