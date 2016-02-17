@@ -59,6 +59,7 @@
 (require 'my-magit)
 (require 'my-helm)
 (require 'my-ruby)
+(require 'my-js)
 
 ;; Load UI after everything else.
 (require 'my-ui)
