@@ -11,12 +11,7 @@
 (require-packages '(exec-path-from-shell))
 
 (require 'exec-path-from-shell)
-(when (memq window-system '(mac ns))
-  (exec-path-from-shell-initialize))
-
-;; execution path so homebrew binaries work
-(setq exec-path (append exec-path '("/usr/local/bin")))
-(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+(exec-path-from-shell-initialize)
 
 (provide 'my-osx)
 
