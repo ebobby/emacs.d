@@ -33,6 +33,11 @@
   (untabify-buffer)
   (delete-trailing-whitespace))
 
+(defun my-recompile-emacs (&optional FORCE)
+  "Recompile Emacs configuration."
+  (interactive)
+  (byte-recompile-directory root-dir 0 FORCE))
+
 (provide 'my-functions)
 
 ;;; my-functions.el ends here
