@@ -4,7 +4,7 @@
 
 ;;; Code:
 
-(require-packages '(js2-mode json-mode))
+(require-packages '(js2-mode tern company-tern))
 
 (require 'js2-mode)
 
@@ -12,13 +12,17 @@
 (add-to-list 'auto-mode-alist '("\\.pac\\'"   . js2-mode))
 (add-to-list 'interpreter-mode-alist '("node" . js2-mode))
 
-(add-hook 'js2-mode-hook '(lambda ()
-                            ;; electric-layout-mode doesn't play nice with smartparens
-                            (setq-local electric-layout-rules '((?\; . after)))
-                            (setq mode-name "JS2")
-                            (js2-imenu-extras-mode +1)))
-
 (setq-default js2-basic-offset 2)
+
+(defun setup-js2 ()
+  ;; electric-layout-mode doesn't play nice with smartparens
+  (setq-local electric-layout-rules '((?\; . after)))
+  (js2-imenu-extras-mode +1)
+  (tern-mode t)
+  (unless (member 'company-tern 'company-backends)
+    (add-to-list 'company-backends 'company-tern)))
+
+(add-hook 'js2-mode-hook 'setup-js2)
 
 (provide 'my-js)
 
