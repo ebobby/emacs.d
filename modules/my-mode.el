@@ -9,6 +9,10 @@
 (defvar my-mode-map
   (let ((map (make-sparse-keymap)))
     (define-key map (kbd "<f7>") 'toggle-truncate-lines)
+    (define-key map (kbd "C-c r") 'vr/replace)
+    (define-key map (kbd "C-c q") 'vr/query-replace)
+    (define-key map (kbd "C-x m p") 'move-text-up)
+    (define-key map (kbd "C-x m n") 'move-text-down)
     map))
 
 ;; define minor mode

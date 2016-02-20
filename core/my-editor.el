@@ -79,6 +79,9 @@
 ;; In place editing.
 (require 'iedit)
 
+;; Move blocks of text around
+(require 'move-text)
+
 ;; Revert buffers that change externally
 (global-auto-revert-mode t)
 (diminish 'auto-revert-mode)
@@ -156,6 +159,7 @@
 (windmove-default-keybindings)
 
 (require 'expand-region)
+(require 'visual-regexp)
 
 (require 'anzu)
 (diminish 'anzu-mode)

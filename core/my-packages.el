@@ -11,6 +11,7 @@
 (package-initialize)
 
 (defvar my-packages '(ace-window
+                      ample-theme
                       anzu
                       diff-hl
                       diminish
@@ -18,18 +19,19 @@
                       epl
                       expand-region
                       flycheck
+                      grandshell-theme
                       iedit
-                      smartparens
+                      moe-theme
+                      monokai-theme
+                      move-text
                       org
                       powerline
                       projectile
                       rainbow-delimiters
-                      volatile-highlights
+                      smartparens
                       spaceline
-                      grandshell-theme
-                      ample-theme
-                      monokai-theme
-                      moe-theme)
+                      visual-regexp
+                      volatile-highlights)
 
   "A list of required packages to ensure they are installed at launch.")
 

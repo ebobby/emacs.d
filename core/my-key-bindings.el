@@ -13,6 +13,7 @@
 (global-unset-key (kbd "C-x o"))
 (global-unset-key (kbd "C-x o"))
 (global-unset-key (kbd "C-x k"))
+(global-unset-key (kbd "C-x m"))
 
 (global-set-key (kbd "C-x C-c") 'confirm-exit-emacs)
 (global-set-key (kbd "M-1") 'delete-other-windows)
