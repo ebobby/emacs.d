@@ -28,6 +28,16 @@
   "Turn on `my-mode'."
   (my-mode +1))
 
+;; Make sure this mode has preference over all modes.
+(defadvice load (after give-my-keybindings-priority)
+  "Try to ensure that my keybindings always have priority."
+  (if (not (eq (car (car minor-mode-map-alist)) 'my-mode))
+      (let ((mykeys (assq 'my-mode minor-mode-map-alist)))
+        (assq-delete-all 'my-mode minor-mode-map-alist)
+        (push mykeys minor-mode-map-alist))))
+
+(ad-activate 'load)
+
 (my-global-mode +1)
 
 (diminish 'my-mode)
