@@ -13,7 +13,7 @@
                                   (eldoc-mode +1)
                                   (rainbow-mode +1)
                                   (elisp-slime-nav-mode +1)
-                                  (smartparens-global-strict-mode +1)
+                                  (smartparens-strict-mode +1)
                                   (setq mode-name "ELisp")))
 
 (eval-after-load "elisp-slime-nav"
