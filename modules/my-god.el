@@ -3,7 +3,6 @@
 ;; god-mode configuration
 
 ;;; Code:
-
 (require-packages '(god-mode))
 
 (require 'god-mode)
@@ -16,6 +15,18 @@
 
 (define-key god-local-mode-map (kbd "z") 'repeat)
 (define-key god-local-mode-map (kbd "i") 'god-local-mode)
+
+(defun my-update-cursor ()
+  "Change the cursor when god-mode is on."
+  (when god-local-mode
+    (blink-cursor-mode -1)
+    (set-cursor-color "##3b99fc"))
+  (unless god-local-mode
+    (blink-cursor-mode 1)
+    (set-cursor-color "#00ff00")))
+
+(add-hook 'god-mode-enabled-hook 'my-update-cursor)
+(add-hook 'god-mode-disabled-hook 'my-update-cursor)
 
 (god-mode-all)
 
