@@ -48,8 +48,9 @@
 (global-set-key (kbd "C-x C-r") 'helm-recentf)
 
 (define-key my-mode-map (kbd "C-c f") 'helm-recentf)
-(define-key my-mode-map (kbd "<f2>") 'helm-ag)
-(define-key my-mode-map (kbd "<f3>") 'helm-occur)
+(define-key my-mode-map (kbd "<f2>") 'helm-ag-project-root)
+(define-key my-mode-map (kbd "<f3>") 'helm-do-ag-project-root)
+(define-key my-mode-map (kbd "<f4>") 'helm-occur)
 
 (define-key minibuffer-local-map (kbd "C-c C-l") 'helm-minibuffer-history)
 

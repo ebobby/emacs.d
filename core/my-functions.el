@@ -38,6 +38,16 @@
   (interactive)
   (byte-recompile-directory root-dir 0 FORCE))
 
+(defun helm-ag-projectile-root (&optional ARG)
+  "Search from projectile-project-root` which defaults to current directory if no project."
+  (interactive)
+  (helm-ag (projectile-project-root)))
+
+(defun helm-do-ag-projectile-root (&optional ARG)
+  "Search from projectile-project-root` which defaults to current directory if no project."
+  (interactive)
+  (helm-do-ag (projectile-project-root)))
+
 (provide 'my-functions)
 
 ;;; my-functions.el ends here
