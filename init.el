@@ -57,7 +57,6 @@
 ;; Modules configuration
 (require 'my-company)
 (require 'my-helm)
-(require 'my-god)
 (require 'my-magit)
 (require 'my-elisp)
 (require 'my-ruby)
