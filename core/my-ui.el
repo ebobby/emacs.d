@@ -62,7 +62,7 @@
 
 ;; Font
 (when window-system
-  (set-face-attribute 'default nil :font "Source Code Pro-15")
+  (set-face-attribute 'default nil :font "Source Code Pro-14")
   (toggle-frame-fullscreen))
 
 (provide 'my-ui)
