@@ -66,6 +66,7 @@
 (require 'my-js)
 (require 'my-web)
 (require 'my-rainbow)
+(require 'my-haskell)
 
 ;; Load UI after everything else.
 (require 'my-ui)
