@@ -4,9 +4,10 @@
 
 ;;; Code:
 
-(require-packages '(js2-mode tern company-tern))
+(require-packages '(js2-mode tern company-tern js-comint nvm))
 
 (require 'js2-mode)
+(require 'js-comint)
 
 (add-to-list 'auto-mode-alist '("\\.js\\'"    . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.pac\\'"   . js2-mode))
