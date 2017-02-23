@@ -13,6 +13,7 @@
 (defvar my-packages '(ace-window
                       ample-theme
                       anzu
+                      color-theme-sanityinc-tomorrow
                       diff-hl
                       diminish
                       discover-my-major

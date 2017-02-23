@@ -54,11 +54,11 @@
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
 ;; Theme and fonts
-(load-theme 'grandshell t)
+(color-theme-sanityinc-tomorrow-eighties)
 
 (require 'spaceline-config)
 (spaceline-emacs-theme)
-(setq spaceline-minor-modes-separator " / ")
+(spaceline-helm-mode)
 
 ;; Font
 (when window-system
