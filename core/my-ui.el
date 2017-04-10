@@ -54,7 +54,7 @@
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
 ;; Theme and fonts
-(load-theme 'sanityinc-tomorrow-eighties t)
+(load-theme 'leuven t)
 
 (require 'spaceline-config)
 (spaceline-emacs-theme)
