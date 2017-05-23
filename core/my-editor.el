@@ -149,6 +149,9 @@
 (sp-use-paredit-bindings)
 (show-smartparens-global-mode +1)
 
+(with-eval-after-load 'flycheck
+  (flycheck-pos-tip-mode))
+
 (diminish 'flycheck-mode)
 (diminish 'smartparens-mode)
 
