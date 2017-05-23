@@ -20,6 +20,7 @@
                       epl
                       expand-region
                       flycheck
+                      flycheck-pos-tip
                       grandshell-theme
                       iedit
                       moe-theme
