@@ -74,8 +74,7 @@ PACKAGE is installed only if not already present.  The file is opened in MODE."
                                  (,mode)))))
 
 (defvar auto-install-alist
-  '(("\\.clj\\'" clojure-mode clojure-mode)
-    ("\\.coffee\\'" coffee-mode coffee-mode)
+  '(("\\.coffee\\'" coffee-mode coffee-mode)
     ("\\.css\\'" css-mode css-mode)
     ("\\.csv\\'" csv-mode csv-mode)
     ("\\.elm\\'" elm-mode elm-mode)
