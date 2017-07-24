@@ -61,6 +61,7 @@
 (require 'my-company)
 (require 'my-helm)
 (require 'my-magit)
+(require 'my-lisp)
 (require 'my-elisp)
 (require 'my-ruby)
 (require 'my-js)
