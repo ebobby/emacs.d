@@ -4,20 +4,22 @@
 
 ;;; Code:
 
-(require-packages '(clojure-mode cider flycheck-clojure))
+(require-packages '(clojure-mode cider clj-refactor clojure-snippets))
 
 ;; Clojure
- (require 'clojure-mode)
+(require 'clojure-mode)
+(require 'clj-refactor)
 
 (add-hook 'clojure-mode-hook (lambda ()
-                               (smartparens-strict-mode +1)))
-
-(eval-after-load 'flycheck '(flycheck-clojure-setup))
+                               (smartparens-strict-mode +1)
+                               (clj-refactor-mode +1)
+                               (clj-add-keybindings-with-prefix "C-c C-m")))
 
 (eval-after-load 'cider
   '(progn
      (setq nrepl-log-messages t)
      (add-hook 'cider-mode-hook 'eldoc-mode)))
+
 
 (provide 'my-clojure)
 
