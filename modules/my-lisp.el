@@ -4,7 +4,7 @@
 
 ;;; Code:
 
-(require-packages '(slime))
+(require-packages '(slime common-lisp-snippets))
 
 ;; Common Lisp
 (require 'slime)

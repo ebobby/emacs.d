@@ -30,6 +30,7 @@
                                          try-complete-file-name
                                          try-expand-all-abbrevs
                                          try-expand-list
+                                         yas-hippie-try-expand
                                          try-expand-line
                                          try-complete-lisp-symbol-partially
                                          try-complete-lisp-symbol))
@@ -156,6 +157,8 @@
 (diminish 'smartparens-mode)
 
 (add-hook 'prog-mode-hook (lambda ()
+                            (yas-reload-all)
+                            (yas-minor-mode)
                             (rainbow-delimiters-mode +1)
                             (flycheck-mode +1)
                             (linum-mode +1)

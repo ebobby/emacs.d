@@ -4,7 +4,7 @@
 
 ;;; Code:
 
-(require-packages '(helm helm-projectile helm-ag helm-descbinds))
+(require-packages '(helm helm-projectile helm-ag helm-descbinds helm-c-yasnippet))
 
 (require 'helm-config)
 (require 'helm-projectile)
@@ -46,6 +46,7 @@
 (global-set-key (kbd "C-h r") 'helm-info-emacs)
 (global-set-key (kbd "C-h C-l") 'helm-locate-library)
 (global-set-key (kbd "C-x C-r") 'helm-recentf)
+(global-set-key (kbd "C-c y") 'helm-yas-complete)
 
 (define-key my-mode-map (kbd "C-c f") 'helm-recentf)
 (define-key my-mode-map (kbd "<f2>") 'helm-ag-projectile-root)

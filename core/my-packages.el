@@ -23,6 +23,7 @@
                       flycheck-pos-tip
                       grandshell-theme
                       iedit
+                      markdown-mode
                       moe-theme
                       monokai-theme
                       move-text
@@ -33,7 +34,8 @@
                       smartparens
                       spaceline
                       visual-regexp
-                      volatile-highlights)
+                      volatile-highlights
+                      yasnippet)
 
   "A list of required packages to ensure they are installed at launch.")
 
