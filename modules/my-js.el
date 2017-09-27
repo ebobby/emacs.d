@@ -21,6 +21,7 @@
   (setq-local electric-layout-rules '((?\; . after)))
   (js2-imenu-extras-mode +1)
   (tern-mode t)
+  (make-local-variable 'company-backends)
   (unless (member 'company-tern 'company-backends)
     (add-to-list 'company-backends 'company-tern)))
 
