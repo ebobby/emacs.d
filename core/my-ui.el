@@ -36,7 +36,7 @@
 (defconst query-replace-highlight t)
 
 ;; Nice scrolling
-(setq scroll-margin 0
+(setq scroll-margin 10
       scroll-conservatively 100000
       scroll-preserve-screen-position 1)
 
@@ -62,7 +62,7 @@
 
 ;; Font
 (when window-system
-  (set-face-attribute 'default nil :font "Ubuntu Mono-14")
+  (set-face-attribute 'default nil :font "Ubuntu Mono-16")
   (toggle-frame-fullscreen))
 
 (provide 'my-ui)
