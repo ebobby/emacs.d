@@ -23,6 +23,7 @@
 (global-set-key (kbd "M-o") 'ace-window)
 (global-set-key (kbd "M-k") 'kill-this-buffer)
 (global-set-key (kbd "C-=") 'er/expand-region)
+(global-set-key (kbd "C--") 'er/contract-region)
 (global-set-key (kbd "C-c m") 'discover-my-major)
 (global-set-key (kbd "C-|") 'hippie-expand)
 
