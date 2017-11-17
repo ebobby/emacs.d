@@ -160,10 +160,12 @@
                             (yas-reload-all)
                             (yas-minor-mode)
                             (rainbow-delimiters-mode +1)
+                            (imenu-add-menubar-index)
                             (flycheck-mode +1)
                             (linum-mode +1)
                             (toggle-truncate-lines +1)
                             (smartparens-mode +1)))
+
 ;; Nice window navigation
 (require 'windmove)
 (windmove-default-keybindings)
