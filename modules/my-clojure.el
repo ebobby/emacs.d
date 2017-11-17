@@ -4,7 +4,11 @@
 
 ;;; Code:
 
-(require-packages '(clojure-mode cider clj-refactor clojure-snippets))
+(require-packages '(clojure-mode
+                    cider
+                    inf-clojure
+                    clj-refactor
+                    clojure-snippets))
 
 ;; Clojure
 (require 'clojure-mode)
