@@ -15,6 +15,7 @@
     (define-key map (kbd "C-x m p") 'move-text-up)
     (define-key map (kbd "C-x m n") 'move-text-down)
     (define-key map (kbd "<s-backspace>") 'backward-kill-word)
+    (define-key map (kbd "C-z") 'repeat)
     map))
 
 ;; define minor mode
