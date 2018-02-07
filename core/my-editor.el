@@ -97,7 +97,9 @@
 (require 'flyspell)
 (setq-default ispell-program-name "aspell" ispell-extra-args '("--sug-mode=ultra"))
 (add-hook 'text-mode-hook (lambda () (flyspell-mode +1)))
-(add-hook 'org-mode-hook (lambda () (flyspell-mode +1)))
+(add-hook 'org-mode-hook (lambda ()
+                           (flyspell-mode +1)
+                           (auto-fill-mode +1)))
 (diminish 'flyspell-mode)
 
 ;; hi-lock
@@ -162,7 +164,8 @@
                             (yas-reload-all)
                             (yas-minor-mode)
                             (rainbow-delimiters-mode +1)
-                            (imenu-add-menubar-index)
+                            (ignore-errors
+                              (imenu-add-menubar-index))
                             (flycheck-mode +1)
                             (linum-mode +1)
                             (toggle-truncate-lines +1)
