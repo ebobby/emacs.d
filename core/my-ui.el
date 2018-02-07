@@ -54,7 +54,7 @@
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
 ;; Theme and fonts
-(load-theme 'leuven t)
+(load-theme 'monokai t)
 
 (require 'spaceline-config)
 (spaceline-emacs-theme)
