@@ -4,13 +4,12 @@
 
 ;;; Code:
 
-(require-packages '(web-mode rainbow-mode))
+(require-packages '(web-mode))
 
 (require 'web-mode)
 
 ;; Rainbow mode
 (add-hook 'web-mode-hook (lambda () (rainbow-mode 1)))
-(diminish 'rainbow-mode)
 
 ;; Web mode
 (setq web-mode-markup-indent-offset 2)

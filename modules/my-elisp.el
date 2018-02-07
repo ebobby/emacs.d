@@ -18,8 +18,6 @@
 
 (eval-after-load "elisp-slime-nav"
   '(diminish 'elisp-slime-nav-mode))
-(eval-after-load "rainbow-mode"
-  '(diminish 'rainbow-mode))
 (eval-after-load "eldoc"
   '(diminish 'eldoc-mode))
 

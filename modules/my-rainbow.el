@@ -6,9 +6,13 @@
 
 (require-packages '(rainbow-mode))
 
-(add-hook 'css-mode-hook  (lambda () (rainbow-mode 1)))
-(add-hook 'html-mode-hook (lambda () (rainbow-mode 1)))
-(add-hook 'sass-mode-hook (lambda () (rainbow-mode 1)))
+(defun enable-rainbow ()
+  (rainbow-mode +1))
+
+(add-hook 'css-mode-hook  'enable-rainbow)
+(add-hook 'html-mode-hook 'enable-rainbow)
+(add-hook 'sass-mode-hook 'enable-rainbow)
+(add-hook 'scss-mode-hook 'enable-rainbow)
 
 (provide 'my-rainbow)
 

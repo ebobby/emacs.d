@@ -31,6 +31,7 @@
                       powerline
                       projectile
                       rainbow-delimiters
+                      rainbow-mode
                       smartparens
                       spaceline
                       visual-regexp
