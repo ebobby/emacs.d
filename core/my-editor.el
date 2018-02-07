@@ -143,6 +143,7 @@
 (require 'rainbow-delimiters)
 (require 'flycheck)
 (require 'smartparens-config)
+(require 'yasnippet)
 
 (setq sp-base-key-bindings 'paredit)
 (setq sp-autoskip-closing-pair 'always)
@@ -155,6 +156,7 @@
 
 (diminish 'flycheck-mode)
 (diminish 'smartparens-mode)
+(diminish 'yas-minor-mode)
 
 (add-hook 'prog-mode-hook (lambda ()
                             (yas-reload-all)
