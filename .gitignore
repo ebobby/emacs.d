@@ -6,4 +6,8 @@ image-dired/*
 tramp
 savefile/*
 backup/*
+eshell/*
+url/*
+.mc-lists.el
+.org-id-locations
 **/*.elc
