@@ -18,6 +18,7 @@
 (global-unset-key (kbd "C-x TAB"))
 (global-unset-key (kbd "C-c C-h"))
 (global-unset-key (kbd "C-x C-r"))
+(global-unset-key (kbd "s-n"))
 
 (global-set-key (kbd "C-x C-c") 'confirm-exit-emacs)
 (global-set-key (kbd "M-1") 'delete-other-windows)
