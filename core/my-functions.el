@@ -51,14 +51,27 @@
 (defun my-install-official-docset (docset)
   "Download dash official DOCSET unless it already exists."
   (interactive)
-  (unless (helm-dash-docset-installed-p docset)
-    (helm-dash-install-docset docset)))
+  (my-install-docset 'helm-dash-install-docset docset))
 
 (defun my-install-user-docset (docset)
   "Download dash user DOCSET unless it already exists."
   (interactive)
-  (unless (helm-dash-docset-installed-p docset)
-    (helm-dash-install-user-docset docset)))
+  (my-install-docset 'helm-dash-install-user-docset docset))
+
+(defun my-install-docset (install-fn docset)
+  "Will use INSTALL-FN to install DOCSET unless DOCSET is already installed."
+  (let ((possible-docsets (list docset))
+        (parts (split-string docset "_")))
+    ;; Sometimes spaces are underscores or the other way around
+    (when (> (length parts) 1)
+      (add-to-list 'possible-docsets (string-join parts " "))
+      ;; Sometimes versions numbers confuse helm-dash-docset-installed-p
+      (when (> (string-to-number (car (last parts))) 0)
+        (add-to-list 'possible-docsets (string-join (butlast parts) "_"))
+        (add-to-list 'possible-docsets (string-join (butlast parts) " "))))
+    (message (format "Checking for docset: %s, possible docsets: %s" docset possible-docsets))
+    (unless (some (symbol-function 'helm-dash-docset-installed-p) possible-docsets)
+      (funcall (symbol-function install-fn) docset))))
 
 (defmacro with-overwritten-function (f1 f2 &rest body)
   "Overwrite F1 with F2 while running BODY."
