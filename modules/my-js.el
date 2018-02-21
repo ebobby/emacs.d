@@ -6,6 +6,13 @@
 
 (require-packages '(js2-mode tern company-tern js-comint nvm))
 
+;; Install Javascript relevant dash docsets
+(my-install-official-docset "JavaScript")
+(my-install-official-docset "React")
+(my-install-official-docset "NodeJS")
+(my-install-official-docset "jQuery")
+(my-install-user-docset "Redux")
+
 (require 'js2-mode)
 (require 'js-comint)
 
@@ -17,6 +24,7 @@
 (setq-default js2-basic-offset 2)
 
 (defun setup-js2 ()
+  (setq-local helm-dash-docsets '("JavaScript" "React" "NodeJS" "jQuery" "Redux"))
   ;; electric-layout-mode doesn't play nice with smartparens
   (setq-local electric-layout-rules '((?\; . after)))
   (js2-imenu-extras-mode +1)

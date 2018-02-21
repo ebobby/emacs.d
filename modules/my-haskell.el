@@ -9,9 +9,14 @@
 ;; Haskell
 (require 'haskell-mode)
 
-(add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
-(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
-(add-hook 'haskell-mode-hook 'intero-mode)
+;; Install Haskell dash docset
+(my-install-official-docset "Haskell")
+
+(add-hook 'haskell-mode-hook (lambda ()
+                               (setq-local helm-dash-docsets '("Haskell"))
+                               (haskell-indentation-mode 1)
+                               (haskell-doc-mode 1)
+                               (intero-mode 1)))
 
 (provide 'my-haskell)
 
