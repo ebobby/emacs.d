@@ -208,6 +208,12 @@
 ;; keep in mind known issues with zsh - see emacs wiki
 (setq tramp-default-method "ssh")
 
+(require 'helm-dash)
+(setq helm-dash-docsets-path (expand-file-name "dash-docsets" savefile-dir))
+(setq helm-dash-min-length 2)
+(setq helm-dash-browser-func (lambda (path)
+                               (with-overwritten-function pop-to-buffer-same-window pop-to-buffer
+                                                          (eww-browse-url path))))
 (provide 'my-editor)
 
 ;;; my-editor.el ends here

@@ -5,6 +5,8 @@ recentf
 image-dired/*
 tramp
 savefile/*
+!savefile/dash-docsets/
+savefile/dash-docsets/*
 backup/*
 eshell/*
 url/*

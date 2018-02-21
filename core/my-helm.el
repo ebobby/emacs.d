@@ -4,8 +4,6 @@
 
 ;;; Code:
 
-(require-packages '(helm helm-projectile helm-ag helm-descbinds helm-c-yasnippet))
-
 (require 'helm-config)
 (require 'helm-projectile)
 
@@ -36,16 +34,18 @@
 ;; cannot change `helm-command-prefix-key' once `helm-config' is loaded.
 (global-set-key (kbd "C-c h") 'helm-command-prefix)
 
-(global-set-key (kbd "C-h C-i") 'helm-imenu)
-(global-set-key (kbd "C-h C-l") 'helm-locate-library)
-(global-set-key (kbd "C-h C-r") 'helm-recentf)
 (global-set-key (kbd "C-h f") 'helm-apropos)
 (global-set-key (kbd "C-h r") 'helm-info-emacs)
 (global-set-key (kbd "C-h y") 'helm-yas-complete)
+(global-set-key (kbd "C-h d") 'helm-dash)
+(global-set-key (kbd "C-x b") 'helm-mini)
+(global-set-key (kbd "C-h C-i") 'helm-imenu)
+(global-set-key (kbd "C-h C-d") 'helm-dash-at-point)
+(global-set-key (kbd "C-h C-l") 'helm-locate-library)
+(global-set-key (kbd "C-h C-r") 'helm-recentf)
 (global-set-key (kbd "C-x C-b") 'helm-buffers-list)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "C-x C-m") 'helm-M-x)
-(global-set-key (kbd "C-x b") 'helm-mini)
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
 
 (define-key my-mode-map (kbd "<f2>") 'helm-ag-projectile-root)

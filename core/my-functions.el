@@ -48,6 +48,23 @@
   (interactive)
   (helm-do-ag (projectile-project-root)))
 
+(defun my-install-official-docset (docset)
+  "Download dash official DOCSET unless it already exists."
+  (interactive)
+  (unless (helm-dash-docset-installed-p docset)
+    (helm-dash-install-docset docset)))
+
+(defun my-install-user-docset (docset)
+  "Download dash user DOCSET unless it already exists."
+  (interactive)
+  (unless (helm-dash-docset-installed-p docset)
+    (helm-dash-install-user-docset docset)))
+
+(defmacro with-overwritten-function (f1 f2 &rest body)
+  "Overwrite F1 with F2 while running BODY."
+  `(letf (((symbol-function ,f1) (symbol-function ,f2)))
+     ,@body))
+
 (provide 'my-functions)
 
 ;;; my-functions.el ends here
