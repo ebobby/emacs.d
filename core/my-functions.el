@@ -75,7 +75,7 @@
 
 (defmacro with-overwritten-function (f1 f2 &rest body)
   "Overwrite F1 with F2 while running BODY."
-  `(letf (((symbol-function ,f1) (symbol-function ,f2)))
+  `(letf (((symbol-function ',f1) (symbol-function ',f2)))
      ,@body))
 
 (provide 'my-functions)
