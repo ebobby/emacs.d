@@ -29,7 +29,6 @@
                       helm
                       helm-ag
                       helm-c-yasnippet
-                      helm-dash
                       helm-descbinds
                       helm-projectile
                       move-text

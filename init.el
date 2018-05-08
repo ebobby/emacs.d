@@ -70,8 +70,7 @@
 (require 'my-haskell)
 (require 'my-clojure)
 
-;; Load UI and documentations after everything else.
-(require 'my-dash)
+;; Load UI after everything else.
 (require 'my-ui)
 
 ;;; init.el ends here

@@ -6,16 +6,10 @@
 
 (require-packages '(web-mode))
 
-;; Install Web Development relevant dash docsets
-(my-install-official-docset "Bootstrap_4")
-(my-install-official-docset "CSS")
-(my-install-official-docset "HTML")
-
 (require 'web-mode)
 
 ;; Rainbow mode
 (add-hook 'web-mode-hook (lambda ()
-                           (setq-local helm-dash-docsets '("Bootstrap 4" "CSS" "HTML"))
                            (rainbow-mode 1)))
 
 ;; Web mode
