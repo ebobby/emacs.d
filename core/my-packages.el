@@ -13,10 +13,12 @@
 (defvar my-packages '(ace-window
                       ample-theme
                       anzu
+                      cherry-blossom-theme
                       color-theme-sanityinc-tomorrow
                       diff-hl
                       diminish
                       discover-my-major
+                      dracula-theme
                       epl
                       expand-region
                       flycheck

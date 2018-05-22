@@ -54,16 +54,15 @@
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
 ;; Theme and fonts
-(load-theme 'monokai t)
+(load-theme 'dracula t)
 
 (require 'spaceline-config)
-(spaceline-emacs-theme)
+(spaceline-spacemacs-theme)
 (spaceline-helm-mode)
 
 ;; Font
 (when window-system
-  (set-face-attribute 'default nil :font "Ubuntu Mono-16")
-  (toggle-frame-fullscreen))
+  (set-face-attribute 'default nil :font "Fantasque Sans Mono-12"))
 
 (provide 'my-ui)
 
