@@ -3,7 +3,7 @@
 
 (package-initialize)
 
-1;; Load everything up.
+;; Load everything up.
 
 ;;; Code:
 
