@@ -25,6 +25,7 @@
                       flycheck-pos-tip
                       grandshell-theme
                       iedit
+                      imenu-list
                       markdown-mode
                       moe-theme
                       monokai-theme
@@ -45,7 +46,6 @@
                       volatile-highlights
                       yasnippet
                       yasnippet-snippets)
-
   "A list of required packages to ensure they are installed at launch.")
 
 (defun require-package (package)
