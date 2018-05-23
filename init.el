@@ -69,6 +69,7 @@
 (require 'my-rainbow)
 (require 'my-haskell)
 (require 'my-clojure)
+(require 'my-org)
 
 ;; Load UI after everything else.
 (require 'my-ui)
