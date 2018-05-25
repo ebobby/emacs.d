@@ -193,6 +193,7 @@
 (setq projectile-cache-file (expand-file-name  "projectile.cache" savefile-dir))
 (setq projectile-require-project-root nil)
 (setq projectile-mode-line '(:eval (format " Project[%s]" (projectile-project-name))))
+(setq projectile-known-projects-file (expand-file-name "projectile-bookmarks.eld" savefile-dir))
 (projectile-mode t)
 
 (require 'uniquify)
@@ -205,8 +206,12 @@
 (global-hl-line-mode +1)
 
 (require 'tramp)
+(require 'tramp-cache)
 ;; keep in mind known issues with zsh - see emacs wiki
 (setq tramp-default-method "ssh")
+(setq tramp-persistency-file-name (expand-file-name "tramp" savefile-dir))
+
+(setq bookmark-default-file (expand-file-name "bookmarks" savefile-dir))
 
 (provide 'my-editor)
 
