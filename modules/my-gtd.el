@@ -11,8 +11,8 @@
 
 (setq org-agenda-files
       (list "~/Dropbox/gtd/inbox.org"
-            "~/Dropbox/gtd/projects.org"
             "~/Dropbox/gtd/carezone.org"
+            "~/Dropbox/gtd/projects.org"
             "~/Dropbox/gtd/tickler.org"))
 
 (setq org-capture-templates '(("t" "Todo [inbox]" entry
