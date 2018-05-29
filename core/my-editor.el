@@ -83,7 +83,8 @@
 ;; Move blocks of text around
 (require 'move-text)
 
-;;
+;; Subword mode
+(require 'subword)
 (diminish 'subword-mode)
 
 ;; Revert buffers that change externally
