@@ -1,4 +1,4 @@
-x;;; my-gtd.el --- All about GTD
+;;; my-gtd.el --- All about GTD
 ;;; Commentary:
 ;; Configure everything about GTD
 
