@@ -3,9 +3,8 @@
 ;; Helm configuration
 
 ;;; Code:
-
+(require 'helm)
 (require 'helm-config)
-(require 'helm-projectile)
 
 (when (executable-find "curl")
   (setq helm-net-prefer-curl t))
@@ -15,7 +14,6 @@
 (setq helm-split-window-in-side-p           t
       helm-mode-fuzzy-match                 t
       helm-completion-in-region-fuzzy-match t
-      helm-projectile-fuzzy-match           t
       helm-recentf-fuzzy-match              t
       helm-buffers-fuzzy-matching           t
       helm-locate-fuzzy-match               t
@@ -46,8 +44,12 @@
 (global-set-key (kbd "C-x C-m") 'helm-M-x)
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
 
-(define-key my-mode-map (kbd "<f2>") 'helm-ag-projectile-root)
-(define-key my-mode-map (kbd "<f3>") 'helm-do-ag-projectile-root)
+;; Projects
+(global-set-key (kbd "C-c p f") 'helm-browse-project)
+
+;; Searching
+(define-key my-mode-map (kbd "<f2>") 'helm-ag-project-root)
+(define-key my-mode-map (kbd "<f3>") 'helm-do-ag-project-root)
 (define-key my-mode-map (kbd "<f4>") 'helm-occur)
 
 (define-key minibuffer-local-map (kbd "C-c C-l") 'helm-minibuffer-history)
@@ -60,12 +62,8 @@
 (define-key helm-map (kbd "C-z") 'helm-select-action) ; list actions using C-z
 
 (substitute-key-definition 'find-tag 'helm-etags-select global-map)
-(setq projectile-completion-system 'helm)
 (helm-descbinds-mode)
 (helm-mode 1)
-
-;; enable Helm version of Projectile with replacment commands
-(helm-projectile-on)
 
 ;; Configuration
 (setq helm-exit-idle-delay 0) ; If this is higher helm can't keep up with my typing.

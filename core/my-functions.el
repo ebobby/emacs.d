@@ -38,15 +38,13 @@
   (interactive)
   (byte-recompile-directory root-dir 0 FORCE))
 
-(defun helm-ag-projectile-root (&optional ARG)
-  "Search from projectile-project-root` which defaults to current directory if no project."
+(defun helm-ag-project-root (&optional ARG)
   (interactive)
-  (helm-ag (projectile-project-root)))
+  (helm-ag (helm-ls-git-root-dir)))
 
-(defun helm-do-ag-projectile-root (&optional ARG)
-  "Search from projectile-project-root` which defaults to current directory if no project."
+(defun helm-do-ag-project-root (&optional ARG)
   (interactive)
-  (helm-do-ag (projectile-project-root)))
+  (helm-do-ag (helm-ls-git-root-dir)))
 
 (defmacro with-overwritten-function (f1 f2 &rest body)
   "Overwrite F1 with F2 while running BODY."

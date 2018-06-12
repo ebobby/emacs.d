@@ -33,11 +33,10 @@
                       helm-ag
                       helm-c-yasnippet
                       helm-descbinds
-                      helm-projectile
+                      helm-ls-git
                       move-text
                       org
                       powerline
-                      projectile
                       rainbow-delimiters
                       rainbow-mode
                       smartparens
