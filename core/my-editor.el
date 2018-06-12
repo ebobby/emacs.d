@@ -207,6 +207,9 @@
 
 (setq bookmark-default-file (expand-file-name "bookmarks" savefile-dir))
 
+;; Dumb jump
+(dumb-jump-mode)
+
 (provide 'my-editor)
 
 ;;; my-editor.el ends here

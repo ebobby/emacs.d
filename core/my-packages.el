@@ -19,21 +19,22 @@
                       diminish
                       discover-my-major
                       dracula-theme
+                      dumb-jump
                       epl
                       expand-region
                       flycheck
                       flycheck-pos-tip
                       grandshell-theme
-                      iedit
-                      imenu-list
-                      markdown-mode
-                      moe-theme
-                      monokai-theme
                       helm
                       helm-ag
                       helm-c-yasnippet
                       helm-descbinds
                       helm-ls-git
+                      iedit
+                      imenu-list
+                      markdown-mode
+                      moe-theme
+                      monokai-theme
                       move-text
                       org
                       powerline
