@@ -4,7 +4,7 @@
 
 ;;; Code:
 
-(require-packages '(rbenv ruby-tools projectile-rails inf-ruby yari))
+(require-packages '(rbenv ruby-tools inf-ruby yari))
 
 ;; Ruby
 (require 'ruby-mode)
@@ -25,9 +25,6 @@
 ;; Ruby tools
 (require 'ruby-tools)
 (diminish 'ruby-tools-mode)
-
-;; Ruby projects
-(add-hook 'projectile-mode-hook 'projectile-rails-on)
 
 (add-hook 'ruby-mode-hook (lambda ()
                             (inf-ruby-minor-mode +1)

@@ -190,13 +190,6 @@
 (require 'ediff)
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 
-(require 'projectile)
-(setq projectile-cache-file (expand-file-name  "projectile.cache" savefile-dir))
-(setq projectile-require-project-root nil)
-(setq projectile-mode-line '(:eval (format " Project[%s]" (projectile-project-name))))
-(setq projectile-known-projects-file (expand-file-name "projectile-bookmarks.eld" savefile-dir))
-(projectile-mode t)
-
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
 (setq uniquify-separator "/")
