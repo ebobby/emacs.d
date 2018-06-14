@@ -51,6 +51,11 @@
   `(letf (((symbol-function ',f1) (symbol-function ',f2)))
      ,@body))
 
+(defun helm-project-kill-buffers ()
+  (interactive)
+  (mapcar 'kill-buffer
+          (helm-browse-project-get-buffers (helm-ls-git-root-dir))))
+
 (provide 'my-functions)
 
 ;;; my-functions.el ends here

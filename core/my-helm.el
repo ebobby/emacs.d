@@ -46,6 +46,7 @@
 
 ;; Projects
 (global-set-key (kbd "C-c p f") 'helm-browse-project)
+(global-set-key (kbd "C-c p k") 'helm-project-kill-buffers)
 
 ;; Searching
 (define-key my-mode-map (kbd "<f2>") 'helm-ag-project-root)
