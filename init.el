@@ -70,6 +70,7 @@
 (require 'my-haskell)
 (require 'my-clojure)
 (require 'my-gtd)
+(require 'my-markdown)
 
 ;; Load UI after everything else.
 (require 'my-ui)

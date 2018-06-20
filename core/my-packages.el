@@ -32,7 +32,6 @@
                       helm-ls-git
                       iedit
                       imenu-list
-                      markdown-mode
                       moe-theme
                       monokai-theme
                       move-text
@@ -99,7 +98,6 @@ PACKAGE is installed only if not already present.  The file is opened in MODE."
     ("\\.latex\\'" auctex LaTeX-mode)
     ("\\.less\\'" less-css-mode less-css-mode)
     ("\\.lua\\'" lua-mode lua-mode)
-    ("\\.markdown\\'" markdown-mode markdown-mode)
     ("\\.md\\'" markdown-mode markdown-mode)
     ("\\.php\\'" php-mode php-mode)
     ("\\.rs\\'" rust-mode rust-mode)
@@ -111,12 +109,6 @@ PACKAGE is installed only if not already present.  The file is opened in MODE."
     ("\\.textile\\'" textile-mode textile-mode)
     ("\\.yml\\'" yaml-mode yaml-mode)
     ("\\.yaml\\'" yaml-mode yaml-mode)))
-
-;; markdown-mode doesn't have autoloads for the auto-mode-alist
-;; so we add them manually if it's already installed
-(when (package-installed-p 'markdown-mode)
-  (add-to-list 'auto-mode-alist '("\\.markdown\\'" . 'markdown-mode))
-  (add-to-list 'auto-mode-alist '("\\.md\\'" . 'markdown-mode)))
 
 ;; build auto-install mappings
 (mapc
