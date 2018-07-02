@@ -5,6 +5,7 @@
 ;;; Code:
 (require 'helm)
 (require 'helm-config)
+(require 'helm-ls-git)
 
 (when (executable-find "curl")
   (setq helm-net-prefer-curl t))
