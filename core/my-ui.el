@@ -57,12 +57,13 @@
 (load-theme 'dracula t)
 
 (require 'spaceline-config)
-(spaceline-spacemacs-theme)
+(powerline-default-theme)
 (spaceline-helm-mode)
 
 ;; Font
 (when window-system
-  (set-face-attribute 'default nil :font "Fantasque Sans Mono-12"))
+  (my-transparency 95)
+  (set-face-attribute 'default nil :font "Fira Mono-11"))
 
 (provide 'my-ui)
 
