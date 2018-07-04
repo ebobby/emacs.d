@@ -57,7 +57,7 @@
 (load-theme 'dracula t)
 
 (require 'spaceline-config)
-(powerline-default-theme)
+(spaceline-spacemacs-theme)
 (spaceline-helm-mode)
 
 ;; Font
