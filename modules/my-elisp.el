@@ -9,7 +9,7 @@
 (define-key emacs-lisp-mode-map (kbd "C-c C-c") 'eval-defun)
 (define-key emacs-lisp-mode-map (kbd "C-c C-b") 'eval-buffer)
 
-(add-hook 'emacs-elisp-mode-hook (lambda ()
+(add-hook 'emacs-lisp-mode-hook (lambda ()
                                    (eldoc-mode +1)
                                    (rainbow-mode +1)
                                    (elisp-slime-nav-mode +1)
