@@ -15,6 +15,7 @@
                       anzu
                       cherry-blossom-theme
                       color-theme-sanityinc-tomorrow
+                      darktooth-theme
                       diff-hl
                       diminish
                       discover-my-major

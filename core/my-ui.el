@@ -54,10 +54,11 @@
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
 ;; Theme and fonts
-(load-theme 'dracula t)
+(require 'darktooth-theme)
+(load-theme 'darktooth t)
 
 (require 'spaceline-config)
-(spaceline-spacemacs-theme)
+(darktooth-modeline)
 (spaceline-helm-mode)
 
 ;; Font
