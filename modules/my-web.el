@@ -8,7 +8,6 @@
 
 (require 'web-mode)
 
-;; Rainbow mode
 (add-hook 'web-mode-hook (lambda ()
                            (rainbow-mode 1)))
 

@@ -143,7 +143,6 @@
 ;; autofill
 (setq-default fill-column 80)
 
-(require 'rainbow-delimiters)
 (require 'flycheck)
 (require 'smartparens-config)
 (require 'yasnippet)
@@ -164,7 +163,6 @@
 (add-hook 'prog-mode-hook (lambda ()
                             (yas-reload-all)
                             (yas-minor-mode)
-                            (rainbow-delimiters-mode +1)
                             (ignore-errors
                               (imenu-add-menubar-index))
                             (flycheck-mode +1)

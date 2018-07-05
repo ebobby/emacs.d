@@ -4,7 +4,7 @@
 
 ;;; Code:
 
-(require-packages '(rainbow-mode elisp-slime-nav))
+(require-packages '(elisp-slime-nav))
 
 (define-key emacs-lisp-mode-map (kbd "C-c C-c") 'eval-defun)
 (define-key emacs-lisp-mode-map (kbd "C-c C-b") 'eval-buffer)

@@ -38,8 +38,6 @@
                       move-text
                       org
                       powerline
-                      rainbow-delimiters
-                      rainbow-mode
                       smartparens
                       spaceline
                       visual-regexp

@@ -4,10 +4,19 @@
 
 ;;; Code:
 
-(require-packages '(rainbow-mode))
+(require-packages '(rainbow-mode rainbow-delimiters rainbow-identifiers))
+
+(require 'rainbow-delimiters)
+(require 'rainbow-identifiers)
 
 (defun enable-rainbow ()
   (rainbow-mode +1))
+
+(defun enable-rainbow-prog ()
+  (rainbow-delimiters-mode +1)
+  (rainbow-identifiers-mode +1))
+
+(add-hook 'prog-mode-hook 'enable-rainbow-prog)
 
 (add-hook 'css-mode-hook  'enable-rainbow)
 (add-hook 'html-mode-hook 'enable-rainbow)
