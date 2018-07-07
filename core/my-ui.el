@@ -64,7 +64,7 @@
 ;; Font
 (when window-system
   (my-transparency 95)
-  (set-face-attribute 'default nil :font "Fira Mono-11"))
+  (set-face-attribute 'default nil :font "Fira Mono-10"))
 
 (provide 'my-ui)
 
