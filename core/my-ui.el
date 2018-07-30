@@ -54,12 +54,14 @@
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
 ;; Theme and fonts
-(require 'darktooth-theme)
-(load-theme 'darktooth t)
+(load-theme 'dracula t)
+
+(require 'airline-themes)
+(load-theme 'airline-kolor t)
+(airline-themes-set-modeline)
 
 (require 'spaceline-config)
-(darktooth-modeline)
-(spaceline-helm-mode)
+;(spaceline-helm-mode)
 
 ;; Font
 (when window-system
