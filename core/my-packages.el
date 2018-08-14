@@ -10,7 +10,8 @@
              '("melpa" . "http://melpa.org/packages/") t)
 (package-initialize)
 
-(defvar my-packages '(ace-window
+(defvar my-packages '(airline-themes
+                      ace-window
                       ample-theme
                       anzu
                       cherry-blossom-theme
