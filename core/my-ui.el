@@ -36,7 +36,7 @@
 (defconst query-replace-highlight t)
 
 ;; Nice scrolling
-(setq scroll-margin 10
+(setq scroll-margin 0
       scroll-conservatively 100000
       scroll-preserve-screen-position 1)
 

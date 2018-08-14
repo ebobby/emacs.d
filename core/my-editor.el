@@ -166,7 +166,7 @@
                             (ignore-errors
                               (imenu-add-menubar-index))
                             (flycheck-mode +1)
-                            (linum-mode +1)
+                            (display-line-numbers-mode +1)
                             (toggle-truncate-lines +1)
                             (smartparens-mode +1)))
 
