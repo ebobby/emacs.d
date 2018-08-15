@@ -69,6 +69,7 @@
 (require 'my-rainbow)
 (require 'my-haskell)
 (require 'my-clojure)
+(require 'my-rust)
 (require 'my-gtd)
 (require 'my-markdown)
 
