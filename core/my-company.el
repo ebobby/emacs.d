@@ -8,6 +8,7 @@
 
 (setq company-idle-delay .25)
 (setq company-tooltip-limit 20)
+(setq company-tooltip-align-annotations t)
 
 (add-hook 'after-init-hook 'global-company-mode)
 
