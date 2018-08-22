@@ -70,6 +70,10 @@
 ;; Configuration
 (setq helm-exit-idle-delay 0) ; If this is higher helm can't keep up with my typing.
 
+;; External modes use helm
+(require 'helm-source)
+(setq dumb-jump-selector 'helm)
+
 (diminish 'helm-mode)
 
 (provide 'my-helm)
