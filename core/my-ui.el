@@ -60,13 +60,13 @@
 (load-theme 'airline-kolor t)
 (airline-themes-set-modeline)
 
-(require 'spaceline-config)
-;(spaceline-helm-mode)
+(set-face-foreground 'anzu-mode-line "white")
+(set-face-background 'anzu-mode-line "SlateBlue4")
 
 ;; Font
 (when window-system
-  (my-transparency 95)
-  (set-face-attribute 'default nil :font "Fira Mono-11"))
+  (my-transparency 90)
+  (set-face-attribute 'default nil :font "Inconsolata-11"))
 
 (provide 'my-ui)
 
