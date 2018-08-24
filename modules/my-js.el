@@ -17,12 +17,11 @@
 (setq-default js2-basic-offset 2)
 
 (defun setup-js2 ()
-  ;; electric-layout-mode doesn't play nice with smartparens
   (setq-local electric-layout-rules '((?\; . after)))
   (js2-imenu-extras-mode +1)
   (tern-mode t)
   (make-local-variable 'company-backends)
-  (unless (member 'company-tern 'company-backends)
+  (unless (member 'company-tern company-backends)
     (add-to-list 'company-backends 'company-tern)))
 
 (add-hook 'js2-mode-hook 'setup-js2)
