@@ -23,6 +23,7 @@
                       dracula-theme
                       dumb-jump
                       epl
+                      exec-path-from-shell
                       expand-region
                       flycheck
                       flycheck-pos-tip

@@ -208,6 +208,10 @@
 ;; Dumb jump
 (dumb-jump-mode)
 
+;; Get path from shell
+(require 'exec-path-from-shell)
+(exec-path-from-shell-initialize)
+
 (provide 'my-editor)
 
 ;;; my-editor.el ends here
