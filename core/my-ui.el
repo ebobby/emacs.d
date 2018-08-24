@@ -66,7 +66,7 @@
 ;; Font
 (when window-system
   (my-transparency 90)
-  (set-face-attribute 'default nil :font "Inconsolata-11"))
+  (set-face-attribute 'default nil :font "Source Code Pro-10"))
 
 (provide 'my-ui)
 
