@@ -32,6 +32,7 @@
                       helm-ag
                       helm-c-yasnippet
                       helm-descbinds
+                      helm-flycheck
                       helm-ls-git
                       iedit
                       imenu-list

@@ -6,6 +6,7 @@
 (require 'helm)
 (require 'helm-config)
 (require 'helm-ls-git)
+(require 'helm-flycheck)
 
 (when (executable-find "curl")
   (setq helm-net-prefer-curl t))
@@ -66,6 +67,10 @@
 (substitute-key-definition 'find-tag 'helm-etags-select global-map)
 (helm-descbinds-mode)
 (helm-mode 1)
+
+;; Flycheck helm
+(eval-after-load 'flycheck
+  '(define-key flycheck-mode-map (kbd "C-c ! h") 'helm-flycheck))
 
 ;; Configuration
 (setq helm-exit-idle-delay 0) ; If this is higher helm can't keep up with my typing.
