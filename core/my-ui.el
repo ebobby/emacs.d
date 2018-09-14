@@ -32,6 +32,9 @@
 (defconst search-highlight t)
 (defconst query-replace-highlight t)
 
+;; Truncate lines
+(setq-default truncate-lines t)
+
 ;; Nice scrolling
 (setq scroll-margin 0
       scroll-conservatively 100000

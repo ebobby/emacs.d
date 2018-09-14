@@ -11,7 +11,7 @@
 
 ;;
 (setq initial-scratch-message nil)
-(setq initial-major-mode 'org-mode)
+(setq initial-major-mode 'text-mode)
 (setq echo-keystrokes 0.1)
 
 ;; store all backup and autosave files in the tmp dir
@@ -209,6 +209,7 @@
 
 ;; Get path from shell
 (require 'exec-path-from-shell)
+(setq exec-path-from-shell-arguments '("-l"))
 (exec-path-from-shell-initialize)
 
 (provide 'my-editor)
