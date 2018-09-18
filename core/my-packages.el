@@ -12,14 +12,12 @@
 
 (defvar my-packages '(airline-themes
                       ace-window
-                      ample-theme
                       anzu
-                      cherry-blossom-theme
-                      color-theme-sanityinc-tomorrow
                       darktooth-theme
                       diff-hl
                       diminish
                       discover-my-major
+                      doom-themes
                       dracula-theme
                       dumb-jump
                       epl
@@ -27,7 +25,6 @@
                       expand-region
                       flycheck
                       flycheck-pos-tip
-                      grandshell-theme
                       helm
                       helm-ag
                       helm-c-yasnippet
@@ -36,13 +33,11 @@
                       helm-ls-git
                       iedit
                       imenu-list
-                      moe-theme
                       monokai-theme
                       move-text
                       org
                       powerline
                       smartparens
-                      spaceline
                       visual-regexp
                       volatile-highlights
                       yasnippet

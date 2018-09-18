@@ -54,19 +54,33 @@
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
 ;; Theme and fonts
-(load-theme 'dracula t)
+(require 'doom-themes)
+
+;; Global settings (defaults)
+(setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+      doom-themes-enable-italic t) ; if nil, italics is universally disabled
+
+;; Load the theme (doom-one, doom-molokai, etc); keep in mind that each theme
+;; may have their own settings.
+(load-theme 'doom-dracula t)
+
+;; Enable flashing mode-line on errors
+(doom-themes-visual-bell-config)
+
+;; Corrects (and improves) org-mode's native fontification.
+(doom-themes-org-config)
+
+(require 'powerline)
+(powerline-default-theme)
 
 (require 'airline-themes)
-(load-theme 'airline-kolor t)
+(load-theme 'airline-behelit t)
 (airline-themes-set-modeline)
-
-(set-face-foreground 'anzu-mode-line "white")
-(set-face-background 'anzu-mode-line "SlateBlue4")
 
 ;; Font
 (when window-system
-  (my-transparency 90)
-  (set-face-attribute 'default nil :font "Source Code Pro-10"))
+  (my-transparency 100)
+  (set-face-attribute 'default nil :font "Source Code Pro Light-11"))
 
 (provide 'my-ui)
 
