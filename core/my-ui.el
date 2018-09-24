@@ -62,7 +62,7 @@
 
 ;; Load the theme (doom-one, doom-molokai, etc); keep in mind that each theme
 ;; may have their own settings.
-(load-theme 'doom-dracula t)
+(load-theme 'doom-molokai t)
 
 ;; Enable flashing mode-line on errors
 (doom-themes-visual-bell-config)
@@ -74,8 +74,11 @@
 (powerline-default-theme)
 
 (require 'airline-themes)
-(load-theme 'airline-behelit t)
+(setq airline-helm-colors nil)
+(setq airline-cursor-colors nil)
+(load-theme 'airline-hybridline t)
 (airline-themes-set-modeline)
+;; raven, hybridline, serene, understated
 
 ;; Font
 (when window-system
