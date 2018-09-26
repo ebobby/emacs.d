@@ -62,6 +62,19 @@
   (mapcar 'kill-buffer
           (helm-browse-project-get-buffers (helm-ls-git-root-dir))))
 
+(defun neotree-project-dir ()
+  "Open NeoTree using the git root."
+  (interactive)
+  (let ((project-dir (helm-ls-git-root-dir))
+        (file-name (buffer-file-name)))
+    (neotree-toggle)
+    (if project-dir
+        (if (neo-global--window-exists-p)
+            (progn
+              (neotree-dir project-dir)
+              (neotree-find file-name)))
+      (message "Could not find git project root."))))
+
 (provide 'my-functions)
 
 ;;; my-functions.el ends here

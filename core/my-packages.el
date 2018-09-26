@@ -35,6 +35,7 @@
                       imenu-list
                       monokai-theme
                       move-text
+                      neotree
                       org
                       powerline
                       smartparens
