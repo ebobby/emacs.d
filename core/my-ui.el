@@ -54,36 +54,31 @@
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
 ;; Theme and fonts
+(require 'all-the-icons)
+
 (require 'doom-themes)
 
 ;; Global settings (defaults)
 (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
       doom-themes-enable-italic t) ; if nil, italics is universally disabled
 
-;; Load the theme (doom-one, doom-molokai, etc); keep in mind that each theme
-;; may have their own settings.
 (load-theme 'doom-molokai t)
 
-;; Enable flashing mode-line on errors
 (doom-themes-visual-bell-config)
-
-;; Corrects (and improves) org-mode's native fontification.
+(doom-themes-neotree-config)
 (doom-themes-org-config)
 
-(require 'powerline)
-(powerline-default-theme)
+;; this has to be run from time to time?
+;(all-the-icons-install-fonts)
 
-(require 'airline-themes)
-(setq airline-helm-colors nil)
-(setq airline-cursor-colors nil)
-(load-theme 'airline-hybridline t)
-(airline-themes-set-modeline)
-;; raven, hybridline, serene, understated
+(require 'doom-modeline)
+(setq doom-modeline-height 40)
+(doom-modeline-init)
 
 ;; Font
 (when window-system
   (my-transparency 100)
-  (set-face-attribute 'default nil :font "Source Code Pro Light-11"))
+  (set-face-attribute 'default nil :font "Consolas-11"))
 
 (provide 'my-ui)
 

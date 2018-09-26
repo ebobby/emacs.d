@@ -10,15 +10,14 @@
              '("melpa" . "http://melpa.org/packages/") t)
 (package-initialize)
 
-(defvar my-packages '(airline-themes
-                      ace-window
+(defvar my-packages '(ace-window
+                      all-the-icons
                       anzu
-                      darktooth-theme
                       diff-hl
                       diminish
                       discover-my-major
+                      doom-modeline
                       doom-themes
-                      dracula-theme
                       dumb-jump
                       epl
                       exec-path-from-shell
@@ -33,11 +32,9 @@
                       helm-ls-git
                       iedit
                       imenu-list
-                      monokai-theme
                       move-text
                       neotree
                       org
-                      powerline
                       smartparens
                       visual-regexp
                       volatile-highlights
