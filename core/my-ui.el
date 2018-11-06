@@ -72,7 +72,6 @@
 ;(all-the-icons-install-fonts)
 
 (require 'doom-modeline)
-(setq doom-modeline-height 40)
 (doom-modeline-init)
 
 ;; Font
