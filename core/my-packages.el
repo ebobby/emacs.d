@@ -94,7 +94,6 @@ PACKAGE is installed only if not already present.  The file is opened in MODE."
     ("\\.latex\\'" auctex LaTeX-mode)
     ("\\.less\\'" less-css-mode less-css-mode)
     ("\\.lua\\'" lua-mode lua-mode)
-    ("\\.md\\'" markdown-mode markdown-mode)
     ("\\.php\\'" php-mode php-mode)
     ("\\.rs\\'" rust-mode rust-mode)
     ("\\.sass\\'" sass-mode sass-mode)
