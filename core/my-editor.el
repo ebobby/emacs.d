@@ -212,6 +212,9 @@
 (setq exec-path-from-shell-arguments '("-l"))
 (exec-path-from-shell-initialize)
 
+;; Which key
+(which-key-mode)
+
 (provide 'my-editor)
 
 ;;; my-editor.el ends here

@@ -38,6 +38,7 @@
                       smartparens
                       visual-regexp
                       volatile-highlights
+                      which-key
                       yasnippet
                       yasnippet-snippets)
   "A list of required packages to ensure they are installed at launch.")
