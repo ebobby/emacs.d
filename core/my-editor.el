@@ -77,9 +77,6 @@
 (require 'ansi-color)
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
-;; In place editing.
-(require 'iedit)
-
 ;; Move blocks of text around
 (require 'move-text)
 

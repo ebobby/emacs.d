@@ -30,9 +30,9 @@
                       helm-descbinds
                       helm-flycheck
                       helm-ls-git
-                      iedit
                       imenu-list
                       move-text
+                      multiple-cursors
                       neotree
                       org
                       smartparens
