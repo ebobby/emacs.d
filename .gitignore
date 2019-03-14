@@ -13,3 +13,4 @@ url/*
 .mc-lists.el
 .org-id-locations
 **/*.elc
+transient/
