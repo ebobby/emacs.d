@@ -72,6 +72,7 @@
 (require 'my-rust)
 (require 'my-gtd)
 (require 'my-markdown)
+(require 'my-writing)
 
 ;; Load UI after everything else.
 (require 'my-ui)
