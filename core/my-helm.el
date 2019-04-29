@@ -36,7 +36,6 @@
 
 (global-set-key (kbd "C-h f") 'helm-apropos)
 (global-set-key (kbd "C-h r") 'helm-info-emacs)
-(global-set-key (kbd "C-h y") 'helm-yas-complete)
 (global-set-key (kbd "C-x b") 'helm-mini)
 (global-set-key (kbd "C-h i") 'helm-imenu)
 (global-set-key (kbd "C-h C-l") 'helm-locate-library)

@@ -30,7 +30,6 @@
                                          try-complete-file-name
                                          try-expand-all-abbrevs
                                          try-expand-list
-                                         yas-hippie-try-expand
                                          try-expand-line
                                          try-complete-lisp-symbol-partially
                                          try-complete-lisp-symbol))
@@ -142,7 +141,6 @@
 
 (require 'flycheck)
 (require 'smartparens-config)
-(require 'yasnippet)
 
 (setq sp-base-key-bindings 'paredit)
 (setq sp-autoskip-closing-pair 'always)
@@ -155,11 +153,8 @@
 
 (diminish 'flycheck-mode)
 (diminish 'smartparens-mode)
-(diminish 'yas-minor-mode)
 
 (add-hook 'prog-mode-hook (lambda ()
-                            (yas-reload-all)
-                            (yas-minor-mode)
                             (ignore-errors
                               (imenu-add-menubar-index))
                             (flycheck-mode +1)
