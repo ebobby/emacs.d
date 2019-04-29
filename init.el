@@ -76,4 +76,6 @@
 ;; Load UI after everything else.
 (require 'my-ui)
 
+(server-start)
+
 ;;; init.el ends here
