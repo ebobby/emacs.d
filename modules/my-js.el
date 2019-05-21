@@ -27,6 +27,8 @@
 (add-hook 'js2-mode-hook 'setup-js2)
 (add-hook 'js2-jsx-mode-hook 'setup-js2)
 
+(setq js2-strict-missing-semi-warning nil)
+
 (provide 'my-js)
 
 ;;; my-js.el ends here
