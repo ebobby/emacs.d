@@ -26,6 +26,7 @@
                       flycheck-pos-tip
                       helm
                       helm-ag
+                      helm-c-yasnippet
                       helm-descbinds
                       helm-flycheck
                       helm-ls-git
@@ -37,7 +38,9 @@
                       smartparens
                       visual-regexp
                       volatile-highlights
-                      which-key)
+                      which-key
+                      yasnippet
+                      yasnippet-snippets)
   "A list of required packages to ensure they are installed at launch.")
 
 (defun require-package (package)
