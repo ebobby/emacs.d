@@ -70,6 +70,7 @@
 (require 'my-haskell)
 (require 'my-clojure)
 (require 'my-rust)
+(require 'my-typescript)
 (require 'my-markdown)
 (require 'my-writing)
 
