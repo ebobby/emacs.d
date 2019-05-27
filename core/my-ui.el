@@ -77,8 +77,8 @@
 ;; Font
 (when window-system
 ;;  (toggle-frame-fullscreen)
-;;  (my-transparency 100)
-  (set-face-attribute 'default nil :font "Fira Code-12"))
+  (my-transparency 100)
+  (set-face-attribute 'default nil :font "Consolas-14"))
 
 (provide 'my-ui)
 
