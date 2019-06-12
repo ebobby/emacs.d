@@ -210,6 +210,7 @@
 (exec-path-from-shell-initialize)
 
 ;; Which key
+(setq-default which-key-idle-delay 2.0)
 (which-key-mode)
 
 (provide 'my-editor)
