@@ -73,6 +73,7 @@
 (require 'my-typescript)
 (require 'my-markdown)
 (require 'my-writing)
+(require 'my-latex)
 
 ;; Load UI after everything else.
 (require 'my-ui)
