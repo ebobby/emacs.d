@@ -8,6 +8,7 @@
 
 (require 'js2-mode)
 (require 'js-comint)
+(require 'nvm)
 
 (add-to-list 'auto-mode-alist '("\\.js\\'"    . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.pac\\'"   . js2-mode))
