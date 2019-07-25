@@ -44,11 +44,11 @@
   (interactive)
   (byte-recompile-directory root-dir 0 FORCE))
 
-(defun helm-ag-project-root (&optional ARG)
+(defun helm-ag-project-root ()
   (interactive)
   (helm-ag (helm-ls-git-root-dir)))
 
-(defun helm-do-ag-project-root (&optional ARG)
+(defun helm-do-ag-project-root ()
   (interactive)
   (helm-do-ag (helm-ls-git-root-dir)))
 
