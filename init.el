@@ -74,6 +74,7 @@
 (require 'my-markdown)
 (require 'my-writing)
 (require 'my-latex)
+(require 'my-nyan)
 
 ;; Load UI after everything else.
 (require 'my-ui)
