@@ -206,7 +206,7 @@
 
 ;; Get path from shell
 (require 'exec-path-from-shell)
-(setq exec-path-from-shell-arguments '("-i"))
+(setq exec-path-from-shell-arguments '("-li"))
 (exec-path-from-shell-initialize)
 
 ;; Which key
