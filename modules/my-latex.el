@@ -4,7 +4,13 @@
 
 ;;; Code:
 
-(require-packages '(auctex))
+(require-packages '(auctex company-auctex latex-preview-pane))
+
+(require 'company-auctex)
+(company-auctex-init)
+
+;; Enable preview
+(latex-preview-pane-enable)
 
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
@@ -12,6 +18,7 @@
 (setq TeX-open-quote "")
 
 (setq-default TeX-master nil)
+(setq reftex-plug-into-AUCTeX t)
 
 ;; use pdflatex
 (setq TeX-PDF-mode t)
@@ -20,7 +27,10 @@
           (lambda ()
             (rainbow-delimiters-mode)
             (smartparens-mode)
-            (turn-on-auto-fill)))
+            (turn-on-auto-fill)
+            (latex-preview-pane-mode)
+            (LaTeX-math-mode)
+            (turn-on-reftex)))
 
 (provide 'my-latex)
 
