@@ -53,14 +53,13 @@
 (require 'my-functions)
 (require 'my-editor)
 (require 'my-key-bindings)
-
-;; My-mode goes last
 (require 'my-mode)
-
-;; Modules configuration
 (require 'my-company)
 (require 'my-helm)
+(require 'my-lsp)
 (require 'my-magit)
+
+;; Modules configuration
 (require 'my-elisp)
 (require 'my-ruby)
 (require 'my-js)
