@@ -9,6 +9,9 @@
 (require 'cc-mode)
 (require 'lsp-java)
 
+(setq lsp-java-server-install-dir (expand-file-name "java-server"
+                                                    utilities-dir))
+
 (add-hook 'java-mode-hook #'lsp)
 
 (provide 'my-java)
