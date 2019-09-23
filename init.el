@@ -21,6 +21,8 @@
 (defvar backup-dir (expand-file-name "backup" root-dir))
 (defvar utilities-dir (expand-file-name "utilities" root-dir))
 
+(setq user-emacs-directory (expand-file-name "user-files" root-dir ))
+
 ;; Copied from prelude.
 (defun add-subfolders-to-load-path (parent-dir)
   "Add all level PARENT-DIR subdirs to the `load-path'."
