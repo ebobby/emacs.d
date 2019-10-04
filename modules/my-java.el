@@ -13,6 +13,17 @@
 (setq lsp-java-server-install-dir (expand-file-name "java-server"
                                                     utilities-dir))
 
+(setq lsp-prefer-flymake nil)
+(setq lsp-ui-doc-enable nil
+      ;lsp-ui-sideline-enable nil
+      lsp-ui-flycheck-enable t)
+
+(dap-mode t)
+(dap-ui-mode t)
+
+;; Enable dap-java
+(require 'dap-java)
+
 (add-hook 'java-mode-hook #'lsp)
 (add-hook 'java-mode-hook (lambda ()
                             (setq c-basic-offset 4
