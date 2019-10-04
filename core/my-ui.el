@@ -62,7 +62,7 @@
 (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
       doom-themes-enable-italic t) ; if nil, italics is universally disabled
 
-(load-theme 'doom-dracula t)
+(load-theme 'doom-palenight t)
 
 (doom-themes-visual-bell-config)
 (doom-themes-neotree-config)
@@ -78,7 +78,7 @@
 (when window-system
 ;;  (toggle-frame-fullscreen)
   (my-transparency 100)
-  (set-face-attribute 'default nil :font "Droid Sans Mono-13"))
+  (set-face-attribute 'default nil :font "Droid Sans Mono 14"))
 
 (provide 'my-ui)
 
