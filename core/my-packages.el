@@ -32,6 +32,7 @@
                       helm-flycheck
                       helm-ls-git
                       imenu-list
+                      moe-theme
                       move-text
                       multiple-cursors
                       neotree

@@ -56,17 +56,25 @@
 ;; Theme and fonts
 (require 'all-the-icons)
 
-(require 'doom-themes)
+(require 'moe-theme)
 
-;; Global settings (defaults)
-(setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
-      doom-themes-enable-italic t) ; if nil, italics is universally disabled
+;; Show highlighted buffer-id as decoration. (Default: nil)
+(setq moe-theme-highlight-buffer-id t)
 
-(load-theme 'doom-palenight t)
+(moe-theme-set-color 'w/b)
+(moe-dark)
 
-(doom-themes-visual-bell-config)
-(doom-themes-neotree-config)
-(doom-themes-org-config)
+;;(require 'doom-themes)
+;;
+;;;; Global settings (defaults)
+;;(setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+;;      doom-themes-enable-italic t) ; if nil, italics is universally disabled
+;;
+;;(load-theme 'doom-palenight t)
+;;
+;;(doom-themes-visual-bell-config)
+;;(doom-themes-neotree-config)
+;;(doom-themes-org-config)
 
 ;; this has to be run from time to time?
 ;(all-the-icons-install-fonts)
