@@ -9,8 +9,9 @@
 (require 'company)
 
 (setq company-idle-delay .25)
-(setq company-tooltip-limit 20)
+(setq company-minimum-prefix-length 1)
 (setq company-tooltip-align-annotations t)
+(setq company-tooltip-limit 20)
 
 (add-hook 'after-init-hook 'global-company-mode)
 
