@@ -10,13 +10,12 @@
 (company-auctex-init)
 
 ;; Enable preview
-(latex-preview-pane-enable)
+;;(latex-preview-pane-enable)
 
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
 (setq TeX-close-quote "")
 (setq TeX-open-quote "")
-
 (setq-default TeX-master nil)
 (setq reftex-plug-into-AUCTeX t)
 
@@ -28,7 +27,7 @@
             (rainbow-delimiters-mode)
             (smartparens-mode)
             (turn-on-auto-fill)
-            (latex-preview-pane-mode)
+;;            (latex-preview-pane-mode)
             (LaTeX-math-mode)
             (turn-on-reftex)))
 
