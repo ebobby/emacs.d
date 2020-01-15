@@ -110,7 +110,6 @@
 (require 'my-web)
 
 ;; Load UI after everything else.
-(require 'my-nyan)
 (require 'my-ui)
 
 (server-start)
