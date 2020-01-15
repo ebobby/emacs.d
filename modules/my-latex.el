@@ -4,7 +4,10 @@
 
 ;;; Code:
 
-(require-packages '(auctex company-auctex latex-preview-pane))
+(require-packages '(auctex
+                    company-auctex
+                    helm-bibtex
+                    latex-preview-pane))
 
 (require 'company-auctex)
 (company-auctex-init)
