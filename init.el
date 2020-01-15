@@ -62,24 +62,21 @@
 (require 'my-mode)
 (require 'my-company)
 (require 'my-helm)
-;(require 'my-lsp)
 (require 'my-magit)
 (require 'my-rainbow)
 
 ;; Modules configuration
-;(require 'my-clojure)
+(require 'my-clojure)
 (require 'my-elisp)
-;(require 'my-haskell)
-;(require 'my-java)
+(require 'my-haskell)
 (require 'my-js)
 (require 'my-latex)
-;(require 'my-lisp)
+(require 'my-lisp)
 (require 'my-markdown)
 (require 'my-ruby)
 (require 'my-rust)
 (require 'my-typescript)
 (require 'my-web)
-;(require 'my-writing)
 
 ;; Load UI after everything else.
 (require 'my-nyan)
