@@ -71,8 +71,10 @@
 ;; this has to be run from time to time?
 ;(all-the-icons-install-fonts)
 
-(require 'doom-modeline)
-(doom-modeline-init)
+;; Modeline
+(require 'smart-mode-line)
+(setq sml/theme 'powerline)
+(sml/setup)
 
 ;; Font
 (when window-system

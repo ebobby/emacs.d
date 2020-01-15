@@ -17,7 +17,6 @@
                       diff-hl
                       diminish
                       discover-my-major
-                      doom-modeline
                       doom-themes
                       dumb-jump
                       epl
@@ -37,6 +36,8 @@
                       multiple-cursors
                       neotree
                       org
+                      smart-mode-line
+                      smart-mode-line-powerline-theme
                       smartparens
                       visual-regexp
                       volatile-highlights
