@@ -14,7 +14,9 @@
                                  (subword-mode)
                                  (cargo-minor-mode)
                                  (racer-mode)
-                                 (local-set-key (kbd "C-c C-d") 'racer-describe)))))
+                                 (local-set-key (kbd "C-c C-d") 'racer-describe)
+                                 (diminish 'cargo-minor-mode)
+                                 (diminish 'racer-mode)))))
 
 (provide 'my-rust)
 

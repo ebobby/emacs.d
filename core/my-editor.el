@@ -213,6 +213,8 @@
 (setq-default which-key-idle-delay 2.0)
 (which-key-mode)
 
+(diminish 'which-key-mode)
+
 (provide 'my-editor)
 
 ;;; my-editor.el ends here
