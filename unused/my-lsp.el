@@ -23,7 +23,7 @@
       lsp-ui-flycheck-enable t)
 
 (dap-mode t)
-(dap-ui-mode t)
+;(dap-ui-mode t)
 
 ;; Debugging
 3(add-hook 'lsp-mode-hook (lambda ()

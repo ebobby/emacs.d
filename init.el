@@ -53,32 +53,34 @@
 (when (equal system-type 'darwin)
   (require 'my-osx))
 
+;; Core configuration
 (require 'my-functions)
 (require 'my-editor)
 (require 'my-key-bindings)
-
 (require 'my-mode)
 (require 'my-company)
 (require 'my-helm)
-(require 'my-lsp)
+;(require 'my-lsp)
 (require 'my-magit)
+(require 'my-rainbow)
 
 ;; Modules configuration
+;(require 'my-clojure)
 (require 'my-elisp)
-(require 'my-ruby)
+;(require 'my-haskell)
+;(require 'my-java)
 (require 'my-js)
-(require 'my-web)
+(require 'my-latex)
+;(require 'my-lisp)
+(require 'my-markdown)
+(require 'my-ruby)
 (require 'my-rust)
 (require 'my-typescript)
-(require 'my-latex)
-(require 'my-java)
-(require 'my-markdown)
-(require 'my-rainbow)
-(require 'my-writing)
-
-(require 'my-nyan)
+(require 'my-web)
+;(require 'my-writing)
 
 ;; Load UI after everything else.
+(require 'my-nyan)
 (require 'my-ui)
 
 (server-start)
