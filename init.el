@@ -48,6 +48,37 @@
 ;; warn when opening files bigger than 100MB
 (setq large-file-warning-threshold 100000000)
 
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("855eb24c0ea67e3b64d5d07730b96908bac6f4cd1e5a5986493cbac45e9d9636" default)))
+ '(package-selected-packages
+   (quote
+    (memoize lsp-java treemacs company-lsp helm-lsp dap-mode lsp-ui lsp-mode dash markdown-mode shrink-path yasnippet git-commit sesman yasnippet-snippets typescript-mode tide parseclj json-mode yaml-mode hydra helm-core avy transient with-editor writeroom-mode writegood-mode cargo flycheck-rust racer rust-mode clojure-snippets clj-refactor inf-clojure cider clojure-mode haskell-snippets intero haskell-mode rainbow-identifiers rainbow-delimiters rainbow-mode web-mode nvm js-comint company-tern tern js2-mode yari inf-ruby ruby-tools rbenv elisp-slime-nav common-lisp-snippets slime magit company which-key volatile-highlights visual-regexp smartparens neotree multiple-cursors move-text imenu-list helm-ls-git helm-flycheck helm-descbinds helm-ag helm flycheck-pos-tip flycheck expand-region exec-path-from-shell epl dumb-jump doom-themes doom-modeline discover-my-major diminish diff-hl anzu all-the-icons ace-window)))
+ '(safe-local-variable-values
+   (quote
+    ((org-todo-keyword-faces
+      ("CODE" . "DeepPink")
+      ("TODO" . "DeepPink")
+      ("MEETING" . "pink")
+      ("DONE" . "OliveDrab")
+      ("ATTENDED" . "OliveDrab")
+      ("MERGED" . "ForestGreen")
+      ("CANCELED" . "brown")
+      ("STARTED" . "LightCoral")
+      ("COMMITTED" . "firebrick"))))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+
 ;; Core configuration
 (require 'my-packages)
 
@@ -85,29 +116,3 @@
 (server-start)
 
 ;;; init.el ends here
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (memoize lsp-java treemacs company-lsp helm-lsp dap-mode lsp-ui lsp-mode dash markdown-mode shrink-path yasnippet git-commit sesman yasnippet-snippets typescript-mode tide parseclj json-mode yaml-mode hydra helm-core avy transient with-editor writeroom-mode writegood-mode cargo flycheck-rust racer rust-mode clojure-snippets clj-refactor inf-clojure cider clojure-mode haskell-snippets intero haskell-mode rainbow-identifiers rainbow-delimiters rainbow-mode web-mode nvm js-comint company-tern tern js2-mode yari inf-ruby ruby-tools rbenv elisp-slime-nav common-lisp-snippets slime magit company which-key volatile-highlights visual-regexp smartparens neotree multiple-cursors move-text imenu-list helm-ls-git helm-flycheck helm-descbinds helm-ag helm flycheck-pos-tip flycheck expand-region exec-path-from-shell epl dumb-jump doom-themes doom-modeline discover-my-major diminish diff-hl anzu all-the-icons ace-window)))
- '(safe-local-variable-values
-   (quote
-    ((org-todo-keyword-faces
-      ("CODE" . "DeepPink")
-      ("TODO" . "DeepPink")
-      ("MEETING" . "pink")
-      ("DONE" . "OliveDrab")
-      ("ATTENDED" . "OliveDrab")
-      ("MERGED" . "ForestGreen")
-      ("CANCELED" . "brown")
-      ("STARTED" . "LightCoral")
-      ("COMMITTED" . "firebrick"))))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )

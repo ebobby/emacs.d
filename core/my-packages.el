@@ -37,7 +37,7 @@
                       neotree
                       org
                       smart-mode-line
-                      smart-mode-line-powerline-theme
+                      smart-mode-line-atom-one-dark-theme
                       smartparens
                       visual-regexp
                       volatile-highlights

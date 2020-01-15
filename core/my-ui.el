@@ -73,8 +73,8 @@
 
 ;; Modeline
 (require 'smart-mode-line)
-(setq sml/theme 'powerline)
-(sml/setup)
+(setq sml/theme 'atom-one-dark)
+(sml/setup t)
 
 ;; Font
 (when window-system
