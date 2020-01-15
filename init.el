@@ -39,9 +39,11 @@
 (add-to-list 'load-path core-dir)
 (add-subfolders-to-load-path vendor-dir)
 
-;; reduce the frequency of garbage collection by making it happen on
-;; each 50MB of allocated data (the default is on every 0.76MB)
-(setq gc-cons-threshold (* 1024 1024 50))
+;; Garbage collection configuration
+(setq gc-cons-threshold (* 511 1024 1024))
+(setq gc-cons-percentage 0.5)
+(run-with-idle-timer 5 t #'garbage-collect)
+(setq garbage-collection-messages t)
 
 ;; warn when opening files bigger than 100MB
 (setq large-file-warning-threshold 100000000)
