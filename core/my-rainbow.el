@@ -10,11 +10,13 @@
 (require 'rainbow-identifiers)
 
 (defun enable-rainbow ()
-  (rainbow-mode +1))
+  (rainbow-mode t)
+  (diminish 'rainbow-mode))
 
 (defun enable-rainbow-prog ()
-  (rainbow-delimiters-mode +1)
-  (rainbow-identifiers-mode +1))
+  (rainbow-delimiters-mode t)
+  (rainbow-identifiers-mode t)
+  (diminish 'rainbow-mode))
 
 (add-hook 'prog-mode-hook 'enable-rainbow-prog)
 
