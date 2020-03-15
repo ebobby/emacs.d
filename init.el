@@ -40,13 +40,13 @@
 (add-subfolders-to-load-path vendor-dir)
 
 ;; Garbage collection configuration
-(setq gc-cons-threshold (* 511 1024 1024))
+(setq gc-cons-threshold (* 512 1024 1024))
 (setq gc-cons-percentage 0.5)
 (run-with-idle-timer 5 t #'garbage-collect)
 (setq garbage-collection-messages t)
 
-;; warn when opening files bigger than 100MB
-(setq large-file-warning-threshold 100000000)
+;; warn when opening files bigger than 200MB
+(setq large-file-warning-threshold (* 1024 1024 100 2))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
