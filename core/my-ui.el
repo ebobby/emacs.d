@@ -62,7 +62,7 @@
 (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
       doom-themes-enable-italic t) ; if nil, italics is universally disabled
 
-(load-theme 'doom-outrun-electric t)
+(load-theme 'doom-nord t)
 
 (doom-themes-visual-bell-config)
 (doom-themes-neotree-config)
@@ -73,13 +73,13 @@
 
 ;; Modeline
 (require 'smart-mode-line)
-(setq sml/theme 'atom-one-dark)
+(setq sml/theme 'respectful)
 (sml/setup t)
 
 ;; Font
 (when window-system
-  ;;  (toggle-frame-fullscreen)
-  (my-transparency 95)
+  ;;(toggle-frame-fullscreen)
+  (my-transparency 100)
   (set-face-attribute 'default nil :font "xft:-JB  -JetBrains Mono-normal-normal-normal-*-19-*-*-*-m-0-iso10646-1"))
 
 (provide 'my-ui)
