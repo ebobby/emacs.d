@@ -71,16 +71,16 @@
 ;; this has to be run from time to time?
 ;(all-the-icons-install-fonts)
 
-;; Modeline
-(require 'smart-mode-line)
-(setq sml/theme 'respectful)
-(sml/setup t)
+(require 'doom-modeline)
+(setq doom-modeline-project-detection 'project)
+(doom-modeline-mode 1)
 
 ;; Font
 (when window-system
   ;;(toggle-frame-fullscreen)
   (my-transparency 100)
-  (set-face-attribute 'default nil :font "xft:-JB  -JetBrains Mono-normal-normal-normal-*-19-*-*-*-m-0-iso10646-1"))
+  ;;  (set-face-attribute 'default nil :font "xft:-JB  -JetBrains Mono-normal-normal-normal-*-19-*-*-*-m-0-iso10646-1")
+  (set-face-attribute 'default nil :font "Source Code Pro-13"))
 
 (provide 'my-ui)
 
