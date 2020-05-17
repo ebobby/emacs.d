@@ -4,7 +4,7 @@
 
 ;;; Code:
 
-(require-packages '(js2-mode tern company-tern js-comint nvm))
+(require-packages '(js2-mode js-comint nvm))
 
 (require 'js2-mode)
 (require 'js-comint)
@@ -20,10 +20,7 @@
 (defun setup-js2 ()
   (setq-local electric-layout-rules '((?\; . after)))
   (js2-imenu-extras-mode +1)
-  (tern-mode t)
-  (make-local-variable 'company-backends)
-  (unless (member 'company-tern company-backends)
-    (add-to-list 'company-backends 'company-tern)))
+  (make-local-variable 'company-backends))
 
 (add-hook 'js2-mode-hook 'setup-js2)
 (add-hook 'js2-jsx-mode-hook 'setup-js2)
