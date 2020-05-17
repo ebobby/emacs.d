@@ -4,7 +4,7 @@
 
 ;;; Code:
 
-(require-packages '(elpy py-autopep8 pyenv-mode))
+(require-packages '(elpy py-autopep8 blacken pyenv-mode))
 
 ;; Enable pyenv mode first
 (pyenv-mode)
