@@ -78,7 +78,7 @@
 ;; Font
 (when window-system
 ;;  (toggle-frame-fullscreen)
-  (my-transparency 85)
+  (my-transparency 80)
   (set-face-attribute 'default nil :font "JetBrains Mono-13"))
 
 (provide 'my-ui)
