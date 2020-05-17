@@ -77,10 +77,9 @@
 
 ;; Font
 (when window-system
-  ;;(toggle-frame-fullscreen)
-  (my-transparency 100)
-  ;;  (set-face-attribute 'default nil :font "xft:-JB  -JetBrains Mono-normal-normal-normal-*-19-*-*-*-m-0-iso10646-1")
-  (set-face-attribute 'default nil :font "Source Code Pro-13"))
+;;  (toggle-frame-fullscreen)
+  (my-transparency 85)
+  (set-face-attribute 'default nil :font "JetBrains Mono-13"))
 
 (provide 'my-ui)
 
