@@ -70,6 +70,17 @@
       ("MERGED" . "ForestGreen")
       ("CANCELED" . "brown")
       ("STARTED" . "LightCoral")
+      ("COMMITTED" . "firebrick")
+      ("HOLD" . "LightGoldenrod"))
+     (org-todo-keyword-faces
+      ("CODE" . "DeepPink")
+      ("TODO" . "DeepPink")
+      ("MEETING" . "pink")
+      ("DONE" . "OliveDrab")
+      ("ATTENDED" . "OliveDrab")
+      ("MERGED" . "ForestGreen")
+      ("CANCELED" . "brown")
+      ("STARTED" . "LightCoral")
       ("COMMITTED" . "firebrick"))))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

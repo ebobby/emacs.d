@@ -62,7 +62,7 @@
 (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
       doom-themes-enable-italic t) ; if nil, italics is universally disabled
 
-(load-theme 'doom-acario-dark t)
+(load-theme 'doom-dracula t)
 
 (doom-themes-visual-bell-config)
 (doom-themes-neotree-config)
@@ -77,9 +77,9 @@
 
 ;; Font
 (when window-system
-;;  (toggle-frame-fullscreen)
-  (my-transparency 90)
-  (set-face-attribute 'default nil :font "JetBrains Mono-13"))
+  (toggle-frame-maximized)
+  (my-transparency 100)
+  (set-face-attribute 'default nil :font "Ubuntu Mono-15"))
 
 (provide 'my-ui)
 
