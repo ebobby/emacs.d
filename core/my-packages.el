@@ -94,7 +94,6 @@ PACKAGE is installed only if not already present.  The file is opened in MODE."
     ("\\.go\\'" go-mode go-mode)
     ("\\.haml\\'" haml-mode haml-mode)
     ("\\.hbs\\'" handlebars-mode handlebars-mode)
-    ("\\.json\\'" json-mode json-mode)
     ("\\.latex\\'" auctex LaTeX-mode)
     ("\\.less\\'" less-css-mode less-css-mode)
     ("\\.lua\\'" lua-mode lua-mode)
