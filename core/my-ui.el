@@ -62,7 +62,7 @@
 (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
       doom-themes-enable-italic t) ; if nil, italics is universally disabled
 
-(load-theme 'doom-dracula t)
+(load-theme 'doom-monokai-pro t)
 
 (doom-themes-visual-bell-config)
 (doom-themes-neotree-config)
