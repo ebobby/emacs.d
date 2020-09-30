@@ -25,6 +25,9 @@
 (add-hook 'js2-mode-hook 'setup-js2)
 (add-hook 'js2-jsx-mode-hook 'setup-js2)
 
+;; Run LSP if available.
+(add-hook 'js2-mode-hook 'lsp)
+
 (setq js2-strict-missing-semi-warning nil)
 
 (provide 'my-js)
