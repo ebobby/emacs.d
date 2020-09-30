@@ -14,6 +14,14 @@
 
 (require 'lsp-ui)
 (require 'lsp-mode)
+(require 'dap-mode)
+
+(dap-mode 1)
+
+(setq lsp-auto-configure t)
+(setq lsp-completion-provider :capf)
+
+(define-key lsp-mode-map [remap xref-find-apropos] #'helm-lsp-workspace-symbol)
 
 (provide 'my-lsp)
 

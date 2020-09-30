@@ -28,6 +28,8 @@
 ;; Run LSP if available.
 (add-hook 'js2-mode-hook 'lsp)
 
+(require 'dap-node)
+
 (setq js2-strict-missing-semi-warning nil)
 
 (provide 'my-js)
