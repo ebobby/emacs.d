@@ -4,9 +4,10 @@
 
 ;;; Code:
 
-(require-packages '(web-mode))
+(require-packages '(web-mode prettier-js))
 
 (require 'web-mode)
+(require 'prettier-js)
 
 (add-hook 'web-mode-hook (lambda () (enable-rainbow)))
 
@@ -48,6 +49,8 @@
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+
+(add-hook 'web-mode-hook 'prettier-js-mode)
 
 (provide 'my-web)
 

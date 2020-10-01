@@ -4,10 +4,14 @@
 
 ;;; Code:
 
-(require-packages '(js2-mode js-comint nvm))
+(require-packages '(js2-mode
+                    js-comint
+                    prettier-js
+                    nvm))
 
 (require 'js2-mode)
 (require 'js-comint)
+(require 'prettier-js)
 (require 'nvm)
 
 (add-to-list 'auto-mode-alist '("\\.js\\'"    . js2-mode))
@@ -20,6 +24,7 @@
 (defun setup-js2 ()
   (setq-local electric-layout-rules '((?\; . after)))
   (js2-imenu-extras-mode +1)
+  (prettier-js-mode +1)
   (make-local-variable 'company-backends))
 
 (add-hook 'js2-mode-hook 'setup-js2)
