@@ -79,7 +79,7 @@
 (when window-system
   (toggle-frame-maximized)
   (my-transparency 100)
-  (set-face-attribute 'default nil :font "Ubuntu Mono-15"))
+  (set-face-attribute 'default nil :font "JetBrains Mono Nerd Font-13"))
 
 (provide 'my-ui)
 

@@ -60,10 +60,11 @@
     ("c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" "855eb24c0ea67e3b64d5d07730b96908bac6f4cd1e5a5986493cbac45e9d9636" default)))
  '(package-selected-packages
    (quote
-    (dap-mode helm-lsp lsp-ui lsp-mode hydra popup sql-indent dash dash-functional yasnippet yaml-mode with-editor avy git-commit helm-core transient web-mode tide typescript-mode cargo flycheck-rust racer rust-mode pyenv-mode blacken py-autopep8 elpy yari inf-ruby ruby-tools rbenv markdown-mode common-lisp-snippets slime latex-preview-pane helm-bibtex company-auctex auctex nvm js-comint js2-mode haskell-snippets intero haskell-mode clojure-snippets clj-refactor inf-clojure cider clojure-mode rainbow-identifiers rainbow-delimiters rainbow-mode magit company yasnippet-snippets which-key volatile-highlights visual-regexp smartparens neotree multiple-cursors move-text moe-theme imenu-list helm-ls-git helm-flycheck helm-descbinds helm-c-yasnippet helm-ag helm flycheck-pos-tip flycheck expand-region exec-path-from-shell epl dumb-jump doom-themes doom-modeline discover-my-major diminish diff-hl anzu all-the-icons ace-window)))
+    (ht highlight-indentation lsp-treemacs posframe parseclj scss-mode treemacs dap-mode helm-lsp lsp-ui lsp-mode hydra popup sql-indent dash dash-functional yasnippet yaml-mode with-editor avy git-commit helm-core transient web-mode tide typescript-mode cargo flycheck-rust racer rust-mode pyenv-mode blacken py-autopep8 elpy yari inf-ruby ruby-tools rbenv markdown-mode common-lisp-snippets slime latex-preview-pane helm-bibtex company-auctex auctex nvm js-comint js2-mode haskell-snippets intero haskell-mode clojure-snippets clj-refactor inf-clojure cider clojure-mode rainbow-identifiers rainbow-delimiters rainbow-mode magit company yasnippet-snippets which-key volatile-highlights visual-regexp smartparens neotree multiple-cursors move-text moe-theme imenu-list helm-ls-git helm-flycheck helm-descbinds helm-c-yasnippet helm-ag helm flycheck-pos-tip flycheck expand-region exec-path-from-shell epl dumb-jump doom-themes doom-modeline discover-my-major diminish diff-hl anzu all-the-icons ace-window)))
  '(safe-local-variable-values
    (quote
-    ((org-todo-keyword-faces
+    ((create-lockfiles)
+     (org-todo-keyword-faces
       ("CODE" . "DeepPink")
       ("TODO" . "DeepPink")
       ("MEETING" . "pink")
