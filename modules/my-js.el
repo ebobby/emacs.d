@@ -14,9 +14,10 @@
 (require 'prettier-js)
 (require 'nvm)
 
-(add-to-list 'auto-mode-alist '("\\.js\\'"    . js2-mode))
-(add-to-list 'auto-mode-alist '("\\.pac\\'"   . js2-mode))
-(add-to-list 'auto-mode-alist '("\\.jsx\\'"   . js2-jsx-mode))
+(add-to-list 'auto-mode-alist '("\\.js\\'"  . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.pac\\'" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.jsx\\'" . js2-jsx-mode))
+
 (add-to-list 'interpreter-mode-alist '("node" . js2-mode))
 
 (setq-default js2-basic-offset 2)
@@ -29,6 +30,9 @@
 
 (add-hook 'js2-mode-hook 'setup-js2)
 (add-hook 'js2-jsx-mode-hook 'setup-js2)
+
+;; Override emacs jsx mode.
+;(setq 'js-jsx-mode js2-jsx-mode)
 
 ;; Run LSP if available.
 (add-hook 'js2-mode-hook 'lsp)

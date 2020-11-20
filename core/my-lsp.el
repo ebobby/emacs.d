@@ -20,6 +20,7 @@
 
 (setq lsp-auto-configure t)
 (setq lsp-completion-provider :capf)
+(setq lsp-ui-doc-position 'at-point)
 
 (define-key lsp-mode-map [remap xref-find-apropos] #'helm-lsp-workspace-symbol)
 
