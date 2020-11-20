@@ -23,7 +23,7 @@
 (setq reftex-plug-into-AUCTeX t)
 
 ;; use pdflatex
-(setq TeX-PDF-mode t)
+;;(setq TeX-PDF-mode t)
 
 (add-hook 'LaTeX-mode-hook
           (lambda ()
