@@ -62,7 +62,7 @@
 (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
       doom-themes-enable-italic t) ; if nil, italics is universally disabled
 
-(load-theme 'doom-monokai-pro t)
+(load-theme 'doom-dracula t)
 
 (doom-themes-visual-bell-config)
 (doom-themes-neotree-config)
@@ -74,6 +74,12 @@
 (require 'doom-modeline)
 (setq doom-modeline-project-detection 'project)
 (doom-modeline-mode 1)
+
+;; Extra theme config.
+(setq doom-dracula-brighter-modeline t)
+(setq doom-dracula-brighter-comments t)
+(setq doom-dracula-colorful-headers t)
+(setq doom-dracula-comment-bg t)
 
 ;; Font
 (when window-system
