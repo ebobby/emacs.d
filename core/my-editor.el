@@ -95,6 +95,7 @@
 (require 'flyspell)
 (setq-default ispell-program-name "aspell" ispell-extra-args '("--sug-mode=ultra"))
 (add-hook 'text-mode-hook (lambda () (flyspell-mode +1)))
+(add-hook 'yaml-mode-hook (lambda () (flyspell-mode -1)))
 (add-hook 'org-mode-hook (lambda ()
                            (flyspell-mode +1)
                            (auto-fill-mode +1)))
@@ -163,6 +164,7 @@
                             (ignore-errors
                               (imenu-add-menubar-index))
                             (flycheck-mode +1)
+                            ;(flyspell-prog-mode)
                             (display-line-numbers-mode +1)
                             (smartparens-mode +1)))
 
@@ -212,8 +214,10 @@
 ;; Which key
 (setq-default which-key-idle-delay 2.0)
 (which-key-mode)
-
 (diminish 'which-key-mode)
+
+;; Org mode
+(setq org-hide-leading-stars t)
 
 (provide 'my-editor)
 
