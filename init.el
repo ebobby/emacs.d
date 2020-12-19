@@ -72,7 +72,6 @@
 (require 'my-clojure)
 (require 'my-elisp)
 (require 'my-haskell)
-(require 'my-js)
 (require 'my-latex)
 (require 'my-lisp)
 (require 'my-markdown)
@@ -82,6 +81,7 @@
 (require 'my-typescript)
 (require 'my-web)
 (require 'my-octave)
+(require 'my-js)
 
 ;; Load UI after everything else.
 (require 'my-ui)
