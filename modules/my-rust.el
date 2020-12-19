@@ -6,6 +6,8 @@
 
 (require-packages '(rust-mode racer flycheck-rust cargo))
 
+(add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
+
 (eval-after-load 'rust-mode
   '(progn
      (add-hook 'flycheck-mode-hook 'flycheck-rust-setup)
