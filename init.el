@@ -96,10 +96,11 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (posframe transient treemacs clojure-mode lsp-mode yasnippet-snippets yari yaml-mode which-key web-mode volatile-highlights visual-regexp tide smartparens slime scss-mode ruby-tools rbenv rainbow-mode rainbow-identifiers rainbow-delimiters racer pyenv-mode py-autopep8 prettier-js nvm neotree move-text moe-theme magit lsp-ui latex-preview-pane js2-mode js-comint intero inf-ruby inf-clojure imenu-list helm-lsp helm-ls-git helm-flycheck helm-descbinds helm-c-yasnippet helm-bibtex helm-ag haskell-snippets flycheck-rust flycheck-pos-tip expand-region exec-path-from-shell elpy dumb-jump doom-themes doom-modeline discover-my-major diminish diff-hl dap-mode csv-mode company-auctex common-lisp-snippets clojure-snippets clj-refactor cargo blacken anzu)))
+    (dash dash-functional multiple-cursors company flycheck helm helm-core markdown-mode cider a rust-mode pyvenv posframe transient treemacs clojure-mode lsp-mode yasnippet-snippets yari yaml-mode which-key web-mode volatile-highlights visual-regexp tide smartparens slime scss-mode ruby-tools rbenv rainbow-mode rainbow-identifiers rainbow-delimiters racer pyenv-mode py-autopep8 prettier-js nvm neotree move-text moe-theme magit lsp-ui latex-preview-pane js2-mode js-comint intero inf-ruby inf-clojure imenu-list helm-lsp helm-ls-git helm-flycheck helm-descbinds helm-c-yasnippet helm-bibtex helm-ag haskell-snippets flycheck-rust flycheck-pos-tip expand-region exec-path-from-shell elpy dumb-jump doom-themes doom-modeline discover-my-major diminish diff-hl dap-mode csv-mode company-auctex common-lisp-snippets clojure-snippets clj-refactor cargo blacken anzu)))
  '(safe-local-variable-values
    (quote
-    ((org-todo-keyword-faces
+    ((create-lockfiles)
+     (org-todo-keyword-faces
       ("CODE" . "DeepPink")
       ("TODO" . "DeepPink")
       ("MEETING" . "pink")
