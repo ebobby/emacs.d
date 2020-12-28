@@ -14,6 +14,7 @@
 (defvar my-packages '(ace-window
                       all-the-icons
                       anzu
+                      avy
                       diff-hl
                       diminish
                       discover-my-major

@@ -32,6 +32,7 @@
 (global-set-key (kbd "C-c m") 'discover-my-major)
 (global-set-key (kbd "C-c i") 'imenu-list-smart-toggle)
 (global-set-key (kbd "C-\\") 'hippie-expand)
+(global-set-key (kbd "C-c j") 'avy-goto-word-or-subword-1)
 
 ; accented vowels with Hyper
 (global-set-key (kbd "H-a") (lambda () (interactive) (insert "á")))
