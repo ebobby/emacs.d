@@ -40,7 +40,7 @@
 (add-subfolders-to-load-path vendor-dir)
 
 ;; Garbage collection configuration
-(setq gc-cons-threshold 100000000)
+(setq gc-cons-threshold (* 1024 1024 100))
 (setq gc-cons-percentage 0.5)
 (setq read-process-output-max (* 1024 1024))
 
