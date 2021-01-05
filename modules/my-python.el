@@ -4,16 +4,18 @@
 
 ;;; Code:
 
-(require-packages '(pyenv-mode lsp-python-ms yapfify))
+(require-packages '(pyenv-mode lsp-python-ms py-autopep8))
 
 ;; Enable pyenv mode first
 (pyenv-mode)
 
-(setq lsp-python-ms-auto-install-server t)
 (add-hook 'python-mode-hook (lambda ()
-                              (yapf-mode)
+                              (py-autopep8-enable-on-save)
                               (require 'lsp-python-ms)
                               (lsp)))
+
+;; Auto install Microsoft's Python Server
+(setq lsp-python-ms-auto-install-server t)
 
 ;; Use IPython
 (setq python-shell-interpreter "ipython"
