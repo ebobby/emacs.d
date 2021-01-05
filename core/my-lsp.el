@@ -15,7 +15,6 @@
 (require 'lsp-ui)
 (require 'lsp-mode)
 (require 'dap-mode)
-
 (dap-mode 1)
 
 (setq lsp-auto-configure t)

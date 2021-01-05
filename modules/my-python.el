@@ -4,22 +4,16 @@
 
 ;;; Code:
 
-(require-packages '(elpy py-autopep8 blacken pyenv-mode))
+(require-packages '(pyenv-mode lsp-python-ms yapfify))
 
 ;; Enable pyenv mode first
 (pyenv-mode)
 
-;; Enable elpy
-(elpy-enable)
-
-;; Enable Flycheck
-(when (require 'flycheck nil t)
-  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
-  (add-hook 'elpy-mode-hook 'flycheck-mode))
-
-;; Enable autopep8
-(require 'py-autopep8)
-(add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
+(setq lsp-python-ms-auto-install-server t)
+(add-hook 'python-mode-hook (lambda ()
+                              (yapf-mode)
+                              (require 'lsp-python-ms)
+                              (lsp)))
 
 ;; Use IPython
 (setq python-shell-interpreter "ipython"

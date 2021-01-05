@@ -50,23 +50,21 @@
 ;; warn when opening files bigger than 200MB
 (setq large-file-warning-threshold (* 1024 1024 100 2))
 
-;; Core configuration
-(require 'my-packages)
-
 ;; OS specific configuration
 (when (equal system-type 'darwin)
   (require 'my-osx))
 
 ;; Core configuration
+(require 'my-packages)
 (require 'my-functions)
 (require 'my-editor)
+(require 'my-lsp)
 (require 'my-key-bindings)
 (require 'my-mode)
 (require 'my-company)
 (require 'my-helm)
 (require 'my-magit)
 (require 'my-rainbow)
-(require 'my-lsp)
 
 ;; Modules configuration
 (require 'my-clojure)
