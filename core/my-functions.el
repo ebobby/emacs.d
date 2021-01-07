@@ -8,7 +8,9 @@
   "Ask for confirmation before exiting Emacs."
   (interactive)
   (if (y-or-n-p "Are you sure you want to exit? ")
-      (save-buffers-kill-emacs)))
+      (if server-process
+          (delete-frame)
+        (save-buffers-kill-emacs))))
 
 (defun my-upgrade-all ()
   "Upgrades all packages."

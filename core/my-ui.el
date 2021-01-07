@@ -81,11 +81,18 @@
 (setq doom-dracula-colorful-headers t)
 (setq doom-dracula-comment-bg t)
 
-;; Font
+(defvar ui-font "JetBrains Mono Nerd Font-13")
+
 (when window-system
   (toggle-frame-maximized)
   (my-transparency 100)
-  (set-face-attribute 'default nil :font "JetBrains Mono Nerd Font-13"))
+  (set-face-attribute 'default nil :font ui-font))
+
+(push (lambda (frame)
+        (set-frame-parameter frame 'font ui-font)
+        (my-transparency 100)
+        (toggle-frame-maximized frame))
+      after-make-frame-functions)
 
 (provide 'my-ui)
 
