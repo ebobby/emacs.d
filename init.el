@@ -1,8 +1,6 @@
 ;;; init.el --- Emacs configuration
 ;;; Commentary:
 
-(package-initialize)
-
 ;; Load everything up.
 
 ;;; Code:
