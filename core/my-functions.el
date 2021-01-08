@@ -7,7 +7,7 @@
 (defun confirm-exit-emacs ()
   "Ask for confirmation before exiting Emacs."
   (interactive)
-  (if server-process
+  (if (> (length (visible-frame-list)) 1)
       (delete-frame)
     (if (y-or-n-p "Are you sure you want to exit? ")
         (save-buffers-kill-emacs))))
