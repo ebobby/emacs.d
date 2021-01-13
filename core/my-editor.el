@@ -131,11 +131,13 @@
 (setq recentf-save-file (expand-file-name "recentf" savefile-dir)
       recentf-max-saved-items 500
       recentf-max-menu-items 25
-      recentf-auto-cleanup 'never)
+      recentf-auto-cleanup 60)
 ;; ignore magit's commit message files
 (add-to-list 'recentf-exclude "COMMIT_EDITMSG\\'")
 (add-to-list 'recentf-exclude (expand-file-name "elpa" root-dir))
 (add-to-list 'recentf-exclude (expand-file-name "ido.hist" savefile-dir))
+;; Save list every 5 minutes.
+(run-at-time nil (* 5 60) 'recentf-save-list)
 (recentf-mode +1)
 
 ;; autofill
