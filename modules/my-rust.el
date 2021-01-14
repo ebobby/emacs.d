@@ -8,6 +8,8 @@
 
 (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
 
+(exec-path-from-shell-copy-env "RUST_SRC_PATH")
+
 (eval-after-load 'rust-mode
   '(progn
      (add-hook 'flycheck-mode-hook 'flycheck-rust-setup)
@@ -17,6 +19,7 @@
                                  (cargo-minor-mode)
                                  (racer-mode)
                                  (local-set-key (kbd "C-c C-d") 'racer-describe)
+                                 (lsp)
                                  (diminish 'cargo-minor-mode)
                                  (diminish 'racer-mode)))))
 
