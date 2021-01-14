@@ -207,6 +207,7 @@
 
 ;; Dumb jump
 (dumb-jump-mode)
+(add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
 
 ;; Get path from shell
 (require 'exec-path-from-shell)
