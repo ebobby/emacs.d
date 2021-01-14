@@ -77,6 +77,11 @@
               (neotree-find file-name)))
       (message "Could not find git project root."))))
 
+(defun my-reload-config ()
+  "Reload configurtion."
+  (interactive)
+  (load user-init-file))
+
 (provide 'my-functions)
 
 ;;; my-functions.el ends here
