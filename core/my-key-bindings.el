@@ -20,7 +20,7 @@
 (global-unset-key (kbd "C-x C-r"))
 (global-unset-key (kbd "s-n"))
 
-(global-set-key (kbd "C-x C-c") 'confirm-exit-emacs)
+(global-set-key (kbd "C-x C-c") 'my-confirm-exit-emacs)
 (global-set-key (kbd "M-1") 'delete-other-windows)
 (global-set-key (kbd "M-2") 'split-window-vertically)
 (global-set-key (kbd "M-3") 'split-window-horizontally)

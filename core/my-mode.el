@@ -9,7 +9,7 @@
 (defvar my-mode-map
   (let ((map (make-sparse-keymap)))
     (define-key map (kbd "<f7>") 'toggle-truncate-lines)
-    (define-key map (kbd "<f8>") 'neotree-project-dir)
+    (define-key map (kbd "<f8>") 'my-neotree-project)
     (define-key map (kbd "C-;") 'mc/mark-all-symbols-like-this)
     (define-key map (kbd "C-c t") 'vr/replace)
     (define-key map (kbd "C-c q") 'vr/query-replace)

@@ -25,9 +25,9 @@
 
 ;; Core configuration
 (require 'my-settings)
-
-(require 'my-packages)
 (require 'my-functions)
+(require 'my-packages)
+
 (require 'my-editor)
 (require 'my-lsp)
 (require 'my-key-bindings)

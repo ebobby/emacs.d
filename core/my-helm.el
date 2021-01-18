@@ -81,6 +81,23 @@
 
 (diminish 'helm-mode)
 
+;; Redefine helm project root functions
+(defun helm-ag-project-root ()
+  "Not documented, QUERY."
+  (interactive)
+  (helm-ag (helm-ls-git-root-dir)))
+
+(defun helm-do-ag-project-root ()
+  "Not documented, QUERY."
+  (interactive)
+  (helm-do-ag (helm-ls-git-root-dir)))
+
+(defun helm-project-kill-buffers ()
+  "Kill all buffers in project."
+  (interactive)
+  (mapcar 'kill-buffer
+          (helm-browse-project-get-buffers (helm-ls-git-root-dir))))
+
 (provide 'my-helm)
 
 ;;; my-helm.el ends here
