@@ -1,25 +1,12 @@
-;;; my-ui.el --- UI
+;;; my-theme.el --- Theme loading and configuration
+;; Copyright (C) 2010-2021 Francisco Soto
+;; Author: Francisco Soto <ebobby@ebobby.org>
+;; URL: https://github.com/ebobby/emacs.d
+;;
+;; This file is not part of GNU Emacs.
+;; This file is free software.
 ;;; Commentary:
-;; UI.
-
 ;;; Code:
-
-;; apply syntax highlighting to all buffers
-(global-font-lock-mode t)
-
-;; show column number in bar
-(column-number-mode t)
-
-;; highlight matching parens
-(show-paren-mode t)
-
-;; blink cursor
-(blink-cursor-mode -1)
-
-;; mode line settings
-(line-number-mode t)
-(column-number-mode t)
-(size-indication-mode t)
 
 ;; Theme and fonts
 (require 'all-the-icons)
@@ -49,19 +36,17 @@
 (setq doom-dracula-colorful-headers t)
 (setq doom-dracula-comment-bg t)
 
-(defvar ui-font "JetBrains Mono Nerd Font-11")
+(defvar ui-font "JetBrains Mono Nerd Font-13")
 
 (when window-system
   (toggle-frame-maximized)
-  (my-transparency 100)
   (set-face-attribute 'default nil :font ui-font))
 
 (push (lambda (frame)
         (set-frame-parameter frame 'font ui-font)
-        (my-transparency 100)
         (toggle-frame-maximized frame))
       after-make-frame-functions)
 
-(provide 'my-ui)
+(provide 'my-theme)
 
-;;; my-ui.el ends here
+;;; my-theme.el ends here

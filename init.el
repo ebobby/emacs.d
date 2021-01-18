@@ -53,7 +53,7 @@
 (require 'my-js)
 
 ;; Load UI after everything else.
-(require 'my-ui)
+(require 'my-theme)
 
 (server-start)
 
