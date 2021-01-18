@@ -8,7 +8,9 @@
 
 (package-initialize)
 
-(defvar my-packages '(ace-window
+(defvar my-packages '(gcmh
+                      use-package
+                      ace-window
                       all-the-icons
                       anzu
                       avy

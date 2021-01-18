@@ -7,6 +7,9 @@
 ;; Remove whitespace on save.
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+(require 'gcmh)
+(add-hook 'after-init-hook 'gcmh-mode)
+
 (require 'diminish)
 
 (require 'ansi-color)
