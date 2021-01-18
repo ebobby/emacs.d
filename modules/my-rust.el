@@ -19,9 +19,7 @@
                                  (cargo-minor-mode)
                                  (racer-mode)
                                  (local-set-key (kbd "C-c C-d") 'racer-describe)
-                                 (lsp)
-                                 (diminish 'cargo-minor-mode)
-                                 (diminish 'racer-mode)))))
+                                 (lsp)))))
 
 (provide 'my-rust)
 

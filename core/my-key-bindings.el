@@ -30,7 +30,6 @@
 (global-set-key (kbd "C-=") 'er/expand-region)
 (global-set-key (kbd "C--") 'er/contract-region)
 (global-set-key (kbd "C-h C-m") 'discover-my-major)
-(global-set-key (kbd "C-c i") 'imenu-list-smart-toggle)
 (global-set-key (kbd "C-\\") 'hippie-expand)
 (global-set-key (kbd "C-c j") 'avy-goto-word-or-subword-1)
 

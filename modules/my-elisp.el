@@ -11,10 +11,7 @@
                                   (enable-rainbow-prog)
                                   (eldoc-mode +1)
                                   (smartparens-strict-mode t)
-                                  (setq mode-name "ELisp")))
-
-(eval-after-load "eldoc"
-  '(diminish 'eldoc-mode))
+                                  (setq mode-name "eLisp")))
 
 (provide 'my-elisp)
 

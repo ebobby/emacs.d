@@ -15,8 +15,6 @@
 
 (add-hook 'after-init-hook 'global-company-mode)
 
-(add-hook 'company-mode-hook (lambda () (diminish 'company-mode)))
-
 (defun text-mode-hook-setup ()
   (make-local-variable 'company-backends)
   (add-to-list 'company-backends 'company-ispell))

@@ -10,20 +10,8 @@
 (require 'gcmh)
 (add-hook 'after-init-hook 'gcmh-mode)
 
-(require 'diminish)
-
-(require 'ansi-color)
-(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
-
 ;; Move blocks of text around
 (require 'move-text)
-
-;; Subword mode
-(require 'subword)
-(diminish 'subword-mode)
-
-;; Revert buffers that change externally
-(diminish 'auto-revert-mode)
 
 ;; Use aspell instead of ispell
 (require 'flyspell)
@@ -33,15 +21,12 @@
 (add-hook 'org-mode-hook (lambda ()
                            (flyspell-mode +1)
                            (auto-fill-mode +1)))
-(diminish 'flyspell-mode)
-
 ;; hi-lock
 (global-hi-lock-mode 1)
 (setq hi-lock-auto-select-face t)
 
 (require 'volatile-highlights)
 (volatile-highlights-mode t)
-(diminish 'volatile-highlights-mode)
 
 ;; saveplace remembers your location in a file when saving files
 (require 'saveplace)
@@ -77,7 +62,6 @@
 ;; autofill
 (require 'flycheck)
 (require 'smartparens-config)
-(require 'yasnippet)
 
 (setq sp-base-key-bindings 'paredit)
 (setq sp-autoskip-closing-pair 'always)
@@ -88,13 +72,7 @@
 (with-eval-after-load 'flycheck
   (flycheck-pos-tip-mode))
 
-(diminish 'flycheck-mode)
-(diminish 'smartparens-mode)
-(diminish 'yas-minor-mode)
-
 (add-hook 'prog-mode-hook (lambda ()
-                            (yas-reload-all)
-                            (yas-minor-mode)
                             (ignore-errors
                               (imenu-add-menubar-index))
                             (flycheck-mode +1)
@@ -102,15 +80,10 @@
                             (display-line-numbers-mode +1)
                             (smartparens-mode +1)))
 
-;; Nice window navigation
-(require 'windmove)
-(windmove-default-keybindings)
-
 (require 'expand-region)
 (require 'visual-regexp)
 
 (require 'anzu)
-(diminish 'anzu-mode)
 (global-anzu-mode)
 
 (require 'diff-hl)
@@ -147,7 +120,6 @@
 ;; Which key
 (setq-default which-key-idle-delay 2.0)
 (which-key-mode)
-(diminish 'which-key-mode)
 
 ;; Org mode
 (setq org-hide-leading-stars t)
