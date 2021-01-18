@@ -4,73 +4,8 @@
 
 ;;; Code:
 
-;; tabs and indentation
-(setq-default indent-tabs-mode nil)
-(setq-default tab-width 2)
-(setq require-final-newline t)
-
-;;
-(setq initial-scratch-message nil)
-(setq initial-major-mode 'text-mode)
-(setq echo-keystrokes 0.1)
-
-;; store all backup and autosave files in the tmp dir
-(setq backup-directory-alist `(("." . ,backup-dir)))
-(setq auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
-(setq auto-save-list-file-prefix temporary-file-directory)
-
-;; Prefer vertical window splitting.
-(setq split-height-threshold 90)
-
-;; Hippie Expand
-(setq hippie-expand-try-functions-list '(try-expand-dabbrev
-                                         try-expand-dabbrev-all-buffers
-                                         try-expand-dabbrev-from-kill
-                                         try-complete-file-name-partially
-                                         try-complete-file-name
-                                         try-expand-all-abbrevs
-                                         try-expand-list
-                                         yas-hippie-try-expand
-                                         try-expand-line
-                                         try-complete-lisp-symbol-partially
-                                         try-complete-lisp-symbol))
-
-;; encoding
-(prefer-coding-system 'utf-8)
-(set-language-environment 'utf-8)
-(set-default-coding-systems 'utf-8)
-(set-terminal-coding-system 'utf-8)
-(set-selection-coding-system 'utf-8)
-
-;; whitespace removal
+;; Remove whitespace on save.
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
-
-;; Don't inmediately display warnings that aren't emergencies.
-(setq-default warning-minimum-level :emergency)
-
-;; don't confirm opening non-existant files/buffers
-(setq confirm-nonexistent-file-or-buffer nil)
-
-;; yes, I want to kill buffers with processes attached
-(setq kill-buffer-query-functions
-      (remq 'process-kill-buffer-query-function
-            kill-buffer-query-functions))
-
-;; Anwsering y/n is faster than yes/no.
-(fset 'yes-or-no-p 'y-or-n-p)
-
-;; Do not ask about running processes when exiting.
-(defadvice save-buffers-kill-emacs (around no-query-kill-emacs activate)
-  "Prevent annoying \"Active processes exist\" query when you quit Emacs."
-  (cl-flet ((process-list ())) ad-do-it))
-
-;;; Normally disabled commands
-(put 'erase-buffer 'disabled nil)
-(put 'downcase-region 'disabled nil)
-(put 'upcase-region 'disabled nil)
-(put 'narrow-to-region 'disabled nil)
-(put 'narrow-to-page 'disabled nil)
-(put 'narrow-to-defun 'disabled nil)
 
 (require 'diminish)
 
@@ -85,11 +20,7 @@
 (diminish 'subword-mode)
 
 ;; Revert buffers that change externally
-(global-auto-revert-mode t)
 (diminish 'auto-revert-mode)
-
-;; disable annoying blink-matching-paren
-(setq blink-matching-paren nil)
 
 ;; Use aspell instead of ispell
 (require 'flyspell)
@@ -141,8 +72,6 @@
 (recentf-mode +1)
 
 ;; autofill
-(setq-default fill-column 80)
-
 (require 'flycheck)
 (require 'smartparens-config)
 (require 'yasnippet)
@@ -202,8 +131,6 @@
 ;; keep in mind known issues with zsh - see emacs wiki
 (setq tramp-default-method "ssh")
 (setq tramp-persistency-file-name (expand-file-name "tramp" savefile-dir))
-
-(setq bookmark-default-file (expand-file-name "bookmarks" savefile-dir))
 
 ;; Dumb jump
 (dumb-jump-mode)

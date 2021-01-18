@@ -4,55 +4,28 @@
 ;; Load everything up.
 
 ;;; Code:
-
 (require 'cl)
 (require 'package)
 
-;; Always load newest byte code
-(setq load-prefer-newer t)
-
+;; Define global directories.
 (defvar root-dir (file-name-directory load-file-name))
-(defvar core-dir (expand-file-name "core" root-dir))
-(defvar modules-dir (expand-file-name  "modules" root-dir))
-(defvar vendor-dir (expand-file-name "vendor" root-dir))
-(defvar savefile-dir (expand-file-name "savefile" root-dir))
 (defvar backup-dir (expand-file-name "backup" root-dir))
+(defvar savefile-dir (expand-file-name "savefile" root-dir))
+(defvar user-dir (expand-file-name "user-files" root-dir))
 (defvar utilities-dir (expand-file-name "utilities" root-dir))
 
-(setq user-emacs-directory (expand-file-name "user-files" root-dir ))
+;; Our configuration.
+(add-to-list 'load-path (expand-file-name "core" root-dir))
+(add-to-list 'load-path (expand-file-name "modules" root-dir))
 
-;; Copied from prelude.
-(defun add-subfolders-to-load-path (parent-dir)
-  "Add all level PARENT-DIR subdirs to the `load-path'."
-  (dolist (f (directory-files parent-dir))
-    (let ((name (expand-file-name f parent-dir)))
-      (when (and (file-directory-p name)
-                 (not (string-prefix-p "." f)))
-        (add-to-list 'load-path name)
-        (add-subfolders-to-load-path name)))))
-
-(add-to-list 'load-path core-dir)
-(add-to-list 'load-path modules-dir)
-(add-to-list 'load-path vendor-dir)
-(add-to-list 'load-path core-dir)
-(add-subfolders-to-load-path vendor-dir)
-
-;; Garbage collection configuration
-(setq gc-cons-threshold (* 1024 1024 100))
-(setq gc-cons-percentage 0.5)
-(setq read-process-output-max (* 1024 1024))
-
-(run-with-idle-timer 5 t #'garbage-collect)
-(setq garbage-collection-messages t)
-
-;; warn when opening files bigger than 200MB
-(setq large-file-warning-threshold (* 1024 1024 100 2))
-
-;; OS specific configuration
-(when (equal system-type 'darwin)
-  (require 'my-osx))
+;; Turn off mouse interface early in startup to avoid momentary display.
+(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
+(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
 ;; Core configuration
+(require 'my-settings)
+
 (require 'my-packages)
 (require 'my-functions)
 (require 'my-editor)
