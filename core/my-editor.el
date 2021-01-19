@@ -10,7 +10,10 @@
 
 (require-packages '(use-package hydra))
 
+(require 'use-package)
+(require 'bind-key)
 (require 'use-package-ensure)
+
 (setq use-package-always-ensure t)
 
 ;; use-package keeps packages up to date.
