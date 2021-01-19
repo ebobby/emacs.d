@@ -31,11 +31,11 @@
 
 ;; Modules configuration
 (require 'my-elisp)
-(require 'my-latex)
-(require 'my-ruby)
-(require 'my-python)
-(require 'my-rust)
 (require 'my-js)
+(require 'my-python)
+;;(require 'my-latex)
+;;(require 'my-ruby)
+;;(require 'my-rust)
 
 ;; Load UI after everything else.
 (require 'my-theme)
