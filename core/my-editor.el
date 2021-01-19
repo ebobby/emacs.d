@@ -274,6 +274,14 @@
         magit-define-global-key-bindings nil
         magit-last-seen-setup-instructions "1.4.0"))
 
+(use-package rainbow-mode)
+
+(use-package rainbow-delimiters
+  :hook prog-mode)
+
+(use-package rainbow-identifiers
+  :hook prog-mode)
+
 ;; Org mode
 (setq org-hide-leading-stars t)
 
