@@ -13,7 +13,6 @@
 (global-unset-key (kbd "C-x o"))
 (global-unset-key (kbd "C-x o"))
 (global-unset-key (kbd "C-x k"))
-(global-unset-key (kbd "C-x m"))
 (global-unset-key (kbd "C-x c"))
 (global-unset-key (kbd "C-x TAB"))
 (global-unset-key (kbd "C-c C-h"))
@@ -25,13 +24,8 @@
 (global-set-key (kbd "M-2") 'split-window-vertically)
 (global-set-key (kbd "M-3") 'split-window-horizontally)
 (global-set-key (kbd "M-0") 'delete-window)
-(global-set-key (kbd "M-o") 'ace-window)
 (global-set-key (kbd "M-k") 'kill-this-buffer)
-(global-set-key (kbd "C-=") 'er/expand-region)
-(global-set-key (kbd "C--") 'er/contract-region)
-(global-set-key (kbd "C-h C-m") 'discover-my-major)
 (global-set-key (kbd "C-\\") 'hippie-expand)
-(global-set-key (kbd "C-c j") 'avy-goto-word-or-subword-1)
 
 (provide 'my-key-bindings)
 

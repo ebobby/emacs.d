@@ -8,7 +8,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(require-package 'use-package)
+(require-packages '(use-package hydra))
 
 (require 'use-package-ensure)
 (setq use-package-always-ensure t)
@@ -28,7 +28,12 @@
   (add-hook 'after-init-hook 'gcmh-mode))
 
 ;; Move blocks of text around
-(use-package move-text)
+(use-package move-text
+  :config
+  (defhydra hydra-move-text (global-map "C-x m")
+    "Move text"
+    ("p" move-text-up "up")
+    ("n" move-text-down "down")))
 
 (use-package hi-lock
   :config
@@ -86,10 +91,14 @@
   (show-smartparens-global-mode))
 
 ;; Smart regions.
-(use-package expand-region)
+(use-package expand-region
+  :bind (("C-=" . er/expand-region)
+         ("C--" . er/contract-region)))
 
 ;; Visual feedback for regexp replace.
-(use-package visual-regexp)
+(use-package visual-regexp
+  :bind (("C-c e t" . vr/replace)
+         ("C-c e q" . vr/query-replace)))
 
 ;; Visual feedback for searching.
 (use-package anzu
@@ -136,19 +145,27 @@
   (which-key-mode))
 
 ;; Tree-like file navigation.
-(use-package neotree)
+(use-package neotree
+  :bind (("<f9>" . my-neotree-project)))
 
 ;; Multiple editing cursors.
-(use-package multiple-cursors)
+(use-package multiple-cursors
+  :bind (("C-;"     . mc/mark-all-symbols-like-this)
+         ("C-c e a" . mc/edit-beginnings-of-lines)
+         ("C-c e e" . mc/edit-ends-of-lines)
+         ("C-c e l" . mc/edit-lines)))
 
 ;; Show major mode keys
-(use-package discover-my-major)
+(use-package discover-my-major
+  :bind ("C-h C-m" . discover-my-major))
 
 ;; Jump around visible text.
-(use-package avy)
+(use-package avy
+  :bind ("C-c j" . avy-goto-word-or-subword-1))
 
 ;; Window navigation.
-(use-package ace-window)
+(use-package ace-window
+  :bind ("M-o" . ace-window))
 
 ;; Helm <3
 (use-package helm
