@@ -30,18 +30,11 @@
 (require 'my-editor)
 
 ;; Modules configuration
-(require 'my-clojure)
 (require 'my-elisp)
-(require 'my-haskell)
 (require 'my-latex)
-(require 'my-lisp)
-(require 'my-markdown)
 (require 'my-ruby)
 (require 'my-python)
 (require 'my-rust)
-(require 'my-typescript)
-(require 'my-web)
-(require 'my-octave)
 (require 'my-js)
 
 ;; Load UI after everything else.
