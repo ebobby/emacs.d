@@ -34,7 +34,6 @@
 (require 'my-editor)
 (require 'my-key-bindings)
 (require 'my-mode)
-(require 'my-company)
 (require 'my-magit)
 (require 'my-rainbow)
 

@@ -252,6 +252,17 @@
   :config
   (define-key lsp-mode-map [remap xref-find-apropos] #'helm-lsp-workspace-symbol))
 
+;; Company
+(use-package company
+  :bind (("C-'" . company-complete))
+  :config
+  (add-to-list 'company-backends 'company-ispell)
+  (setq company-idle-delay 0.0
+      company-minimum-prefix-length 1
+      company-tooltip-align-annotations t
+      company-tooltip-limit 20)
+  (add-hook 'after-init-hook 'global-company-mode))
+
 ;; Org mode
 (setq org-hide-leading-stars t)
 
