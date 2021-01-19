@@ -75,13 +75,20 @@
   (recentf-mode))
 
 ;; Syntax checking.
-(use-package flycheck)
+(use-package flyspell
+  :hook (prog-mode . flyspell-prog-mode))
+
+;; Syntax checking.
+(use-package flycheck
+  :hook (prog-mode . flycheck-mode))
+
 (use-package flycheck-pos-tip
   :config
   (flycheck-pos-tip-mode))
 
 ;; Smart parenthesis.
 (use-package smartparens
+  :hook (prog-mode . smartparens-mode)
   :config
   (require 'smartparens-config)
   (setq sp-autoskip-closing-pair 'always
@@ -171,8 +178,7 @@
 
 ;; Helm <3
 (use-package helm
-  :bind-keymap
-  ("C-c h" . helm-command-prefix)
+  :bind-keymap ("C-c h" . helm-command-prefix)
   :bind (("<f2>"      . helm-occur)
          ("<f3>"      . my-helm-do-ag-project-root)
          ("C-c p f"   . helm-browse-project)
@@ -277,28 +283,20 @@
 (use-package rainbow-mode)
 
 (use-package rainbow-delimiters
-  :hook prog-mode)
+  :hook (prog-mode . rainbow-delimiters-mode))
 
 (use-package rainbow-identifiers
-  :hook prog-mode)
+  :hook (prog-mode . rainbow-identifiers-mode))
+
+(use-package display-line-numbers
+  :hook (prog-mode . display-line-numbers-mode)
+  :config
+  (setq  display-line-numbers-grow-only t
+         display-line-numbers-type "relative"))
 
 ;; Org mode
 (setq org-hide-leading-stars t)
 
-;; Misc configuration
-(add-hook 'text-mode-hook (lambda () (flyspell-mode +1)))
-(add-hook 'yaml-mode-hook (lambda () (flyspell-mode -1)))
-(add-hook 'org-mode-hook (lambda ()
-                           (flyspell-mode +1)
-                           (auto-fill-mode +1)))
-
-(add-hook 'prog-mode-hook (lambda ()
-                            (ignore-errors
-                              (imenu-add-menubar-index))
-                            (flycheck-mode +1)
-                            (flyspell-prog-mode)
-                            (display-line-numbers-mode +1)
-                            (smartparens-mode +1)))
 (provide 'my-editor)
 
 ;;; my-editor.el ends here

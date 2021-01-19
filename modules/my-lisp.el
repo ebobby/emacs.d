@@ -19,7 +19,7 @@
 
 (add-hook 'emacs-elisp-mode-hook (lambda ()
                                    (eldoc-mode +1)
-                                   (enable-rainbow)
+                                   (rainbow-mode)
                                    (smartparens-strict-mode +1)))
 
 (add-hook 'emacs-lisp-mode-hook (lambda () (smartparens-strict-mode +1)))

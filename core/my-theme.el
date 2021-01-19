@@ -12,7 +12,9 @@
 
 ;; All the icons!
 (use-package all-the-icons
-  :config (all-the-icons-install-fonts t))
+  :config
+  ;;(all-the-icons-install-fonts t)
+  )
 
 ;; Doom theme.
 (use-package doom-themes

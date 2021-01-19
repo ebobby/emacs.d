@@ -29,9 +29,8 @@
  ;; Packages config.
  gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3"
  package-archives '(("org"          . "https://orgmode.org/elpa/")
-                    ("gnu"          . "https://elpa.gnu.org/packages/")
-                    ("melpa-stable" . "https://stable.melpa.org/packages/")
-                    ("melpa"        . "https://melpa.org/packages/"))
+                    ("melpa"        . "https://melpa.org/packages/")
+                    ("gnu"          . "https://elpa.gnu.org/packages/"))
 
  ;; tabs and indentation
  require-final-newline t
@@ -52,15 +51,13 @@
  confirm-kill-processes nil
  confirm-nonexistent-file-or-buffer nil
  kill-buffer-query-functions (remq 'process-kill-buffer-query-function
-                                    kill-buffer-query-functions)
+                                   kill-buffer-query-functions)
  ;; PDF viewing
  doc-view-continuous t
  doc-view-resolution 300
 
  ;; UI
  blink-matching-paren nil
- display-line-numbers-grow-only t
- display-line-numbers-type "relative"
  ns-pop-up-frames nil
  query-replace-highlight t
  ring-bell-function 'ignore

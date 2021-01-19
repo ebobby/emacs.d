@@ -8,7 +8,7 @@
 
 (require 'web-mode)
 
-(add-hook 'web-mode-hook (lambda () (enable-rainbow)))
+(add-hook 'web-mode-hook (lambda () (rainbow-mode)))
 
 ;; Web mode
 (setq web-mode-markup-indent-offset 2)

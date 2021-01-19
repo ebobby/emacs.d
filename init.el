@@ -23,14 +23,10 @@
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
-;; Initialize packages before handling the rest of the config.
-(package-initialize)
-
 ;; Core configuration
 (require 'my-settings)
 (require 'my-functions)
 (require 'my-packages)
-
 (require 'my-editor)
 
 ;; Modules configuration
@@ -59,7 +55,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+  )
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
