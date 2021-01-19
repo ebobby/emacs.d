@@ -32,10 +32,6 @@
 (require 'my-packages)
 
 (require 'my-editor)
-(require 'my-key-bindings)
-(require 'my-mode)
-(require 'my-magit)
-(require 'my-rainbow)
 
 ;; Modules configuration
 (require 'my-clojure)
