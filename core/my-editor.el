@@ -263,6 +263,17 @@
       company-tooltip-limit 20)
   (add-hook 'after-init-hook 'global-company-mode))
 
+;; Magit
+(use-package magit
+  :bind (("<f10>"   . magit-status)
+         ("C-c m l" . magit-log)
+         ("C-c m f" . magit-log-buffer-file)
+         ("C-c m b" . magit-blame))
+  :config
+  (setq magit-auto-revert-mode nil
+        magit-define-global-key-bindings nil
+        magit-last-seen-setup-instructions "1.4.0"))
+
 ;; Org mode
 (setq org-hide-leading-stars t)
 
