@@ -77,8 +77,8 @@
 ;; Syntax checking.
 (use-package flycheck)
 (use-package flycheck-pos-tip
-  :after (flycheck)
-  :config (flycheck-pos-tip-mode))
+  :config
+  (flycheck-pos-tip-mode))
 
 ;; Smart parenthesis.
 (use-package smartparens
@@ -113,11 +113,13 @@
 
 ;; Diff visualization.
 (use-package ediff
-  :config (setq ediff-window-setup-function 'ediff-setup-windows-plain))
+  :config
+  (setq ediff-window-setup-function 'ediff-setup-windows-plain))
 
 ;; Cursor line visual feedback.
 (use-package hl-line
-  :config (global-hl-line-mode))
+  :config
+  (global-hl-line-mode))
 
 ;; Tramp configuration
 (use-package tramp
@@ -171,30 +173,29 @@
 (use-package helm
   :bind-keymap
   ("C-c h" . helm-command-prefix)
-  :bind
-  (("<f2>"      . helm-occur)
-   ("<f3>"      . my-helm-do-ag-project-root)
-   ("C-c p f"   . helm-browse-project)
-   ("C-c p k"   . my-helm-project-kill-buffers)
-   ("C-h C-r"   . helm-recentf)
-   ("C-h f"     . helm-apropos)
-   ("C-x C-f"   . helm-find-files)
-   ("C-x C-m"   . helm-M-x)
-   ("C-x b"     . helm-buffers-list)
-   ("M-x"       . helm-M-x)
-   ("M-y"       . helm-show-kill-ring)
-   :map helm-map
-   ("<tab>" . helm-execute-persistent-action)
-   ("C-i"   . helm-execute-persistent-action)
-   ("C-z"   . helm-select-action)
-   :map flycheck-mode-map
-   ("C-c ! h" . helm-flycheck)
-   :map minibuffer-local-map
-   ("C-c C-l" . helm-minibuffer-history)
-   :map shell-mode-map
-   ("C-c C-l" . helm-comint-input-ring)
-   :map comint-mode-map
-   ("C-c C-l" . helm-comint-input-ring))
+  :bind (("<f2>"      . helm-occur)
+         ("<f3>"      . my-helm-do-ag-project-root)
+         ("C-c p f"   . helm-browse-project)
+         ("C-c p k"   . my-helm-project-kill-buffers)
+         ("C-h C-r"   . helm-recentf)
+         ("C-h f"     . helm-apropos)
+         ("C-x C-f"   . helm-find-files)
+         ("C-x C-m"   . helm-M-x)
+         ("C-x b"     . helm-buffers-list)
+         ("M-x"       . helm-M-x)
+         ("M-y"       . helm-show-kill-ring)
+         :map helm-map
+         ("<tab>" . helm-execute-persistent-action)
+         ("C-i"   . helm-execute-persistent-action)
+         ("C-z"   . helm-select-action)
+         :map flycheck-mode-map
+         ("C-c ! h" . helm-flycheck)
+         :map minibuffer-local-map
+         ("C-c C-l" . helm-minibuffer-history)
+         :map shell-mode-map
+         ("C-c C-l" . helm-comint-input-ring)
+         :map comint-mode-map
+         ("C-c C-l" . helm-comint-input-ring))
   :config
   (require 'helm-config)
   (require 'helm-source)
@@ -221,7 +222,8 @@
 (use-package helm-ag)
 
 (use-package helm-descbinds
-  :config (helm-descbinds-mode))
+  :config
+  (helm-descbinds-mode))
 
 (use-package helm-flycheck)
 
