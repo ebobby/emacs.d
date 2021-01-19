@@ -23,6 +23,9 @@
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
+;; Initialize packages before handling the rest of the config.
+(package-initialize)
+
 ;; Core configuration
 (require 'my-settings)
 (require 'my-functions)

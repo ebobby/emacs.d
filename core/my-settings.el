@@ -42,12 +42,6 @@
  auto-save-list-file-prefix temporary-file-directory
  backup-directory-alist `(("." . ,backup-dir))
 
- ;; Misc
- create-lockfiles nil
- echo-keystrokes 0.1
- large-file-warning-threshold (* 1024 1024 100 1)
- read-process-output-max (* 1024 1024)
-
  ;; Just in time lock
  jit-lock-defer-time nil
  jit-lock-stealth-nice 0.1
@@ -88,14 +82,21 @@
                                     try-expand-line
                                     try-complete-lisp-symbol-partially
                                     try-complete-lisp-symbol)
+ ;; Unique buffer names.
+ uniquify-after-kill-buffer-p t
+ uniquify-buffer-name-style 'forward
+ uniquify-ignore-buffers-re "^\\*"
+ uniquify-separator "/"
 
- ;; Some built-in modes setings.
+ ;; Misc.
  apropos-do-all t
  bookmark-default-file (expand-file-name "bookmarks" savefile-dir)
- default-major-mode 'text-mode
+ create-lockfiles nil
  dired-listing-switches "-alh"
- search-default-mode #'char-fold-to-regexp
- )
+ echo-keystrokes 0.1
+ large-file-warning-threshold (* 1024 1024 100 1)
+ read-process-output-max (* 1024 1024)
+ search-default-mode #'char-fold-to-regexp)
 ;;;;;;;;
 
 ;; encoding
@@ -118,11 +119,15 @@
 (put 'narrow-to-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
 
-(setq-default indent-tabs-mode nil)
-(setq-default tab-width 2)
-(setq-default truncate-lines t)
-(setq-default warning-minimum-level :emergency)
-(setq-default fill-column 80)
+(setq-default indent-tabs-mode nil
+              tab-width 2
+              truncate-lines t
+              warning-minimum-level :emergency
+              fill-column 80
+
+              ;; Use aspell instead of ispell
+              ispell-program-name "aspell"
+              ispell-extra-args '("--sug-mode=ultra"))
 
 ;; Anwsering y/n is faster than yes/no.
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -146,6 +151,9 @@
 
 ;; Revert buffers that change externally
 (global-auto-revert-mode t)
+
+;; Remove whitespace on save.
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (provide 'my-settings)
 

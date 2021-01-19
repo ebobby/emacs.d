@@ -16,12 +16,6 @@
     (if (y-or-n-p "Are you sure you want to exit? ")
         (save-buffers-kill-emacs))))
 
-(defun my-upgrade-all ()
-  "Upgrades all packages."
-  (interactive)
-  (epl-refresh)
-  (epl-upgrade))
-
 (defun my-untabify-buffer ()
   "Remove all tabs from the buffer."
   (interactive)

@@ -8,35 +8,13 @@
 
 (package-initialize)
 
-(defvar my-packages '(gcmh
-                      use-package
-                      ace-window
-                      all-the-icons
-                      anzu
-                      avy
-                      diff-hl
-                      discover-my-major
-                      doom-modeline
-                      doom-themes
-                      dumb-jump
-                      epl
-                      exec-path-from-shell
-                      expand-region
-                      flycheck
-                      flycheck-pos-tip
+(defvar my-packages '(
                       helm
                       helm-ag
                       helm-descbinds
                       helm-flycheck
                       helm-ls-git
-                      move-text
-                      multiple-cursors
-                      neotree
-                      org
-                      smartparens
-                      visual-regexp
-                      volatile-highlights
-                      which-key)
+                      org)
   "A list of required packages to ensure they are installed at launch.")
 
 (defun require-package (package)
@@ -63,7 +41,6 @@
                                              my-packages)))
 
 (install-my-packages)
-(require 'epl)
 
 ;;; Blatantly ripped from prelude emacs
 (defmacro auto-install (extension package mode)
