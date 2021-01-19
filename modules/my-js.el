@@ -14,6 +14,8 @@
   :hook (((js2-mode js2-mode-jsx) . js2-imenu-extras-mode)
          (js2-mode . lsp)
          (js2-mode . dap-mode))
+  :bind (:map js2-mode-map
+         ("M-." . nil))
   :interpreter "node"
   :config
   (require 'dap-node)
@@ -26,7 +28,8 @@
         js2-mode-show-strict-warnings nil
         js2-skip-preprocessor-directives t
         js2-strict-missing-semi-warning nil
-        js2-strict-trailing-comma-warning nil))
+        js2-strict-trailing-comma-warning nil)
+  (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
 
 (use-package js-comint)
 
@@ -36,9 +39,6 @@
 (use-package rjsx-mode
   :mode (("\\.js\\'"  . rjsx-mode)
          ("\\.jsx\\'" . rjsx-mode)))
-
-;; Override emacs jsx mode.
-;;(fset 'js-jsx-mode 'rjsx-mode)
 
 (provide 'my-js)
 
