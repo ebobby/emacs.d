@@ -14,12 +14,13 @@
   :hook (((js2-mode js2-mode-jsx) . js2-imenu-extras-mode)
          (js2-mode . lsp)
          (js2-mode . dap-mode))
-  :bind (:map js2-mode-map
-         ("M-." . nil))
+  :bind (:map js2-mode-map ("M-." . nil))
   :interpreter "node"
   :config
   (require 'dap-node)
-  (setq js-chain-indent t
+  (require 'dap-firefox)
+  (setq dap-firefox-debug-program `("node" ,(expand-file-name "extension/dist/adapter.bundle.js" dap-firefox-debug-path))
+        js-chain-indent t
         js2-basic-offset 2
         js2-highlight-external-variables t
         js2-highlight-level 3
