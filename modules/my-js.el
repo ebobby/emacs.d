@@ -1,61 +1,44 @@
 ;;; my-js.el --- All about JS
+;; Copyright (C) 2010-2021 Francisco Soto
+;; Author: Francisco Soto <ebobby@ebobby.org>
+;; URL: https://github.com/ebobby/emacs.d
+;;
+;; This file is not part of GNU Emacs.
+;; This file is free software.
 ;;; Commentary:
-;; Configure everything about JS
-
 ;;; Code:
 
-(require-packages '(js2-mode
-                    js-comint
-                    prettier-js
-                    rjsx-mode
-                    nvm))
+(use-package nvm)
 
-(require 'js)
-(require 'js2-mode)
-(require 'rjsx-mode)
-(require 'js-comint)
-(require 'prettier-js)
-(require 'nvm)
+(use-package js2-mode
+  :hook (((js2-mode js2-mode-jsx) . js2-imenu-extras-mode)
+         (js2-mode . lsp)
+         (js2-mode . dap-mode))
+  :interpreter "node"
+  :config
+  (require 'dap-node)
+  (setq js-chain-indent t
+        js2-basic-offset 2
+        js2-highlight-external-variables t
+        js2-highlight-level 3
+        js2-idle-timer-delay 0.1
+        js2-mode-show-parse-errors nil
+        js2-mode-show-strict-warnings nil
+        js2-skip-preprocessor-directives t
+        js2-strict-missing-semi-warning nil
+        js2-strict-trailing-comma-warning nil))
 
-(add-to-list 'auto-mode-alist '("\\.js\\'"  . rjsx-mode))
-(add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode))
+(use-package js-comint)
 
-(add-to-list 'interpreter-mode-alist '("node" . js2-jsx-mode))
-(add-to-list 'interpreter-mode-alist '("node" . js2-mode))
+(use-package prettier-js
+  :hook ((js2-mode js2-jsx-mode) . prettier-js-mode))
 
-(setq js2-basic-offset 2
-      js-chain-indent t
-      ;; Don't mishighlight shebang lines
-      js2-skip-preprocessor-directives t
-      ;; let flycheck handle this
-      js2-mode-show-parse-errors nil
-      js2-mode-show-strict-warnings nil
-      ;; Flycheck provides these features, so disable them: conflicting with
-      ;; the eslint settings.
-      js2-strict-trailing-comma-warning nil
-      js2-strict-missing-semi-warning nil
-      ;; maximum fontification
-      js2-highlight-level 3
-      js2-highlight-external-variables t
-      js2-idle-timer-delay 0.1)
-
-(defun setup-js2 ()
-  "Setup JS."
-  (setq electric-layout-rules '((?\; . after)))
-  (js2-imenu-extras-mode +1)
-  (prettier-js-mode +1)
-  (make-local-variable 'company-backends))
-
-(add-hook 'js2-mode-hook 'setup-js2)
-(add-hook 'js2-jsx-mode-hook 'setup-js2)
+(use-package rjsx-mode
+  :mode (("\\.js\\'"  . rjsx-mode)
+         ("\\.jsx\\'" . rjsx-mode)))
 
 ;; Override emacs jsx mode.
-(fset 'js-jsx-mode 'rjsx-mode)
-
-;; Run LSP if available.
-(add-hook 'js2-mode-hook 'lsp)
-
-(require 'dap-node)
+;;(fset 'js-jsx-mode 'rjsx-mode)
 
 (provide 'my-js)
 

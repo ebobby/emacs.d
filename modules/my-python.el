@@ -1,44 +1,54 @@
 ;;; my-python.el --- All about Python
+;; Copyright (C) 2010-2021 Francisco Soto
+;; Author: Francisco Soto <ebobby@ebobby.org>
+;; URL: https://github.com/ebobby/emacs.d
+;;
+;; This file is not part of GNU Emacs.
+;; This file is free software.
 ;;; Commentary:
-;; Configure everything about Python
-
 ;;; Code:
 
-(require-packages '(pyvenv pyenv-mode lsp-python-ms py-autopep8))
+(use-package pyenv-mode
+  :config
+  (pyenv-mode))
 
-(defun run-python-for-project ()
-  "Run python process in the root of the project."
-  (interactive)
-  (let ((default-directory (or (helm-ls-git-root-dir)
-                               default-directory)))
-    (run-python)))
+(use-package pyvenv)
+(use-package with-venv)
+(use-package lsp-python-ms)
+(use-package py-autopep8)
 
-(defun setup-python-virtualenv ()
-  "If a virtualenv is available, use it."
-  (let* ((project-dir (helm-ls-git-root-dir))
-         (venv-dir (or (expand-file-name "venv" project-dir)
-                       (expand-file-name "env" project-dir))))
-    (if (file-directory-p venv-dir)
-        (pyvenv-activate venv-dir))))
+(use-package python
+  :hook ((python-mode . lsp)
+         (python-mode . dap-mode)
+         (python-mode . setup-python-virtualenv)
+         (python-mode . py-autopep8-enable-on-save))
+  :bind (:map python-mode-map
+         ("C-c C-p" . run-python-for-project))
+  :config
+  (require 'lsp-python-ms)
+  (require 'dap-python)
 
-;; Enable pyenv mode first
-(pyenv-mode)
+  ;; Temporal fix
+  (defun dap-python--pyenv-executable-find (command)
+    (with-venv (executable-find "python")))
 
-(add-hook 'python-mode-hook (lambda ()
-                              (require 'lsp-python-ms)
-                              (setup-python-virtualenv)
-                              (py-autopep8-enable-on-save)
-                              (lsp)))
+  (setq lsp-python-ms-auto-install-server t
+        dap-python-debugger 'debugpy
+        python-shell-interpreter "ipython"
+        python-shell-interpreter-args "-i --simple-prompt")
 
-;; Auto install Microsoft's Python Server
-(setq lsp-python-ms-auto-install-server t)
+  (defun run-python-for-project ()
+    "Run python process in the root of the project."
+    (interactive)
+    (let ((default-directory (or (helm-ls-git-root-dir) default-directory)))
+      (run-python)))
 
-;; Use IPython
-(setq python-shell-interpreter      "ipython"
-      python-shell-interpreter-args "-i --simple-prompt")
-
-;; Run python repl at the root of the project if possible.
-(define-key python-mode-map (kbd "C-c C-p") 'run-python-for-project)
+  (defun setup-python-virtualenv ()
+    "If a virtualenv is available, use it."
+    (let* ((project-dir (helm-ls-git-root-dir))
+           (venv-dir (or (expand-file-name "venv" project-dir) (expand-file-name "env" project-dir))))
+      (if (file-directory-p venv-dir)
+          (pyvenv-activate venv-dir)))))
 
 (provide 'my-python)
 
