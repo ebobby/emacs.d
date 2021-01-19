@@ -16,6 +16,6 @@
 
 ;; In noninteractive sessions, prioritize non-byte-compiled source files to
 ;; prevent the use of stale byte-code.
-(setq load-prefer-newer noninteractive)
+(setq load-prefer-newer t)
 
 ;;; early-init.el ends here
