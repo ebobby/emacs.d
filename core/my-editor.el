@@ -150,6 +150,66 @@
 ;; Window navigation.
 (use-package ace-window)
 
+;; Helm <3
+(use-package helm
+  :bind-keymap
+  ("C-c h" . helm-command-prefix)
+  :bind
+  (("<f2>"      . helm-occur)
+   ("<f3>"      . my-helm-do-ag-project-root)
+   ("C-c p f"   . helm-browse-project)
+   ("C-c p k"   . my-helm-project-kill-buffers)
+   ("C-h C-r"   . helm-recentf)
+   ("C-h f"     . helm-apropos)
+   ("C-x C-f"   . helm-find-files)
+   ("C-x C-m"   . helm-M-x)
+   ("C-x b"     . helm-buffers-list)
+   ("M-x"       . helm-M-x)
+   ("M-y"       . helm-show-kill-ring)
+   :map helm-map
+   ("<tab>" . helm-execute-persistent-action)
+   ("C-i"   . helm-execute-persistent-action)
+   ("C-z"   . helm-select-action)
+   :map flycheck-mode-map
+   ("C-c ! h" . helm-flycheck)
+   :map minibuffer-local-map
+   ("C-c C-l" . helm-minibuffer-history)
+   :map shell-mode-map
+   ("C-c C-l" . helm-comint-input-ring)
+   :map comint-mode-map
+   ("C-c C-l" . helm-comint-input-ring))
+  :config
+  (require 'helm-config)
+  (require 'helm-source)
+  (setq helm-M-x-fuzzy-match                  t
+        helm-apropos-fuzzy-match              t
+        helm-buffers-fuzzy-matching           t
+        helm-completion-in-region-fuzzy-match t
+        helm-exit-idle-delay                  0
+        helm-ff-file-name-history-use-recentf t
+        helm-ff-fuzzy-matching                t
+        helm-ff-search-library-in-sexp        t
+        helm-imenu-fuzzy-match                t
+        helm-lisp-fuzzy-completion            t
+        helm-locate-fuzzy-match               t
+        helm-mode-fuzzy-match                 t
+        helm-move-to-line-cycle-in-source     t
+        helm-net-prefer-curl                  t
+        helm-recentf-fuzzy-match              t
+        helm-semantic-fuzzy-match             t
+        helm-split-window-in-side-p           t)
+  (helm-adaptive-mode)
+  (helm-mode))
+
+(use-package helm-ag)
+
+(use-package helm-descbinds
+  :config (helm-descbinds-mode))
+
+(use-package helm-flycheck)
+
+(use-package helm-ls-git)
+
 ;; Org mode
 (setq org-hide-leading-stars t)
 

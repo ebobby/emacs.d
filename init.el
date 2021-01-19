@@ -36,7 +36,6 @@
 (require 'my-key-bindings)
 (require 'my-mode)
 (require 'my-company)
-(require 'my-helm)
 (require 'my-magit)
 (require 'my-rainbow)
 

@@ -57,9 +57,20 @@
       (message "Could not find git project root."))))
 
 (defun my-reload-config ()
-  "Reload configurtion."
+  "Reload configuration."
   (interactive)
   (load user-init-file))
+
+(defun my-helm-do-ag-project-root ()
+  "Run `'ag`' on project root."
+  (interactive)
+  (helm-do-ag (helm-ls-git-root-dir)))
+
+(defun my-helm-project-kill-buffers ()
+  "Kill all buffers in project."
+  (interactive)
+  (mapcar 'kill-buffer
+          (helm-browse-project-get-buffers (helm-ls-git-root-dir))))
 
 (provide 'my-functions)
 
