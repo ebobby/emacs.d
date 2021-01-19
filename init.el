@@ -32,7 +32,6 @@
 (require 'my-packages)
 
 (require 'my-editor)
-(require 'my-lsp)
 (require 'my-key-bindings)
 (require 'my-mode)
 (require 'my-company)

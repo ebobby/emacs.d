@@ -227,6 +227,29 @@
 
 (use-package helm-ls-git)
 
+;; Language Server Protocol
+(use-package lsp-mode
+  :hook (lsp-mode . lsp-enable-which-key-integration)
+  :config
+  (setq lsp-auto-configure t
+        lsp-keymap-prefix "C-c l"
+        lsp-completion-provider :capf
+        lsp-idle-delay 0.500))
+
+(use-package dap-mode
+  :bind (:map dap-mode-map
+        ("<f5>" . dap-debug)
+        ("<f6>" . dap-breakpoint-toggle))
+  :config (dap-auto-configure-mode))
+
+(use-package lsp-ui
+  :config
+  (setq lsp-ui-doc-position 'at-point))
+
+(use-package helm-lsp
+  :config
+  (define-key lsp-mode-map [remap xref-find-apropos] #'helm-lsp-workspace-symbol))
+
 ;; Org mode
 (setq org-hide-leading-stars t)
 
