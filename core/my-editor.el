@@ -25,10 +25,10 @@
 
 ;; Garbage collection magic hack!
 (use-package gcmh
+  :hook (after-init . gcmh-mode)
   :config
   (setq gcmh-idle-delay 5
-        gcmh-high-cons-threshold (* 16 1024 1024))
-  (add-hook 'after-init-hook 'gcmh-mode))
+        gcmh-high-cons-threshold (* 16 1024 1024)))
 
 ;; Move blocks of text around
 (use-package move-text
@@ -241,16 +241,17 @@
 ;; Language Server Protocol
 (use-package lsp-mode
   :hook (lsp-mode . lsp-enable-which-key-integration)
+  :init
+  (setq lsp-keymap-prefix "C-c l")
   :config
   (setq lsp-auto-configure t
-        lsp-keymap-prefix "C-c l"
-        lsp-completion-provider :capf
-        lsp-idle-delay 0.500))
+        lsp-enable-snippet nil
+        lsp-completion-provider :capf))
 
 (use-package dap-mode
   :bind (:map dap-mode-map
-        ("<f5>" . dap-debug)
-        ("<f6>" . dap-breakpoint-toggle))
+              ("<f5>" . dap-debug)
+              ("<f6>" . dap-breakpoint-toggle))
   :config (dap-auto-configure-mode))
 
 (use-package lsp-ui
@@ -264,13 +265,12 @@
 ;; Company
 (use-package company
   :bind (("C-'" . company-complete))
+  :hook (after-init .  global-company-mode)
   :config
-  (add-to-list 'company-backends 'company-ispell)
   (setq company-idle-delay 0.0
-      company-minimum-prefix-length 1
-      company-tooltip-align-annotations t
-      company-tooltip-limit 20)
-  (add-hook 'after-init-hook 'global-company-mode))
+        company-minimum-prefix-length 1
+        company-tooltip-align-annotations t
+        company-tooltip-limit 20))
 
 ;; Magit
 (use-package magit

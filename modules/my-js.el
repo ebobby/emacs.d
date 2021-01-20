@@ -19,7 +19,8 @@
   :config
   (require 'dap-node)
   (require 'dap-firefox)
-  (setq dap-firefox-debug-program `("node" ,(expand-file-name "extension/dist/adapter.bundle.js" dap-firefox-debug-path))
+  (setq dap-firefox-debug-program `("node" ,(expand-file-name "extension/dist/adapter.bundle.js"
+                                                              dap-firefox-debug-path))
         js-chain-indent t
         js2-basic-offset 2
         js2-highlight-external-variables t
@@ -32,14 +33,22 @@
         js2-strict-trailing-comma-warning nil)
   (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
 
-(use-package js-comint)
+(use-package nodejs-repl
+  :bind (:map js2-mode-map
+              ("C-x C-e" . nodejs-repl-send-last-expression)
+              ("C-c C-j" . nodejs-repl-send-line)
+              ("C-c C-r" . nodejs-repl-send-region)
+              ("C-c C-c" . nodejs-repl-send-buffer)
+              ("C-c C-l" . nodejs-repl-load-file)
+              ("C-c C-z" . nodejs-repl-switch-to-repl)))
+
+(use-package rjsx-mode
+  :bind (:map rjsx-mode-map ("C-c C-r" . nodejs-repl-send-region))
+  :mode (("\\.js\\'"  . rjsx-mode)
+         ("\\.jsx\\'" . rjsx-mode)))
 
 (use-package prettier-js
   :hook ((js2-mode js2-jsx-mode) . prettier-js-mode))
-
-(use-package rjsx-mode
-  :mode (("\\.js\\'"  . rjsx-mode)
-         ("\\.jsx\\'" . rjsx-mode)))
 
 (provide 'my-js)
 
