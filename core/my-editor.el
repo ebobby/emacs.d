@@ -79,7 +79,11 @@
 
 ;; Syntax checking.
 (use-package flyspell
-  :hook (prog-mode . flyspell-prog-mode))
+  :bind (:map flyspell-mode-map ("C-;" . nil))
+  :hook (prog-mode . flyspell-prog-mode)
+  :config
+  ;; Do not spellcheck literal strings, only comments.
+  (delq 'font-lock-string-face flyspell-prog-text-faces))
 
 ;; Syntax checking.
 (use-package flycheck
