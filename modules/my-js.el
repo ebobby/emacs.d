@@ -47,6 +47,9 @@
   :mode (("\\.js\\'"  . rjsx-mode)
          ("\\.jsx\\'" . rjsx-mode)))
 
+(use-package npm-mode
+  :hook ((js2-mode js2-jsx-mode) . npm-mode))
+
 (use-package prettier-js
   :hook ((js2-mode js2-jsx-mode) . prettier-js-mode))
 
