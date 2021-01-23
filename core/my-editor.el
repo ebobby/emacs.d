@@ -83,7 +83,7 @@
   :hook (prog-mode . flyspell-prog-mode)
   :config
   ;; Do not spellcheck literal strings, only comments.
-  (delq 'font-lock-string-face flyspell-prog-text-faces))
+  (setq-default flyspell-prog-text-faces (delq 'font-lock-string-face flyspell-prog-text-faces)))
 
 ;; Syntax checking.
 (use-package flycheck
@@ -121,9 +121,11 @@
 
 ;; Version control visual feedback.
 (use-package diff-hl
+  :hook ((magit-pre-refresh . diff-hl-magit-pre-refresh)
+         (magit-post-refresh . diff-hl-magit-post-refresh)
+         (dired-mode . diff-hl-dir-mode))
   :config
-  (global-diff-hl-mode)
-  (add-hook 'dired-mode-hook 'diff-hl-dired-mode))
+  (global-diff-hl-mode))
 
 ;; Diff visualization.
 (use-package ediff
@@ -194,7 +196,7 @@
          ("C-h f"     . helm-apropos)
          ("C-x C-f"   . helm-find-files)
          ("C-x C-m"   . helm-M-x)
-         ("C-x b"     . helm-buffers-list)
+         ("C-x b"     . helm-mini)
          ("M-x"       . helm-M-x)
          ("M-y"       . helm-show-kill-ring)
          :map helm-map
