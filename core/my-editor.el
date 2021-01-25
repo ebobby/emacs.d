@@ -232,7 +232,7 @@
         helm-recentf-fuzzy-match              t
         helm-semantic-fuzzy-match             t
         helm-split-window-in-side-p           t)
-  (helm-adaptive-mode)
+  ;;(helm-adaptive-mode)
   (helm-mode))
 
 (use-package helm-ag)

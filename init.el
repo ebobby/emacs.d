@@ -28,6 +28,7 @@
 (require 'my-functions)
 (require 'my-packages)
 (require 'my-editor)
+(require 'my-keys)
 
 ;; Modules configuration
 (require 'my-elisp)
