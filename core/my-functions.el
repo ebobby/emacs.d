@@ -1,10 +1,14 @@
-;;; my-functions.el --- Misc functions
+;;; my-functions.el --- Miscellaneous functions.
+;; Copyright (C) 2010-2021 Francisco Soto
+;; Author: Francisco Soto <ebobby@ebobby.org>
+;; URL: https://github.com/ebobby/emacs.d
+;;
+;; This file is not part of GNU Emacs.
+;; This file is free software.
 ;;; Commentary:
-;; Functions
-
 ;;; Code:
-;; ask before exiting
-(defun confirm-exit-emacs ()
+
+(defun my-confirm-exit-emacs ()
   "Ask for confirmation before exiting Emacs."
   (interactive)
   (if (> (length (visible-frame-list)) 1)
@@ -12,33 +16,26 @@
     (if (y-or-n-p "Are you sure you want to exit? ")
         (save-buffers-kill-emacs))))
 
-(defun my-upgrade-all ()
-  "Upgrades all packages."
-  (interactive)
-  (epl-refresh)
-  (epl-upgrade))
-
-(defun untabify-buffer ()
+(defun my-untabify-buffer ()
   "Remove all tabs from the buffer."
   (interactive)
   (untabify (point-min) (point-max)))
 
-;; Set transparency of emacs
 (defun my-transparency (value)
-  "Sets the transparency of the frame window. 0=transparent/100=opaque"
+  "Set the transparency of the frame window with VALUE."
   (interactive "nTransparency Value 0 - 100 opaque: ")
   (set-frame-parameter (selected-frame) 'alpha value))
 
-(defun indent-buffer ()
+(defun my-indent-buffer ()
   "Indent the buffer."
   (interactive)
   (indent-region (point-min) (point-max)))
 
-(defun cleanup-buffer ()
+(defun my-cleanup-buffer ()
   "Perform a bunch of operations on the whitespace content of a buffer."
   (interactive)
-  (indent-buffer)
-  (untabify-buffer)
+  (my-indent-buffer)
+  (my-untabify-buffer)
   (delete-trailing-whitespace))
 
 (defun my-recompile-emacs (&optional FORCE)
@@ -46,25 +43,7 @@
   (interactive)
   (byte-recompile-directory root-dir 0 FORCE))
 
-(defun helm-ag-project-root ()
-  (interactive)
-  (helm-ag (helm-ls-git-root-dir)))
-
-(defun helm-do-ag-project-root ()
-  (interactive)
-  (helm-do-ag (helm-ls-git-root-dir)))
-
-(defmacro with-overwritten-function (f1 f2 &rest body)
-  "Overwrite F1 with F2 while running BODY."
-  `(letf (((symbol-function ',f1) (symbol-function ',f2)))
-     ,@body))
-
-(defun helm-project-kill-buffers ()
-  (interactive)
-  (mapcar 'kill-buffer
-          (helm-browse-project-get-buffers (helm-ls-git-root-dir))))
-
-(defun neotree-project-dir ()
+(defun my-neotree-project ()
   "Open NeoTree using the git root."
   (interactive)
   (let ((project-dir (helm-ls-git-root-dir))
@@ -78,9 +57,20 @@
       (message "Could not find git project root."))))
 
 (defun my-reload-config ()
-  "Reload configurtion."
+  "Reload configuration."
   (interactive)
   (load user-init-file))
+
+(defun my-helm-do-ag-project-root ()
+  "Run `'ag`' on project root."
+  (interactive)
+  (helm-do-ag (helm-ls-git-root-dir)))
+
+(defun my-helm-project-kill-buffers ()
+  "Kill all buffers in project."
+  (interactive)
+  (mapcar 'kill-buffer
+          (helm-browse-project-get-buffers (helm-ls-git-root-dir))))
 
 (provide 'my-functions)
 

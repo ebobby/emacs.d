@@ -4,83 +4,42 @@
 ;; Load everything up.
 
 ;;; Code:
-
 (require 'cl)
 (require 'package)
 
-;; Always load newest byte code
-(setq load-prefer-newer t)
-
+;; Define global directories.
 (defvar root-dir (file-name-directory load-file-name))
-(defvar core-dir (expand-file-name "core" root-dir))
-(defvar modules-dir (expand-file-name  "modules" root-dir))
-(defvar vendor-dir (expand-file-name "vendor" root-dir))
-(defvar savefile-dir (expand-file-name "savefile" root-dir))
 (defvar backup-dir (expand-file-name "backup" root-dir))
+(defvar savefile-dir (expand-file-name "savefile" root-dir))
+(defvar user-dir (expand-file-name "user-files" root-dir))
 (defvar utilities-dir (expand-file-name "utilities" root-dir))
 
-(setq user-emacs-directory (expand-file-name "user-files" root-dir ))
+;; Our configuration.
+(add-to-list 'load-path (expand-file-name "core" root-dir))
+(add-to-list 'load-path (expand-file-name "modules" root-dir))
 
-;; Copied from prelude.
-(defun add-subfolders-to-load-path (parent-dir)
-  "Add all level PARENT-DIR subdirs to the `load-path'."
-  (dolist (f (directory-files parent-dir))
-    (let ((name (expand-file-name f parent-dir)))
-      (when (and (file-directory-p name)
-                 (not (string-prefix-p "." f)))
-        (add-to-list 'load-path name)
-        (add-subfolders-to-load-path name)))))
-
-(add-to-list 'load-path core-dir)
-(add-to-list 'load-path modules-dir)
-(add-to-list 'load-path vendor-dir)
-(add-to-list 'load-path core-dir)
-(add-subfolders-to-load-path vendor-dir)
-
-;; Garbage collection configuration
-(setq gc-cons-threshold (* 1024 1024 100))
-(setq gc-cons-percentage 0.5)
-(setq read-process-output-max (* 1024 1024))
-
-(run-with-idle-timer 5 t #'garbage-collect)
-(setq garbage-collection-messages t)
-
-;; warn when opening files bigger than 200MB
-(setq large-file-warning-threshold (* 1024 1024 100 2))
-
-;; OS specific configuration
-(when (equal system-type 'darwin)
-  (require 'my-osx))
+;; Turn off mouse interface early in startup to avoid momentary display.
+(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
+(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
 ;; Core configuration
-(require 'my-packages)
+(require 'my-settings)
 (require 'my-functions)
+(require 'my-packages)
 (require 'my-editor)
-(require 'my-lsp)
-(require 'my-key-bindings)
-(require 'my-mode)
-(require 'my-company)
-(require 'my-helm)
-(require 'my-magit)
-(require 'my-rainbow)
+(require 'my-keys)
 
 ;; Modules configuration
-(require 'my-clojure)
 (require 'my-elisp)
-(require 'my-haskell)
-(require 'my-latex)
-(require 'my-lisp)
-(require 'my-markdown)
-(require 'my-ruby)
-(require 'my-python)
-(require 'my-rust)
-(require 'my-typescript)
-(require 'my-web)
-(require 'my-octave)
 (require 'my-js)
+(require 'my-python)
+;;(require 'my-latex)
+;;(require 'my-ruby)
+;;(require 'my-rust)
 
 ;; Load UI after everything else.
-(require 'my-ui)
+(require 'my-theme)
 
 (server-start)
 
@@ -90,7 +49,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+  )
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

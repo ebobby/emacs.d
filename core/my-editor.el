@@ -1,223 +1,308 @@
 ;;; my-editor.el --- Editor configuration
+;; Copyright (C) 2010-2021 Francisco Soto
+;; Author: Francisco Soto <ebobby@ebobby.org>
+;; URL: https://github.com/ebobby/emacs.d
+;;
+;; This file is not part of GNU Emacs.
+;; This file is free software.
 ;;; Commentary:
-;; Editing
-
 ;;; Code:
 
-;; tabs and indentation
-(setq-default indent-tabs-mode nil)
-(setq-default tab-width 2)
-(setq require-final-newline t)
+(require-packages '(use-package hydra))
 
-;;
-(setq initial-scratch-message nil)
-(setq initial-major-mode 'text-mode)
-(setq echo-keystrokes 0.1)
+(require 'use-package)
+(require 'bind-key)
+(require 'use-package-ensure)
 
-;; store all backup and autosave files in the tmp dir
-(setq backup-directory-alist `(("." . ,backup-dir)))
-(setq auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
-(setq auto-save-list-file-prefix temporary-file-directory)
+(setq use-package-always-ensure t)
 
-;; Prefer vertical window splitting.
-(setq split-height-threshold 90)
+;; use-package keeps packages up to date.
+(use-package auto-package-update
+  :config
+  (setq auto-package-update-delete-old-versions t
+        auto-package-update-hide-results t)
+  (auto-package-update-maybe))
 
-;; Hippie Expand
-(setq hippie-expand-try-functions-list '(try-expand-dabbrev
-                                         try-expand-dabbrev-all-buffers
-                                         try-expand-dabbrev-from-kill
-                                         try-complete-file-name-partially
-                                         try-complete-file-name
-                                         try-expand-all-abbrevs
-                                         try-expand-list
-                                         yas-hippie-try-expand
-                                         try-expand-line
-                                         try-complete-lisp-symbol-partially
-                                         try-complete-lisp-symbol))
-
-;; encoding
-(prefer-coding-system 'utf-8)
-(set-language-environment 'utf-8)
-(set-default-coding-systems 'utf-8)
-(set-terminal-coding-system 'utf-8)
-(set-selection-coding-system 'utf-8)
-
-;; whitespace removal
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
-
-;; Don't inmediately display warnings that aren't emergencies.
-(setq-default warning-minimum-level :emergency)
-
-;; don't confirm opening non-existant files/buffers
-(setq confirm-nonexistent-file-or-buffer nil)
-
-;; yes, I want to kill buffers with processes attached
-(setq kill-buffer-query-functions
-      (remq 'process-kill-buffer-query-function
-            kill-buffer-query-functions))
-
-;; Anwsering y/n is faster than yes/no.
-(fset 'yes-or-no-p 'y-or-n-p)
-
-;; Do not ask about running processes when exiting.
-(defadvice save-buffers-kill-emacs (around no-query-kill-emacs activate)
-  "Prevent annoying \"Active processes exist\" query when you quit Emacs."
-  (cl-flet ((process-list ())) ad-do-it))
-
-;;; Normally disabled commands
-(put 'erase-buffer 'disabled nil)
-(put 'downcase-region 'disabled nil)
-(put 'upcase-region 'disabled nil)
-(put 'narrow-to-region 'disabled nil)
-(put 'narrow-to-page 'disabled nil)
-(put 'narrow-to-defun 'disabled nil)
-
-(require 'diminish)
-
-(require 'ansi-color)
-(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+;; Garbage collection magic hack!
+(use-package gcmh
+  :hook (after-init . gcmh-mode)
+  :config
+  (setq gcmh-idle-delay 5
+        gcmh-high-cons-threshold (* 16 1024 1024)))
 
 ;; Move blocks of text around
-(require 'move-text)
+(use-package move-text
+  :config
+  (defhydra hydra-move-text (global-map "C-x m")
+    "Move text"
+    ("p" move-text-up "up")
+    ("n" move-text-down "down")))
 
-;; Subword mode
-(require 'subword)
-(diminish 'subword-mode)
+(use-package hi-lock
+  :config
+  (setq hi-lock-auto-select-face t)
+  (global-hi-lock-mode))
 
-;; Revert buffers that change externally
-(global-auto-revert-mode t)
-(diminish 'auto-revert-mode)
+;; Highlight changes (for undo, yank, etc).
+(use-package volatile-highlights
+  :config (volatile-highlights-mode t))
 
-;; disable annoying blink-matching-paren
-(setq blink-matching-paren nil)
+;; Remember location on buffers.
+(use-package saveplace
+  :config
+  (setq save-place-file (expand-file-name "saveplace" savefile-dir))
+  (setq-default save-place t)
+  (save-place-mode))
 
-;; Use aspell instead of ispell
-(require 'flyspell)
-(setq-default ispell-program-name "aspell" ispell-extra-args '("--sug-mode=ultra"))
-(add-hook 'text-mode-hook (lambda () (flyspell-mode +1)))
-(add-hook 'yaml-mode-hook (lambda () (flyspell-mode -1)))
-(add-hook 'org-mode-hook (lambda ()
-                           (flyspell-mode +1)
-                           (auto-fill-mode +1)))
-(diminish 'flyspell-mode)
+;; Keep track of history for several commands.
+(use-package savehist
+  :config
+  (setq savehist-additional-variables '(search ring regexp-search-ring)
+        savehist-autosave-interval 60
+        savehist-file (expand-file-name "savehist" savefile-dir))
+  (savehist-mode))
 
-;; hi-lock
-(global-hi-lock-mode 1)
-(setq hi-lock-auto-select-face t)
+;; Recent files.
+(use-package recentf
+  :config
+  (setq recentf-auto-cleanup 60
+        recentf-max-menu-items 25
+        recentf-max-saved-items 500
+        recentf-save-file (expand-file-name "recentf" savefile-dir))
+  ;; ignore magit's commit message files
+  (add-to-list 'recentf-exclude "COMMIT_EDITMSG\\'")
+  (add-to-list 'recentf-exclude (expand-file-name "elpa" root-dir))
+  (add-to-list 'recentf-exclude (expand-file-name "ido.hist" savefile-dir))
+  ;; Save list every 5 minutes.
+  (run-at-time nil (* 5 60) 'recentf-save-list)
+  (recentf-mode))
 
-(require 'volatile-highlights)
-(volatile-highlights-mode t)
-(diminish 'volatile-highlights-mode)
+;; Syntax checking.
+(use-package flyspell
+  :bind (:map flyspell-mode-map ("C-;" . nil))
+  :hook (prog-mode . flyspell-prog-mode)
+  :config
+  ;; Do not spellcheck literal strings, only comments.
+  (setq-default flyspell-prog-text-faces (delq 'font-lock-string-face flyspell-prog-text-faces)))
 
-;; saveplace remembers your location in a file when saving files
-(require 'saveplace)
-(setq save-place-file (expand-file-name "saveplace" savefile-dir))
-;; activate it for all buffers
-(setq-default save-place t)
+;; Syntax checking.
+(use-package flycheck
+  :hook (prog-mode . flycheck-mode))
 
-;; savehist keeps track of some history
-(require 'savehist)
-(setq savehist-additional-variables
-      ;; search entries
-      '(search ring regexp-search-ring)
-      ;; save every minute
-      savehist-autosave-interval 60
-      ;; keep the home clean
-      savehist-file (expand-file-name "savehist" savefile-dir))
-(savehist-mode +1)
-
-;; Recent files
-(require 'recentf)
-(setq recentf-save-file (expand-file-name "recentf" savefile-dir)
-      recentf-max-saved-items 500
-      recentf-max-menu-items 25
-      recentf-auto-cleanup 60)
-;; ignore magit's commit message files
-(add-to-list 'recentf-exclude "COMMIT_EDITMSG\\'")
-(add-to-list 'recentf-exclude (expand-file-name "elpa" root-dir))
-(add-to-list 'recentf-exclude (expand-file-name "ido.hist" savefile-dir))
-;; Save list every 5 minutes.
-(run-at-time nil (* 5 60) 'recentf-save-list)
-(recentf-mode +1)
-
-;; autofill
-(setq-default fill-column 80)
-
-(require 'flycheck)
-(require 'smartparens-config)
-(require 'yasnippet)
-
-(setq sp-base-key-bindings 'paredit)
-(setq sp-autoskip-closing-pair 'always)
-(setq sp-hybrid-kill-entire-symbol nil)
-(sp-use-paredit-bindings)
-(show-smartparens-global-mode +1)
-
-(with-eval-after-load 'flycheck
+(use-package flycheck-pos-tip
+  :config
   (flycheck-pos-tip-mode))
 
-(diminish 'flycheck-mode)
-(diminish 'smartparens-mode)
-(diminish 'yas-minor-mode)
+;; Smart parenthesis.
+(use-package smartparens
+  :hook (prog-mode . smartparens-mode)
+  :config
+  (require 'smartparens-config)
+  (setq sp-autoskip-closing-pair 'always
+        sp-base-key-bindings 'paredit
+        sp-hybrid-kill-entire-symbol nil)
+  (sp-use-paredit-bindings)
+  (show-smartparens-global-mode))
 
-(add-hook 'prog-mode-hook (lambda ()
-                            (yas-reload-all)
-                            (yas-minor-mode)
-                            (ignore-errors
-                              (imenu-add-menubar-index))
-                            (flycheck-mode +1)
-                            ;(flyspell-prog-mode)
-                            (display-line-numbers-mode +1)
-                            (smartparens-mode +1)))
+;; Smart regions.
+(use-package expand-region
+  :bind (("C-=" . er/expand-region)
+         ("C--" . er/contract-region)))
 
-;; Nice window navigation
-(require 'windmove)
-(windmove-default-keybindings)
+;; Visual feedback for regexp replace.
+(use-package visual-regexp
+  :bind (("C-c e t" . vr/replace)
+         ("C-c e q" . vr/query-replace)))
 
-(require 'expand-region)
-(require 'visual-regexp)
+;; Visual feedback for searching.
+(use-package anzu
+  :config
+  (global-anzu-mode))
 
-(require 'anzu)
-(diminish 'anzu-mode)
-(global-anzu-mode)
+;; Version control visual feedback.
+(use-package diff-hl
+  :hook ((magit-pre-refresh . diff-hl-magit-pre-refresh)
+         (magit-post-refresh . diff-hl-magit-post-refresh)
+         (dired-mode . diff-hl-dir-mode))
+  :config
+  (global-diff-hl-mode))
 
-(require 'diff-hl)
-(global-diff-hl-mode +1)
-(add-hook 'dired-mode-hook 'diff-hl-dired-mode)
+;; Diff visualization.
+(use-package ediff
+  :config
+  (setq ediff-window-setup-function 'ediff-setup-windows-plain))
 
-(require 'ediff)
-(setq ediff-window-setup-function 'ediff-setup-windows-plain)
+;; Cursor line visual feedback.
+(use-package hl-line
+  :config
+  (global-hl-line-mode))
 
-(require 'uniquify)
-(setq uniquify-buffer-name-style 'forward)
-(setq uniquify-separator "/")
-(setq uniquify-after-kill-buffer-p t)    ; rename after killing uniquified
-(setq uniquify-ignore-buffers-re "^\\*") ; don't muck with special buffers
+;; Tramp configuration
+(use-package tramp
+  :config
+  (require 'tramp-cache)
+  (setq tramp-default-method "ssh"
+        tramp-persistency-file-name (expand-file-name "tramp" savefile-dir)))
 
-(require 'hl-line)
-(global-hl-line-mode +1)
+;; Find definition.
+(use-package dumb-jump
+  :config
+  (setq dumb-jump-selector 'helm)
+  (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
 
-(require 'tramp)
-(require 'tramp-cache)
-;; keep in mind known issues with zsh - see emacs wiki
-(setq tramp-default-method "ssh")
-(setq tramp-persistency-file-name (expand-file-name "tramp" savefile-dir))
+;; Load environment from login shell.
+(use-package exec-path-from-shell
+  :config
+  (setq exec-path-from-shell-arguments '("-li"))
+  (exec-path-from-shell-initialize))
 
-(setq bookmark-default-file (expand-file-name "bookmarks" savefile-dir))
+;; Describe key sequences.
+(use-package which-key
+  :config
+  (setq-default which-key-idle-delay 2.0)
+  (which-key-mode))
 
-;; Dumb jump
-(dumb-jump-mode)
-(add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
+;; Tree-like file navigation.
+(use-package neotree
+  :bind (("<f9>" . my-neotree-project)))
 
-;; Get path from shell
-(require 'exec-path-from-shell)
-(setq exec-path-from-shell-arguments '("-li"))
-(exec-path-from-shell-initialize)
+;; Multiple editing cursors.
+(use-package multiple-cursors
+  :bind (("C-;"     . mc/mark-all-symbols-like-this)
+         ("C-c e a" . mc/edit-beginnings-of-lines)
+         ("C-c e e" . mc/edit-ends-of-lines)
+         ("C-c e l" . mc/edit-lines)))
 
-;; Which key
-(setq-default which-key-idle-delay 2.0)
-(which-key-mode)
-(diminish 'which-key-mode)
+;; Show major mode keys
+(use-package discover-my-major
+  :bind ("C-h C-m" . discover-my-major))
+
+;; Jump around visible text.
+(use-package avy
+  :bind ("C-c j" . avy-goto-word-or-subword-1))
+
+;; Window navigation.
+(use-package ace-window
+  :bind ("M-o" . ace-window))
+
+;; Helm <3
+(use-package helm
+  :bind-keymap ("C-c h" . helm-command-prefix)
+  :bind (("<f2>"      . helm-occur)
+         ("<f3>"      . my-helm-do-ag-project-root)
+         ("C-c p f"   . helm-browse-project)
+         ("C-c p k"   . my-helm-project-kill-buffers)
+         ("C-h C-r"   . helm-recentf)
+         ("C-h f"     . helm-apropos)
+         ("C-x C-f"   . helm-find-files)
+         ("C-x C-m"   . helm-M-x)
+         ("C-x b"     . helm-mini)
+         ("M-x"       . helm-M-x)
+         ("M-y"       . helm-show-kill-ring)
+         :map helm-map
+         ("<tab>" . helm-execute-persistent-action)
+         ("C-i"   . helm-execute-persistent-action)
+         ("C-z"   . helm-select-action)
+         :map flycheck-mode-map
+         ("C-c ! h" . helm-flycheck)
+         :map minibuffer-local-map
+         ("C-c C-l" . helm-minibuffer-history)
+         :map shell-mode-map
+         ("C-c C-l" . helm-comint-input-ring)
+         :map comint-mode-map
+         ("C-c C-l" . helm-comint-input-ring))
+  :config
+  (require 'helm-config)
+  (require 'helm-source)
+  (setq helm-M-x-fuzzy-match                  t
+        helm-apropos-fuzzy-match              t
+        helm-buffers-fuzzy-matching           t
+        helm-completion-in-region-fuzzy-match t
+        helm-exit-idle-delay                  0
+        helm-ff-file-name-history-use-recentf t
+        helm-ff-fuzzy-matching                t
+        helm-ff-search-library-in-sexp        t
+        helm-follow-mode-persistent           t
+        helm-imenu-fuzzy-match                t
+        helm-lisp-fuzzy-completion            t
+        helm-locate-fuzzy-match               t
+        helm-mode-fuzzy-match                 t
+        helm-move-to-line-cycle-in-source     t
+        helm-net-prefer-curl                  t
+        helm-recentf-fuzzy-match              t
+        helm-semantic-fuzzy-match             t
+        helm-split-window-in-side-p           t)
+  ;;(helm-adaptive-mode)
+  (helm-mode))
+
+(use-package helm-ag)
+
+(use-package helm-descbinds
+  :config
+  (helm-descbinds-mode))
+
+(use-package helm-flycheck)
+
+(use-package helm-ls-git)
+
+;; Language Server Protocol
+(use-package lsp-mode
+  :hook (lsp-mode . lsp-enable-which-key-integration)
+  :init
+  (setq lsp-keymap-prefix "C-c l")
+  :config
+  (setq lsp-auto-configure t
+        lsp-enable-snippet nil
+        lsp-completion-provider :capf))
+
+(use-package dap-mode
+  :bind (:map dap-mode-map
+              ("<f5>" . dap-debug)
+              ("<f6>" . dap-breakpoint-toggle))
+  :config (dap-auto-configure-mode))
+
+(use-package lsp-ui
+  :config
+  (setq lsp-ui-doc-position 'at-point))
+
+(use-package helm-lsp
+  :config
+  (define-key lsp-mode-map [remap xref-find-apropos] #'helm-lsp-workspace-symbol))
+
+;; Company
+(use-package company
+  :bind (("C-'" . company-complete))
+  :hook (after-init .  global-company-mode)
+  :config
+  (setq company-idle-delay 0.0
+        company-minimum-prefix-length 1
+        company-tooltip-align-annotations t
+        company-tooltip-limit 20))
+
+;; Magit
+(use-package magit
+  :bind (("<f10>"   . magit-status)
+         ("C-c m l" . magit-log)
+         ("C-c m f" . magit-log-buffer-file)
+         ("C-c m b" . magit-blame))
+  :config
+  (setq magit-auto-revert-mode nil
+        magit-define-global-key-bindings nil
+        magit-last-seen-setup-instructions "1.4.0"))
+
+(use-package rainbow-mode)
+
+(use-package rainbow-delimiters
+  :hook (prog-mode . rainbow-delimiters-mode))
+
+(use-package rainbow-identifiers
+  :hook (prog-mode . rainbow-identifiers-mode))
+
+(use-package display-line-numbers
+  :hook (prog-mode . display-line-numbers-mode)
+  :config
+  (setq  display-line-numbers-grow-only t
+         display-line-numbers-type "relative"))
 
 ;; Org mode
 (setq org-hide-leading-stars t)
