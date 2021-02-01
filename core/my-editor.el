@@ -235,7 +235,9 @@
   ;;(helm-adaptive-mode)
   (helm-mode))
 
-(use-package helm-ag)
+(use-package helm-ag
+  :config
+  (setq helm-ag-base-command "rg --vimgrep --no-heading --smart-case"))
 
 (use-package helm-descbinds
   :config
