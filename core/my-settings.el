@@ -19,7 +19,7 @@
  initial-major-mode 'fundamental-mode
 
  ;; Welcome message.
- initial-scratch-message (concat "# Welcome " (user-login-name))
+ initial-scratch-message nil
 
  ;; OSX keybindings.
  mac-command-modifier 'meta
