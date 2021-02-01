@@ -19,17 +19,12 @@
 ;; Doom theme.
 (use-package doom-themes
   :config
-  (load-theme 'doom-dracula t)
+  (load-theme 'doom-monokai-pro t)
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t)
   (doom-themes-visual-bell-config)
   (doom-themes-neotree-config)
-  (doom-themes-org-config)
-  ;; Dracula theme extra settings.
-  (setq doom-dracula-brighter-comments t
-        doom-dracula-brighter-modeline t
-        doom-dracula-colorful-headers t
-        doom-dracula-comment-bg t))
+  (doom-themes-org-config))
 
 (use-package doom-modeline
   :after (doom-themes)
