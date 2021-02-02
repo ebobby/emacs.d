@@ -148,6 +148,7 @@
 (use-package dumb-jump
   :config
   (setq dumb-jump-selector 'helm)
+  (setq dumb-jump-prefer-searcher 'rg)
   (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
 
 ;; Load environment from login shell.
