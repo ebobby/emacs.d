@@ -14,26 +14,23 @@
 
 (use-package pyvenv)
 (use-package with-venv)
-(use-package lsp-python-ms)
-(use-package py-autopep8)
+(use-package yapfify)
 
 (use-package python
   :hook ((python-mode . lsp)
          (python-mode . dap-mode)
-         (python-mode . py-autopep8-enable-on-save)
+         (python-mode . yapf-mode)
          ((python-mode inferior-python-mode) . setup-python-virtualenv))
   :bind (:map python-mode-map
          ("C-c C-p" . run-python-for-project))
   :config
-  (require 'lsp-python-ms)
   (require 'dap-python)
 
   ;; Temporal fix
   (defun dap-python--pyenv-executable-find (command)
     (with-venv (executable-find "python")))
 
-  (setq lsp-python-ms-auto-install-server t
-        dap-python-debugger 'debugpy
+  (setq lsp-pyls-plugins-jedi-use-pyenv-environment t
         python-shell-interpreter "ipython"
         python-shell-interpreter-args "-i --simple-prompt")
 
