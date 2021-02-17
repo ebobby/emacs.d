@@ -250,9 +250,9 @@
 
 ;; Language Server Protocol
 (use-package lsp-mode
-  :hook (lsp-mode . lsp-enable-which-key-integration)
   :init
   (setq lsp-keymap-prefix "C-c l")
+  :hook (lsp-mode . lsp-enable-which-key-integration)
   :config
   (setq lsp-auto-configure t
         lsp-enable-snippet nil
@@ -266,7 +266,12 @@
 
 (use-package lsp-ui
   :config
-  (setq lsp-ui-doc-position 'at-point))
+  (setq lsp-ui-doc-position 'bottom
+        lsp-ui-doc-alignment 'window
+        lsp-ui-doc-header t
+        lsp-ui-doc-include-signature t
+        lsp-ui-doc-max-width 130
+        lsp-ui-doc-max-height 15))
 
 (use-package helm-lsp
   :config
