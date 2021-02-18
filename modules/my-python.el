@@ -14,12 +14,12 @@
 
 (use-package pyvenv)
 (use-package with-venv)
-(use-package yapfify)
+(use-package blacken)
 
 (use-package python
   :hook ((python-mode . lsp)
          (python-mode . dap-mode)
-         (python-mode . yapf-mode)
+         (python-mode . blacken-mode)
          ((python-mode inferior-python-mode) . setup-python-virtualenv))
   :bind (:map python-mode-map
          ("C-c C-p" . run-python-for-project))
@@ -30,7 +30,8 @@
   (defun dap-python--pyenv-executable-find (command)
     (with-venv (executable-find "python")))
 
-  (setq lsp-pyls-plugins-jedi-use-pyenv-environment t
+  (setq dap-python-debugger 'debugpy
+        lsp-pyls-plugins-jedi-use-pyenv-environment t
         python-shell-interpreter "ipython"
         python-shell-interpreter-args "-i --simple-prompt")
 
