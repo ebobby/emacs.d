@@ -259,6 +259,7 @@
         lsp-completion-provider :capf))
 
 (use-package dap-mode
+  :hook (dap-stopped . (lambda (arg) (call-interactively #'dap-hydra)))
   :bind (:map dap-mode-map
               ("<f5>" . dap-debug)
               ("<f6>" . dap-breakpoint-toggle))
