@@ -311,7 +311,8 @@
   :hook (prog-mode . rainbow-identifiers-mode))
 
 (use-package display-line-numbers
-  :hook (prog-mode . display-line-numbers-mode)
+  :hook ((prog-mode . display-line-numbers-mode)
+         (text-mode . display-line-numbers-mode))
   :config
   (setq  display-line-numbers-grow-only t
          display-line-numbers-type "relative"))
