@@ -262,8 +262,11 @@
   :hook (dap-stopped . (lambda (arg) (call-interactively #'dap-hydra)))
   :bind (:map dap-mode-map
               ("<f5>" . dap-debug)
-              ("<f6>" . dap-breakpoint-toggle))
-  :config (dap-auto-configure-mode))
+              ("<f6>" . dap-breakpoint-toggle)
+              ("<f7>" . dap-hydra))
+  :config
+  (require dap-hydra)
+  (dap-auto-configure-mode))
 
 (use-package lsp-ui
   :config

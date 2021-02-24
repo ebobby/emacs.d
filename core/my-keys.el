@@ -42,7 +42,7 @@
 (global-unset-key (kbd "s-n"))
 
 ;; Set basic keys
-(global-set-key (kbd "<f7>") 'toggle-truncate-lines)
+(global-set-key (kbd "<f8>") 'toggle-truncate-lines)
 (global-set-key (kbd "C-\\") 'hippie-expand)
 (global-set-key (kbd "C-x C-c") 'my-confirm-exit-emacs)
 (global-set-key (kbd "C-z") 'hydra-movement/body)
