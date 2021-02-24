@@ -16,7 +16,7 @@
  inhibit-default-init t
  inhibit-startup-echo-area-message user-login-name
  inhibit-startup-message t
- initial-major-mode 'fundamental-mode
+ initial-major-mode 'text-mode
 
  ;; Welcome message.
  initial-scratch-message nil
