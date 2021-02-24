@@ -30,8 +30,7 @@
   :after (doom-themes)
   :hook (after-init . doom-modeline-mode)
   :config
-  (setq doom-modeline-project-detection 'projectile
-        doom-modeline-height 40))
+  (setq doom-modeline-project-detection 'projectile))
 
 ;; Frame and font setup for standalone emacs.
 (when window-system
