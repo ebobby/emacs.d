@@ -265,7 +265,7 @@
               ("<f6>" . dap-breakpoint-toggle)
               ("<f7>" . dap-hydra))
   :config
-  (require dap-hydra)
+  (require 'dap-hydra)
   (dap-auto-configure-mode))
 
 (use-package lsp-ui
