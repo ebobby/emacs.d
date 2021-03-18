@@ -124,7 +124,11 @@
 
               ;; Use aspell instead of ispell
               ispell-program-name "aspell"
-              ispell-extra-args '("--sug-mode=ultra"))
+              ispell-extra-args '("--sug-mode=ultra")
+
+              ;; Long lines fixes
+              bidi-paragraph-direction 'left-to-right
+              bidi-inhibit-bpa t)
 
 ;; Anwsering y/n is faster than yes/no.
 (fset 'yes-or-no-p 'y-or-n-p)

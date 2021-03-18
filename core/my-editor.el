@@ -320,6 +320,32 @@
 ;; Org mode
 (setq org-hide-leading-stars t)
 
+;; Do not die with files that have long lines.
+(use-package so-long
+  :config
+  (global-so-long-mode t)
+  (setq so-long-action 'so-long-minor-mode)
+  (setq so-long-threshold 1000)
+  (setq so-long-max-lines 100)
+  ;; Additional buffer-local minor modes to disable.
+  (mapc (apply-partially #'add-to-list 'so-long-minor-modes)
+        '(volatile-highlights-mode
+          dap-mode
+          hl-line-mode
+          lsp
+          lsp-mode
+          column-number-mode
+          company-mode
+          eldoc-mode
+          rainbow-identifiers-mode
+          transient-mark-mode
+          treemacs-fringe-indicator-mode
+          treemacs-git-mode))
+  ;; Additional variables to override.
+  (mapc (apply-partially #'add-to-list 'so-long-variable-overrides)
+        '((show-trailing-whitespace . nil)
+          (truncate-lines . nil))))
+
 (provide 'my-editor)
 
 ;;; my-editor.el ends here
