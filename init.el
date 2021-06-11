@@ -41,8 +41,6 @@
 ;; Load UI after everything else.
 (require 'my-theme)
 
-(server-start)
-
 ;;; init.el ends here
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
