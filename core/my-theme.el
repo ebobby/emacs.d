@@ -19,9 +19,10 @@
 ;; Doom theme.
 (use-package doom-themes
   :config
-  (load-theme 'doom-palenight t)
+  (load-theme 'doom-dracula t)
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t)
+  (setq doom-themes-neotree-file-icons t)
   (doom-themes-visual-bell-config)
   (doom-themes-neotree-config)
   (doom-themes-org-config))
@@ -30,6 +31,8 @@
   :after (doom-themes)
   :hook (after-init . doom-modeline-mode)
   :config
+  (setq doom-modeline-height 50)
+  (setq doom-modeline-icon t)
   (setq doom-modeline-project-detection 'projectile))
 
 ;; Frame and font setup for standalone emacs.
