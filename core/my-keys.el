@@ -9,20 +9,22 @@
 ;;; Code:
 
 (defhydra hydra-movement (:color amaranth)
-  "Move"
-  ("SPC" set-mark-command)
-  ("w" kill-ring-save)
-  ("n" next-line)
-  ("p" previous-line)
-  ("f" forward-char)
-  ("b" backward-char)
-  ("a" beginning-of-line)
-  ("e" move-end-of-line)
-  ("v" scroll-up-command)
-  ("V" scroll-down-command)
-  ("l" recenter-top-bottom)
-  ("j" avy-goto-word-or-subword-1)
-  ("o" ace-window)
+  "Navigation"
+  ("SPC" set-mark-command "mark")
+  ("w" kill-ring-save "copy")
+  ("n" next-line "next")
+  ("p" previous-line "previous")
+  ("f" forward-char "forward")
+  ("b" backward-char "backward")
+  ("a" beginning-of-line "beginning")
+  ("e" move-end-of-line "end")
+  ("v" scroll-up-command "scroll up")
+  ("V" scroll-down-command "scroll down")
+  ("l" recenter-top-bottom "recenter")
+  ("j" avy-goto-word-or-subword-1 "jump")
+  ("o" ace-window "switch window")
+  ("." xref-find-definitions "find definition")
+  ("," xref-pop-marker-stack "return to definition")
   ("C-z" nil))
 
 ;; Unset a bunch of keys
