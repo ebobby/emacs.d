@@ -156,6 +156,9 @@
 ;; Remove whitespace on save.
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+;; sql-postgres prompt change, default mishandles dashes.
+;;(sql-set-product-feature 'postgres :prompt-regexp "^[[:alnum:]_-]*=[#>]")
+
 (provide 'my-settings)
 
 ;;; my-settings.el ends here
