@@ -1,25 +1,29 @@
 ;;; my-rust.el --- All about Rust
+;; Copyright (C) 2010-2021 Francisco Soto
+;; Author: Francisco Soto <ebobby@ebobby.org>
+;; URL: https://github.com/ebobby/emacs.d
+;;
+;; This file is not part of GNU Emacs.
+;; This file is free software.
 ;;; Commentary:
-;; Configure everything about Rust
-
 ;;; Code:
 
-(require-packages '(rust-mode racer flycheck-rust cargo))
+(require-packages '(rust-mode flycheck-rust cargo))
 
-(add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
+(use-package flycheck-rust
+  :hook (flycheck-mode . flycheck-rust-setup))
 
-(exec-path-from-shell-copy-env "RUST_SRC_PATH")
+(use-package cargo)
 
-(eval-after-load 'rust-mode
-  '(progn
-     (add-hook 'flycheck-mode-hook 'flycheck-rust-setup)
-     (add-hook 'racer-mode-hook 'eldoc-mode)
-     (add-hook 'rust-mode-hook (lambda ()
-                                 (subword-mode)
-                                 (cargo-minor-mode)
-                                 (racer-mode)
-                                 (local-set-key (kbd "C-c C-d") 'racer-describe)
-                                 (lsp)))))
+(use-package rust-mode
+  :hook ((rust-mode . lsp)
+         (rust-mode . cargo-minor-mode)
+         (rust-mode . subword-mode))
+  :mode "\\.rs\\'"
+  :bind (:map rust-mode-map
+              ("C-c C-d" . racer-describe))
+  :config
+  (exec-path-from-shell-copy-env "RUST_SRC_PATH"))
 
 (provide 'my-rust)
 
