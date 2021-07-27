@@ -8,8 +8,6 @@
 ;;; Commentary:
 ;;; Code:
 
-(require-packages '(rust-mode flycheck-rust cargo))
-
 (use-package flycheck-rust
   :hook (flycheck-mode . flycheck-rust-setup))
 
