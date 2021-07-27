@@ -1,33 +1,31 @@
 ;;; my-ruby.el --- All about Ruby
+;; Copyright (C) 2010-2021 Francisco Soto
+;; Author: Francisco Soto <ebobby@ebobby.org>
+;; URL: https://github.com/ebobby/emacs.d
+;;
+;; This file is not part of GNU Emacs.
+;; This file is free software.
 ;;; Commentary:
-;; Configure everything about Ruby
-
 ;;; Code:
 
-(require-packages '(rbenv ruby-tools inf-ruby yari))
+(use-package rbenv
+  :config
+  (rbenv-use-global))
 
-;; Ruby
-(require 'ruby-mode)
-(push '("Gemfile" . ruby-mode) auto-mode-alist)
-(push '("Gemfile.lock" . ruby-mode) auto-mode-alist)
-(push '("Rakefile" . ruby-mode) auto-mode-alist)
-(push '("Capfile" . ruby-mode) auto-mode-alist)
-(push '("\\.rake" . ruby-mode) auto-mode-alist)
-(push '("\\.gemspec" . ruby-mode) auto-mode-alist)
-(setq ruby-insert-encoding-magic-comment nil)
+(use-package inf-ruby)
 
-(define-key 'help-command (kbd "R") 'yari)
-
-;; Ruby Version Manager
-(require 'rbenv)
-(rbenv-use-global)
-
-;; Ruby tools
-(require 'ruby-tools)
-
-(add-hook 'ruby-mode-hook (lambda ()
-                            (inf-ruby-minor-mode +1)
-                            (ruby-tools-mode +1)))
+(use-package ruby-mode
+  :hook ((ruby-mode . lsp)
+         (ruby-mode . inf-ruby-minor-mode))
+  :mode (("\\.rb\\'"  . ruby-mode)
+         ("\\.rake\\'" . ruby-mode)
+         ("\\.gemspec\\'" . ruby-mode)
+         ("Gemfile" . ruby-mode)
+         ("Gemfile.lock" . ruby-mode)
+         ("Rakefile" . ruby-mode)
+         ("Capfile" . ruby-mode))
+  :config
+  (setq ruby-insert-encoding-magic-comment nil))
 
 (provide 'my-ruby)
 
