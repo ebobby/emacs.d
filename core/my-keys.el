@@ -53,6 +53,7 @@
 (global-set-key (kbd "M-2") 'split-window-vertically)
 (global-set-key (kbd "M-3") 'split-window-horizontally)
 (global-set-key (kbd "M-k") 'kill-this-buffer)
+(global-set-key (kbd "C-.") 'isearch-forward-symbol-at-point)
 
 (provide 'my-keys)
 

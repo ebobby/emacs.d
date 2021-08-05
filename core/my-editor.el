@@ -79,7 +79,8 @@
 
 ;; Syntax checking.
 (use-package flyspell
-  :bind (:map flyspell-mode-map ("C-;" . nil))
+  :bind ((:map flyspell-mode-map ("C-;" . nil))
+         (:map flyspell-mode-map ("C-." . nil)))
   :hook (prog-mode . flyspell-prog-mode)
   :config
   ;; Do not spellcheck literal strings, only comments.
