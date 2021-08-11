@@ -35,7 +35,7 @@
 (require 'my-js)
 (require 'my-python)
 (require 'my-rust)
-;;(require 'my-latex)
+(require 'my-latex)
 (require 'my-ruby)
 
 ;; Load UI after everything else.

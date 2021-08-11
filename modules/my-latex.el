@@ -1,38 +1,37 @@
-;;; my-latex.el --- All about Typescript
+;;; my-latex.el --- All about Latex
+;; Copyright (C) 2010-2021 Francisco Soto
+;; Author: Francisco Soto <ebobby@ebobby.org>
+;; URL: https://github.com/ebobby/emacs.d
+;;
+;; This file is not part of GNU Emacs.
+;; This file is free software.
 ;;; Commentary:
-;; Configure everything about Typescript
-
 ;;; Code:
 
-(require-packages '(auctex
-                    company-auctex
-                    helm-bibtex
-                    latex-preview-pane))
+(use-package helm-bibtex)
 
-(require 'company-auctex)
-(company-auctex-init)
+(use-package auctex
+  :defer t
+  :ensure t
+  :hook (LaTeX-mode . lsp)
+  :config
+  (setq TeX-auto-save t)
+  (setq TeX-parse-self t)
+  (setq TeX-close-quote "")
+  (setq TeX-open-quote "")
+  (setq-default TeX-master nil)
+  (setq reftex-plug-into-AUCTeX t)
 
-;; Enable preview
-;;(latex-preview-pane-enable)
+  (add-hook 'LaTeX-mode-hook
+            (lambda ()
+              (rainbow-delimiters-mode)
+              (smartparens-mode)
+              (turn-on-auto-fill)
+              (LaTeX-math-mode)
+              (turn-on-reftex))))
 
-(setq TeX-auto-save t)
-(setq TeX-parse-self t)
-(setq TeX-close-quote "")
-(setq TeX-open-quote "")
-(setq-default TeX-master nil)
-(setq reftex-plug-into-AUCTeX t)
-
-;; use pdflatex
-;;(setq TeX-PDF-mode t)
-
-(add-hook 'LaTeX-mode-hook
-          (lambda ()
-            (rainbow-delimiters-mode)
-            (smartparens-mode)
-            (turn-on-auto-fill)
-;;            (latex-preview-pane-mode)
-            (LaTeX-math-mode)
-            (turn-on-reftex)))
+(use-package company-auctex
+  :config (company-auctex-init))
 
 (provide 'my-latex)
 
