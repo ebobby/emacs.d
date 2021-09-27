@@ -31,7 +31,7 @@
   :after (doom-themes)
   :hook (after-init . doom-modeline-mode)
   :config
-  (setq doom-modeline-height 50)
+  ;;(setq doom-modeline-height 50)
   (setq doom-modeline-icon t)
   (setq doom-modeline-project-detection 'projectile))
 
