@@ -33,6 +33,7 @@
 ;; Modules configuration
 (require 'my-elisp)
 (require 'my-js)
+(require 'my-ts)
 (require 'my-python)
 (require 'my-rust)
 (require 'my-latex)
