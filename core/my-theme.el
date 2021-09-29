@@ -8,7 +8,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(defvar ui-font "JetBrains Mono Nerd Font-13")
+(defvar ui-font "Noto Sans Mono-11.5")
 
 ;; All the icons!
 (use-package all-the-icons
