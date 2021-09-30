@@ -8,7 +8,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(defvar ui-font "FuraMono NF-13")
+(defvar ui-font "JetBrainsMono Nerd Font-13")
 
 ;; All the icons!
 (use-package all-the-icons
@@ -19,7 +19,7 @@
 ;; Doom theme.
 (use-package doom-themes
   :config
-  (load-theme 'doom-dracula t)
+  (load-theme 'doom-molokai t)
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t)
   (setq doom-themes-neotree-file-icons t)
