@@ -8,7 +8,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(defvar ui-font "Noto Sans Mono-11.5")
+(defvar ui-font "FuraMono NF-13")
 
 ;; All the icons!
 (use-package all-the-icons
