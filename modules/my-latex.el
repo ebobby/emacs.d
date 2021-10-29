@@ -13,7 +13,8 @@
 (use-package auctex
   :defer t
   :ensure t
-  :hook (LaTeX-mode . lsp)
+  :hook ((LaTeX-mode . lsp)
+         (LaTeX-mode . flyspell-mode))
   :config
   (setq TeX-auto-save t)
   (setq TeX-parse-self t)
