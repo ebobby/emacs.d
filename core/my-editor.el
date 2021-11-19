@@ -319,7 +319,11 @@
          display-line-numbers-type "relative"))
 
 ;; Org mode
-(setq org-hide-leading-stars t)
+(use-package org
+  :hook (org-mode . (lambda () (display-line-numbers-mode -1)))
+  :config
+  (setq org-hide-leading-stars t))
+
 
 (provide 'my-editor)
 
