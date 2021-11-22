@@ -23,6 +23,7 @@
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
+;; Native compilation.
 (setq package-native-compile t)
 
 ;; Core configuration
