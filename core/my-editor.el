@@ -294,7 +294,9 @@
 
 (use-package lsp-ui
   :config
-  (setq lsp-ui-doc-position 'at-point
+  (setq lsp-ui-sideline-enable nil
+        lsp-ui-doc-delay 1.2
+        lsp-ui-doc-position 'at-point
         lsp-ui-doc-alignment 'window
         lsp-ui-doc-header t
         lsp-ui-doc-include-signature t

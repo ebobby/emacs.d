@@ -92,7 +92,7 @@
  dired-listing-switches "-alh"
  echo-keystrokes 0.1
  large-file-warning-threshold (* 1024 1024 100 1)
- read-process-output-max (* 1024 1024)
+ read-process-output-max (* 1024 1024 10)
  search-default-mode #'char-fold-to-regexp)
 ;;;;;;;;
 
