@@ -23,7 +23,7 @@
 
 (defun my-transparency (value)
   "Set the transparency of the frame window with VALUE."
-  (interactive "nTransparency Value 0 - 100 opaque: ")
+  (interactive "Transparency Value 0 - 100 opaque: ")
   (set-frame-parameter (selected-frame) 'alpha value))
 
 (defun my-indent-buffer ()
