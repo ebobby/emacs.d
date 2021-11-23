@@ -219,6 +219,7 @@
          ("C-c p k"   . my-helm-project-kill-buffers)
          ("C-h C-r"   . helm-recentf)
          ("C-h f"     . helm-apropos)
+         ("C-h i"     . helm-imenu)
          ("C-x C-f"   . helm-find-files)
          ("C-x C-m"   . helm-M-x)
          ("C-x b"     . helm-mini)
@@ -293,6 +294,8 @@
   (dap-auto-configure-mode))
 
 (use-package lsp-ui
+  :bind (:map lsp-mode-map
+              ("<f12>" . lsp-ui-doc-focus-frame))
   :config
   (setq lsp-ui-sideline-enable nil
         lsp-ui-doc-delay 1.2
@@ -300,8 +303,8 @@
         lsp-ui-doc-alignment 'window
         lsp-ui-doc-header t
         lsp-ui-doc-include-signature t
-        lsp-ui-doc-max-width 130
-        lsp-ui-doc-max-height 15))
+        lsp-ui-doc-max-width 180
+        lsp-ui-doc-max-height 25))
 
 (use-package helm-lsp
   :config
