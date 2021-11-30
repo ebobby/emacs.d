@@ -35,6 +35,7 @@
     ("\\.ex\\'" elixir-mode elixir-mode)
     ("\\.exs\\'" elixir-mode elixir-mode)
     ("\\.go\\'" go-mode go-mode)
+    ("\\.graphql\\'" graphql-mode graphql-mode)
     ("\\.haml\\'" haml-mode haml-mode)
     ("\\.hbs\\'" handlebars-mode handlebars-mode)
     ("\\.less\\'" less-css-mode less-css-mode)
@@ -44,8 +45,8 @@
     ("\\.scala\\'" scala-mode2 scala-mode)
     ("\\.scss\\'" scss-mode scss-mode)
     ("\\.textile\\'" textile-mode textile-mode)
-    ("\\.yml\\'" yaml-mode yaml-mode)
-    ("\\.yaml\\'" yaml-mode yaml-mode)))
+    ("\\.yaml\\'" yaml-mode yaml-mode)
+    ("\\.yml\\'" yaml-mode yaml-mode)))
 
 ;;; Blatantly ripped from prelude emacs
 (defmacro auto-install (extension package mode)
