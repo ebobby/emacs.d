@@ -350,8 +350,8 @@
 (use-package org
   :hook (org-mode . (lambda () (display-line-numbers-mode -1)))
   :config
-  (setq org-hide-leading-stars t))
-
+  (setq org-hide-leading-stars t)
+  (setq org-adapt-indentation t))
 
 (provide 'my-editor)
 
