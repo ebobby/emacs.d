@@ -16,3 +16,4 @@ url/*
 transient/
 utilities/*
 user-files/*
+eln-cache/*
