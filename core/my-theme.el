@@ -8,7 +8,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(defvar ui-font "Ubuntu Mono Nerd Font-14")
+(defvar ui-font "Ubuntu Mono Nerd Font-15")
 
 ;; All the icons!
 (use-package all-the-icons
