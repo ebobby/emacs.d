@@ -14,7 +14,7 @@
 (use-package all-the-icons
   :config
   ;;(all-the-icons-install-fonts t)
-  )
+  (setq all-the-icons-scale-factor 1.1))
 
 ;; Doom theme.
 (use-package doom-themes
@@ -38,7 +38,7 @@
   ;;(setq doom-modeline-height 50)
   (setq doom-modeline-icon t)
   (setq doom-modeline-project-detection 'projectile)
-  (setq doom-modeline-buffer-file-name-style 'buffer-name))
+  (setq doom-modeline-buffer-file-name-style 'auto))
 
 ;; Frame and font setup for standalone emacs.
 (when window-system
