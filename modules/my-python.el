@@ -19,7 +19,7 @@
 (use-package python
   :hook ((python-mode . lsp)
          (python-mode . dap-mode)
-         (python-mode . blacken-mode)
+         ;(python-mode . blacken-mode)
          ((python-mode inferior-python-mode) . setup-python-virtualenv))
   :bind (:map python-mode-map
          ("C-c C-p" . run-python-for-project))
