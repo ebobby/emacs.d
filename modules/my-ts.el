@@ -13,6 +13,7 @@
   :mode (("\\.ts\\'"  . typescript-mode)
          ("\\.tsx\\'" . typescript-mode))
   :config
+  (setq typescript-indent-level 2)
   (require 'ansi-color)
   (defun colorize-compilation-buffer ()
     (ansi-color-apply-on-region compilation-filter-start (point-max)))
