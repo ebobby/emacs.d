@@ -44,7 +44,12 @@
   (defun setup-python-virtualenv ()
     "If a virtualenv is available, use it."
     (let* ((project-dir (helm-ls-git-root-dir))
-           (venv-dir (or (expand-file-name "venv" project-dir) (expand-file-name "env" project-dir))))
+           (venv-dir (or (when (file-directory-p (expand-file-name "venv" project-dir))
+                           (expand-file-name "venv" project-dir))
+                         (when (file-directory-p (expand-file-name "env" project-dir))
+                           (expand-file-name "env" project-dir))
+                         (when (file-directory-p (expand-file-name ".venv" project-dir))
+                           (expand-file-name ".venv" project-dir)))))
       (if (file-directory-p venv-dir)
           (pyvenv-activate venv-dir)))))
 
