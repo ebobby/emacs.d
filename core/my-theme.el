@@ -38,7 +38,7 @@
   ;;(setq doom-modeline-height 50)
   (setq doom-modeline-icon t)
   (setq doom-modeline-project-detection 'projectile)
-  (setq doom-modeline-buffer-file-name-style 'auto))
+  (setq doom-modeline-buffer-file-name-style 'truncate-with-project))
 
 ;; Frame and font setup for standalone emacs.
 (when window-system
