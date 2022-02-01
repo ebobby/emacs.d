@@ -159,9 +159,6 @@
 ;; sql-postgres prompt change, default mishandles dashes.
 ;;(sql-set-product-feature 'postgres :prompt-regexp "^[[:alnum:]_-]*=[#>]")
 
-;; Save sessions
-(desktop-save-mode t)
-
 (provide 'my-settings)
 
 ;;; my-settings.el ends here
