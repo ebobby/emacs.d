@@ -16,10 +16,16 @@
 (use-package with-venv)
 (use-package blacken)
 
+(use-package lsp-python-ms
+  :ensure t
+  :init (setq lsp-python-ms-auto-install-server t)
+  :hook (python-mode . (lambda ()
+                          (require 'lsp-python-ms)
+                          (lsp))))
+
 (use-package python
-  :hook ((python-mode . lsp)
-         (python-mode . dap-mode)
-         ;(python-mode . blacken-mode)
+  :hook ((python-mode . dap-mode)
+         (python-mode . blacken-mode)
          ((python-mode inferior-python-mode) . setup-python-virtualenv))
   :bind (:map python-mode-map
          ("C-c C-p" . run-python-for-project))
@@ -44,13 +50,13 @@
   (defun setup-python-virtualenv ()
     "If a virtualenv is available, use it."
     (let* ((project-dir (helm-ls-git-root-dir))
-           (venv-dir (or (when (file-directory-p (expand-file-name "venv" project-dir))
-                           (expand-file-name "venv" project-dir))
-                         (when (file-directory-p (expand-file-name "env" project-dir))
-                           (expand-file-name "env" project-dir))
-                         (when (file-directory-p (expand-file-name ".venv" project-dir))
-                           (expand-file-name ".venv" project-dir)))))
-      (if (file-directory-p venv-dir)
+           (.venv (expand-file-name "venv" project-dir))
+           (venv (expand-file-name "venv" project-dir))
+           (env (expand-file-name "venv" project-dir))
+           (venv-dir (or (when (and venv (file-directory-p venv)) venv)
+                         (when (and .venv (file-directory-p venv)) .venv)
+                         (when (and env (file-directory-p venv)) env))))
+      (if venv-dir
           (pyvenv-activate venv-dir)))))
 
 (provide 'my-python)
