@@ -305,6 +305,7 @@
         lsp-ui-doc-header t
         lsp-ui-doc-include-signature t
         lsp-ui-doc-max-width 180
+        lsp-ui-doc-show-with-cursor t
         lsp-ui-doc-max-height 25))
 
 (use-package helm-lsp
