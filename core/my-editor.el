@@ -355,15 +355,6 @@
   (setq org-hide-leading-stars t)
   (setq org-adapt-indentation t))
 
-(use-package dashboard
-  :ensure t
-  :config
-  (setq dashboard-projects-backend 'projectile)
-  (setq dashboard-items '((projects . 5)
-                          (recents  . 5)
-                          (bookmarks . 5)))
-  (dashboard-setup-startup-hook))
-
 (provide 'my-editor)
 
 ;;; my-editor.el ends here
