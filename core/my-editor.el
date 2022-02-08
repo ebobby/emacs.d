@@ -249,7 +249,6 @@
         helm-ff-file-name-history-use-recentf t
         helm-ff-fuzzy-matching                t
         helm-ff-search-library-in-sexp        t
-        helm-follow-mode-persistent           t
         helm-imenu-fuzzy-match                t
         helm-lisp-fuzzy-completion            t
         helm-locate-fuzzy-match               t
