@@ -19,20 +19,24 @@
 
 (use-package lsp-python-ms
   :ensure t
-  :init (setq lsp-python-ms-auto-install-server t)
-  :hook (python-mode . (lambda ()
-                          (require 'lsp-python-ms)
-                          (lsp))))
+  :init (setq lsp-python-ms-auto-install-server t))
 
 (use-package python
   :hook ((python-mode . dap-mode)
          (python-mode . blacken-mode)
          (python-mode . isortify-mode)
+         (python-mode . lsp)
          ((python-mode inferior-python-mode) . setup-python-virtualenv))
   :bind (:map python-mode-map
          ("C-c C-p" . run-python-for-project))
   :config
   (require 'dap-python)
+
+  ;; Hack to give top priority to pylsp over mspyls
+  (require'lsp-pylsp)
+  (let ((pylsp (gethash 'pylsp lsp-clients)))
+    (when pylsp
+      (setf (lsp--client-priority pylsp) 999)))
 
   ;; Temporal fix
   (defun dap-python--pyenv-executable-find (command)
