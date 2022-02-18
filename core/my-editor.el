@@ -303,9 +303,12 @@
         lsp-ui-doc-alignment 'window
         lsp-ui-doc-header t
         lsp-ui-doc-include-signature t
-        lsp-ui-doc-max-width 180
+        lsp-ui-doc-max-width 150
         lsp-ui-doc-show-with-cursor t
-        lsp-ui-doc-max-height 25))
+        lsp-ui-doc-max-height 25
+        lsp-ui-peek-peek-height 30
+        lsp-ui-peek-list-width 70
+        lsp-ui-peek-show-directory nil))
 
 (use-package helm-lsp
   :config
