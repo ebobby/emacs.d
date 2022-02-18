@@ -14,8 +14,6 @@
 
 (use-package pyvenv)
 (use-package with-venv)
-(use-package blacken)
-(use-package isortify)
 
 (use-package lsp-python-ms
   :ensure t
@@ -23,8 +21,6 @@
 
 (use-package python
   :hook ((python-mode . dap-mode)
-         (python-mode . blacken-mode)
-         (python-mode . isortify-mode)
          (python-mode . lsp)
          ((python-mode inferior-python-mode) . setup-python-virtualenv))
   :bind (:map python-mode-map
