@@ -19,17 +19,13 @@
 ;; Doom theme.
 (use-package doom-themes
   :config
-  (load-theme 'doom-dracula t)
+  (load-theme 'doom-gruvbox t)
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t)
   (setq doom-themes-neotree-file-icons t)
   (doom-themes-visual-bell-config)
   (doom-themes-neotree-config)
   (doom-themes-org-config))
-
-(use-package dracula-theme
-  :config
-  (load-theme 'dracula t))
 
 (use-package doom-modeline
   :after (doom-themes)
