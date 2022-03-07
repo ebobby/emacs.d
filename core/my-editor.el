@@ -102,8 +102,9 @@
 
 ;; Syntax checking.
 (use-package flyspell
-  :bind ((:map flyspell-mode-map ("C-;" . nil))
-         (:map flyspell-mode-map ("C-." . nil)))
+  :bind (:map flyspell-mode-map
+              ("C-;" . nil)
+              ("C-." . nil))
   :hook ((text-mode . flyspell-mode)
          (prog-mode . flyspell-prog-mode))
   :config
@@ -224,6 +225,7 @@
          ("C-x C-f"   . helm-find-files)
          ("C-x C-m"   . helm-M-x)
          ("C-x b"     . helm-mini)
+         ("C-x r l"   . helm-bookmarks)
          ("M-x"       . helm-M-x)
          ("M-y"       . helm-show-kill-ring)
          :map helm-map
