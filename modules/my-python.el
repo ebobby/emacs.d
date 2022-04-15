@@ -41,7 +41,11 @@
   (setq dap-python-debugger 'debugpy
         lsp-pyls-plugins-jedi-use-pyenv-environment t
         python-shell-interpreter "ipython"
-        python-shell-interpreter-args "-i --simple-prompt")
+        python-shell-interpreter-args "-i --simple-prompt"
+        ;; Flycheck assumes python3 is always the correct binary. Gotta fix it.
+        flycheck-python-flake8-executable "python"
+        flycheck-flake8rc ".flake8"
+        flycheck-python-pylint-executable "python")
 
   (defun run-python-for-project ()
     "Run python process in the root of the project."
