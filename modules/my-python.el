@@ -22,7 +22,8 @@
 (use-package python
   :hook ((python-mode . dap-mode)
          (python-mode . lsp)
-         ((python-mode inferior-python-mode) . setup-python-virtualenv))
+         ((python-mode inferior-python-mode) . setup-python-virtualenv)
+         (python-mode . (lambda () (setq-local lsp-diagnostics-provider :none))))
   :bind (:map python-mode-map
          ("C-c C-p" . run-python-for-project))
   :config
