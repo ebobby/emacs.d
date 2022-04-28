@@ -8,7 +8,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(defvar ui-font "UbuntuMono NF-14")
+(defvar ui-font "Consolas-13")
 
 ;; All the icons!
 (use-package all-the-icons
@@ -19,10 +19,14 @@
 ;; Doom theme.
 (use-package doom-themes
   :config
-  (load-theme 'doom-gruvbox t)
   (setq doom-themes-enable-bold t
-        doom-themes-enable-italic t)
-  (setq doom-themes-neotree-file-icons t)
+        doom-themes-enable-italic t
+        doom-themes-neotree-file-icons t
+        doom-molokai-brighter-comments t
+        doom-molokai-brighter-modeline t)
+
+  (load-theme 'doom-molokai t)
+
   (doom-themes-visual-bell-config)
   (doom-themes-neotree-config)
   (doom-themes-org-config))
