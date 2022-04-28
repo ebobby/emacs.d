@@ -15,9 +15,11 @@
 (use-package pyvenv)
 (use-package with-venv)
 
-(use-package lsp-python-ms
+(use-package lsp-pyright
   :ensure t
-  :init (setq lsp-python-ms-auto-install-server t))
+  :config
+  (require 'lsp-pyright)
+  (setq lsp-file-watch-threshold 4000))
 
 (use-package python
   :hook ((python-mode . dap-mode)
@@ -28,12 +30,6 @@
          ("C-c C-p" . run-python-for-project))
   :config
   (require 'dap-python)
-
-  ;; Hack to give top priority to pylsp over mspyls
-  (require'lsp-pylsp)
-  (let ((pylsp (gethash 'pylsp lsp-clients)))
-    (when pylsp
-      (setf (lsp--client-priority pylsp) 999)))
 
   ;; Temporal fix
   (defun dap-python--pyenv-executable-find (command)
