@@ -35,6 +35,11 @@
 (global-set-key (kbd "M-k") 'kill-this-buffer)
 (global-set-key (kbd "C-.") 'isearch-forward-symbol-at-point)
 
+;; Remove conflicting keys from diff-mode
+(add-hook 'diff-mode-hook (lambda ()
+                            (local-unset-key (kbd "M-o"))
+                            (local-unset-key (kbd "M-k"))))
+
 (provide 'my-keys)
 
 ;;; my-keys.el ends here
