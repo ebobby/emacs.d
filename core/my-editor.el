@@ -279,7 +279,7 @@
 (use-package lsp-mode
   :init
   (setq lsp-keymap-prefix "C-c l")
-  :hook (lsp-mode . lsp-enable-which-key-integration)
+  :hook ((lsp-mode . lsp-enable-which-key-integration))
   :config
   (setq lsp-auto-configure t
         lsp-enable-snippet nil
