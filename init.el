@@ -27,7 +27,6 @@
 (setq package-native-compile t)
 (setq native-comp-compiler-options '("-O2" "-march=tigerlake" "-mtune=native"))
 
-
 ;; Core configuration
 (require 'my-settings)
 (require 'my-functions)
