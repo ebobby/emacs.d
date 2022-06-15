@@ -10,9 +10,17 @@
 
 (use-package lsp-haskell)
 
+(defun haskell-setup ()
+  "Setup Haskell-related modes."
+  (subword-mode +1)
+  (eldoc-mode +1)
+  (haskell-indentation-mode +1)
+  (interactive-haskell-mode +1)
+  (lsp))
+
 (use-package haskell-mode
-  :hook ((haskell-mode . lsp)
-         (haskell-literate-mode . lsp))
+  :hook ((haskell-mode . haskell-setup)
+         (haskell-literate-mode . haskell-setup))
   :mode "\\.hs\\'")
 
 (provide 'my-haskell)
