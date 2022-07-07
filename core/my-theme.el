@@ -42,14 +42,8 @@
 
 ;; Frame and font setup for standalone emacs.
 (when window-system
-  (toggle-frame-maximized)
+  (set-frame-parameter nil 'fullscreen 'maximized)
   (set-face-attribute 'default nil :font ui-font))
-
-;; Frame and font setup for emacsclient.
-(push (lambda (frame)
-        (set-frame-parameter frame 'font ui-font)
-        (toggle-frame-maximized frame))
-      after-make-frame-functions)
 
 (provide 'my-theme)
 
