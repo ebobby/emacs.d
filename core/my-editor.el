@@ -275,6 +275,15 @@
 
 (use-package helm-ls-git)
 
+(use-package helpful
+  :bind (("C-h v"   . helpful-variable)
+         ("C-h k"   . helpful-key)
+         ("C-h C-d" . helpful-at-point)
+         ("C-h C"   . helpful-command))
+  :config
+  (setq helm-describe-function-function 'helpful-callable
+        helm-describe-variable-function 'helpful-variable))
+
 ;; Language Server Protocol
 (use-package lsp-mode
   :init
