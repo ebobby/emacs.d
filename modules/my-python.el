@@ -19,7 +19,9 @@
   :ensure t
   :config
   (require 'lsp-pyright)
-  (setq lsp-file-watch-threshold 4000))
+  (setq lsp-file-watch-threshold 10000
+        ;;lsp-pyright-diagnostic-mode "workspace"
+        ))
 
 (use-package python
   :hook ((python-mode . dap-mode)
