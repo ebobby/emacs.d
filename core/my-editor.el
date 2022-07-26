@@ -281,8 +281,13 @@
          ("C-h C-d" . helpful-at-point)
          ("C-h C"   . helpful-command))
   :config
-  (setq helm-describe-function-function 'helpful-callable
-        helm-describe-variable-function 'helpful-variable))
+  (defun describe-function (function)
+    "Overwrite `describe-function' with `helpful-function'."
+    (helpful-callable function))
+
+  (defun describe-variable (variable &optional buffer frame)
+    "Overwrite `describe-variable' with `helpful-variable'."
+    (helpful-variable variable)))
 
 ;; Language Server Protocol
 (use-package lsp-mode
