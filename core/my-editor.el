@@ -105,8 +105,7 @@
   :bind (:map flyspell-mode-map
               ("C-;" . nil)
               ("C-." . nil))
-  :hook ((text-mode . flyspell-mode)
-         (prog-mode . flyspell-prog-mode))
+  :hook ((text-mode . flyspell-mode))
   :config
   ;; Do not spellcheck literal strings, only comments.
   (setq-default flyspell-prog-text-faces (delq 'font-lock-string-face flyspell-prog-text-faces)))
