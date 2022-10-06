@@ -8,7 +8,9 @@
 ;;; Commentary:
 ;;; Code:
 
-(use-package lsp-haskell)
+(use-package lsp-haskell
+  :config
+  (require 'lsp-haskell))
 
 (defun haskell-setup ()
   "Setup Haskell-related modes."
