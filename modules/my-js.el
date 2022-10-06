@@ -14,7 +14,6 @@
   :hook (((js2-mode js2-mode-jsx) . js2-imenu-extras-mode)
          (js2-mode . lsp)
          (js2-mode . dap-mode))
-  :bind (:map js2-mode-map ("M-." . nil))
   :interpreter "node"
   :config
   (require 'dap-node)
