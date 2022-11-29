@@ -8,16 +8,10 @@
 ;;; Commentary:
 ;;; Code:
 
-(use-package typescript-mode
-  :hook ((typescript-mode . lsp))
-  :mode (("\\.ts\\'"  . typescript-mode)
-         ("\\.tsx\\'" . typescript-mode))
-  :config
-  (setq typescript-indent-level 2)
-  (require 'ansi-color)
-  (defun colorize-compilation-buffer ()
-    (ansi-color-apply-on-region compilation-filter-start (point-max)))
-  (add-hook 'compilation-filter-hook 'colorize-compilation-buffer))
+(use-package typescript-ts-mode
+  :hook ((typescript-ts-mode . lsp))
+  :mode (("\\.ts\\'"  . typescript-ts-mode)
+         ("\\.tsx\\'" . typescript-ts-mode)))
 
 (provide 'my-ts)
 
