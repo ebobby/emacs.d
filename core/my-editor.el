@@ -219,7 +219,7 @@
          ("C-c p f"   . helm-browse-project)
          ("C-c p k"   . my-helm-project-kill-buffers)
          ("C-h C-r"   . helm-recentf)
-         ("C-h f"     . helm-apropos)
+         ("C-h F"     . helm-apropos)
          ("C-h i"     . helm-imenu)
          ("C-x C-f"   . helm-find-files)
          ("C-x C-m"   . helm-M-x)
@@ -277,6 +277,7 @@
 (use-package helpful
   :bind (("C-h v"   . helpful-variable)
          ("C-h k"   . helpful-key)
+         ("C-h f"   . helpful-callable)
          ("C-h C-d" . helpful-at-point)
          ("C-h C"   . helpful-command))
   :config
