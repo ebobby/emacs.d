@@ -145,6 +145,9 @@
 ;; blink cursor
 (blink-cursor-mode -1)
 
+;; pixel scrolling when using the trackpad or mouse wheel.
+(pixel-scroll-precision-mode t)
+
 ;; mode line settings
 (line-number-mode t)
 (column-number-mode t)
