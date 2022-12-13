@@ -25,7 +25,7 @@
 
 ;; Native compilation.
 (setq package-native-compile t)
-(setq native-comp-compiler-options '("-O2" "-mtune=native"))
+(setq native-comp-compiler-options '("-O2" "-mtune=znver3" "-march=znver3"))
 
 ;; Core configuration
 (require 'my-settings)
