@@ -240,8 +240,6 @@
          :map comint-mode-map
          ("C-c C-l" . helm-comint-input-ring))
   :config
-  (require 'helm-config)
-  (require 'helm-source)
   (setq helm-M-x-fuzzy-match                  t
         helm-apropos-fuzzy-match              t
         helm-buffers-fuzzy-matching           t
