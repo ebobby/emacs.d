@@ -8,12 +8,10 @@
 ;;; Commentary:
 ;;; Code:
 
-(use-package typescript-mode
-  :hook ((typescript-mode . lsp))
-  :mode (("\\.ts\\'"  . typescript-mode)
-         ("\\.tsx\\'" . typescript-mode))
-  :config
-  (setq typescript-indent-level 2))
+(use-package typescript-ts-mode
+  :hook ((typescript-ts-mode . lsp))
+  :mode (("\\.ts\\'"  . typescript-ts-mode)
+         ("\\.tsx\\'" . typescript-ts-mode)))
 
 (provide 'my-ts)
 

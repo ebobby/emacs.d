@@ -24,14 +24,22 @@
         ))
 
 (use-package python
-  :hook ((python-mode . dap-mode)
-         (python-mode . lsp)
-         ((python-mode inferior-python-mode) . setup-python-virtualenv)
-         (python-mode . (lambda () (setq-local lsp-diagnostics-provider :none))))
-  :bind (:map python-mode-map
+  :mode (("\\.py\\'" . python-ts-mode))
+  :hook ((python-ts-mode . dap-mode)
+         (python-ts-mode . lsp)
+         (python-ts-mode . (lambda () (setq-local lsp-diagnostics-provider :none)))
+         ((python-ts-mode inferior-python-mode) . setup-python-virtualenv))
+  :bind (:map python-ts-mode-map
          ("C-c C-p" . run-python-for-project))
   :config
   (require 'dap-python)
+
+  (setf
+   (flycheck-checker-get 'python-flake8 'modes) '(python-mode python-ts-mode)
+   (flycheck-checker-get 'python-pylint 'modes) '(python-mode python-ts-mode)
+   (flycheck-checker-get 'python-pycompile 'modes) '(python-mode python-ts-mode)
+   (flycheck-checker-get 'python-pyright 'modes) '(python-mode python-ts-mode)
+   (flycheck-checker-get 'python-mypy 'modes) '(python-mode python-ts-mode))
 
   ;; Temporal fix
   (defun dap-python--pyenv-executable-find (command)

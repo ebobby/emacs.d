@@ -10,8 +10,8 @@
 
 (use-package nvm)
 
-(use-package json-mode
-  :mode (("\\.json\\'"  . json-mode)))
+(use-package json-ts-mode
+  :mode (("\\.json\\'" . json-ts-mode)))
 
 (use-package js2-mode
   :hook (((js2-mode js2-mode-jsx) . js2-imenu-extras-mode)
