@@ -21,10 +21,11 @@
  ;; Welcome message.
  initial-scratch-message nil
 
- ;; OSX keybindings.
+ ;; OSX keybindings / settings
  mac-command-modifier 'meta
  mac-option-modifier 'super
  ns-function-modifier 'hyper
+ ns-pop-up-frames nil
 
  ;; Packages config.
  gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3"
@@ -58,7 +59,6 @@
 
  ;; UI
  blink-matching-paren nil
- ns-pop-up-frames nil
  query-replace-highlight t
  ring-bell-function 'ignore
  scroll-conservatively 100000
@@ -91,8 +91,8 @@
  create-lockfiles nil
  dired-listing-switches "-alh"
  echo-keystrokes 0.1
- large-file-warning-threshold (* 1024 1024 100 1)
- read-process-output-max (* 1024 1024 10)
+ large-file-warning-threshold (* 1024 1024 300 1)
+ read-process-output-max (* 1024 1024 50)
  search-default-mode #'char-fold-to-regexp)
 ;;;;;;;;
 
