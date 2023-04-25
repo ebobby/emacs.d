@@ -333,6 +333,8 @@
   :bind (("C-'" . company-complete))
   :hook (after-init .  global-company-mode)
   :config
+  ;; temporary hack
+  (setq company-backends (delete 'company-files company-backends))
   (setq company-idle-delay 0.0
         company-minimum-prefix-length 1
         company-tooltip-align-annotations t
