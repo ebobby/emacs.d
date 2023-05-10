@@ -8,13 +8,13 @@
 ;;; Commentary:
 ;;; Code:
 
-(defvar ui-font "Fantasque Sans Mono-13")
+(defvar ui-font "JetBrains Mono Nerd Font-12")
 
 ;; All the icons!
 (use-package all-the-icons
   :config
   ;;(all-the-icons-install-fonts t)
-  (setq all-the-icons-scale-factor 1.2))
+  (setq all-the-icons-scale-factor 1.5))
 
 ;; Doom theme.
 (use-package doom-themes
@@ -25,7 +25,7 @@
         doom-molokai-brighter-comments t
         doom-molokai-brighter-modeline t)
 
-  (load-theme 'doom-dracula t)
+  (load-theme 'doom-material-dark t)
 
   (doom-themes-visual-bell-config)
   (doom-themes-neotree-config)
@@ -36,7 +36,7 @@
   :hook (after-init . doom-modeline-mode)
   :config
   (setq doom-modeline-icon t)
-  (setq doom-modeline-height 25)
+  (setq doom-modeline-height 82)
   (setq doom-modeline-project-detection 'projectile)
   (setq doom-modeline-buffer-file-name-style 'truncate-with-project)
   (setq doom-modeline-bar-width 1)
