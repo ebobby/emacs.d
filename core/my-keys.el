@@ -39,7 +39,14 @@
 (add-hook 'diff-mode-hook (lambda ()
                             (local-unset-key (kbd "M-o"))
                             (local-unset-key (kbd "M-k"))))
+;; Remove conflicting keys from diff-mode
 
+(add-hook 'diff-mode-hook (lambda ()
+                            (local-unset-key (kbd "M-o"))
+                            (local-unset-key (kbd "M-k"))))
+
+(add-hook 'mhtml-mode-hook (lambda ()
+                             (local-unset-key (kbd "M-o"))))
 (provide 'my-keys)
 
 ;;; my-keys.el ends here

@@ -43,6 +43,7 @@
 (require 'my-latex)
 (require 'my-ruby)
 (require 'my-haskell)
+(require 'my-web)
 
 ;; Load UI after everything else.
 (require 'my-theme)
