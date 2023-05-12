@@ -185,7 +185,7 @@
 ;; Describe key sequences.
 (use-package which-key
   :config
-  (setq-default which-key-idle-delay 2.0)
+  (setq-default which-key-idle-delay 1.0)
   (which-key-mode))
 
 ;; Tree-like file navigation.
@@ -326,7 +326,8 @@
 
 (use-package helm-lsp
   :config
-  (define-key lsp-mode-map [remap xref-find-apropos] #'helm-lsp-workspace-symbol))
+  (define-key lsp-mode-map [remap xref-find-apropos] #'helm-lsp-workspace-symbol)
+  (define-key lsp-mode-map (kbd "C-c l d") #'helm-lsp-diagnostics))
 
 ;; Company
 (use-package company
