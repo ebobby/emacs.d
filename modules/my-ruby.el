@@ -25,6 +25,7 @@
          ("Rakefile" . ruby-mode)
          ("Capfile" . ruby-mode))
   :config
+  (setq lsp-solargraph-use-bundler t)
   (setq ruby-insert-encoding-magic-comment nil))
 
 (provide 'my-ruby)
