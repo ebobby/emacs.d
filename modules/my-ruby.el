@@ -15,7 +15,7 @@
 (use-package inf-ruby)
 
 (use-package ruby-mode
-  :hook ((ruby-mode . lsp)
+  :hook ((ruby-mode . lsp-deferred)
          (ruby-mode . inf-ruby-minor-mode))
   :mode (("\\.rb\\'"  . ruby-mode)
          ("\\.rake\\'" . ruby-mode)
@@ -25,7 +25,7 @@
          ("Rakefile" . ruby-mode)
          ("Capfile" . ruby-mode))
   :config
-  (setq lsp-solargraph-use-bundler t)
+  ;;(setq lsp-solargraph-use-bundler t)
   (setq ruby-insert-encoding-magic-comment nil))
 
 (provide 'my-ruby)
