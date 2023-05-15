@@ -8,7 +8,6 @@
 ;;; Commentary:
 ;;; Code:
 
-(defvar ui-font "Fantasque Sans Mono-13")
 
 ;; All the icons!
 (use-package all-the-icons
@@ -63,7 +62,7 @@
 ;; Frame and font setup for standalone emacs.
 (when window-system
   (set-frame-parameter nil 'fullscreen 'maximized)
-  (set-frame-font ui-font))
+  (set-frame-font "Ubuntu Mono NF-13"))
 
 (provide 'my-theme)
 
