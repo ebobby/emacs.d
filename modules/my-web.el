@@ -8,10 +8,17 @@
 ;;; Commentary:
 ;;; Code:
 
-(use-package mhtml-mode
-  :hook ((mhtml-mode . lsp)
-         (mhtml-mode . (lambda ()
-                         (local-unset-key (kbd "M-o"))))))
+(use-package web-mode
+  :mode (("\\.html?\\'" . web-mode)
+         ("\\.phtml\\'" . web-mode)
+         ("\\.erb\\'" . web-mode))
+  :hook ((web-mode . lsp))
+  :config
+  (setq lsp-html-format-enable nil)
+  (with-eval-after-load 'lsp-mode
+    (add-to-list 'lsp-language-id-configuration
+                 '(web-mode . "html"))))
+
 (use-package css-mode
   :hook ((css-mode . lsp)))
 
