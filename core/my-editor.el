@@ -289,8 +289,8 @@
 
 ;; Language Server Protocol
 (use-package lsp-mode
-  :init
-  (setq lsp-keymap-prefix "C-c l")
+  :commands (lsp lsp-deferred)
+  :init (setq lsp-keymap-prefix "C-c l")
   :hook ((lsp-mode . lsp-enable-which-key-integration))
   :config
   (setq lsp-auto-configure t
