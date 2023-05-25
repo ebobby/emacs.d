@@ -329,6 +329,11 @@
   (define-key lsp-mode-map [remap xref-find-apropos] #'helm-lsp-workspace-symbol)
   (define-key lsp-mode-map (kbd "C-c l d") #'helm-lsp-diagnostics))
 
+(use-package helm-icons
+  :config
+  (setq helm-icons-provider 'all-the-icons)
+  (helm-icons-enable))
+
 ;; Company
 (use-package company
   :bind (("C-'" . company-complete))
