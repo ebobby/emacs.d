@@ -20,11 +20,13 @@
   :config
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t
-        doom-themes-neotree-file-icons t
-        doom-molokai-brighter-comments t
-        doom-molokai-brighter-modeline t)
+        doom-themes-neotree-file-icons t)
 
-  (load-theme 'doom-material-dark t)
+  (load-theme 'doom-monokai-pro t)
+
+  ;; doom-monokai-pro helm-files directories are white for some reason.
+  (custom-set-faces
+   '(helm-ff-directory ((t (:extend t :foreground "#FFD866")))))
 
   (doom-themes-visual-bell-config)
   (doom-themes-neotree-config)
