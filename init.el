@@ -46,7 +46,7 @@
 (require 'my-web)
 
 ;; Load UI after everything else.
-(require 'my-theme)
+(require 'my-ui)
 
 ;;; init.el ends here
 (custom-set-variables

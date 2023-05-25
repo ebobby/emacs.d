@@ -1,4 +1,4 @@
-;;; my-theme.el --- Theme loading and configuration
+;;; my-ui.el --- Theme loading and configuration
 ;; Copyright (C) 2010-2021 Francisco Soto
 ;; Author: Francisco Soto <ebobby@ebobby.org>
 ;; URL: https://github.com/ebobby/emacs.d
@@ -64,6 +64,6 @@
   (set-frame-parameter nil 'fullscreen 'maximized)
   (set-frame-font "Ubuntu Mono NF-13"))
 
-(provide 'my-theme)
+(provide 'my-ui)
 
-;;; my-theme.el ends here
+;;; my-ui.el ends here
