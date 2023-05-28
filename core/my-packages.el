@@ -34,7 +34,6 @@
     ("\\.erl\\'" erlang erlang-mode)
     ("\\.ex\\'" elixir-mode elixir-mode)
     ("\\.exs\\'" elixir-mode elixir-mode)
-    ("\\.go\\'" go-mode go-mode)
     ("\\.graphql\\'" graphql-mode graphql-mode)
     ("\\.haml\\'" haml-mode haml-mode)
     ("\\.hbs\\'" handlebars-mode handlebars-mode)
