@@ -30,6 +30,12 @@
   (setq gcmh-idle-delay 5
         gcmh-high-cons-threshold (* 16 1024 1024 1024)))
 
+;; All the icons!
+(use-package all-the-icons
+  :config
+  ;;(all-the-icons-install-fonts t)
+  (setq all-the-icons-scale-factor 1))
+
 ;; Hydra
 (use-package hydra
   :config

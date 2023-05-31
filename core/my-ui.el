@@ -8,13 +8,6 @@
 ;;; Commentary:
 ;;; Code:
 
-
-;; All the icons!
-(use-package all-the-icons
-  :config
-  ;;(all-the-icons-install-fonts t)
-  (setq all-the-icons-scale-factor 1))
-
 ;; Doom theme.
 (use-package doom-themes
   :config
