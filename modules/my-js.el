@@ -55,6 +55,11 @@
 (use-package prettier-js
   :hook ((js2-mode js2-jsx-mode) . prettier-js-mode))
 
+(use-package typescript-ts-mode
+  :hook ((typescript-ts-mode . lsp))
+  :mode (("\\.ts\\'"  . typescript-ts-mode)
+         ("\\.tsx\\'" . typescript-ts-mode)))
+
 (provide 'my-js)
 
 ;;; my-js.el ends here
