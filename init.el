@@ -36,15 +36,14 @@
 
 ;; Modules configuration
 (require 'my-elisp)
+(require 'my-go)
+(require 'my-haskell)
 (require 'my-js)
 (require 'my-python)
-(require 'my-rust)
-(require 'my-latex)
-(require 'my-markdown)
 (require 'my-ruby)
-(require 'my-haskell)
-(require 'my-go)
+(require 'my-rust)
 (require 'my-web)
+(require 'my-writing)
 
 ;; Load UI after everything else.
 (require 'my-ui)

@@ -34,6 +34,7 @@
 (global-set-key (kbd "M-3") 'split-window-horizontally)
 (global-set-key (kbd "M-k") 'kill-this-buffer)
 (global-set-key (kbd "C-.") 'isearch-forward-symbol-at-point)
+(global-set-key (kbd "C-c g") 'writegood-mode)
 
 ;; Remove conflicting keys from diff-mode
 (add-hook 'diff-mode-hook (lambda ()

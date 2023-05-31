@@ -1,4 +1,4 @@
-;;; my-latex.el --- All about Latex
+;;; my-writing.el --- All about Writing
 ;; Copyright (C) 2010-2021 Francisco Soto
 ;; Author: Francisco Soto <ebobby@ebobby.org>
 ;; URL: https://github.com/ebobby/emacs.d
@@ -34,6 +34,13 @@
 (use-package company-auctex
   :config (company-auctex-init))
 
-(provide 'my-latex)
+(use-package markdown-mode
+  :ensure t
+  :mode ("README\\.md\\'" . gfm-mode)
+  :init (setq markdown-command "multimarkdown"))
 
-;;; my-latex.el ends here
+(use-package writegood-mode)
+
+(provide 'my-writing)
+
+;;; my-writing.el ends here
