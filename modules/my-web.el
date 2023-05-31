@@ -22,6 +22,9 @@
 (use-package css-mode
   :hook ((css-mode . lsp)))
 
+(use-package lsp-tailwindcss
+  :init (setq lsp-tailwindcss-add-on-mode t))
+
 (provide 'my-web)
 
 ;;; my-web.el ends here
