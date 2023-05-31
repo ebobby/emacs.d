@@ -41,6 +41,7 @@
 (require 'my-python)
 (require 'my-rust)
 (require 'my-latex)
+(require 'my-markdown)
 (require 'my-ruby)
 (require 'my-haskell)
 (require 'my-go)
