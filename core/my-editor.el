@@ -241,7 +241,6 @@
          ("C-c C-l" . helm-comint-input-ring))
   :config
   (setq helm-M-x-fuzzy-match                  t
-        helm-M-x-show-short-doc               t
         helm-apropos-fuzzy-match              t
         helm-buffers-fuzzy-matching           t
         helm-completion-in-region-fuzzy-match t
