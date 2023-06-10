@@ -385,6 +385,12 @@
   (setq org-hide-leading-stars t)
   (setq org-adapt-indentation t))
 
+;; Yasnippets
+(use-package yasnippet
+  :hook (prog-mode . yas-minor-mode))
+
+(use-package yasnippet-snippets)
+
 (provide 'my-editor)
 
 ;;; my-editor.el ends here
