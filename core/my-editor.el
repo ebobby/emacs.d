@@ -36,6 +36,20 @@
   ;;(all-the-icons-install-fonts t)
   (setq all-the-icons-scale-factor 1))
 
+;; Projectile
+(use-package projectile
+  :ensure t
+  :bind (:map projectile-mode-map
+              ("s-p" . projectile-command-map)
+              ("C-c p" . projectile-command-map))
+  :config
+  (setq projectile-completion-system 'helm)
+  (projectile-mode +1))
+
+(use-package helm-projectile
+  :config
+  (helm-projectile-on))
+
 ;; Hydra
 (use-package hydra
   :config
@@ -222,8 +236,6 @@
   :bind-keymap ("C-c h" . helm-command-prefix)
   :bind (("<f2>"      . helm-occur)
          ("<f3>"      . my-helm-do-ag-project-root)
-         ("C-c p f"   . helm-browse-project)
-         ("C-c p k"   . my-helm-project-kill-buffers)
          ("C-h C-r"   . helm-recentf)
          ("C-h F"     . helm-apropos)
          ("C-h i"     . helm-imenu)
