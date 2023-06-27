@@ -233,7 +233,7 @@
 
 ;; Helm <3
 (use-package helm
-  :bind-keymap ("C-c h" . helm-command-prefix)
+  :init (global-set-key (kbd "C-c h") 'helm-command-prefix)
   :bind (("<f2>"      . helm-occur)
          ("<f3>"      . my-helm-do-ag-project-root)
          ("C-h C-r"   . helm-recentf)
