@@ -311,6 +311,7 @@
   :init (setq lsp-keymap-prefix "C-c l")
   :hook ((lsp-mode . lsp-enable-which-key-integration))
   :config
+  (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]storage")
   (setq lsp-auto-configure t
         lsp-enable-snippet nil
         lsp-completion-provider :capf))
