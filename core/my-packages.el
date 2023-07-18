@@ -12,7 +12,7 @@
 
 ;; Initialize packages before handling the rest of the config.
 (package-initialize)
-(package-refresh-contents)
+;(package-refresh-contents)
 
 (defun require-package (package)
   "Install PACKAGE if not already installed."
