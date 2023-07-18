@@ -163,7 +163,7 @@
 ;;(sql-set-product-feature 'postgres :prompt-regexp "^[[:alnum:]_-]*=[#>]")
 
 ;; Save sessions
-(desktop-save-mode t)
+;;(desktop-save-mode t)
 
 (provide 'my-settings)
 
