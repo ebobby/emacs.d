@@ -52,24 +52,24 @@
 (use-package hydra
   :config
   (global-set-key (kbd "C-z")
-                (defhydra hydra-movement (:color amaranth)
-                  "Navigation"
-                  ("SPC" set-mark-command "mark")
-                  ("w" kill-ring-save "copy")
-                  ("n" next-line "next")
-                  ("p" previous-line "previous")
-                  ("f" forward-char "forward")
-                  ("b" backward-char "backward")
-                  ("a" beginning-of-line "beginning")
-                  ("e" move-end-of-line "end")
-                  ("v" scroll-up-command "scroll up")
-                  ("V" scroll-down-command "scroll down")
-                  ("l" recenter-top-bottom "recenter")
-                  ("j" avy-goto-word-or-subword-1 "jump")
-                  ("o" ace-window "switch window")
-                  ("." xref-find-definitions "find definition")
-                  ("," xref-pop-marker-stack "return to definition")
-                  ("C-z" nil))))
+                  (defhydra hydra-movement (:color amaranth)
+                    "Navigation"
+                    ("SPC" set-mark-command "mark")
+                    ("w" kill-ring-save "copy")
+                    ("n" next-line "next")
+                    ("p" previous-line "previous")
+                    ("f" forward-char "forward")
+                    ("b" backward-char "backward")
+                    ("a" beginning-of-line "beginning")
+                    ("e" move-end-of-line "end")
+                    ("v" scroll-up-command "scroll up")
+                    ("V" scroll-down-command "scroll down")
+                    ("l" recenter-top-bottom "recenter")
+                    ("j" avy-goto-word-or-subword-1 "jump")
+                    ("o" ace-window "switch window")
+                    ("." xref-find-definitions "find definition")
+                    ("," xref-pop-marker-stack "return to definition")
+                    ("C-z" nil))))
 
 ;; Move blocks of text around
 (use-package move-text
