@@ -13,13 +13,13 @@
   :config
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t
-        doom-themes-neotree-file-icons t)
-
-  (load-theme 'doom-dracula t)
+        doom-themes-neotree-file-icons t
+        doom-themes-padded-modeline t)
+  (load-theme 'doom-monokai-pro t)
 
   ;; doom-monokai-pro helm-files directories are white for some reason.
-;;  (custom-set-faces
-;;   '(helm-ff-directory ((t (:extend t :foreground "#FFD866")))))
+  (custom-set-faces
+   '(helm-ff-directory ((t (:extend t :foreground "#FFD866")))))
 
   (doom-themes-visual-bell-config)
   (doom-themes-neotree-config)
@@ -30,7 +30,7 @@
   :hook (after-init . doom-modeline-mode)
   :config
   (setq doom-modeline-icon t)
-  (setq doom-modeline-height 35)
+  (setq doom-modeline-height 25)
   (setq doom-modeline-project-detection 'projectile)
   (setq doom-modeline-buffer-file-name-style 'truncate-with-project)
   (setq doom-modeline-bar-width 1)
@@ -53,6 +53,9 @@
     (doom-modeline-def-modeline 'main
       '(bar workspace-name window-number modals matches follow buffer-info remote-host buffer-position word-count parrot selection-info)
       '(objed-state misc-info persp-name battery grip irc mu4e gnus github debug repl lsp minor-modes input-method indent-info buffer-encoding major-mode process vcs checker "   "))))
+
+(use-package solaire-mode
+  :config (solaire-global-mode +1))
 
 ;; Frame and font setup for standalone emacs.
 (when window-system
