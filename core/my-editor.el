@@ -312,6 +312,7 @@
   (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]storage")
   (setq lsp-auto-configure t
         lsp-enable-snippet nil
+        lsp-lens-enable nil
         lsp-completion-provider :capf))
 
 (use-package dap-mode
