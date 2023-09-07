@@ -60,7 +60,7 @@
 ;; Frame and font setup for standalone emacs.
 (when window-system
   (set-frame-parameter nil 'fullscreen 'maximized)
-  (set-frame-font "Ubuntu Mono NF-13"))
+  (set-frame-font "Ubuntu Mono NF-16"))
 
 (provide 'my-ui)
 
