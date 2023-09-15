@@ -26,6 +26,11 @@
   (interactive "Transparency Value 0 - 100 opaque: ")
   (set-frame-parameter (selected-frame) 'alpha value))
 
+(defun my-maximize ()
+  "Maximizes current frame."
+  (interactive)
+  (set-frame-parameter (selected-frame) 'fullscreen 'maximized))
+
 (defun my-indent-buffer ()
   "Indent the buffer."
   (interactive)
