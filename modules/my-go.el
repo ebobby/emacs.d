@@ -9,7 +9,7 @@
 ;;; Code:
 
 (use-package go-mode
-  :hook ((go-mode . lsp-deferred)))
+  :hook ((go-mode . lsp)))
 
 (provide 'my-go)
 
