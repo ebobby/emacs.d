@@ -26,22 +26,13 @@
 ;; Modes that will be installed automatically when opening these extensions.
 ;; Used for modes that have no special configuration (yet).
 (defvar dumb-modes-alist
-  '(("\\.css\\'" css-mode css-mode)
-    ("\\.csv\\'" csv-mode csv-mode)
+  '(("\\.csv\\'" csv-mode csv-mode)
     ("\\.dot\\'" graphviz-dot-mode graphviz-dot-mode)
-    ("\\.elixir\\'" elixir-mode elixir-mode)
-    ("\\.elm\\'" elm-mode elm-mode)
-    ("\\.erl\\'" erlang erlang-mode)
-    ("\\.ex\\'" elixir-mode elixir-mode)
-    ("\\.exs\\'" elixir-mode elixir-mode)
     ("\\.graphql\\'" graphql-mode graphql-mode)
     ("\\.haml\\'" haml-mode haml-mode)
     ("\\.hbs\\'" handlebars-mode handlebars-mode)
     ("\\.less\\'" less-css-mode less-css-mode)
-    ("\\.lua\\'" lua-mode lua-mode)
-    ("\\.php\\'" php-mode php-mode)
     ("\\.sass\\'" sass-mode sass-mode)
-    ("\\.scala\\'" scala-mode2 scala-mode)
     ("\\.scss\\'" scss-mode scss-mode)
     ("\\.textile\\'" textile-mode textile-mode)
     ("\\.yaml\\'" yaml-mode yaml-mode)

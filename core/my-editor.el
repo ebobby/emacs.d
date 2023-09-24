@@ -8,8 +8,6 @@
 ;;; Commentary:
 ;;; Code:
 
-(require-package 'use-package)
-
 (require 'use-package)
 (require 'bind-key)
 (require 'use-package-ensure)
