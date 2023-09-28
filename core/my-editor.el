@@ -206,7 +206,9 @@
 
 ;; Tree-like file navigation.
 (use-package neotree
-  :bind (("<f9>" . my-neotree-project)))
+  :bind (("<f9>" . my-neotree-project))
+  :config
+  (setq neo-window-fixed-size nil))
 
 ;; Multiple editing cursors.
 (use-package multiple-cursors
