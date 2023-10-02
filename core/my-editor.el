@@ -278,7 +278,7 @@
 
 (use-package helm-ag
   :config
-  (setq helm-ag-base-command "rg --hidden --no-heading --smart-case --max-columns=1000"))
+  (setq helm-ag-base-command "rg --hidden --no-heading --multiline --smart-case --max-columns=1000"))
 
 (use-package helm-descbinds
   :config
