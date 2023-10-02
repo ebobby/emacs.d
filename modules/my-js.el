@@ -10,9 +10,6 @@
 
 (use-package nvm)
 
-(use-package json-ts-mode
-  :mode (("\\.json\\'" . json-ts-mode)))
-
 (use-package js-ts-mode
   :hook ((js-ts-mode . lsp)
          (js-ts-mode . dap-mode))
@@ -25,6 +22,11 @@
   (setq dap-firefox-debug-program `("node" ,(expand-file-name "extension/dist/adapter.bundle.js"
                                                               dap-firefox-debug-path))))
 
+(use-package typescript-ts-mode
+  :hook ((typescript-ts-mode . lsp))
+  :mode (("\\.ts\\'"  . typescript-ts-mode)
+         ("\\.tsx\\'" . tsx-ts-mode)))
+
 (use-package nodejs-repl
   :bind (:map js-ts-mode-map
               ("C-x C-e" . nodejs-repl-send-last-expression)
@@ -35,15 +37,13 @@
               ("C-c C-z" . nodejs-repl-switch-to-repl)))
 
 (use-package npm-mode
-  :hook ((js-ts-mode tsx-ts-mode) . npm-mode))
+  :hook ((js-ts-mode tsx-ts-mode typescript-ts-mode) . npm-mode))
 
 (use-package prettier-js
-  :hook ((js-ts-mode tsx-ts-mode) . prettier-js-mode))
+  :hook ((js-ts-mode tsx-ts-mode typescript-ts-mode) . prettier-js-mode))
 
-(use-package typescript-ts-mode
-  :hook ((typescript-ts-mode . lsp))
-  :mode (("\\.ts\\'"  . typescript-ts-mode)
-         ("\\.tsx\\'" . tsx-ts-mode)))
+(use-package json-ts-mode
+  :mode (("\\.json\\'" . json-ts-mode)))
 
 (provide 'my-js)
 
