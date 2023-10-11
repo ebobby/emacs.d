@@ -9,7 +9,10 @@
 ;;; Code:
 
 (use-package go-mode
-  :hook ((go-mode . lsp)))
+  :hook ((go-mode . lsp-deferred))
+  :config
+  (add-hook 'before-save-hook 'gofmt-before-save)
+  (setq gofmt-args '("-s")))
 
 (provide 'my-go)
 
