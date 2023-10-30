@@ -30,7 +30,7 @@
   :hook (after-init . doom-modeline-mode)
   :config
   (setq doom-modeline-icon t)
-  (setq doom-modeline-height 25)
+  (setq doom-modeline-height 35)
   (setq doom-modeline-project-detection 'projectile)
   (setq doom-modeline-buffer-file-name-style 'truncate-with-project)
   (setq doom-modeline-bar-width 1)
