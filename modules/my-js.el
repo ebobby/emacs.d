@@ -10,22 +10,20 @@
 
 (use-package nvm)
 
-(use-package js-ts-mode
+(use-package js
   :hook ((js-ts-mode . lsp)
-         (js-ts-mode . dap-mode))
+         (js-ts-mode . dap-mode)
+         (typescript-ts-mode . lsp)
+         (typescript-ts-mode . dap-mode))
   :mode (("\\.js\\'"  . js-ts-mode)
-         ("\\.jsx\\'" . tsx-ts-mode))
+         ("\\.jsx\\'" . tsx-ts-mode)
+         ("\\.ts\\'"  . typescript-ts-mode)
+         ("\\.tsx\\'" . tsx-ts-mode)
+         ("\\.json\\'" . json-ts-mode))
   :interpreter "node"
   :config
   (require 'dap-node)
-  (require 'dap-firefox)
-  (setq dap-firefox-debug-program `("node" ,(expand-file-name "extension/dist/adapter.bundle.js"
-                                                              dap-firefox-debug-path))))
-
-(use-package typescript-ts-mode
-  :hook ((typescript-ts-mode . lsp))
-  :mode (("\\.ts\\'"  . typescript-ts-mode)
-         ("\\.tsx\\'" . tsx-ts-mode)))
+  (require 'lsp-javascript))
 
 (use-package nodejs-repl
   :bind (:map js-ts-mode-map
@@ -41,9 +39,6 @@
 
 (use-package prettier-js
   :hook ((js-ts-mode tsx-ts-mode typescript-ts-mode) . prettier-js-mode))
-
-(use-package json-ts-mode
-  :mode (("\\.json\\'" . json-ts-mode)))
 
 (provide 'my-js)
 
