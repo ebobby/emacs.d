@@ -12,7 +12,8 @@
   :hook ((go-mode . lsp-deferred))
   :config
   (add-hook 'before-save-hook 'gofmt-before-save)
-  (setq gofmt-args '("-s")))
+  (setq gofmt-args '("-s")
+        lsp-go-hover-kind "FullDocumentation"))
 
 (provide 'my-go)
 
