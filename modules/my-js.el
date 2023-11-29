@@ -23,7 +23,8 @@
   :interpreter "node"
   :config
   (require 'dap-node)
-  (require 'lsp-javascript))
+  (require 'lsp-javascript)
+  (setq js-indent-level 2))
 
 (use-package nodejs-repl
   :bind (:map js-ts-mode-map
