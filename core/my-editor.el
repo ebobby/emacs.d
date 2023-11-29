@@ -136,7 +136,7 @@
 
 ;; Smart parenthesis.
 (use-package smartparens
-  :hook (prog-mode . smartparens-strict-mode)
+  :hook (prog-mode . smartparens-mode)
   :config
   (require 'smartparens-config)
   (setq sp-autoskip-closing-pair 'always
