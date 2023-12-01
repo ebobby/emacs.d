@@ -8,10 +8,10 @@
 ;;; Commentary:
 ;;; Code:
 
-(use-package go-ts-mode
-  :hook ((go-ts-mode . lsp-deferred))
-  :mode (("\\.go\\'" . go-ts-mode)
-         ("/go\\.mod\\'" . go-ts-mode))
+(use-package go-mode
+  :hook ((go-mode . lsp-deferred))
+  :mode (("\\.go\\'" . go-mode)
+         ("/go\\.mod\\'" . go-mode))
   :config
   (add-hook 'before-save-hook 'gofmt-before-save)
   (setq gofmt-args '("-s")
