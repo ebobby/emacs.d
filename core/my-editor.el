@@ -312,7 +312,7 @@
   (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]storage")
   (setq lsp-auto-configure t
         lsp-enable-snippet nil
-        lsp-lens-enable nil
+        lsp-lens-enable t
         lsp-completion-provider :capf))
 
 (use-package dap-mode
@@ -329,18 +329,18 @@
   :bind (:map lsp-mode-map
               ("<f12>" . lsp-ui-doc-focus-frame))
   :config
-  (setq lsp-ui-sideline-enable nil
+  (setq lsp-ui-doc-alignment 'window
         lsp-ui-doc-delay 1.2
-        lsp-ui-doc-position 'at-point
-        lsp-ui-doc-alignment 'window
         lsp-ui-doc-header t
         lsp-ui-doc-include-signature t
-        lsp-ui-doc-max-width 150
-        lsp-ui-doc-show-with-cursor t
         lsp-ui-doc-max-height 25
-        lsp-ui-peek-peek-height 30
-        lsp-ui-peek-list-width 70
-        lsp-ui-peek-show-directory nil))
+        lsp-ui-doc-max-width 150
+        lsp-ui-doc-position 'at-point
+        lsp-ui-doc-show-with-cursor t
+        lsp-ui-peek-list-width 50
+        lsp-ui-peek-peek-height 20
+        lsp-ui-peek-show-directory t
+        lsp-ui-sideline-enable t))
 
 (use-package helm-lsp
   :config
@@ -358,7 +358,7 @@
   :hook (after-init .  global-company-mode)
   :config
   ;; temporary hack
-  (setq company-backends (delete 'company-files company-backends))
+  ;;(setq company-backends (delete 'company-files company-backends))
   (setq company-idle-delay 0.0
         company-minimum-prefix-length 1
         company-tooltip-align-annotations t
