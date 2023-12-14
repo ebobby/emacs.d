@@ -364,6 +364,10 @@
         company-tooltip-align-annotations t
         company-tooltip-limit 20))
 
+;; Company icons
+(use-package company-box
+  :hook (company-mode . company-box-mode))
+
 ;; Magit
 (use-package magit
   :bind (("<f10>"   . magit-status)
