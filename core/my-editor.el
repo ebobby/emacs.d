@@ -310,6 +310,8 @@
   :hook ((lsp-mode . lsp-enable-which-key-integration))
   :config
   (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]storage")
+  (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]tmp")
+  (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]log")
   (setq lsp-auto-configure t
         lsp-enable-snippet nil
         lsp-lens-enable t
