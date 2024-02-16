@@ -280,10 +280,6 @@
   :config
   (setq helm-ag-base-command "rg --no-heading --multiline --smart-case --max-columns=1000"))
 
-(use-package helm-descbinds
-  :config
-  (helm-descbinds-mode))
-
 (use-package helm-flycheck)
 
 (use-package helm-ls-git)
