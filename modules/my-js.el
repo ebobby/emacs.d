@@ -11,10 +11,10 @@
 (use-package nvm)
 
 (use-package js
-  :hook ((js-ts-mode . lsp)
+  :hook ((js-ts-mode . lsp-deferred)
          (js-ts-mode . dap-mode)
-         (typescript-ts-mode . lsp)
-         (typescript-ts-mode . dap-mode))
+         (typescript-ts-base-mode . lsp-deferred)
+         (typescript-ts-base-mode . dap-mode))
   :mode (("\\.js\\'"  . js-ts-mode)
          ("\\.jsx\\'" . tsx-ts-mode)
          ("\\.ts\\'"  . typescript-ts-mode)
