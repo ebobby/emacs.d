@@ -24,8 +24,9 @@
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
 ;; Native compilation.
-(setq package-native-compile t)
-(setq native-comp-compiler-options '("-O2" "-mtune=znver3" "-march=znver3"))
+(when (string-match "NATIVE_COMP" system-configuration-features)
+  (setq package-native-compile t)
+  (setq native-comp-compiler-options '("-O2" "-mtune=znver3" "-march=znver3")))
 
 ;; Core configuration
 (require 'my-settings)
