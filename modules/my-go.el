@@ -13,6 +13,7 @@
   :mode (("\\.go\\'" . go-mode)
          ("/go\\.mod\\'" . go-mode))
   :config
+  (require 'dap-dlv-go)
   (add-hook 'before-save-hook 'gofmt-before-save)
   (setq gofmt-args '("-s")
         lsp-go-hover-kind "FullDocumentation"))

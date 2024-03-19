@@ -321,7 +321,7 @@
               ("<f7>" . dap-hydra))
   :config
   (require 'dap-hydra)
-  (dap-auto-configure-mode))
+  (dap-auto-configure-mode +1))
 
 (use-package lsp-ui
   :bind (:map lsp-mode-map
