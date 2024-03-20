@@ -29,25 +29,25 @@
   :after (doom-themes)
   :hook (after-init . doom-modeline-mode)
   :config
-  (setq doom-modeline-icon t)
-  (setq doom-modeline-height 35)
-  (setq doom-modeline-project-detection 'projectile)
-  (setq doom-modeline-buffer-file-name-style 'truncate-with-project)
-  (setq doom-modeline-bar-width 1)
-  (setq doom-modeline-major-mode-icon t)
-  (setq doom-modeline-major-mode-color-icon t)
-  (setq doom-modeline-buffer-state-icon t)
-  (setq doom-modeline-buffer-modification-icon t)
-  (setq doom-modeline-minor-modes nil)
-  (setq doom-modeline-enable-word-count nil)
-  (setq doom-modeline-buffer-encoding t)
-  (setq doom-modeline-indent-info nil)
-  (setq doom-modeline-checker-simple-format t)
-  (setq doom-modeline-vcs-max-length 12)
-  (setq doom-modeline-env-version t)
-  (setq doom-modeline-irc-stylize 'identity)
-  (setq doom-modeline-github-timer nil)
-  (setq doom-modeline-gnus-timer nil)
+  (setq doom-modeline-icon t
+        doom-modeline-height 35
+        doom-modeline-project-detection 'projectile
+        doom-modeline-buffer-file-name-style 'truncate-with-project
+        doom-modeline-bar-width 1
+        doom-modeline-major-mode-icon t
+        doom-modeline-major-mode-color-icon t
+        doom-modeline-buffer-state-icon t
+        doom-modeline-buffer-modification-icon t
+        doom-modeline-minor-modes nil
+        doom-modeline-enable-word-count nil
+        doom-modeline-buffer-encoding t
+        doom-modeline-indent-info nil
+        doom-modeline-checker-simple-format t
+        doom-modeline-vcs-max-length 12
+        doom-modeline-env-version t
+        doom-modeline-irc-stylize 'identity
+        doom-modeline-github-timer nil
+        doom-modeline-gnus-timer nil)
 
   (with-eval-after-load "doom-modeline"
     (doom-modeline-def-modeline 'main
