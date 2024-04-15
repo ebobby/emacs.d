@@ -60,7 +60,7 @@
 ;; Frame and font setup for standalone emacs.
 (when window-system
   (my-maximize)
-  (set-frame-font "GitLab Mono-14"))
+  (set-frame-font "GitLab Mono-13"))
 
 (provide 'my-ui)
 
