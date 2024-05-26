@@ -10,36 +10,40 @@
 
 (use-package nvm)
 
-(use-package js
-  :hook ((js-ts-mode . lsp-deferred)
-         (js-ts-mode . dap-mode)
+(use-package js2-mode
+  :hook (((js2-mode js2-mode-jsx) . js2-imenu-extras-mode)
+         (js2-mode . lsp-deferred)
+         (js2-mode . dap-mode)
          (typescript-ts-base-mode . lsp-deferred)
          (typescript-ts-base-mode . dap-mode))
-  :mode (("\\.js\\'"  . js-ts-mode)
-         ("\\.jsx\\'" . tsx-ts-mode)
-         ("\\.ts\\'"  . typescript-ts-mode)
+  :mode (("\\.ts\\'"  . typescript-ts-mode)
          ("\\.tsx\\'" . tsx-ts-mode)
          ("\\.json\\'" . json-ts-mode))
   :interpreter "node"
   :config
+  (setq js-chain-indent t
+        js2-basic-offset 2
+        js2-highlight-external-variables t
+        js2-highlight-level 3
+        js2-idle-timer-delay 0.1
+        js2-mode-show-parse-errors nil
+        js2-mode-show-strict-warnings nil
+        js2-skip-preprocessor-directives t
+        js2-strict-missing-semi-warning nil
+        js2-strict-trailing-comma-warning nil)
   (require 'dap-node)
   (require 'lsp-javascript)
   (setq js-indent-level 2))
 
-(use-package nodejs-repl
-  :bind (:map js-ts-mode-map
-              ("C-x C-e" . nodejs-repl-send-last-expression)
-              ("C-c C-j" . nodejs-repl-send-line)
-              ("C-c C-r" . nodejs-repl-send-region)
-              ("C-c C-c" . nodejs-repl-send-buffer)
-              ("C-c C-l" . nodejs-repl-load-file)
-              ("C-c C-z" . nodejs-repl-switch-to-repl)))
+(use-package rjsx-mode
+  :mode (("\\.js\\'"  . rjsx-mode)
+         ("\\.jsx\\'" . rjsx-mode)))
 
 (use-package npm-mode
-  :hook ((js-ts-mode tsx-ts-mode typescript-ts-mode) . npm-mode))
+  :hook ((js2-mode js2-jsx-mode tsx-ts-mode typescript-ts-mode) . npm-mode))
 
 (use-package prettier-js
-  :hook ((js-ts-mode tsx-ts-mode typescript-ts-mode) . prettier-js-mode))
+  :hook ((js2-mode js2-jsx-mode tsx-ts-mode typescript-ts-mode) . prettier-js-mode))
 
 (provide 'my-js)
 
