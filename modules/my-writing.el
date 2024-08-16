@@ -8,33 +8,33 @@
 ;;; Commentary:
 ;;; Code:
 
-(use-package helm-bibtex)
+;; (use-package helm-bibtex)
 
-(use-package auctex
-  :defer t
-  :ensure t
-  :hook ((LaTeX-mode . lsp)
-         (LaTeX-mode . flyspell-mode))
-  :config
-  (setq TeX-auto-save t)
-  (setq TeX-parse-self t)
-  (setq TeX-close-quote "")
-  (setq TeX-open-quote "")
-  (setq-default TeX-master nil)
-  (setq reftex-plug-into-AUCTeX t)
+;; (use-package auctex
+;;   :defer t
+;;   :ensure t
+;;   :hook ((LaTeX-mode . lsp)
+;;          (LaTeX-mode . flyspell-mode))
+;;   :config
+;;   (setq TeX-auto-save t)
+;;   (setq TeX-parse-self t)
+;;   (setq TeX-close-quote "")
+;;   (setq TeX-open-quote "")
+;;   (setq-default TeX-master nil)
+;;   (setq reftex-plug-into-AUCTeX t)
 
-  (add-hook 'LaTeX-mode-hook
-            (lambda ()
-              (rainbow-delimiters-mode)
-              (smartparens-mode)
-              (turn-on-auto-fill)
-              (LaTeX-math-mode)
-              (turn-on-reftex))))
+;;   (add-hook 'LaTeX-mode-hook
+;;             (lambda ()
+;;               (rainbow-delimiters-mode)
+;;               (smartparens-mode)
+;;               (turn-on-auto-fill)
+;;               (LaTeX-math-mode)
+;;               (turn-on-reftex))))
 
-(use-package company-auctex
-  :config (company-auctex-init))
+;; (use-package company-auctex
+;;  :config (company-auctex-init))
 
-(use-package markdown-mode
+(use-package markdown-ts-mode
   :ensure t
   :mode ("README\\.md\\'" . gfm-mode)
   :init (setq markdown-command "multimarkdown"))
