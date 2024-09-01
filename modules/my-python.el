@@ -8,11 +8,6 @@
 ;;; Commentary:
 ;;; Code:
 
-(use-package pyenv-mode
-  :config
-  (pyenv-mode))
-
-(use-package pyvenv)
 (use-package with-venv)
 
 (use-package lsp-pyright
@@ -46,12 +41,7 @@
    (flycheck-checker-get 'python-pyright 'modes) '(python-mode python-ts-mode)
    (flycheck-checker-get 'python-mypy 'modes) '(python-mode python-ts-mode))
 
-  ;; Temporal fix
-  (defun dap-python--pyenv-executable-find (command)
-    (with-venv (executable-find "python")))
-
   (setq dap-python-debugger 'debugpy
-        lsp-pyls-plugins-jedi-use-pyenv-environment t
         python-shell-interpreter "ipython"
         python-shell-interpreter-args "-i --simple-prompt"
         ;; Flycheck assumes python3 is always the correct binary. Gotta fix it.

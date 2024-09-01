@@ -8,8 +8,6 @@
 ;;; Commentary:
 ;;; Code:
 
-(use-package nvm)
-
 (use-package js2-mode
   :hook (((js2-mode js2-mode-jsx) . js2-imenu-extras-mode)
          (js2-mode . lsp-deferred)

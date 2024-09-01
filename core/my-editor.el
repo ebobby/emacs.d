@@ -32,6 +32,12 @@
   ;;(all-the-icons-install-fonts t)
   (setq all-the-icons-scale-factor 1))
 
+;; Mise
+(use-package mise
+  :ensure t
+  :config
+  (global-mise-mode))
+
 ;; Projectile
 (use-package projectile
   :ensure t

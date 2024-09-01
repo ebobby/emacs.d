@@ -8,10 +8,6 @@
 ;;; Commentary:
 ;;; Code:
 
-(use-package rbenv
-  :config
-  (rbenv-use-global))
-
 (use-package inf-ruby)
 
 (use-package ruby-mode
