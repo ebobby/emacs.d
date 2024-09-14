@@ -85,6 +85,10 @@
  uniquify-ignore-buffers-re "^\\*"
  uniquify-separator "/"
 
+ ;; Favor vertical split
+ split-width-threshold 80
+ split-height-threshold 160
+
  ;; Misc.
  apropos-do-all t
  bookmark-default-file (expand-file-name "bookmarks" savefile-dir)
