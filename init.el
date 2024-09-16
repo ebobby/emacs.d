@@ -26,7 +26,7 @@
 ;; Native compilation.
 (when (string-match "NATIVE_COMP" system-configuration-features)
   (setq package-native-compile t)
-  (setq native-comp-compiler-options '("-O2" "-mtune=znver3" "-march=znver3")))
+  (setq native-comp-compiler-options '("-O2" "-mtune=znver4" "-march=znver4")))
 
 ;; Core configuration
 (require 'my-settings)
