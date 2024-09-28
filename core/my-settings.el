@@ -86,7 +86,7 @@
  uniquify-separator "/"
 
  ;; Favor vertical split
- split-width-threshold 160
+ split-width-threshold 120
  split-height-threshold 160
 
  ;; Misc.
