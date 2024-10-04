@@ -60,7 +60,9 @@
 ;; Frame and font setup for standalone emacs.
 (when window-system
   (my-maximize)
-  (set-frame-font "Caskaydia Mono Nerd Font-13"))
+  (if (eq system-type 'darwin)
+      (set-frame-font "CaskaydiaMono Nerd Font-14")
+    (set-frame-font "CaskaydiaMono Nerd Font-13")))
 
 (provide 'my-ui)
 
