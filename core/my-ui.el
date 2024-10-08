@@ -14,12 +14,16 @@
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t
         doom-themes-neotree-file-icons t
-        doom-themes-padded-modeline t)
-  (load-theme 'doom-tokyo-night t)
+        doom-themes-padded-modeline t
+        doom-dracula-brighter-comments t
+        doom-dracula-colorful-headers t
+        doom-dracula-brighter-modeline t
+        doom-dracula-padded-modeline t)
+  (load-theme 'doom-dracula t)
 
   ;; doom-monokai-pro helm-files directories are white for some reason.
-  (custom-set-faces
-   '(helm-ff-directory ((t (:extend t :foreground "#FFD866")))))
+  ;;(custom-set-faces
+  ;; '(helm-ff-directory ((t (:extend t :foreground "#FFD866")))))
 
   (doom-themes-visual-bell-config)
   (doom-themes-neotree-config)
@@ -48,7 +52,6 @@
         doom-modeline-irc-stylize 'identity
         doom-modeline-github-timer nil
         doom-modeline-gnus-timer nil)
-
   (with-eval-after-load "doom-modeline"
     (doom-modeline-def-modeline 'main
       '(bar workspace-name window-number modals matches follow buffer-info remote-host buffer-position word-count parrot selection-info)
@@ -61,7 +64,7 @@
 (when window-system
   (my-maximize)
   (if (eq system-type 'darwin)
-      (set-frame-font "CaskaydiaMono Nerd Font-14")
+      (set-frame-font "CaskaydiaMono Nerd Font-15")
     (set-frame-font "CaskaydiaMono Nerd Font-13")))
 
 (provide 'my-ui)
