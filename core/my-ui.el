@@ -64,7 +64,7 @@
 (when window-system
   (my-maximize)
   (if (eq system-type 'darwin)
-      (set-frame-font "CaskaydiaMono Nerd Font-15")
+      (set-frame-font "CaskaydiaMono Nerd Font-14")
     (set-frame-font "CaskaydiaMono Nerd Font-13")))
 
 (provide 'my-ui)
