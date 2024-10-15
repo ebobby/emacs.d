@@ -11,14 +11,14 @@
 ;; Doom theme.
 (use-package doom-themes
   :config
-  (setq doom-themes-enable-bold t
+  (setq doom-dracula-brighter-comments t
+        doom-dracula-brighter-modeline t
+        doom-dracula-colorful-headers t
+        doom-dracula-padded-modeline nil
+        doom-themes-enable-bold t
         doom-themes-enable-italic t
         doom-themes-neotree-file-icons t
-        doom-themes-padded-modeline t
-        doom-dracula-brighter-comments t
-        doom-dracula-colorful-headers t
-        doom-dracula-brighter-modeline t
-        doom-dracula-padded-modeline t)
+        doom-themes-padded-modeline nil)
   (load-theme 'doom-dracula t)
 
   ;; doom-monokai-pro helm-files directories are white for some reason.
@@ -65,7 +65,7 @@
   (my-maximize)
   (if (eq system-type 'darwin)
       (set-frame-font "CaskaydiaMono Nerd Font-14")
-    (set-frame-font "CaskaydiaMono Nerd Font-13")))
+    (set-frame-font "CaskaydiaMono Nerd Font-12")))
 
 (provide 'my-ui)
 
