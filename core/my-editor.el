@@ -52,37 +52,6 @@
   :config
   (helm-projectile-on))
 
-;; Hydra
-(use-package hydra
-  :config
-  (global-set-key (kbd "C-z")
-                  (defhydra hydra-movement (:color amaranth)
-                    "Navigation"
-                    ("SPC" set-mark-command "mark")
-                    ("w" kill-ring-save "copy")
-                    ("n" next-line "next")
-                    ("p" previous-line "previous")
-                    ("f" forward-char "forward")
-                    ("b" backward-char "backward")
-                    ("a" beginning-of-line "beginning")
-                    ("e" move-end-of-line "end")
-                    ("v" scroll-up-command "scroll up")
-                    ("V" scroll-down-command "scroll down")
-                    ("l" recenter-top-bottom "recenter")
-                    ("j" avy-goto-word-or-subword-1 "jump")
-                    ("o" ace-window "switch window")
-                    ("." xref-find-definitions "find definition")
-                    ("," xref-pop-marker-stack "return to definition")
-                    ("C-z" nil))))
-
-;; Move blocks of text around
-(use-package move-text
-  :config
-  (defhydra hydra-move-text (global-map "C-x m")
-    "Move text"
-    ("p" move-text-up "up")
-    ("n" move-text-down "down")))
-
 (use-package hi-lock
   :config
   (setq hi-lock-auto-select-face t)
@@ -150,11 +119,6 @@
         sp-hybrid-kill-entire-symbol nil)
   (sp-use-paredit-bindings)
   (show-smartparens-global-mode))
-
-;; Smart regions.
-(use-package expand-region
-  :bind (("C-=" . er/expand-region)
-         ("C--" . er/contract-region)))
 
 ;; Visual feedback for regexp replace.
 (use-package visual-regexp
@@ -227,9 +191,6 @@
 (use-package discover-my-major
   :bind ("C-h C-m" . discover-my-major))
 
-;; Jump around visible text.
-(use-package avy
-  :bind ("C-c j" . avy-goto-word-or-subword-1))
 
 ;; Window navigation.
 (use-package ace-window
@@ -320,13 +281,10 @@
         lsp-completion-provider :capf))
 
 (use-package dap-mode
-  :hook (dap-stopped . (lambda (arg) (call-interactively #'dap-hydra)))
   :bind (:map dap-mode-map
               ("<f5>" . dap-debug)
-              ("<f6>" . dap-breakpoint-toggle)
-              ("<f7>" . dap-hydra))
+              ("<f6>" . dap-breakpoint-toggle))
   :config
-  (require 'dap-hydra)
   (dap-auto-configure-mode +1))
 
 (use-package lsp-ui

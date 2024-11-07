@@ -40,8 +40,8 @@
 (add-hook 'diff-mode-hook (lambda ()
                             (local-unset-key (kbd "M-o"))
                             (local-unset-key (kbd "M-k"))))
-;; Remove conflicting keys from diff-mode
 
+;; Remove conflicting keys from diff-mode
 (add-hook 'diff-mode-hook (lambda ()
                             (local-unset-key (kbd "M-o"))
                             (local-unset-key (kbd "M-k"))))
