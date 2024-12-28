@@ -64,8 +64,8 @@
 (when window-system
   (my-maximize)
   (cond ((eq system-type 'darwin) (set-frame-font "CaskaydiaMono Nerd Font-14"))
-        ((<= (display-pixel-width) 2560) (set-frame-font "Ubuntu Mono NF-14"))
-        (t (set-frame-font "Ubuntu Mono NF-12"))))
+        ((> (display-pixel-width) 2560) (set-frame-font "Monaspace Neon-14"))
+        (t (set-frame-font "Monaspace Neon-12"))))
 
 (provide 'my-ui)
 
