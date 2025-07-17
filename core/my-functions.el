@@ -69,7 +69,7 @@
 (defun my-helm-do-ag-project-root ()
   "Run `'ag`' on project root."
   (interactive)
-  (helm-do-ag (projectile-project-root)))
+  (helm-grep-do-git-grep (projectile-project-root)))
 
 (provide 'my-functions)
 

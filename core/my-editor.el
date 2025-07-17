@@ -231,6 +231,8 @@
         helm-ff-file-name-history-use-recentf t
         helm-ff-fuzzy-matching                t
         helm-ff-search-library-in-sexp        t
+        helm-grep-ag-command                  "rg --color=alway --smart-case --no-heading --max-columns=1000 --line-number %s %s %s"
+        helm-grep-ag-pipe-cmd-switches        '()
         helm-imenu-fuzzy-match                t
         helm-lisp-fuzzy-completion            t
         helm-locate-fuzzy-match               t
@@ -242,10 +244,6 @@
         helm-split-window-in-side-p           t)
   (helm-adaptive-mode)
   (helm-mode))
-
-(use-package helm-ag
-  :config
-  (setq helm-ag-base-command "rg --no-heading --multiline --smart-case --max-columns=1000"))
 
 (use-package helm-flycheck)
 
