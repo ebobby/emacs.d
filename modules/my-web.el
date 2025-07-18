@@ -26,6 +26,7 @@
   :init (setq lsp-tailwindcss-add-on-mode t)
   :config
   (setq
+   lsp-tailwindcss-server-path (executable-find "tailwindcss-language-server")
    lsp-tailwindcss-rustywind-command (executable-find "rustywind")
    lsp-tailwindcss-rustywind-extra-args '("--custom-regex" "\\b(?:class(?:Name)?\\s*[=:]\\s*[\"'])([_a-zA-Z0-9\\.\\s\\-:\\[\\]\\/]+)[\"']")))
 
