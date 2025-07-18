@@ -35,6 +35,7 @@
 ;; Mise
 (use-package mise
   :ensure t
+  :hook (prog-mode . mise-mode)
   :config
   (global-mise-mode))
 
