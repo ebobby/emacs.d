@@ -49,10 +49,6 @@
   (setq projectile-completion-system 'helm)
   (projectile-mode +1))
 
-(use-package helm-projectile
-  :config
-  (helm-projectile-on))
-
 (use-package hi-lock
   :config
   (setq hi-lock-auto-select-face t)
@@ -249,6 +245,10 @@
 (use-package helm-flycheck)
 
 (use-package helm-ls-git)
+
+(use-package helm-projectile
+  :config
+  (helm-projectile-on))
 
 (use-package helpful
   :bind (("C-h v"   . helpful-variable)
