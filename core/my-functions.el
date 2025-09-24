@@ -69,7 +69,8 @@
 (defun my-helm-do-ag-project-root ()
   "Run `'ag`' on project root."
   (interactive)
-  (helm-grep-do-git-grep (projectile-project-root)))
+  (let ((default-directory (projectile-project-root)))
+    (call-interactively 'helm-do-grep-ag)))
 
 (provide 'my-functions)
 
