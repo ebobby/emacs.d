@@ -358,6 +358,12 @@
   (setq org-hide-leading-stars t)
   (setq org-adapt-indentation t))
 
+;; Musa requirement
+(use-package editorconfig
+  :ensure t
+  :config
+  (editorconfig-mode 1))
+
 (provide 'my-editor)
 
 ;;; my-editor.el ends here
