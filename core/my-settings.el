@@ -23,7 +23,7 @@
 
  ;; OSX keybindings / settings
  mac-command-modifier 'meta
- mac-option-modifier 'super
+ mac-option-modifier 'none
  mac-right-option-modifier 'none
  ns-function-modifier 'hyper
  ns-pop-up-frames nil
