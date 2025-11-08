@@ -44,6 +44,7 @@
 (require 'my-ruby)
 (require 'my-rust)
 (require 'my-web)
+(require 'my-ios)
 (require 'my-writing)
 
 ;; Load UI after everything else.
