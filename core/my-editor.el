@@ -229,6 +229,7 @@
         helm-ff-fuzzy-matching                t
         helm-ff-search-library-in-sexp        t
         helm-grep-ag-command                  "rg --color=always --max-columns=1000 --smart-case --search-zip --no-heading --line-number %s -- %s %s"
+        helm-grep-file-path-style             'relative
         helm-grep-ag-pipe-cmd-switches        '()
         helm-imenu-fuzzy-match                t
         helm-lisp-fuzzy-completion            t
