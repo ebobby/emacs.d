@@ -11,7 +11,6 @@
 (use-package with-venv)
 
 (use-package lsp-pyright
-  :ensure t
   :config
   (require 'lsp-pyright)
   (setq lsp-file-watch-threshold 10000

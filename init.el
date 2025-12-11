@@ -4,7 +4,7 @@
 ;; Load everything up.
 
 ;;; Code:
-(require 'cl)
+(require 'cl-lib)
 (require 'package)
 
 ;; Define global directories.
@@ -25,8 +25,7 @@
 
 ;; Native compilation.
 (when (string-match "NATIVE_COMP" system-configuration-features)
-  (setq package-native-compile t)
-  (setq native-comp-compiler-options '("-O2" "-mtune=znver4" "-march=znver4")))
+  (setq package-native-compile t))
 
 ;; Core configuration
 (require 'my-settings)

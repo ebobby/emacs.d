@@ -24,7 +24,7 @@
   :hook (after-init . gcmh-mode)
   :config
   (setq gcmh-idle-delay 5
-        gcmh-high-cons-threshold (* 16 1024 1024 1024)))
+        gcmh-high-cons-threshold (* 100 1024 1024)))
 
 ;; All the icons!
 (use-package all-the-icons
@@ -34,14 +34,12 @@
 
 ;; Mise
 (use-package mise
-  :ensure t
   :hook (prog-mode . mise-mode)
   :config
   (global-mise-mode))
 
 ;; Projectile
 (use-package projectile
-  :ensure t
   :bind (:map projectile-mode-map
               ("s-p" . projectile-command-map)
               ("C-c p" . projectile-command-map))
@@ -243,9 +241,11 @@
   (helm-adaptive-mode)
   (helm-mode))
 
-(use-package helm-flycheck)
+(use-package helm-flycheck
+  :defer t)
 
-(use-package helm-ls-git)
+(use-package helm-ls-git
+  :defer t)
 
 (use-package helm-projectile
   :config
@@ -337,7 +337,8 @@
         magit-define-global-key-bindings nil
         magit-last-seen-setup-instructions "1.4.0"))
 
-(use-package rainbow-mode)
+(use-package rainbow-mode
+  :defer t)
 
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
@@ -359,9 +360,8 @@
   (setq org-hide-leading-stars t)
   (setq org-adapt-indentation t))
 
-;; Musa requirement
+;; Editorconfig support
 (use-package editorconfig
-  :ensure t
   :config
   (editorconfig-mode 1))
 

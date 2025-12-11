@@ -29,9 +29,7 @@
  ns-pop-up-frames nil
 
  ;; Packages config.
- gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3"
- package-archives '(("org"          . "https://orgmode.org/elpa/")
-                    ("melpa"        . "https://melpa.org/packages/")
+ package-archives '(("melpa"        . "https://melpa.org/packages/")
                     ("gnu"          . "https://elpa.gnu.org/packages/"))
 
  ;; tabs and indentation
@@ -124,7 +122,7 @@
 (setq-default indent-tabs-mode nil
               tab-width 2
               truncate-lines t
-              warning-minimum-level :emergency
+              warning-minimum-level :error
               fill-column 80
 
               ;; Use aspell instead of ispell
