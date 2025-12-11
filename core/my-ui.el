@@ -19,7 +19,7 @@
         doom-themes-enable-italic t
         doom-themes-neotree-file-icons t
         doom-themes-padded-modeline nil)
-  (load-theme 'doom-dracula t)
+  (load-theme 'doom-monokai-pro t)
 
   ;; doom-monokai-pro helm-files directories are white for some reason.
   ;;(custom-set-faces
@@ -63,7 +63,7 @@
 ;; Frame and font setup for standalone emacs.
 (when window-system
   (my-maximize)
-  (cond ((eq system-type 'darwin) (set-frame-font "Monaspace Neon-15"))
+  (cond ((eq system-type 'darwin) (set-frame-font "JetbrainsMono Nerd Font-14"))
         ((> (display-pixel-width) 2560) (set-frame-font "Monaspace Neon-14"))
         (t (set-frame-font "Monaspace Neon-12"))))
 
