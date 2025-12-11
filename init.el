@@ -44,6 +44,7 @@
 (require 'my-rust)
 (require 'my-web)
 (require 'my-ios)
+(require 'my-android)
 (require 'my-writing)
 
 ;; Load UI after everything else.
