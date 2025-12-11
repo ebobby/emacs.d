@@ -13,12 +13,12 @@
 
 (use-package cargo)
 
-(use-package rust-mode
-  :hook ((rust-mode . lsp)
-         (rust-mode . cargo-minor-mode)
-         (rust-mode . subword-mode))
+(use-package rust-ts-mode
+  :hook ((rust-ts-mode . lsp)
+         (rust-ts-mode . cargo-minor-mode)
+         (rust-ts-mode . subword-mode))
   :mode "\\.rs\\'"
-  :bind (:map rust-mode-map
+  :bind (:map rust-ts-mode-map
               ("C-c C-d" . racer-describe))
   :config
   (exec-path-from-shell-copy-env "RUST_SRC_PATH"))

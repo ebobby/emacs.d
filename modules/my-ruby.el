@@ -10,25 +10,24 @@
 
 (use-package inf-ruby)
 
-(use-package ruby-mode
-  :hook ((ruby-mode . lsp-deferred)
-         (ruby-mode . inf-ruby-minor-mode))
-  :mode (("\\.rb\\'"  . ruby-mode)
-         ("\\.rake\\'" . ruby-mode)
-         ("\\.gemspec\\'" . ruby-mode)
-         ("Gemfile" . ruby-mode)
-         ("Gemfile.lock" . ruby-mode)
-         ("Rakefile" . ruby-mode)
-         ("Capfile" . ruby-mode))
+(use-package ruby-ts-mode
+  :hook ((ruby-ts-mode . lsp-deferred)
+         (ruby-ts-mode . inf-ruby-minor-mode))
+  :mode (("\\.rb\\'"  . ruby-ts-mode)
+         ("\\.rake\\'" . ruby-ts-mode)
+         ("\\.gemspec\\'" . ruby-ts-mode)
+         ("Gemfile" . ruby-ts-mode)
+         ("Gemfile.lock" . ruby-ts-mode)
+         ("Rakefile" . ruby-ts-mode)
+         ("Capfile" . ruby-ts-mode))
   :config
-  (require 'lsp-ruby-lsp)
   (require 'lsp-solargraph)
-  (setq ruby-insert-encoding-magic-comment nil)
+  (setq lsp-solargraph-use-bundler t
+        ruby-insert-encoding-magic-comment nil)
 
-  (let ((ruby-lsp-ls (gethash 'ruby-lsp-ls lsp-clients))
-        (solargraph (gethash 'ruby-ls lsp-clients)))
-    (when solargraph (setf (lsp--client-priority solargraph) 1))
-    (when ruby-lsp-ls (setf (lsp--client-priority ruby-lsp-ls) 2))))
+  ;; Prioritize ruby-lsp over solargraph.
+  (let ((ruby-lsp (gethash 'ruby-ls lsp-clients)))
+    (when ruby-lsp (setf (lsp--client-priority ruby-lsp) 1))))
 
 (provide 'my-ruby)
 

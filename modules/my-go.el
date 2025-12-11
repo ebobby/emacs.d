@@ -8,15 +8,17 @@
 ;;; Commentary:
 ;;; Code:
 
-(use-package go-mode
-  :hook ((go-mode . lsp-deferred))
-  :mode (("\\.go\\'" . go-mode)
-         ("/go\\.mod\\'" . go-mode))
+(use-package go-ts-mode
+  :hook ((go-ts-mode . lsp-deferred))
+  :mode (("\\.go\\'" . go-ts-mode))
   :config
   (require 'dap-dlv-go)
   (add-hook 'before-save-hook 'gofmt-before-save)
   (setq gofmt-args '("-s")
         lsp-go-hover-kind "FullDocumentation"))
+
+(use-package go-mod-ts-mode
+  :mode ("/go\\.mod\\'" . go-mod-ts-mode))
 
 (provide 'my-go)
 
