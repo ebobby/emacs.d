@@ -11,7 +11,7 @@
 (use-package kotlin-ts-mode
   :hook ((kotlin-ts-mode . lsp-deferred))
   :mode (("\\.kt\\'" . kotlin-ts-mode)
-         ("/go\\.mod\\'" . kotlin-ts-mode)))
+         ("\\.kts\\'" . kotlin-ts-mode)))
 
 (provide 'my-android)
 
