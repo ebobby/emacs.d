@@ -13,9 +13,9 @@
 
 (use-package claude-code-ide
   :vc (:url "https://github.com/manzaltu/claude-code-ide.el" :rev :newest)
-  :bind ("C-c C-'" . claude-code-ide-menu) ; Set your favorite keybinding
+  :bind ("C-c C-'" . claude-code-ide-menu)
   :config
-  (claude-code-ide-emacs-tools-setup)) ; Optionally enable Emacs MCP tools
+  (claude-code-ide-emacs-tools-setup))
 
 (provide 'my-ai)
 
