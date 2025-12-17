@@ -67,10 +67,11 @@
   (load user-init-file))
 
 (defun my-helm-do-ag-project-root ()
-  "Run `'ag`' on project root."
+  "Run `ag' on project root."
   (interactive)
-  (let ((default-directory (projectile-project-root)))
-    (call-interactively 'helm-do-grep-ag)))
+  (let* ((root (projectile-project-root))
+         (helm-ff-default-directory root))
+    (helm-grep-ag root nil)))
 
 (provide 'my-functions)
 
