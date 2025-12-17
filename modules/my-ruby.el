@@ -10,16 +10,16 @@
 
 (use-package inf-ruby)
 
-(use-package ruby-ts-mode
-  :hook ((ruby-ts-mode . lsp-deferred)
-         (ruby-ts-mode . inf-ruby-minor-mode))
-  :mode (("\\.rb\\'"  . ruby-ts-mode)
-         ("\\.rake\\'" . ruby-ts-mode)
-         ("\\.gemspec\\'" . ruby-ts-mode)
-         ("Gemfile" . ruby-ts-mode)
-         ("Gemfile.lock" . ruby-ts-mode)
-         ("Rakefile" . ruby-ts-mode)
-         ("Capfile" . ruby-ts-mode))
+(use-package ruby-mode
+  :hook ((ruby-mode . lsp-deferred)
+         (ruby-mode . inf-ruby-minor-mode))
+  :mode (("\\.rb\\'"  . ruby-mode)
+         ("\\.rake\\'" . ruby-mode)
+         ("\\.gemspec\\'" . ruby-mode)
+         ("Gemfile" . ruby-mode)
+         ("Gemfile.lock" . ruby-mode)
+         ("Rakefile" . ruby-mode)
+         ("Capfile" . ruby-mode))
   :config
   (require 'lsp-solargraph)
   (setq lsp-solargraph-use-bundler t
