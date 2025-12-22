@@ -25,9 +25,9 @@
   (setq lsp-solargraph-use-bundler t
         ruby-insert-encoding-magic-comment nil)
 
-  ;; Prioritize ruby-lsp over solargraph.
-  (let ((ruby-lsp (gethash 'ruby-ls lsp-clients)))
-    (when ruby-lsp (setf (lsp--client-priority ruby-lsp) 1))))
+  ;; Prioritize solargraph.
+  (let ((ruby-ls (gethash 'ruby-ls lsp-clients)))
+    (when ruby-ls (setf (lsp--client-priority ruby-ls) 1))))
 
 (provide 'my-ruby)
 
