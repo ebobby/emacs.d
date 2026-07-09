@@ -153,7 +153,6 @@
 
 ;; mode line settings
 (line-number-mode t)
-(column-number-mode t)
 (size-indication-mode t)
 
 ;; Revert buffers that change externally

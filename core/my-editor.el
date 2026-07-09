@@ -17,7 +17,8 @@
 ;; use-package keeps packages up to date.
 (use-package auto-package-update
   :config
-  (setq auto-package-update-delete-old-versions t))
+  (setq auto-package-update-delete-old-versions t)
+  (auto-package-update-maybe))
 
 ;; Garbage collection magic hack!
 (use-package gcmh
@@ -34,7 +35,6 @@
 
 ;; Mise
 (use-package mise
-  :hook (prog-mode . mise-mode)
   :config
   (global-mise-mode))
 
