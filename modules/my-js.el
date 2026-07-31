@@ -9,7 +9,7 @@
 ;;; Code:
 
 (use-package js2-mode
-  :hook (((js2-mode js2-mode-jsx) . js2-imenu-extras-mode)
+  :hook (((js2-mode js2-jsx-mode) . js2-imenu-extras-mode)
          (js2-mode . lsp-deferred)
          (js2-mode . dap-mode)
          (typescript-ts-base-mode . lsp-deferred)
