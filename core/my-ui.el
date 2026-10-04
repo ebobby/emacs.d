@@ -61,11 +61,11 @@
   :config (solaire-global-mode +1))
 
 ;; Frame and font setup for standalone emacs.
-(when window-system
-  (my-maximize)
-  (cond ((eq system-type 'darwin) (set-frame-font "JetBrainsMono NF-15"))
-        ((> (display-pixel-width) 2560) (set-frame-font "Monaspace Neon-14"))
-        (t (set-frame-font "Monaspace Neon-12"))))
+;; macOS font and maximizing are set in early-init.el.
+(when (and window-system (not (eq system-type 'darwin)))
+  (set-frame-font (if (> (display-pixel-width) 2560)
+                      "Monaspace Neon-14"
+                    "Monaspace Neon-12")))
 
 (provide 'my-ui)
 

@@ -18,11 +18,6 @@
 (add-to-list 'load-path (expand-file-name "core" root-dir))
 (add-to-list 'load-path (expand-file-name "modules" root-dir))
 
-;; Turn off mouse interface early in startup to avoid momentary display.
-(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
-(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
-(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
-
 ;; Native compilation.
 (when (string-match "NATIVE_COMP" system-configuration-features)
   (setq package-native-compile t))

@@ -28,4 +28,14 @@
               (concat "-mmacosx-version-min="
                       (car (process-lines "sw_vers" "-productVersion"))))))
 
+;; Set up the initial frame before it is drawn, avoiding a flash of the
+;; default frame being resized and stripped of its bars.
+(setq frame-inhibit-implied-resize t)
+(push '(menu-bar-lines . 0) default-frame-alist)
+(push '(tool-bar-lines . 0) default-frame-alist)
+(push '(vertical-scroll-bars) default-frame-alist)
+(push '(fullscreen . maximized) default-frame-alist)
+(when (eq system-type 'darwin)
+  (push '(font . "Monaspace Neon NF-15") default-frame-alist))
+
 ;;; early-init.el ends here
