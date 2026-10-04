@@ -20,7 +20,6 @@
 (global-unset-key (kbd "C-x c"))
 (global-unset-key (kbd "C-x k"))
 (global-unset-key (kbd "C-x o"))
-(global-unset-key (kbd "C-x o"))
 (global-unset-key (kbd "s-m"))
 (global-unset-key (kbd "s-n"))
 

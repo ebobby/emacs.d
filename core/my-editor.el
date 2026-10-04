@@ -60,7 +60,6 @@
 (use-package saveplace
   :config
   (setq save-place-file (expand-file-name "saveplace" savefile-dir))
-  (setq-default save-place t)
   (save-place-mode))
 
 ;; Keep track of history for several commands.
@@ -256,15 +255,9 @@
          ("C-h k"   . helpful-key)
          ("C-h f"   . helpful-callable)
          ("C-h C-d" . helpful-at-point)
-         ("C-h C"   . helpful-command))
-  :config
-  (defun describe-function (function)
-    "Overwrite `describe-function' with `helpful-function'."
-    (helpful-callable function))
-
-  (defun describe-variable (variable &optional buffer frame)
-    "Overwrite `describe-variable' with `helpful-variable'."
-    (helpful-variable variable)))
+         ("C-h C"   . helpful-command)
+         ([remap describe-function] . helpful-callable)
+         ([remap describe-variable] . helpful-variable)))
 
 ;; Language Server Protocol
 (use-package lsp-mode

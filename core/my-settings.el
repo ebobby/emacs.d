@@ -106,11 +106,6 @@
 (set-terminal-coding-system 'utf-8)
 (set-selection-coding-system 'utf-8)
 
-;; Do not ask about running processes when exiting.
-(defadvice save-buffers-kill-emacs (around no-query-kill-emacs activate)
-  "Prevent annoying \"Active processes exist\" query when you quit Emacs."
-  (cl-flet ((process-list ())) ad-do-it))
-
 ;;; Normally disabled commands
 (put 'downcase-region 'disabled nil)
 (put 'erase-buffer 'disabled nil)
@@ -134,7 +129,7 @@
               bidi-inhibit-bpa t)
 
 ;; Anwsering y/n is faster than yes/no.
-(fset 'yes-or-no-p 'y-or-n-p)
+(setq use-short-answers t)
 
 ;; apply syntax highlighting to all buffers
 (global-font-lock-mode t)
