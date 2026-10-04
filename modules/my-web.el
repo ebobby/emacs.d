@@ -19,6 +19,10 @@
     (add-to-list 'lsp-language-id-configuration
                  '(web-mode . "html"))))
 
+(use-package yaml-ts-mode
+  :ensure nil
+  :mode "\\.ya?ml\\'")
+
 (use-package css-mode
   :hook ((css-mode . lsp-deferred)))
 

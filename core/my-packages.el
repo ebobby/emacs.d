@@ -34,9 +34,7 @@
     ("\\.less\\'" less-css-mode less-css-mode)
     ("\\.sass\\'" sass-mode sass-mode)
     ("\\.scss\\'" scss-mode scss-mode)
-    ("\\.textile\\'" textile-mode textile-mode)
-    ("\\.yaml\\'" yaml-mode yaml-mode)
-    ("\\.yml\\'" yaml-mode yaml-mode)))
+    ("\\.textile\\'" textile-mode textile-mode)))
 
 ;;; Blatantly ripped from prelude emacs
 (defmacro auto-install (extension package mode)
