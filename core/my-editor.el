@@ -14,12 +14,6 @@
 
 (setq use-package-always-ensure t)
 
-;; use-package keeps packages up to date.
-(use-package auto-package-update
-  :config
-  (setq auto-package-update-delete-old-versions t)
-  (auto-package-update-maybe))
-
 ;; Garbage collection magic hack!
 (use-package gcmh
   :hook (after-init . gcmh-mode)
