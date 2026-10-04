@@ -33,7 +33,7 @@
 (require 'my-keys)
 
 ;; Modules configuration
-(require 'my-ai)
+;;(require 'my-ai)
 (require 'my-elisp)
 (require 'my-go)
 (require 'my-haskell)
