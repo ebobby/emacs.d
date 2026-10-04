@@ -8,15 +8,20 @@
 ;;; Commentary:
 ;;; Code:
 
+(defun my-go-setup ()
+  "Format and organize imports with gopls on save."
+  (add-hook 'before-save-hook #'lsp-format-buffer nil t)
+  (add-hook 'before-save-hook #'lsp-organize-imports nil t))
+
 (use-package go-ts-mode
-  :hook ((go-ts-mode . lsp-deferred))
+  :hook ((go-ts-mode . lsp-deferred)
+         (go-ts-mode . my-go-setup))
   :mode (("\\.go\\'" . go-ts-mode)
          ("/go\\.mod\\'" . go-mod-ts-mode))
   :config
   (require 'dap-dlv-go)
-  (add-hook 'before-save-hook 'gofmt-before-save)
-  (setq gofmt-args '("-s")
-        lsp-go-hover-kind "FullDocumentation"))
+  (setq lsp-go-hover-kind "FullDocumentation"
+        lsp-go-use-gofumpt t))
 
 (provide 'my-go)
 
