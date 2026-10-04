@@ -18,6 +18,9 @@
 (add-to-list 'load-path (expand-file-name "core" root-dir))
 (add-to-list 'load-path (expand-file-name "modules" root-dir))
 
+;; Keep Customize's writes out of this file.
+(setq custom-file (expand-file-name "custom.el" user-dir))
+
 ;; Native compilation.
 (when (string-match "NATIVE_COMP" system-configuration-features)
   (setq package-native-compile t))
@@ -46,16 +49,6 @@
 ;; Load UI after everything else.
 (require 'my-ui)
 
+(load custom-file t)
+
 ;;; init.el ends here
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
-  )
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
