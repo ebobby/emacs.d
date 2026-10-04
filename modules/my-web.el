@@ -22,7 +22,10 @@
 (use-package css-mode
   :hook ((css-mode . lsp)))
 
+;; Removed from MELPA and its GitHub repo is gone; disabled so startup doesn't
+;; refresh the package archives trying to install it.
 (use-package lsp-tailwindcss
+  :disabled t
   :init (setq lsp-tailwindcss-add-on-mode t)
   :config
   (setq
