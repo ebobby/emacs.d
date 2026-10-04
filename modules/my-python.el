@@ -34,13 +34,6 @@
   :config
   (require 'dap-python)
 
-  (setf
-   (flycheck-checker-get 'python-flake8 'modes) '(python-mode python-ts-mode)
-   (flycheck-checker-get 'python-pylint 'modes) '(python-mode python-ts-mode)
-   (flycheck-checker-get 'python-pycompile 'modes) '(python-mode python-ts-mode)
-   (flycheck-checker-get 'python-pyright 'modes) '(python-mode python-ts-mode)
-   (flycheck-checker-get 'python-mypy 'modes) '(python-mode python-ts-mode))
-
   (setq dap-python-debugger 'debugpy
         python-shell-interpreter "ipython"
         python-shell-interpreter-args "-i --simple-prompt"
