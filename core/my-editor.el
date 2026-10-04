@@ -21,11 +21,8 @@
   (setq gcmh-idle-delay 5
         gcmh-high-cons-threshold (* 100 1024 1024)))
 
-;; All the icons!
-(use-package all-the-icons
-  :config
-  ;;(all-the-icons-install-fonts t)
-  (setq all-the-icons-scale-factor 1))
+;; Icons (requires a Nerd Font).
+(use-package nerd-icons)
 
 ;; Mise
 (use-package mise
@@ -163,10 +160,16 @@
   (which-key-mode))
 
 ;; Tree-like file navigation.
-(use-package neotree
-  :bind (("<f9>" . my-neotree-project))
+(use-package treemacs
+  :bind (("<f9>" . treemacs-display-current-project-exclusively))
   :config
-  (setq neo-window-fixed-size nil))
+  (setq treemacs-width-is-initially-locked nil)
+  (treemacs-follow-mode t))
+
+(use-package treemacs-nerd-icons
+  :after treemacs
+  :config
+  (treemacs-load-theme "nerd-icons"))
 
 ;; Multiple editing cursors.
 (use-package multiple-cursors

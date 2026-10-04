@@ -17,7 +17,6 @@
         doom-dracula-padded-modeline nil
         doom-themes-enable-bold t
         doom-themes-enable-italic t
-        doom-themes-neotree-file-icons t
         doom-themes-padded-modeline nil)
   (load-theme 'doom-dracula t)
 
@@ -26,7 +25,6 @@
   ;;'(helm-ff-directory ((t (:extend t :foreground "#FFD866")))))
 
   (doom-themes-visual-bell-config)
-  (doom-themes-neotree-config)
   (doom-themes-org-config))
 
 (use-package doom-modeline

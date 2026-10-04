@@ -51,19 +51,6 @@ Skips init.el and early-init.el: a stale early-init.elc is loaded before
   (dolist (dir '("core" "modules"))
     (byte-recompile-directory (expand-file-name dir root-dir) 0 FORCE)))
 
-(defun my-neotree-project ()
-  "Open NeoTree using the git root."
-  (interactive)
-  (let ((project-dir (helm-ls-git-root-dir))
-        (file-name (buffer-file-name)))
-    (neotree-toggle)
-    (if project-dir
-        (if (neo-global--window-exists-p)
-            (progn
-              (neotree-dir project-dir)
-              (neotree-find file-name)))
-      (message "Could not find git project root."))))
-
 (defun my-reload-config ()
   "Reload configuration."
   (interactive)
