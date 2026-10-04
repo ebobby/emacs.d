@@ -19,9 +19,7 @@
          (rust-ts-mode . subword-mode))
   :mode "\\.rs\\'"
   :bind (:map rust-ts-mode-map
-              ("C-c C-d" . lsp-describe-thing-at-point))
-  :config
-  (exec-path-from-shell-copy-env "RUST_SRC_PATH"))
+              ("C-c C-d" . lsp-describe-thing-at-point)))
 
 (provide 'my-rust)
 
