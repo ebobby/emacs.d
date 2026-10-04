@@ -9,8 +9,7 @@
 ;;; Code:
 
 (use-package lsp-haskell
-  :config
-  (require 'lsp-haskell))
+  :after lsp-mode)
 
 (defun haskell-setup ()
   "Setup Haskell-related modes."
@@ -18,7 +17,7 @@
   (eldoc-mode +1)
   (haskell-indentation-mode +1)
   (interactive-haskell-mode +1)
-  (lsp))
+  (lsp-deferred))
 
 (use-package haskell-mode
   :hook ((haskell-mode . haskell-setup)

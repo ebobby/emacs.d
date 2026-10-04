@@ -12,8 +12,8 @@
 (use-package pyvenv)
 
 (use-package lsp-pyright
+  :after lsp-mode
   :config
-  (require 'lsp-pyright)
   (setq lsp-file-watch-threshold 10000
         ;;lsp-pyright-diagnostic-mode "workspace"
         ))
@@ -24,7 +24,7 @@
 (use-package python
   :mode (("\\.py\\'" . python-ts-mode))
   :hook ((python-ts-mode . dap-mode)
-         (python-ts-mode . lsp)
+         (python-ts-mode . lsp-deferred)
          (python-ts-mode . blacken-mode)
          (python-ts-mode . isortify-mode)
          (python-ts-mode . (lambda () (setq-local lsp-diagnostics-provider :none)))
@@ -32,10 +32,11 @@
   :bind (:map python-ts-mode-map
          ("C-c C-p" . run-python-for-project))
   :config
-  (require 'dap-python)
+  (with-eval-after-load 'dap-mode
+    (require 'dap-python)
+    (setq dap-python-debugger 'debugpy))
 
-  (setq dap-python-debugger 'debugpy
-        python-shell-interpreter "ipython"
+  (setq python-shell-interpreter "ipython"
         python-shell-interpreter-args "-i --simple-prompt"
         ;; Flycheck assumes python3 is always the correct binary. Gotta fix it.
         flycheck-python-flake8-executable "python"

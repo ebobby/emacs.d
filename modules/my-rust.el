@@ -14,7 +14,7 @@
 (use-package cargo)
 
 (use-package rust-ts-mode
-  :hook ((rust-ts-mode . lsp)
+  :hook ((rust-ts-mode . lsp-deferred)
          (rust-ts-mode . cargo-minor-mode)
          (rust-ts-mode . subword-mode))
   :mode "\\.rs\\'"

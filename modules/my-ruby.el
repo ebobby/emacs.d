@@ -21,13 +21,14 @@
          ("Rakefile" . ruby-mode)
          ("Capfile" . ruby-mode))
   :config
-  (require 'lsp-solargraph)
   (setq lsp-solargraph-use-bundler t
         ruby-insert-encoding-magic-comment nil)
 
   ;; Prioritize solargraph.
-  (let ((ruby-ls (gethash 'ruby-ls lsp-clients)))
-    (when ruby-ls (setf (lsp--client-priority ruby-ls) 1))))
+  (with-eval-after-load 'lsp-solargraph
+    (let ((ruby-ls (gethash 'ruby-ls lsp-clients)))
+      (when ruby-ls
+        (setf (cl-struct-slot-value 'lsp--client 'priority ruby-ls) 1)))))
 
 (provide 'my-ruby)
 

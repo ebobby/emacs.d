@@ -12,7 +12,7 @@
   :mode (("\\.html?\\'" . web-mode)
          ("\\.phtml\\'" . web-mode)
          ("\\.erb\\'" . web-mode))
-  :hook ((web-mode . lsp))
+  :hook ((web-mode . lsp-deferred))
   :config
   (setq lsp-html-format-enable nil)
   (with-eval-after-load 'lsp-mode
@@ -20,7 +20,7 @@
                  '(web-mode . "html"))))
 
 (use-package css-mode
-  :hook ((css-mode . lsp)))
+  :hook ((css-mode . lsp-deferred)))
 
 ;; Removed from MELPA and its GitHub repo is gone; disabled so startup doesn't
 ;; refresh the package archives trying to install it.

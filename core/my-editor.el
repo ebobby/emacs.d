@@ -292,6 +292,7 @@
         lsp-ui-sideline-enable t))
 
 (use-package helm-lsp
+  :after lsp-mode
   :config
   (define-key lsp-mode-map [remap xref-find-apropos] #'helm-lsp-workspace-symbol)
   (define-key lsp-mode-map (kbd "C-c l d") #'helm-lsp-diagnostics))

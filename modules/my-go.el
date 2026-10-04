@@ -19,7 +19,8 @@
   :mode (("\\.go\\'" . go-ts-mode)
          ("/go\\.mod\\'" . go-mod-ts-mode))
   :config
-  (require 'dap-dlv-go)
+  (with-eval-after-load 'dap-mode
+    (require 'dap-dlv-go))
   (setq lsp-go-hover-kind "FullDocumentation"
         lsp-go-use-gofumpt t))
 
