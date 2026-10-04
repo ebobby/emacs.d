@@ -9,6 +9,7 @@
 ;;; Code:
 
 (use-package with-venv)
+(use-package pyvenv)
 
 (use-package lsp-pyright
   :config
@@ -51,12 +52,12 @@
   (defun run-python-for-project ()
     "Run python process in the root of the project."
     (interactive)
-    (let ((default-directory (or (helm-ls-git-root-dir) default-directory)))
+    (let ((default-directory (or (projectile-project-root) default-directory)))
       (run-python)))
 
   (defun setup-python-virtualenv ()
     "If a `virtualenv' is available, use it."
-    (let* ((project-dir (helm-ls-git-root-dir))
+    (let* ((project-dir (projectile-project-root))
            (venv-dir nil))
       (dolist (venv '("venv" ".venv" "env"))
         (let ((potential-venv (expand-file-name venv project-dir)))
