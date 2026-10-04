@@ -16,8 +16,7 @@
   :mode (("\\.rb\\'"  . ruby-mode)
          ("\\.rake\\'" . ruby-mode)
          ("\\.gemspec\\'" . ruby-mode)
-         ("Gemfile" . ruby-mode)
-         ("Gemfile.lock" . ruby-mode)
+         ("Gemfile\\'" . ruby-mode)
          ("Rakefile" . ruby-mode)
          ("Capfile" . ruby-mode))
   :config
