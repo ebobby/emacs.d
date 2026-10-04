@@ -324,6 +324,12 @@
          ("C-c m f" . magit-log-buffer-file)
          ("C-c m b" . magit-blame))
   :config
+  ;; Magit funcalls the result of `hi-lock-revert-buffer-rehighlight', which
+  ;; is nil when there are no hi-lock patterns, so every refresh errors.
+  ;; Remove once Magit handles the nil.
+  (advice-add 'hi-lock-revert-buffer-rehighlight :filter-return
+              (lambda (fn) (or fn #'ignore))
+              '((name . my-hi-lock-rehighlight-never-nil)))
   (setq magit-auto-revert-mode nil
         magit-define-global-key-bindings nil
         magit-last-seen-setup-instructions "1.4.0"))
