@@ -95,7 +95,7 @@
  dired-listing-switches "-alh"
  echo-keystrokes 0.1
  large-file-warning-threshold (* 1024 1024 300 1)
- read-process-output-max (* 1024 1024 50)
+ read-process-output-max (* 1024 1024 4)
  search-default-mode #'char-fold-to-regexp)
 ;;;;;;;;
 
@@ -117,7 +117,7 @@
 (setq-default indent-tabs-mode nil
               tab-width 2
               truncate-lines t
-              warning-minimum-level :error
+              warning-minimum-level :warning
               fill-column 80
 
               ;; Use aspell instead of ispell
