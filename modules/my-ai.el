@@ -1,4 +1,4 @@
-;;; my-ai.el --- All about AI
+;;; my-ai.el --- All about AI  -*- lexical-binding: t; -*-
 ;; Copyright (C) 2010-2025 Francisco Soto
 ;; Author: Francisco Soto <ebobby@ebobby.org>
 ;; URL: https://github.com/ebobby/emacs.d

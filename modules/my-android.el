@@ -1,4 +1,4 @@
-;;; my-android.el --- All about Android
+;;; my-android.el --- All about Android  -*- lexical-binding: t; -*-
 ;; Copyright (C) 2010-2025 Francisco Soto
 ;; Author: Francisco Soto <ebobby@ebobby.org>
 ;; URL: https://github.com/ebobby/emacs.d

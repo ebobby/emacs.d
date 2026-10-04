@@ -1,4 +1,4 @@
-;;; early-init.el --- Make init faster.
+;;; early-init.el --- Make init faster.  -*- lexical-binding: t; -*-
 ;; Copyright (C) 2010-2021 Francisco Soto
 ;; Author: Francisco Soto <ebobby@ebobby.org>
 ;; URL: https://github.com/ebobby/emacs.d

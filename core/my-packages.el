@@ -1,4 +1,4 @@
-;;; my-packages.el --- Package handling.
+;;; my-packages.el --- Package handling.  -*- lexical-binding: t; -*-
 ;; Copyright (C) 2010-2021 Francisco Soto
 ;; Author: Francisco Soto <ebobby@ebobby.org>
 ;; URL: https://github.com/ebobby/emacs.d

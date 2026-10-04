@@ -1,4 +1,4 @@
-;;; my-haskell.el --- All about Haskell
+;;; my-haskell.el --- All about Haskell  -*- lexical-binding: t; -*-
 ;; Copyright (C) 2010-2021 Francisco Soto
 ;; Author: Francisco Soto <ebobby@ebobby.org>
 ;; URL: https://github.com/ebobby/emacs.d

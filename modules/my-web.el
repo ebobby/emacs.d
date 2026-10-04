@@ -1,4 +1,4 @@
-;;; my-web.el --- Web stuff
+;;; my-web.el --- Web stuff  -*- lexical-binding: t; -*-
 ;; Copyright (C) 2010-2023 Francisco Soto
 ;; Author: Francisco Soto <ebobby@ebobby.org>
 ;; URL: https://github.com/ebobby/emacs.d

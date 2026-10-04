@@ -1,4 +1,4 @@
-;;; my-ios.el --- All about Swift/iOS
+;;; my-ios.el --- All about Swift/iOS  -*- lexical-binding: t; -*-
 ;; Copyright (C) 2010-2025 Francisco Soto
 ;; Author: Francisco Soto <ebobby@ebobby.org>
 ;; URL: https://github.com/ebobby/emacs.d

@@ -1,4 +1,4 @@
-;;; my-go.el --- All about Go
+;;; my-go.el --- All about Go  -*- lexical-binding: t; -*-
 ;; Copyright (C) 2010-2023 Francisco Soto
 ;; Author: Francisco Soto <ebobby@ebobby.org>
 ;; URL: https://github.com/ebobby/emacs.d
