@@ -18,4 +18,14 @@
 ;; prevent the use of stale byte-code.
 (setq load-prefer-newer t)
 
+;; The libgccjit bundled with Emacs.app derives the deployment target from the
+;; Darwin kernel version (27 -> "18.0"), which clang rejects on macOS 26+.
+;; Pass the real macOS version so native compilation works.
+(when (and (eq system-type 'darwin)
+           (native-comp-available-p))
+  (setq native-comp-driver-options
+        (list "-Wl,-w"
+              (concat "-mmacosx-version-min="
+                      (car (process-lines "sw_vers" "-productVersion"))))))
+
 ;;; early-init.el ends here
