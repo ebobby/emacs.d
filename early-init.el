@@ -38,6 +38,9 @@
 ;; and a maximized child frame can't be resized to fit its contents.
 (push '(fullscreen . maximized) initial-frame-alist)
 (when (eq system-type 'darwin)
-  (push '(font . "Monaspace Neon NF-15") default-frame-alist))
+  (push '(font . "Monaspace Neon NF-15") default-frame-alist)
+  ;; Blend the title bar into the (dark) theme.
+  (push '(ns-transparent-titlebar . t) default-frame-alist)
+  (push '(ns-appearance . dark) default-frame-alist))
 
 ;;; early-init.el ends here
