@@ -26,10 +26,10 @@
 (use-package css-mode
   :hook ((css-mode . lsp-deferred)))
 
-;; Removed from MELPA and its GitHub repo is gone; disabled so startup doesn't
-;; refresh the package archives trying to install it.
+;; Bundled with lsp-mode.
 (use-package lsp-tailwindcss
-  :disabled t
+  :ensure nil
+  :after lsp-mode
   :init (setq lsp-tailwindcss-add-on-mode t)
   :config
   (setq
