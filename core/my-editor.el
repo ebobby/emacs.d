@@ -257,9 +257,12 @@
          ([remap describe-variable] . helpful-variable)))
 
 ;; Language Server Protocol
+;; Set before anything can load lsp-mode (installing packages compiles files
+;; that require it), as lsp-mode only reads the prefix when it's loaded.
+(setq lsp-keymap-prefix "C-c l")
+
 (use-package lsp-mode
   :commands (lsp lsp-deferred)
-  :init (setq lsp-keymap-prefix "C-c l")
   :hook ((lsp-mode . lsp-enable-which-key-integration))
   :config
   (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]storage")
