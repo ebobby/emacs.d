@@ -102,9 +102,14 @@
   :bind (:map flycheck-mode-map
               ("C-c ! h" . consult-flycheck)))
 
-(use-package flycheck-pos-tip
+;; Show the error at point in a themed popup.
+(use-package flycheck-posframe
+  :hook (flycheck-mode . flycheck-posframe-mode)
   :config
-  (flycheck-pos-tip-mode))
+  (flycheck-posframe-configure-pretty-defaults)
+  (setq flycheck-posframe-border-width 1)
+  (set-face-attribute 'flycheck-posframe-border-face nil
+                      :foreground (face-background 'corfu-border nil t)))
 
 (use-package consult-flycheck
   :defer t)
