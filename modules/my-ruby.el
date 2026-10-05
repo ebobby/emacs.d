@@ -23,11 +23,10 @@
   (setq lsp-solargraph-use-bundler t
         ruby-insert-encoding-magic-comment nil)
 
-  ;; Prioritize solargraph.
-  (with-eval-after-load 'lsp-solargraph
-    (let ((ruby-ls (gethash 'ruby-ls lsp-clients)))
-      (when ruby-ls
-        (setf (cl-struct-slot-value 'lsp--client 'priority ruby-ls) 1)))))
+  ;; Use solargraph: rubocop's and typeprof's servers would otherwise compete.
+  (with-eval-after-load 'lsp-mode
+    (dolist (client '(rubocop-ls typeprof-ls))
+      (add-to-list 'lsp-disabled-clients client))))
 
 (provide 'my-ruby)
 
