@@ -302,6 +302,7 @@
   (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]log")
   (setq lsp-auto-configure t
         lsp-enable-snippet nil
+        lsp-headerline-breadcrumb-enable nil
         lsp-lens-enable t
         ;; Corfu shows completions; lsp-mode only provides them.
         lsp-completion-provider :none))
