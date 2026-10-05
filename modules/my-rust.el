@@ -8,9 +8,6 @@
 ;;; Commentary:
 ;;; Code:
 
-(use-package flycheck-rust
-  :hook (flycheck-mode . flycheck-rust-setup))
-
 (use-package cargo)
 
 (use-package rust-ts-mode
