@@ -104,6 +104,7 @@
 
 ;; Show the error at point in a themed popup.
 (use-package flycheck-posframe
+  :after corfu                          ; borrows corfu's border color
   :hook (flycheck-mode . flycheck-posframe-mode)
   :config
   (flycheck-posframe-configure-pretty-defaults)
