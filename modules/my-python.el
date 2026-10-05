@@ -8,8 +8,10 @@
 ;;; Commentary:
 ;;; Code:
 
-(use-package with-venv)
-(use-package pyvenv)
+(use-package with-venv
+  :defer t)
+(use-package pyvenv
+  :defer t)
 
 (use-package lsp-pyright
   :after lsp-mode
@@ -18,8 +20,10 @@
         ;;lsp-pyright-diagnostic-mode "workspace"
         ))
 
-(use-package blacken)
-(use-package isortify)
+(use-package blacken
+  :defer t)
+(use-package isortify
+  :defer t)
 
 (use-package python
   :mode (("\\.py\\'" . python-ts-mode))
