@@ -21,8 +21,7 @@
   :config
   (with-eval-after-load 'dap-mode
     (require 'dap-dlv-go))
-  (setq lsp-go-hover-kind "FullDocumentation"
-        lsp-go-use-gofumpt t))
+  (setq lsp-go-hover-kind "FullDocumentation"))
 
 (provide 'my-go)
 
