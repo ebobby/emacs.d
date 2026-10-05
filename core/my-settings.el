@@ -64,6 +64,8 @@
  scroll-margin 5
  scroll-preserve-screen-position 1
  search-highlight t
+ ;; Show "3/10" match counts while searching (replaces anzu).
+ isearch-lazy-count t
  ;;suggest-key-bindings nil
  transient-mark-mode t
 

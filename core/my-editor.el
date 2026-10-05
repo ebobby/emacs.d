@@ -125,11 +125,6 @@
   :bind (("C-c e t" . vr/replace)
          ("C-c e q" . vr/query-replace)))
 
-;; Visual feedback for searching.
-(use-package anzu
-  :config
-  (global-anzu-mode))
-
 ;; Version control visual feedback.
 (use-package diff-hl
   :hook ((magit-pre-refresh . diff-hl-magit-pre-refresh)
