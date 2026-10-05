@@ -31,9 +31,7 @@
     ("\\.graphql\\'" graphql-mode graphql-mode)
     ("\\.haml\\'" haml-mode haml-mode)
     ("\\.hbs\\'" handlebars-mode handlebars-mode)
-    ("\\.less\\'" less-css-mode less-css-mode)
     ("\\.sass\\'" sass-mode sass-mode)
-    ("\\.scss\\'" scss-mode scss-mode)
     ("\\.textile\\'" textile-mode textile-mode)))
 
 ;;; Blatantly ripped from prelude emacs
