@@ -96,6 +96,9 @@
  echo-keystrokes 0.1
  large-file-warning-threshold (* 1024 1024 300 1)
  read-process-output-max (* 1024 1024 4)
+
+ ;; Log native-compilation warnings from packages instead of popping them up.
+ native-comp-async-report-warnings-errors 'silent
  search-default-mode #'char-fold-to-regexp)
 ;;;;;;;;
 
