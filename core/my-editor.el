@@ -395,6 +395,10 @@
 (use-package rainbow-identifiers
   :hook (prog-mode . rainbow-identifiers-mode))
 
+;; Highlight TODO, FIXME and friends in comments.
+(use-package hl-todo
+  :hook (prog-mode . hl-todo-mode))
+
 (use-package display-line-numbers
   :hook ((prog-mode . display-line-numbers-mode)
          (text-mode . display-line-numbers-mode))
