@@ -145,10 +145,12 @@
 
 ;; Tramp configuration
 (use-package tramp
+  :defer t
+  :init
+  ;; Before tramp-cache loads, or it reads the cache from the default location.
+  (setq tramp-persistency-file-name (expand-file-name "tramp" savefile-dir))
   :config
-  (require 'tramp-cache)
-  (setq tramp-default-method "ssh"
-        tramp-persistency-file-name (expand-file-name "tramp" savefile-dir)))
+  (setq tramp-default-method "ssh"))
 
 ;; Find definition.
 (use-package dumb-jump
