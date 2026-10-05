@@ -10,9 +10,10 @@
 
 (require 'package)
 
-;; Initialize packages before handling the rest of the config.
-(package-initialize)
-;(package-refresh-contents)
+;; A normal startup activates packages before init.el; only do it when that
+;; didn't happen (batch, `emacs -q -l init.el'), to avoid activating twice.
+(unless (bound-and-true-p package--activated)
+  (package-activate-all))
 
 (defun require-package (package)
   "Install PACKAGE if not already installed."
