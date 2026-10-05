@@ -18,8 +18,12 @@
 (add-to-list 'load-path (expand-file-name "core" root-dir))
 (add-to-list 'load-path (expand-file-name "modules" root-dir))
 
-;; Keep Customize's writes out of this file.
+;; Keep Customize's writes out of this file. Load it before any package is
+;; installed: installs during startup are only recorded in memory and saved
+;; once init finishes, so loading it later would replace that record with the
+;; stale saved list (and `package-autoremove' would then delete them).
 (setq custom-file (expand-file-name "custom.el" user-dir))
+(load custom-file t)
 
 ;; Native compilation.
 (when (string-match "NATIVE_COMP" system-configuration-features)
@@ -47,7 +51,5 @@
 
 ;; Load UI after everything else.
 (require 'my-ui)
-
-(load custom-file t)
 
 ;;; init.el ends here
