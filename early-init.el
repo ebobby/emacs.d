@@ -34,7 +34,9 @@
 (push '(menu-bar-lines . 0) default-frame-alist)
 (push '(tool-bar-lines . 0) default-frame-alist)
 (push '(vertical-scroll-bars) default-frame-alist)
-(push '(fullscreen . maximized) default-frame-alist)
+;; Only the initial frame: child frames (popups) inherit `default-frame-alist',
+;; and a maximized child frame can't be resized to fit its contents.
+(push '(fullscreen . maximized) initial-frame-alist)
 (when (eq system-type 'darwin)
   (push '(font . "Monaspace Neon NF-15") default-frame-alist))
 
