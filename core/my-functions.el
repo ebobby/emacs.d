@@ -43,17 +43,20 @@
   (my-untabify-buffer)
   (delete-trailing-whitespace))
 
+(defun my-consult-info-emacs ()
+  "Search the Emacs, Emacs FAQ and Emacs Lisp manuals."
+  (interactive)
+  (consult-info "emacs" "efaq" "elisp"))
+
+(defun my-consult-info-gnus ()
+  "Search the Gnus manual."
+  (interactive)
+  (consult-info "gnus"))
+
 (defun my-reload-config ()
   "Reload configuration."
   (interactive)
   (load user-init-file))
-
-(defun my-helm-do-ag-project-root ()
-  "Run `ag' on project root."
-  (interactive)
-  (let* ((root (projectile-project-root))
-         (helm-ff-default-directory root))
-    (helm-grep-ag root nil)))
 
 (provide 'my-functions)
 

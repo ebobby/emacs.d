@@ -27,6 +27,7 @@
 (global-set-key (kbd "<f8>") 'toggle-truncate-lines)
 (global-set-key (kbd "C-\\") 'hippie-expand)
 (global-set-key (kbd "C-x C-c") 'my-confirm-exit-emacs)
+(global-set-key (kbd "C-x C-m") 'execute-extended-command)
 (global-set-key (kbd "M-0") 'delete-window)
 (global-set-key (kbd "M-1") 'delete-other-windows)
 (global-set-key (kbd "M-2") 'split-window-vertically)
@@ -34,6 +35,48 @@
 (global-set-key (kbd "M-k") 'kill-current-buffer)
 (global-set-key (kbd "C-.") 'isearch-forward-symbol-at-point)
 (global-set-key (kbd "C-c g") 'writegood-mode)
+
+;; Helm's former `C-c h' command map, mapped to Consult and built-ins.
+;; Helm's s (surfraw), C-c g (Google suggest), M-g i (gid) and h h (Helm
+;; manual) have no counterpart.
+(defvar-keymap my-helm-command-map
+  "/"       #'consult-find
+  "8"       #'insert-char
+  "<tab>"   #'completion-at-point
+  "@"       #'package-list-packages
+  "C-,"     #'quick-calc
+  "C-:"     #'eval-expression
+  "C-c C-x" #'async-shell-command
+  "C-c SPC" #'consult-global-mark
+  "C-c f"   #'consult-recent-file
+  "C-x C-b" #'consult-buffer
+  "C-x C-f" #'find-file
+  "C-x r b" #'consult-bookmark
+  "C-x r i" #'consult-register
+  "I"       #'consult-imenu-multi
+  "F"       #'menu-set-font
+  "L"       #'find-library
+  "M-g a"   #'consult-ripgrep
+  "M-s o"   #'consult-line
+  "M-x"     #'execute-extended-command
+  "M-y"     #'consult-yank-pop
+  "a"       #'helpful-symbol
+  "b"       #'vertico-repeat
+  "c"       #'list-colors-display
+  "e"       #'xref-find-definitions
+  "f"       #'consult-buffer
+  "h g"     #'my-consult-info-gnus
+  "h i"     #'info-lookup-symbol
+  "h p"     #'finder-by-keyword
+  "h r"     #'my-consult-info-emacs
+  "i"       #'consult-imenu
+  "l"       #'consult-locate
+  "m"       #'consult-man
+  "o"       #'consult-outline
+  "p"       #'list-processes
+  "r"       #'re-builder
+  "t"       #'proced)
+(keymap-global-set "C-c h" my-helm-command-map)
 
 ;; Remove conflicting keys from diff-mode
 (add-hook 'diff-mode-hook (lambda ()

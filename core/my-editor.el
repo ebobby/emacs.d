@@ -31,12 +31,21 @@
 
 ;; Projectile
 (use-package projectile
+  :demand t
   :bind (:map projectile-mode-map
               ("s-p" . projectile-command-map)
               ("C-c p" . projectile-command-map))
   :config
-  (setq projectile-completion-system 'helm)
+  ;; Projectile's own search commands need the rg/ag packages; use Consult's.
+  (define-key projectile-mode-map [remap projectile-ripgrep] #'consult-ripgrep)
+  (define-key projectile-mode-map [remap projectile-ag] #'consult-ripgrep)
+  (define-key projectile-mode-map [remap projectile-grep] #'consult-grep)
+  ;; Replaces `helm-projectile' (buffers, files and projects in one list).
+  (define-key projectile-command-map (kbd "h") #'consult-projectile)
   (projectile-mode +1))
+
+(use-package consult-projectile
+  :defer t)
 
 (use-package hi-lock
   :config
@@ -80,6 +89,7 @@
 (use-package flyspell
   :bind (:map flyspell-mode-map
               ("C-;" . nil)
+              ("C-," . nil)
               ("C-." . nil))
   :hook ((text-mode . flyspell-mode))
   :config
@@ -88,11 +98,16 @@
 
 ;; Syntax checking.
 (use-package flycheck
-  :hook (prog-mode . flycheck-mode))
+  :hook (prog-mode . flycheck-mode)
+  :bind (:map flycheck-mode-map
+              ("C-c ! h" . consult-flycheck)))
 
 (use-package flycheck-pos-tip
   :config
   (flycheck-pos-tip-mode))
+
+(use-package consult-flycheck
+  :defer t)
 
 ;; Smart parenthesis.
 (use-package smartparens
@@ -143,7 +158,6 @@
 ;; Find definition.
 (use-package dumb-jump
   :config
-  (setq dumb-jump-selector 'helm)
   (setq dumb-jump-prefer-searcher 'rg)
   (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
 
@@ -187,65 +201,78 @@
 (use-package ace-window
   :bind ("M-o" . ace-window))
 
-;; Helm <3
-(use-package helm
-  :init (global-set-key (kbd "C-c h") 'helm-command-prefix)
-  :bind (("<f2>"      . helm-occur)
-         ("<f3>"      . my-helm-do-ag-project-root)
-         ("C-h C-r"   . helm-recentf)
-         ("C-h F"     . helm-apropos)
-         ("C-h i"     . helm-imenu)
-         ("C-x C-f"   . helm-find-files)
-         ("C-x C-m"   . helm-M-x)
-         ("C-x b"     . helm-mini)
-         ("C-x r l"   . helm-bookmarks)
-         ("M-x"       . helm-M-x)
-         ("M-y"       . helm-show-kill-ring)
-         :map helm-map
-         ("<tab>" . helm-execute-persistent-action)
-         ("C-i"   . helm-execute-persistent-action)
-         ("C-z"   . helm-select-action)
-         :map flycheck-mode-map
-         ("C-c ! h" . helm-flycheck)
+;; Vertical minibuffer completion.
+(use-package vertico
+  :demand t
+  :bind (:map vertico-map
+              ("C-z" . embark-act))
+  :hook (minibuffer-setup . vertico-repeat-save)
+  :config
+  (setq vertico-count 20
+        vertico-cycle t)
+  (vertico-mode))
+
+(use-package vertico-directory
+  :ensure nil
+  :after vertico
+  :bind (:map vertico-map
+              ("RET"   . vertico-directory-enter)
+              ("DEL"   . vertico-directory-delete-char)
+              ("M-DEL" . vertico-directory-delete-word))
+  :hook (rfn-eshadow-update-overlay . vertico-directory-tidy))
+
+;; Match space-separated components in any order.
+(use-package orderless
+  :config
+  (setq completion-styles '(orderless basic)
+        completion-category-defaults nil
+        completion-category-overrides '((file (styles partial-completion)))))
+
+;; Annotations in the minibuffer.
+(use-package marginalia
+  :config
+  (marginalia-mode))
+
+(use-package nerd-icons-completion
+  :after marginalia
+  :hook (marginalia-mode . nerd-icons-completion-marginalia-setup)
+  :config
+  (nerd-icons-completion-mode))
+
+;; Search and navigation commands.
+(use-package consult
+  :bind (("<f2>"    . consult-line)
+         ("<f3>"    . consult-ripgrep)
+         ("C-h C-r" . consult-recent-file)
+         ("C-h i"   . consult-imenu)
+         ("C-x b"   . consult-buffer)
+         ("C-x r l" . consult-bookmark)
+         ("M-g g"   . consult-goto-line)
+         ("M-y"     . consult-yank-pop)
          :map minibuffer-local-map
-         ("C-c C-l" . helm-minibuffer-history)
-         :map shell-mode-map
-         ("C-c C-l" . helm-comint-input-ring)
-         :map comint-mode-map
-         ("C-c C-l" . helm-comint-input-ring))
+         ("C-c C-l" . consult-history))
+  :init
+  (setq xref-show-xrefs-function #'consult-xref
+        xref-show-definitions-function #'consult-xref)
+  (with-eval-after-load 'comint
+    (keymap-set comint-mode-map "C-c C-l" #'consult-history))
   :config
-  (setq helm-M-x-fuzzy-match                  t
-        helm-apropos-fuzzy-match              t
-        helm-buffers-fuzzy-matching           t
-        helm-completion-in-region-fuzzy-match t
-        helm-exit-idle-delay                  0
-        helm-ff-file-name-history-use-recentf t
-        helm-ff-fuzzy-matching                t
-        helm-ff-search-library-in-sexp        t
-        helm-grep-ag-command                  "rg --color=always --max-columns=1000 --smart-case --search-zip --no-heading --line-number %s -- %s %s"
-        helm-grep-file-path-style             'relative
-        helm-grep-ag-pipe-cmd-switches        '()
-        helm-imenu-fuzzy-match                t
-        helm-lisp-fuzzy-completion            t
-        helm-locate-fuzzy-match               t
-        helm-mode-fuzzy-match                 t
-        helm-move-to-line-cycle-in-source     t
-        helm-net-prefer-curl                  t
-        helm-recentf-fuzzy-match              t
-        helm-semantic-fuzzy-match             t
-        helm-split-window-in-side-p           t)
-  (helm-adaptive-mode)
-  (helm-mode))
+  (setq consult-narrow-key "<"
+        consult-project-function (lambda (_) (projectile-project-root))))
 
-(use-package helm-flycheck
-  :defer t)
+;; Act on the thing at point or the current candidate.
+(use-package embark
+  :bind (("C-,"   . embark-act)
+         ("C-h B" . embark-bindings)))
 
-(use-package helm-ls-git
-  :defer t)
+(use-package embark-consult
+  :after (embark consult)
+  :hook (embark-collect-mode . consult-preview-at-point-mode))
 
-(use-package helm-projectile
+;; Edit grep results (e.g. an exported `consult-ripgrep') across files.
+(use-package wgrep
   :config
-  (helm-projectile-on))
+  (setq wgrep-auto-save-buffer t))
 
 (use-package helpful
   :bind (("C-h v"   . helpful-variable)
@@ -253,6 +280,7 @@
          ("C-h f"   . helpful-callable)
          ("C-h C-d" . helpful-at-point)
          ("C-h C"   . helpful-command)
+         ("C-h F"   . helpful-symbol)
          ([remap describe-function] . helpful-callable)
          ([remap describe-variable] . helpful-variable)))
 
@@ -297,11 +325,12 @@
         lsp-ui-peek-show-directory t
         lsp-ui-sideline-enable t))
 
-(use-package helm-lsp
+;; Replaces helm-lsp.
+(use-package consult-lsp
   :after lsp-mode
   :config
-  (define-key lsp-mode-map [remap xref-find-apropos] #'helm-lsp-workspace-symbol)
-  (define-key lsp-mode-map (kbd "C-c l d") #'helm-lsp-diagnostics))
+  (define-key lsp-mode-map [remap xref-find-apropos] #'consult-lsp-symbols)
+  (define-key lsp-mode-map (kbd "C-c l d") #'consult-lsp-diagnostics))
 
 
 ;; Company
