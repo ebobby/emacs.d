@@ -53,6 +53,15 @@
   (interactive)
   (consult-info "gnus"))
 
+(defun my-corfu-move-to-minibuffer ()
+  "Move the current completion to the minibuffer to search and filter it."
+  (interactive)
+  (pcase completion-in-region--data
+    (`(,beg ,end ,table ,pred ,extras)
+     (let ((completion-extra-properties extras)
+           completion-cycle-threshold completion-cycling)
+       (consult-completion-in-region beg end table pred)))))
+
 (defun my-reload-config ()
   "Reload configuration."
   (interactive)

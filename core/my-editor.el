@@ -289,9 +289,15 @@
 ;; that require it), as lsp-mode only reads the prefix when it's loaded.
 (setq lsp-keymap-prefix "C-c l")
 
+(defun my-lsp-completion-setup ()
+  "Filter LSP completions with orderless, like every other completion."
+  (setf (alist-get 'styles (alist-get 'lsp-capf completion-category-defaults))
+        '(orderless)))
+
 (use-package lsp-mode
   :commands (lsp lsp-deferred)
-  :hook ((lsp-mode . lsp-enable-which-key-integration))
+  :hook ((lsp-mode . lsp-enable-which-key-integration)
+         (lsp-completion-mode . my-lsp-completion-setup))
   :config
   (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]storage")
   (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]tmp")
@@ -299,7 +305,8 @@
   (setq lsp-auto-configure t
         lsp-enable-snippet nil
         lsp-lens-enable t
-        lsp-completion-provider :capf))
+        ;; Corfu shows completions; lsp-mode only provides them.
+        lsp-completion-provider :none))
 
 (use-package dap-mode
   :bind (:map dap-mode-map
@@ -332,22 +339,38 @@
   (define-key lsp-mode-map [remap xref-find-apropos] #'consult-lsp-symbols)
   (define-key lsp-mode-map (kbd "C-c l d") #'consult-lsp-diagnostics))
 
-
-;; Company
-(use-package company
-  :bind (("C-'" . company-complete))
-  :hook (after-init .  global-company-mode)
+;; In-buffer completion popup.
+(use-package corfu
+  :demand t
+  :bind (("C-'" . completion-at-point)
+         :map corfu-map
+         ("<backtab>" . corfu-previous)
+         ("<f1>"      . corfu-info-documentation)
+         ("C-h"       . corfu-info-documentation)
+         ("C-w"       . corfu-info-location)
+         ("C-s"       . my-corfu-move-to-minibuffer)
+         ("C-M-s"     . my-corfu-move-to-minibuffer))
   :config
-  ;; temporary hack
-  ;;(setq company-backends (delete 'company-files company-backends))
-  (setq company-idle-delay 0.0
-        company-minimum-prefix-length 1
-        company-tooltip-align-annotations t
-        company-tooltip-limit 20))
+  (add-to-list 'corfu-continue-commands #'my-corfu-move-to-minibuffer)
+  (setq corfu-auto t
+        corfu-auto-delay 0.1
+        corfu-auto-prefix 1
+        corfu-count 20
+        corfu-cycle t
+        corfu-popupinfo-delay '(1.0 . 0.5))
+  (global-corfu-mode)
+  (corfu-popupinfo-mode))
 
-;; Company icons
-(use-package company-box
-  :hook (company-mode . company-box-mode))
+(use-package nerd-icons-corfu
+  :after corfu
+  :config
+  (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter))
+
+;; Extra completion sources, tried after the mode's own.
+(use-package cape
+  :init
+  (add-hook 'completion-at-point-functions #'cape-dabbrev 90)
+  (add-hook 'completion-at-point-functions #'cape-file 90))
 
 ;; Magit
 (use-package magit
