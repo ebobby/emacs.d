@@ -192,11 +192,6 @@
          ("C-c e e" . mc/edit-ends-of-lines)
          ("C-c e l" . mc/edit-lines)))
 
-;; Show major mode keys
-(use-package discover-my-major
-  :bind ("C-h C-m" . discover-my-major))
-
-
 ;; Window navigation.
 (use-package ace-window
   :bind ("M-o" . ace-window))
