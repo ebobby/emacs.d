@@ -43,14 +43,6 @@
   (my-untabify-buffer)
   (delete-trailing-whitespace))
 
-(defun my-recompile-emacs (&optional FORCE)
-  "Recompile Emacs configuration.
-Skips init.el and early-init.el: a stale early-init.elc is loaded before
-`load-prefer-newer' takes effect, silently masking edits to early-init.el."
-  (interactive)
-  (dolist (dir '("core" "modules"))
-    (byte-recompile-directory (expand-file-name dir root-dir) 0 FORCE)))
-
 (defun my-reload-config ()
   "Reload configuration."
   (interactive)
