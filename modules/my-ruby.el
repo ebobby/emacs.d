@@ -16,9 +16,9 @@
   :mode (("\\.rb\\'"  . ruby-mode)
          ("\\.rake\\'" . ruby-mode)
          ("\\.gemspec\\'" . ruby-mode)
-         ("Gemfile\\'" . ruby-mode)
-         ("Rakefile" . ruby-mode)
-         ("Capfile" . ruby-mode))
+         ("/Gemfile\\'" . ruby-mode)
+         ("/Rakefile\\'" . ruby-mode)
+         ("/Capfile\\'" . ruby-mode))
   :config
   (setq lsp-solargraph-use-bundler t
         ruby-insert-encoding-magic-comment nil)
