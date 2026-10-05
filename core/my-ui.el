@@ -51,6 +51,11 @@
       '(bar workspace-name window-number modals matches follow buffer-info remote-host buffer-position word-count parrot selection-info)
       '(objed-state misc-info persp-name battery grip irc mu4e gnus github debug repl lsp minor-modes input-method indent-info buffer-encoding major-mode process vcs "   "))))
 
+;; Margins around windows.
+(use-package spacious-padding
+  :config
+  (spacious-padding-mode 1))
+
 ;; Frame and font setup for standalone emacs.
 ;; macOS font and maximizing are set in early-init.el.
 (when (and window-system (not (eq system-type 'darwin)))
