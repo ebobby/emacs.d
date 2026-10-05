@@ -192,10 +192,6 @@
          ("C-c e e" . mc/edit-ends-of-lines)
          ("C-c e l" . mc/edit-lines)))
 
-;; Window navigation.
-(use-package ace-window
-  :bind ("M-o" . ace-window))
-
 ;; Vertical minibuffer completion.
 (use-package vertico
   :demand t
