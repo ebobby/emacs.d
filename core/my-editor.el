@@ -65,7 +65,7 @@
 ;; Keep track of history for several commands.
 (use-package savehist
   :config
-  (setq savehist-additional-variables '(search ring regexp-search-ring)
+  (setq savehist-additional-variables '(search-ring regexp-search-ring)
         savehist-autosave-interval 60
         savehist-file (expand-file-name "savehist" savefile-dir))
   (savehist-mode))
