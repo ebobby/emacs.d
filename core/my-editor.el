@@ -137,6 +137,11 @@
          (magit-post-refresh . diff-hl-magit-post-refresh)
          (dired-mode . diff-hl-dir-mode))
   :config
+  ;; Thin bars in the fringe instead of full-width blocks.
+  (when (fboundp 'define-fringe-bitmap)
+    (define-fringe-bitmap 'my-diff-hl-bmp [#b11100000] 1 8 '(center t))
+    (setq diff-hl-draw-borders nil
+          diff-hl-fringe-bmp-function (lambda (&rest _) 'my-diff-hl-bmp)))
   (global-diff-hl-mode))
 
 ;; Diff visualization.
@@ -219,6 +224,14 @@
               ("DEL"   . vertico-directory-delete-char)
               ("M-DEL" . vertico-directory-delete-word))
   :hook (rfn-eshadow-update-overlay . vertico-directory-tidy))
+
+;; Show the minibuffer completion in a centered child frame.
+(use-package vertico-posframe
+  :after vertico
+  :config
+  (setq vertico-posframe-parameters '((left-fringe . 8)
+                                      (right-fringe . 8)))
+  (vertico-posframe-mode))
 
 ;; Match space-separated components in any order.
 (use-package orderless
@@ -406,6 +419,15 @@
 (use-package hl-todo
   :hook (prog-mode . hl-todo-mode))
 
+;; Indentation guides.
+(use-package indent-bars
+  :hook (prog-mode . indent-bars-mode)
+  :config
+  (setq indent-bars-treesit-support t
+        indent-bars-no-descend-lists t
+        indent-bars-display-on-blank-lines t
+        indent-bars-highlight-current-depth '(:blend 0.5)))
+
 (use-package display-line-numbers
   :hook ((prog-mode . display-line-numbers-mode)
          (text-mode . display-line-numbers-mode))
@@ -426,9 +448,12 @@
   :hook ((org-mode . org-modern-mode)
          (org-agenda-finalize . org-modern-agenda)))
 
-;; Icons in dired.
+;; Icons in dired and ibuffer.
 (use-package nerd-icons-dired
   :hook (dired-mode . nerd-icons-dired-mode))
+
+(use-package nerd-icons-ibuffer
+  :hook (ibuffer-mode . nerd-icons-ibuffer-mode))
 
 ;; Editorconfig support
 (use-package editorconfig
