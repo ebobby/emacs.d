@@ -8,8 +8,18 @@
 ;;; Commentary:
 ;;; Code:
 
-;; Doom theme.
+;; Catppuccin theme.
+(use-package catppuccin-theme
+  :config
+  (setq catppuccin-flavor 'macchiato)
+  (load-theme 'catppuccin t))
+
+;; Alternative themes, installed but not loaded.
 (use-package doom-themes
+  :defer t
+  :init
+  ;; Works with any theme: flashes the mode line instead of beeping.
+  (doom-themes-visual-bell-config)
   :config
   (setq doom-dracula-brighter-comments t
         doom-dracula-brighter-modeline t
@@ -17,21 +27,29 @@
         doom-dracula-padded-modeline nil
         doom-themes-enable-bold t
         doom-themes-enable-italic t
-        doom-themes-padded-modeline nil)
-  (load-theme 'doom-dracula t)
+        doom-themes-padded-modeline nil))
 
-  (doom-themes-visual-bell-config)
-  (doom-themes-org-config))
+(use-package ef-themes
+  :defer t)
+
+(use-package modus-themes
+  :defer t)
+
+;; Give non-file buffers (sidebars, popups, help) a slightly different background.
+(use-package solaire-mode
+  :after catppuccin-theme
+  :config
+  (solaire-global-mode))
 
 (use-package doom-modeline
-  :after (doom-themes)
+  :after (catppuccin-theme)
   :hook (after-init . doom-modeline-mode)
   :config
   (setq doom-modeline-icon t
         doom-modeline-height 35
         doom-modeline-project-detection 'projectile
         doom-modeline-buffer-file-name-style 'truncate-with-project
-        doom-modeline-bar-width 1
+        doom-modeline-bar-width 4
         doom-modeline-major-mode-icon t
         doom-modeline-major-mode-color-icon t
         doom-modeline-buffer-state-icon t

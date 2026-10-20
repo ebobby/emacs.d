@@ -149,6 +149,11 @@
   :config
   (global-hl-line-mode))
 
+;; Flash the cursor line after jumps and window switches.
+(use-package pulsar
+  :config
+  (pulsar-global-mode))
+
 ;; Tramp configuration
 (use-package tramp
   :defer t
@@ -415,6 +420,15 @@
   :config
   (setq org-hide-leading-stars t)
   (setq org-adapt-indentation t))
+
+;; Modern styling for org bullets, tables, keywords and blocks.
+(use-package org-modern
+  :hook ((org-mode . org-modern-mode)
+         (org-agenda-finalize . org-modern-agenda)))
+
+;; Icons in dired.
+(use-package nerd-icons-dired
+  :hook (dired-mode . nerd-icons-dired-mode))
 
 ;; Editorconfig support
 (use-package editorconfig

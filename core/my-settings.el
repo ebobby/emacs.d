@@ -124,6 +124,7 @@
               truncate-lines t
               warning-minimum-level :warning
               fill-column 80
+              line-spacing 0.1
 
               ;; Use aspell instead of ispell
               ispell-program-name "aspell"
