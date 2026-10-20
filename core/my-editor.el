@@ -243,8 +243,9 @@
 ;; Annotations in the minibuffer.
 (use-package marginalia
   :config
-  ;; The default inherits `font-lock-doc-face', which doom-dracula's brighter
-  ;; comments give a background, boxing the whole docstring column.
+  ;; The default inherits `font-lock-doc-face', which some themes (like
+  ;; doom-dracula with brighter comments) give a background, boxing the whole
+  ;; docstring column.
   (custom-theme-set-faces
    'user '(marginalia-documentation ((t (:inherit completions-annotations)))))
   (marginalia-mode))
