@@ -434,7 +434,7 @@
          (text-mode . display-line-numbers-mode))
   :config
   (setq  display-line-numbers-grow-only t
-         display-line-numbers-type "relative"))
+         display-line-numbers-type t))
 
 ;; Org mode
 (use-package org
