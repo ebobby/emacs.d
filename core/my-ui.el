@@ -60,8 +60,8 @@
 ;; macOS font and maximizing are set in early-init.el.
 (when (and window-system (not (eq system-type 'darwin)))
   (set-frame-font (if (> (display-pixel-width) 2560)
-                      "Monaspace Neon-14"
-                    "Monaspace Neon-12")))
+                      "MesloLGM Nerd Font Mono-14"
+                    "MesloLGM Nerd Font Mono-14")))
 
 (provide 'my-ui)
 
