@@ -230,7 +230,14 @@
   :after vertico
   :config
   (setq vertico-posframe-parameters '((left-fringe . 8)
-                                      (right-fringe . 8)))
+                                      (right-fringe . 8))
+        ;; Fixed size, so the frame doesn't grow and shift with long candidates.
+        vertico-posframe-size-function
+        (lambda (_buffer)
+          (let ((width (round (* (frame-width) 0.62)))
+                (height (1+ vertico-count)))
+            (list :width width :min-width width
+                  :height height :min-height height))))
   (vertico-posframe-mode))
 
 ;; Match space-separated components in any order.
